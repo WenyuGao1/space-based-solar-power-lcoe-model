@@ -1,0 +1,29 @@
+# Operating-system metadata
+.DS_Store
+
+# Python caches and environments
+__pycache__/
+*.py[cod]
+*.so
+.Python
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+htmlcov/
+.coverage
+
+# Local IDE settings
+.idea/
+.vscode/
+
+# Local scratch and rendered review files
+tmp/
+
+# Superseded report drafts retained locally
+report/archive/
+
+# Duplicate local copy of the official 2020 workbook
+data/raw/electricity-generation-costs-key-data-2020.xlsx

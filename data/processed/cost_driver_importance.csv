@@ -1,0 +1,12 @@
+parameter,display_name,unit,reference_value,best_value_in_range,reference_lcoe_gbp_per_mwh,best_lcoe_gbp_per_mwh,lcoe_reduction_gbp_per_mwh
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,5.0,0.5,429.25078050818814,91.06834308020416,338.182437427984
+end_to_end_efficiency,End-to-end efficiency,fraction,0.15,0.35,429.25078050818814,187.69189663105675,241.5588838771314
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,500.0,20.0,429.25078050818814,203.7958222228655,225.45495828532265
+wacc,WACC / discount rate,fraction,0.065,0.03,429.25078050818814,311.57421528731203,117.67656522087611
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,200.0,0.0,429.25078050818814,335.31121455597037,93.93956595221778
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.01,0.002,429.25078050818814,392.41668613984723,36.834094368340914
+capacity_factor,Capacity factor / availability,fraction,0.9,0.98,429.25078050818814,394.4547984258871,34.795982082301066
+system_lifetime_years,System lifetime,years,30.0,45.0,429.25078050818814,394.63705374013085,34.61372676805729
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,0.4,0.05,429.25078050818814,396.37193242491185,32.878848083276296
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,3.0,0.0,429.25078050818814,426.25078050818814,3.0
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.15,0.02,429.25078050818814,427.4189589721199,1.8318215360682188

@@ -1,0 +1,1112 @@
+parameter,display_name,unit,value,lcoe_gbp_per_mwh
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,20.0,203.7958222228655
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,69.8,227.1867741449677
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,119.6,250.5777260670699
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,169.39999999999998,273.96867798917214
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,219.2,297.3596299112744
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,269.0,320.7505818333766
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,318.79999999999995,344.1415337554788
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,368.59999999999997,367.53248567758106
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,418.4,390.92343759968327
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,468.2,414.3143895217856
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,518.0,437.7053414438878
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,567.8,461.09629336599
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,617.5999999999999,484.48724528809214
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,667.4,507.8781972101944
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,717.1999999999999,531.2691491322967
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,767.0,554.6601010543988
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,816.8,578.0510529765011
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,866.5999999999999,601.4420048986033
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,916.4,624.8329568207055
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,966.1999999999999,648.2239087428077
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,1016.0,671.61486066491
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,1065.8,695.0058125870121
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,1115.6,718.3967645091144
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,1165.3999999999999,741.7877164312166
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,1215.1999999999998,765.1786683533188
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,1265.0,788.5696202754211
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,1314.8,811.9605721975234
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,1364.6,835.3515241196254
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,1414.3999999999999,858.7424760417277
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,1464.1999999999998,882.13342796383
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,1514.0,905.5243798859323
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,1563.8,928.9153318080346
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,1613.6,952.3062837301367
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,1663.3999999999999,975.6972356522388
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,1713.1999999999998,999.0881875743411
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,1763.0,1022.4791394964433
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,1812.8,1045.8700914185454
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,1862.6,1069.2610433406478
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,1912.3999999999999,1092.6519952627498
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,1962.1999999999998,1116.042947184852
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,2012.0,1139.4338991069544
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,2061.8,1162.8248510290566
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,2111.6,1186.2158029511588
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,2161.4,1209.6067548732613
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,2211.2,1232.9977067953635
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,2261.0,1256.3886587174657
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,2310.7999999999997,1279.7796106395676
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,2360.6,1303.17056256167
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,2410.3999999999996,1326.561514483772
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,2460.2,1349.9524664058742
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,2510.0,1373.3434183279765
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,2559.7999999999997,1396.7343702500787
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,2609.6,1420.125322172181
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,2659.3999999999996,1443.516274094283
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,2709.2,1466.9072260163855
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,2759.0,1490.2981779384877
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,2808.7999999999997,1513.6891298605901
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,2858.6,1537.0800817826923
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,2908.3999999999996,1560.4710337047943
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,2958.2,1583.8619856268967
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,3008.0,1607.2529375489987
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,3057.7999999999997,1630.643889471101
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,3107.6,1654.0348413932034
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,3157.3999999999996,1677.4257933153056
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,3207.2,1700.8167452374078
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,3257.0,1724.20769715951
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,3306.7999999999997,1747.5986490816122
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,3356.6,1770.9896010037144
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,3406.3999999999996,1794.3805529258168
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,3456.2,1817.771504847919
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,3506.0,1841.1624567700212
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,3555.7999999999997,1864.5534086921234
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,3605.6,1887.9443606142256
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,3655.3999999999996,1911.3353125363276
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,3705.2,1934.72626445843
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,3755.0,1958.1172163805322
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,3804.7999999999997,1981.5081683026344
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,3854.6,2004.8991202247366
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,3904.3999999999996,2028.2900721468388
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,3954.2,2051.681024068941
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,4004.0,2075.0719759910435
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,4053.7999999999997,2098.4629279131454
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,4103.6,2121.853879835248
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,4153.4,2145.24483175735
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,4203.2,2168.6357836794523
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,4253.0,2192.0267356015547
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,4302.8,2215.417687523657
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,4352.599999999999,2238.808639445759
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,4402.4,2262.199591367861
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,4452.2,2285.5905432899635
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,4502.0,2308.981495212066
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,4551.8,2332.3724471341684
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,4601.599999999999,2355.76339905627
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,4651.4,2379.1543509783723
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,4701.2,2402.545302900475
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,4751.0,2425.936254822577
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,4800.799999999999,2449.3272067446787
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,4850.599999999999,2472.718158666781
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,4900.4,2496.1091105888836
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,4950.2,2519.500062510986
+launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,5000.0,2542.891014433088
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,0.5,91.06834308020416
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,0.645,101.96533273066143
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,0.79,112.86232238111867
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,0.9349999999999999,123.75931203157594
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,1.08,134.6563016820332
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,1.225,145.5532913324905
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,1.3699999999999999,156.45028098294773
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,1.515,167.34727063340495
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,1.66,178.24426028386222
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,1.805,189.14124993431952
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,1.95,200.03823958477676
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,2.0949999999999998,210.93522923523403
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,2.2399999999999998,221.83221888569128
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,2.385,232.72920853614855
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,2.53,243.6261981866058
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,2.675,254.52318783706306
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,2.82,265.42017748752033
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,2.965,276.3171671379776
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,3.11,287.2141567884349
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,3.255,298.1111464388921
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,3.4,309.00813608934936
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,3.545,319.9051257398067
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,3.69,330.80211539026385
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,3.835,341.6991050407212
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,3.9799999999999995,352.5960946911784
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,4.125,363.49308434163567
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,4.27,374.39007399209294
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,4.414999999999999,385.28706364255015
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,4.56,396.1840532930075
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,4.705,407.0810429434647
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,4.85,417.97803259392197
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,4.995,428.87502224437924
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,5.14,439.7720118948365
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,5.284999999999999,450.6690015452937
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,5.43,461.56599119575105
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,5.574999999999999,472.46298084620827
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,5.72,483.35997049666565
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,5.864999999999999,494.2569601471228
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,6.01,505.15394979758
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,6.154999999999999,516.0509394480373
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,6.3,526.9479290984946
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,6.444999999999999,537.8449187489518
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,6.59,548.7419083994092
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,6.734999999999999,559.6388980498664
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,6.88,570.5358877003238
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,7.0249999999999995,581.4328773507808
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,7.17,592.3298670012381
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,7.3149999999999995,603.2268566516954
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,7.459999999999999,614.1238463021527
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,7.6049999999999995,625.02083595261
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,7.749999999999999,635.9178256030672
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,7.895,646.8148152535244
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,8.04,657.7118049039816
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,8.184999999999999,668.608794554439
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,8.329999999999998,679.5057842048961
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,8.475,690.4027738553535
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,8.62,701.2997635058107
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,8.764999999999999,712.196753156268
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,8.91,723.0937428067253
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,9.055,733.9907324571825
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,9.2,744.8877221076398
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,9.344999999999999,755.7847117580969
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,9.49,766.6817014085543
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,9.635,777.5786910590116
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,9.78,788.4756807094689
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,9.924999999999999,799.3726703599261
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,10.069999999999999,810.2696600103833
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,10.215,821.1666496608406
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,10.36,832.063639311298
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,10.504999999999999,842.9606289617552
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,10.649999999999999,853.8576186122124
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,10.795,864.7546082626696
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,10.94,875.6515979131269
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,11.084999999999999,886.5485875635842
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,11.229999999999999,897.4455772140414
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,11.375,908.3425668644988
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,11.52,919.2395565149559
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,11.665,930.1365461654132
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,11.809999999999999,941.0335358158706
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,11.955,951.9305254663278
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,12.1,962.827515116785
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,12.245,973.7245047672423
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,12.389999999999999,984.6214944176995
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,12.534999999999998,995.5184840681566
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,12.68,1006.4154737186141
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,12.825,1017.3124633690713
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,12.969999999999999,1028.2094530195284
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,13.114999999999998,1039.1064426699859
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,13.26,1050.0034323204432
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,13.405,1060.9004219709004
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,13.549999999999999,1071.7974116213575
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,13.694999999999999,1082.694401271815
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,13.84,1093.591390922272
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,13.985,1104.4883805727293
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,14.129999999999999,1115.3853702231866
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,14.274999999999999,1126.2823598736436
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,14.419999999999998,1137.1793495241013
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,14.565,1148.0763391745586
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,14.709999999999999,1158.9733288250159
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,14.854999999999999,1169.8703184754731
+specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,15.0,1180.7673081259302
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,0.05,396.37193242491185
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,0.0995,401.02194093954665
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,0.14900000000000002,405.67194945418146
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,0.1985,410.32195796881626
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,0.248,414.97196648345096
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,0.2975,419.62197499808576
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,0.34700000000000003,424.27198351272057
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,0.3965,428.9219920273554
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,0.446,433.5720005419901
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,0.4955,438.22200905662487
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,0.545,442.8720175712597
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,0.5945,447.5220260858945
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,0.6440000000000001,452.17203460052923
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,0.6935000000000001,456.82204311516404
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,0.7430000000000001,461.4720516297988
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,0.7925000000000001,466.1220601444336
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,0.8420000000000001,470.77206865906834
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,0.8915000000000001,475.42207717370314
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,0.9410000000000001,480.0720856883379
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,0.9905,484.7220942029727
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,1.04,489.37210271760756
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,1.0895000000000001,494.0221112322423
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,1.139,498.6721197468771
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,1.1885000000000001,503.3221282615119
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,1.2380000000000002,507.97213677614667
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,1.2875,512.6221452907814
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,1.3370000000000002,517.2721538054162
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,1.3865,521.922162320051
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,1.4360000000000002,526.5721708346858
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,1.4855,531.2221793493205
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,1.5350000000000001,535.8721878639553
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,1.5845,540.5221963785901
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,1.6340000000000001,545.172204893225
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,1.6835000000000002,549.8222134078596
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,1.733,554.4722219224946
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,1.7825000000000002,559.1222304371292
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,1.832,563.772238951764
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,1.8815000000000002,568.4222474663989
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,1.931,573.0722559810335
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,1.9805000000000001,577.7222644956684
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,2.03,582.372273010303
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,2.0795,587.022281524938
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,2.129,591.6722900395728
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,2.1785,596.3222985542075
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,2.2279999999999998,600.9723070688422
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,2.2775,605.6223155834771
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,2.327,610.2723240981119
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,2.3765,614.9223326127466
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,2.426,619.5723411273814
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,2.4755,624.2223496420161
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,2.525,628.872358156651
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,2.5745,633.5223666712858
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,2.624,638.1723751859205
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,2.6734999999999998,642.8223837005552
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,2.723,647.47239221519
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,2.7725,652.1224007298248
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,2.822,656.7724092444597
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,2.8715,661.4224177590944
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,2.921,666.0724262737291
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,2.9705,670.7224347883639
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,3.02,675.3724433029987
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,3.0695,680.0224518176335
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,3.1189999999999998,684.6724603322682
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,3.1685,689.3224688469029
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,3.218,693.9724773615378
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,3.2675,698.6224858761726
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,3.317,703.2724943908074
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,3.3665,707.9225029054421
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,3.416,712.5725114200768
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,3.4655,717.2225199347117
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,3.515,721.8725284493465
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,3.5645,726.5225369639812
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,3.614,731.172545478616
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,3.6635,735.8225539932508
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,3.713,740.4725625078856
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,3.7625,745.1225710225204
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,3.812,749.772579537155
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,3.8615,754.4225880517901
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,3.911,759.0725965664247
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,3.9605,763.7226050810594
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.01,768.3726135956942
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.0595,773.0226221103289
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.109,777.6726306249639
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.1585,782.3226391395987
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.208,786.9726476542334
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.2575,791.6226561688683
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.307,796.272664683503
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.3565,800.9226731981377
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.406,805.5726817127725
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.4555,810.2226902274073
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.505,814.8726987420421
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.5545,819.5227072566768
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.604,824.1727157713116
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.6535,828.8227242859464
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.703,833.4727328005812
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.7525,838.1227413152159
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.8020000000000005,842.7727498298507
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.8515,847.4227583444855
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.901,852.0727668591203
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.9505,856.7227753737551
+space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,5.0,861.3727838883898
+end_to_end_efficiency,End-to-end efficiency,fraction,0.05,1274.706874078148
+end_to_end_efficiency,End-to-end efficiency,fraction,0.053000000000000005,1202.9228661335287
+end_to_end_efficiency,End-to-end efficiency,fraction,0.056,1138.8300018972618
+end_to_end_efficiency,End-to-end efficiency,fraction,0.059000000000000004,1081.2550560579027
+end_to_end_efficiency,End-to-end efficiency,fraction,0.062,1029.25187917074
+end_to_end_efficiency,End-to-end efficiency,fraction,0.065,982.0489955347006
+end_to_end_efficiency,End-to-end efficiency,fraction,0.068,939.0110722194876
+end_to_end_efficiency,End-to-end efficiency,fraction,0.07100000000000001,899.6101565083771
+end_to_end_efficiency,End-to-end efficiency,fraction,0.07400000000000001,863.403909638708
+end_to_end_efficiency,End-to-end efficiency,fraction,0.077,830.0189287588835
+end_to_end_efficiency,End-to-end efficiency,fraction,0.08,799.1378214450456
+end_to_end_efficiency,End-to-end efficiency,fraction,0.083,770.4890833346177
+end_to_end_efficiency,End-to-end efficiency,fraction,0.08600000000000001,743.8390943946847
+end_to_end_efficiency,End-to-end efficiency,fraction,0.089,718.9857339226126
+end_to_end_efficiency,End-to-end efficiency,fraction,0.092,695.7532447856756
+end_to_end_efficiency,End-to-end efficiency,fraction,0.095,673.9880707521239
+end_to_end_efficiency,End-to-end efficiency,fraction,0.098,653.5554583940958
+end_to_end_efficiency,End-to-end efficiency,fraction,0.101,634.3366645919903
+end_to_end_efficiency,End-to-end efficiency,fraction,0.10400000000000001,616.2266473553908
+end_to_end_efficiency,End-to-end efficiency,fraction,0.10700000000000001,599.1321451040211
+end_to_end_efficiency,End-to-end efficiency,fraction,0.11,582.970070248181
+end_to_end_efficiency,End-to-end efficiency,fraction,0.113,567.6661586590224
+end_to_end_efficiency,End-to-end efficiency,fraction,0.116,553.1538287037857
+end_to_end_efficiency,End-to-end efficiency,fraction,0.11900000000000001,539.3732128639393
+end_to_end_efficiency,End-to-end efficiency,fraction,0.12200000000000001,526.270332229331
+end_to_end_efficiency,End-to-end efficiency,fraction,0.125,513.7963898651841
+end_to_end_efficiency,End-to-end efficiency,fraction,0.128,501.9071635493565
+end_to_end_efficiency,End-to-end efficiency,fraction,0.131,490.5624819502845
+end_to_end_efficiency,End-to-end efficiency,fraction,0.134,479.72577116908127
+end_to_end_efficiency,End-to-end efficiency,fraction,0.137,469.36366086004756
+end_to_end_efficiency,End-to-end efficiency,fraction,0.14,459.4456409928295
+end_to_end_efficiency,End-to-end efficiency,fraction,0.14300000000000002,449.94376181934086
+end_to_end_efficiency,End-to-end efficiency,fraction,0.14600000000000002,440.83237083106434
+end_to_end_efficiency,End-to-end efficiency,fraction,0.14900000000000002,432.08788149332213
+end_to_end_efficiency,End-to-end efficiency,fraction,0.15200000000000002,423.68856936628043
+end_to_end_efficiency,End-to-end efficiency,fraction,0.155,415.61439190222103
+end_to_end_efficiency,End-to-end efficiency,fraction,0.158,407.8468287722398
+end_to_end_efficiency,End-to-end efficiency,fraction,0.161,400.36874004461805
+end_to_end_efficiency,End-to-end efficiency,fraction,0.164,393.1642399289825
+end_to_end_efficiency,End-to-end efficiency,fraction,0.167,386.2185841288787
+end_to_end_efficiency,End-to-end efficiency,fraction,0.16999999999999998,379.51806912171986
+end_to_end_efficiency,End-to-end efficiency,fraction,0.173,373.04994191827757
+end_to_end_efficiency,End-to-end efficiency,fraction,0.176,366.80231905131615
+end_to_end_efficiency,End-to-end efficiency,fraction,0.179,360.76411371062153
+end_to_end_efficiency,End-to-end efficiency,fraction,0.182,354.9249700844554
+end_to_end_efficiency,End-to-end efficiency,fraction,0.185,349.27520408940813
+end_to_end_efficiency,End-to-end efficiency,fraction,0.188,343.80574977505387
+end_to_end_efficiency,End-to-end efficiency,fraction,0.191,338.5081107794751
+end_to_end_efficiency,End-to-end efficiency,fraction,0.194,333.3743162889143
+end_to_end_efficiency,End-to-end efficiency,fraction,0.197,328.3968810214163
+end_to_end_efficiency,End-to-end efficiency,fraction,0.2,323.5687688119431
+end_to_end_efficiency,End-to-end efficiency,fraction,0.203,318.8833594263954
+end_to_end_efficiency,End-to-end efficiency,fraction,0.20600000000000002,314.334418275378
+end_to_end_efficiency,End-to-end efficiency,fraction,0.20900000000000002,309.91606873635163
+end_to_end_efficiency,End-to-end efficiency,fraction,0.21200000000000002,305.6227668257883
+end_to_end_efficiency,End-to-end efficiency,fraction,0.21500000000000002,301.44927799179885
+end_to_end_efficiency,End-to-end efficiency,fraction,0.21800000000000003,297.39065582296496
+end_to_end_efficiency,End-to-end efficiency,fraction,0.22100000000000003,293.4422224912941
+end_to_end_efficiency,End-to-end efficiency,fraction,0.22400000000000003,289.59955076672145
+end_to_end_efficiency,End-to-end efficiency,fraction,0.22699999999999998,285.8584474577765
+end_to_end_efficiency,End-to-end efficiency,fraction,0.22999999999999998,282.21493814819513
+end_to_end_efficiency,End-to-end efficiency,fraction,0.23299999999999998,278.6652531126802
+end_to_end_efficiency,End-to-end efficiency,fraction,0.236,275.20581430688185
+end_to_end_efficiency,End-to-end efficiency,fraction,0.239,271.8332233372123
+end_to_end_efficiency,End-to-end efficiency,fraction,0.242,268.54425032546845
+end_to_end_efficiency,End-to-end efficiency,fraction,0.245,265.3358235915632
+end_to_end_efficiency,End-to-end efficiency,fraction,0.248,262.2050200850912
+end_to_end_efficiency,End-to-end efficiency,fraction,0.251,259.1490565030767
+end_to_end_efficiency,End-to-end efficiency,fraction,0.254,256.1652810371727
+end_to_end_efficiency,End-to-end efficiency,fraction,0.257,253.2511656988774
+end_to_end_efficiency,End-to-end efficiency,fraction,0.26,250.40429917608125
+end_to_end_efficiency,End-to-end efficiency,fraction,0.263,247.6223801785199
+end_to_end_efficiency,End-to-end efficiency,fraction,0.266,244.9032112335352
+end_to_end_efficiency,End-to-end efficiency,fraction,0.269,242.2446928969888
+end_to_end_efficiency,End-to-end efficiency,fraction,0.272,239.644818347278
+end_to_end_efficiency,End-to-end efficiency,fraction,0.275,237.1016683331972
+end_to_end_efficiency,End-to-end efficiency,fraction,0.278,234.6134064489168
+end_to_end_efficiency,End-to-end efficiency,fraction,0.281,232.17827471163162
+end_to_end_efficiency,End-to-end efficiency,fraction,0.28400000000000003,229.7945894195004
+end_to_end_efficiency,End-to-end efficiency,fraction,0.28700000000000003,227.4607372693649
+end_to_end_efficiency,End-to-end efficiency,fraction,0.29,225.17517171543918
+end_to_end_efficiency,End-to-end efficiency,fraction,0.293,222.93640955169622
+end_to_end_efficiency,End-to-end efficiency,fraction,0.296,220.74302770208314
+end_to_end_efficiency,End-to-end efficiency,fraction,0.299,218.59366020396732
+end_to_end_efficiency,End-to-end efficiency,fraction,0.302,216.48699537137702
+end_to_end_efficiency,End-to-end efficiency,fraction,0.305,214.42177312565735
+end_to_end_efficiency,End-to-end efficiency,fraction,0.308,212.396782482127
+end_to_end_efficiency,End-to-end efficiency,fraction,0.311,210.4108591822017
+end_to_end_efficiency,End-to-end efficiency,fraction,0.314,208.46288346125596
+end_to_end_efficiency,End-to-end efficiency,fraction,0.317,206.55177794323023
+end_to_end_efficiency,End-to-end efficiency,fraction,0.32,204.6765056536675
+end_to_end_efficiency,End-to-end efficiency,fraction,0.323,202.8360681434775
+end_to_end_efficiency,End-to-end efficiency,fraction,0.326,201.02950371629709
+end_to_end_efficiency,End-to-end efficiency,fraction,0.329,199.2558857528343
+end_to_end_efficiency,End-to-end efficiency,fraction,0.332,197.51432112606054
+end_to_end_efficiency,End-to-end efficiency,fraction,0.335,195.8039487015574
+end_to_end_efficiency,End-to-end efficiency,fraction,0.338,194.1239379177259
+end_to_end_efficiency,End-to-end efficiency,fraction,0.34099999999999997,192.4734874409413
+end_to_end_efficiency,End-to-end efficiency,fraction,0.344,190.85182389107734
+end_to_end_efficiency,End-to-end efficiency,fraction,0.347,189.25820063314185
+end_to_end_efficiency,End-to-end efficiency,fraction,0.35,187.69189663105675
+wacc,WACC / discount rate,fraction,0.03,311.57421528731203
+wacc,WACC / discount rate,fraction,0.0309,314.31525573952536
+wacc,WACC / discount rate,fraction,0.0318,317.07267939898725
+wacc,WACC / discount rate,fraction,0.0327,319.84638698142
+wacc,WACC / discount rate,fraction,0.0336,322.63627778286536
+wacc,WACC / discount rate,fraction,0.034499999999999996,325.4422497246757
+wacc,WACC / discount rate,fraction,0.0354,328.26419939859403
+wacc,WACC / discount rate,fraction,0.0363,331.1020221119233
+wacc,WACC / discount rate,fraction,0.0372,333.95561193272147
+wacc,WACC / discount rate,fraction,0.038099999999999995,336.82486173501366
+wacc,WACC / discount rate,fraction,0.039,339.7096632439782
+wacc,WACC / discount rate,fraction,0.0399,342.60990708107
+wacc,WACC / discount rate,fraction,0.0408,345.52548280906944
+wacc,WACC / discount rate,fraction,0.0417,348.45627897700047
+wacc,WACC / discount rate,fraction,0.0426,351.402183164917
+wacc,WACC / discount rate,fraction,0.0435,354.363082028501
+wacc,WACC / discount rate,fraction,0.044399999999999995,357.3388613434706
+wacc,WACC / discount rate,fraction,0.0453,360.32940604974607
+wacc,WACC / discount rate,fraction,0.0462,363.33460029536764
+wacc,WACC / discount rate,fraction,0.0471,366.3543274801296
+wacc,WACC / discount rate,fraction,0.048,369.3884702989014
+wacc,WACC / discount rate,fraction,0.0489,372.4369107846258
+wacc,WACC / discount rate,fraction,0.0498,375.4995303509529
+wacc,WACC / discount rate,fraction,0.050699999999999995,378.57620983450516
+wacc,WACC / discount rate,fraction,0.0516,381.6668295367345
+wacc,WACC / discount rate,fraction,0.0525,384.771269265367
+wacc,WACC / discount rate,fraction,0.0534,387.8894083753998
+wacc,WACC / discount rate,fraction,0.0543,391.02112580964274
+wacc,WACC / discount rate,fraction,0.0552,394.16630013878165
+wacc,WACC / discount rate,fraction,0.0561,397.3248096009406
+wacc,WACC / discount rate,fraction,0.056999999999999995,400.4965321407389
+wacc,WACC / discount rate,fraction,0.05789999999999999,403.68134544781094
+wacc,WACC / discount rate,fraction,0.0588,406.87912699479045
+wacc,WACC / discount rate,fraction,0.0597,410.08975407472803
+wacc,WACC / discount rate,fraction,0.0606,413.3131038379456
+wacc,WACC / discount rate,fraction,0.0615,416.54905332829776
+wacc,WACC / discount rate,fraction,0.0624,419.7974795188451
+wacc,WACC / discount rate,fraction,0.0633,423.0582593469126
+wacc,WACC / discount rate,fraction,0.06420000000000001,426.3312697485363
+wacc,WACC / discount rate,fraction,0.06509999999999999,429.6163876922809
+wacc,WACC / discount rate,fraction,0.066,432.9134902124196
+wacc,WACC / discount rate,fraction,0.0669,436.22245444147484
+wacc,WACC / discount rate,fraction,0.0678,439.54315764210247
+wacc,WACC / discount rate,fraction,0.0687,442.87547723832563
+wacc,WACC / discount rate,fraction,0.0696,446.2192908460983
+wacc,WACC / discount rate,fraction,0.07050000000000001,449.5744763032073
+wacc,WACC / discount rate,fraction,0.07139999999999999,452.9409116984986
+wacc,WACC / discount rate,fraction,0.0723,456.31847540042855
+wacc,WACC / discount rate,fraction,0.0732,459.7070460849381
+wacc,WACC / discount rate,fraction,0.0741,463.1065027626423
+wacc,WACC / discount rate,fraction,0.075,466.5167248053433
+wacc,WACC / discount rate,fraction,0.0759,469.9375919718518
+wacc,WACC / discount rate,fraction,0.07680000000000001,473.36898443313385
+wacc,WACC / discount rate,fraction,0.07769999999999999,476.81078279676433
+wacc,WACC / discount rate,fraction,0.0786,480.2628681307062
+wacc,WACC / discount rate,fraction,0.07949999999999999,483.72512198640067
+wacc,WACC / discount rate,fraction,0.0804,487.1974264211829
+wacc,WACC / discount rate,fraction,0.0813,490.67966402001724
+wacc,WACC / discount rate,fraction,0.0822,494.1717179165584
+wacc,WACC / discount rate,fraction,0.08310000000000001,497.6734718135429
+wacc,WACC / discount rate,fraction,0.08399999999999999,501.18481000250887
+wacc,WACC / discount rate,fraction,0.0849,504.70561738285903
+wacc,WACC / discount rate,fraction,0.08579999999999999,508.23577948025786
+wacc,WACC / discount rate,fraction,0.0867,511.7751824643803
+wacc,WACC / discount rate,fraction,0.0876,515.3237131660115
+wacc,WACC / discount rate,fraction,0.0885,518.8812590935015
+wacc,WACC / discount rate,fraction,0.08940000000000001,522.4477084485877
+wacc,WACC / discount rate,fraction,0.09029999999999999,526.0229501415845
+wacc,WACC / discount rate,fraction,0.0912,529.6068738059535
+wacc,WACC / discount rate,fraction,0.09209999999999999,533.1993698122534
+wacc,WACC / discount rate,fraction,0.093,536.8003292814883
+wacc,WACC / discount rate,fraction,0.0939,540.4096440978482
+wacc,WACC / discount rate,fraction,0.0948,544.0272069208636
+wacc,WACC / discount rate,fraction,0.0957,547.6529111969712
+wacc,WACC / discount rate,fraction,0.09659999999999999,551.2866511705055
+wacc,WACC / discount rate,fraction,0.0975,554.9283218941235
+wacc,WACC / discount rate,fraction,0.0984,558.5778192386695
+wacc,WACC / discount rate,fraction,0.0993,562.2350399024921
+wacc,WACC / discount rate,fraction,0.1002,565.899881420218
+wacc,WACC / discount rate,fraction,0.1011,569.5722421709983
+wacc,WACC / discount rate,fraction,0.102,573.2520213862294
+wacc,WACC / discount rate,fraction,0.10289999999999999,576.9391191567646
+wacc,WACC / discount rate,fraction,0.1038,580.6334364396205
+wacc,WACC / discount rate,fraction,0.1047,584.3348750641921
+wacc,WACC / discount rate,fraction,0.1056,588.043337737985
+wacc,WACC / discount rate,fraction,0.1065,591.758728051872
+wacc,WACC / discount rate,fraction,0.1074,595.4809504848896
+wacc,WACC / discount rate,fraction,0.1083,599.2099104085773
+wacc,WACC / discount rate,fraction,0.10919999999999999,602.9455140908773
+wacc,WACC / discount rate,fraction,0.1101,606.6876686995973
+wacc,WACC / discount rate,fraction,0.111,610.4362823054518
+wacc,WACC / discount rate,fraction,0.1119,614.1912638846892
+wacc,WACC / discount rate,fraction,0.1128,617.9525233213154
+wacc,WACC / discount rate,fraction,0.1137,621.719971408925
+wacc,WACC / discount rate,fraction,0.1146,625.4935198521463
+wacc,WACC / discount rate,fraction,0.11549999999999999,629.2730812677161
+wacc,WACC / discount rate,fraction,0.1164,633.0585691851874
+wacc,WACC / discount rate,fraction,0.1173,636.8498980472862
+wacc,WACC / discount rate,fraction,0.1182,640.6469832099215
+wacc,WACC / discount rate,fraction,0.1191,644.449740941863
+wacc,WACC / discount rate,fraction,0.12,648.2580884240916
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.02,427.4189589721199
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.0298,427.5570501340697
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.039599999999999996,427.6951412960195
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.0494,427.83323245796925
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.0592,427.97132361991896
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.069,428.10941478186874
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.0788,428.2475059438185
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.0886,428.3855971057682
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.0984,428.523688267718
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.1082,428.6617794296678
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.11800000000000001,428.79987059161755
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.1278,428.9379617535673
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.1376,429.07605291551704
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.14739999999999998,429.2141440774668
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.15719999999999998,429.35223523941653
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.16699999999999998,429.4903264013663
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.17679999999999998,429.62841756331613
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.1866,429.76650872526585
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.1964,429.9045998872156
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.2062,430.0426910491654
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.216,430.1807822111151
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.22579999999999997,430.3188733730649
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.23559999999999998,430.4569645350146
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.24539999999999998,430.59505569696444
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.2552,430.7331468589142
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.265,430.8712380208639
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.2748,431.0093291828137
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.2846,431.1474203447635
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.2944,431.2855115067132
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.3042,431.42360266866297
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.314,431.5616938306127
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.32380000000000003,431.6997849925625
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.3336,431.8378761545123
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.3434,431.975967316462
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.3532,432.1140584784118
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.363,432.25214964036155
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.3728,432.39024080231127
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.3826,432.52833196426104
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.3924,432.6664231262109
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.4022,432.8045142881606
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.41200000000000003,432.94260545011036
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.4218,433.0806966120601
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.4316,433.21878777400985
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.4414,433.3568789359596
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.4512,433.49497009790934
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.461,433.6330612598592
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.4708,433.7711524218089
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.4806,433.90924358375867
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.4904,434.04733474570844
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.5002,434.18542590765816
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.51,434.32351706960793
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.5197999999999999,434.4616082315577
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.5296,434.5996993935074
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.5394,434.73779055545725
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.5492,434.87588171740697
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.559,435.01397287935674
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.5688,435.1520640413065
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.5786,435.29015520325623
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.5884,435.428246365206
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.5982,435.5663375271558
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.608,435.70442868910555
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.6178,435.84251985105533
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.6276,435.98061101300505
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.6374,436.1187021749548
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.6472,436.2567933369046
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.657,436.3948844988543
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.6668,436.5329756608041
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.6766,436.6710668227539
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.6864,436.80915798470363
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.6962,436.9472491466534
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.706,437.0853403086031
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.7158,437.2234314705529
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.7256,437.36152263250267
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.7353999999999999,437.4996137944524
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.7452,437.63770495640216
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.755,437.775796118352
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.7648,437.9138872803017
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.7746,438.0519784422515
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.7844,438.1900696042012
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.7942,438.328160766151
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.804,438.46625192810075
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.8138,438.60434309005046
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.8236,438.7424342520003
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.8334,438.88052541395007
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.8432,439.0186165758998
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.853,439.15670773784956
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.8628,439.2947988997993
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.8726,439.43289006174905
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.8824,439.5709812236988
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.8922,439.7090723856486
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.902,439.84716354759837
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.9117999999999999,439.98525470954814
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.9216,440.12334587149786
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.9314,440.26143703344763
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.9412,440.39952819539735
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.951,440.5376193573471
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.9608,440.6757105192969
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.9706,440.8138016812467
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.9803999999999999,440.95189284319645
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.9902,441.0899840051462
+rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,1.0,441.22807516709594
+system_lifetime_years,System lifetime,years,15.0,566.3442442455315
+system_lifetime_years,System lifetime,years,15.3,560.5825270315635
+system_lifetime_years,System lifetime,years,15.6,555.058942988616
+system_lifetime_years,System lifetime,years,15.9,549.759954419176
+system_lifetime_years,System lifetime,years,16.2,544.6730255568145
+system_lifetime_years,System lifetime,years,16.5,539.7865314945439
+system_lifetime_years,System lifetime,years,16.8,535.0896768709774
+system_lifetime_years,System lifetime,years,17.1,530.5724231159628
+system_lifetime_years,System lifetime,years,17.4,526.2254232226404
+system_lifetime_years,System lifetime,years,17.7,522.0399631529586
+system_lifetime_years,System lifetime,years,18.0,518.0079091027362
+system_lifetime_years,System lifetime,years,18.3,514.121659953859
+system_lifetime_years,System lifetime,years,18.6,510.37410432796264
+system_lifetime_years,System lifetime,years,18.9,506.75858173032174
+system_lifetime_years,System lifetime,years,19.2,503.26884733656954
+system_lifetime_years,System lifetime,years,19.5,499.8990400299443
+system_lifetime_years,System lifetime,years,19.8,496.6436533443005
+system_lifetime_years,System lifetime,years,20.1,493.4975090092952
+system_lifetime_years,System lifetime,years,20.4,490.4557328298729
+system_lifetime_years,System lifetime,years,20.7,487.5137326632323
+system_lifetime_years,System lifetime,years,21.0,484.6671782835223
+system_lifetime_years,System lifetime,years,21.3,481.9119829481476
+system_lifetime_years,System lifetime,years,21.6,479.24428650024845
+system_lifetime_years,System lifetime,years,21.9,476.6604398600416
+system_lifetime_years,System lifetime,years,22.2,474.15699077364405
+system_lifetime_years,System lifetime,years,22.5,471.7306707020085
+system_lifetime_years,System lifetime,years,22.8,469.3783827449549
+system_lifetime_years,System lifetime,years,23.1,467.09719050619856
+system_lifetime_years,System lifetime,years,23.4,464.88430781491894
+system_lifetime_years,System lifetime,years,23.7,462.7370892279713
+system_lifetime_years,System lifetime,years,24.0,460.65302124443195
+system_lifetime_years,System lifetime,years,24.299999999999997,458.6297141709119
+system_lifetime_years,System lifetime,years,24.6,456.66489458208406
+system_lifetime_years,System lifetime,years,24.9,454.7563983262217
+system_lifetime_years,System lifetime,years,25.2,452.90216403032593
+system_lifetime_years,System lifetime,years,25.5,451.1002270636983
+system_lifetime_years,System lifetime,years,25.799999999999997,449.348713922639
+system_lifetime_years,System lifetime,years,26.1,447.64583700238427
+system_lifetime_years,System lifetime,years,26.4,445.9898897254776
+system_lifetime_years,System lifetime,years,26.7,444.3792419985363
+system_lifetime_years,System lifetime,years,27.0,442.812335971871
+system_lifetime_years,System lifetime,years,27.299999999999997,441.2876820786567
+system_lifetime_years,System lifetime,years,27.6,439.8038553323848
+system_lifetime_years,System lifetime,years,27.9,438.35949186315105
+system_lifetime_years,System lifetime,years,28.2,436.95328567499314
+system_lifetime_years,System lifetime,years,28.5,435.58398560798605
+system_lifetime_years,System lifetime,years,28.799999999999997,434.25039249016396
+system_lifetime_years,System lifetime,years,29.1,432.9513564655671
+system_lifetime_years,System lifetime,years,29.4,431.6857744858307
+system_lifetime_years,System lifetime,years,29.7,430.45258795375105
+system_lifetime_years,System lifetime,years,30.0,429.25078050818814
+system_lifetime_years,System lifetime,years,30.299999999999997,428.0793759405067
+system_lifetime_years,System lifetime,years,30.6,426.93743623352714
+system_lifetime_years,System lifetime,years,30.9,425.8240597146594
+system_lifetime_years,System lifetime,years,31.2,424.73837931553055
+system_lifetime_years,System lifetime,years,31.5,423.67956093100713
+system_lifetime_years,System lifetime,years,31.8,422.64680187104545
+system_lifetime_years,System lifetime,years,32.099999999999994,421.63932939929583
+system_lifetime_years,System lifetime,years,32.4,420.65639935283605
+system_lifetime_years,System lifetime,years,32.7,419.69729483782356
+system_lifetime_years,System lifetime,years,33.0,418.7613249962321
+system_lifetime_years,System lifetime,years,33.3,417.8478238391901
+system_lifetime_years,System lifetime,years,33.599999999999994,416.9561491427566
+system_lifetime_years,System lifetime,years,33.9,416.0856814022653
+system_lifetime_years,System lifetime,years,34.2,415.2358228416396
+system_lifetime_years,System lifetime,years,34.5,414.40599647433186
+system_lifetime_years,System lifetime,years,34.8,413.5956452127694
+system_lifetime_years,System lifetime,years,35.099999999999994,412.8042310234063
+system_lifetime_years,System lifetime,years,35.4,412.0312341246717
+system_lifetime_years,System lifetime,years,35.7,411.2761522252935
+system_lifetime_years,System lifetime,years,36.0,410.53849980063904
+system_lifetime_years,System lifetime,years,36.3,409.8178074048736
+system_lifetime_years,System lifetime,years,36.599999999999994,409.1136210168811
+system_lifetime_years,System lifetime,years,36.9,408.4255014180248
+system_lifetime_years,System lifetime,years,37.2,407.75302359994896
+system_lifetime_years,System lifetime,years,37.5,407.09577620074015
+system_lifetime_years,System lifetime,years,37.8,406.45336096787076
+system_lifetime_years,System lifetime,years,38.099999999999994,405.82539224644927
+system_lifetime_years,System lifetime,years,38.4,405.2114964913912
+system_lifetime_years,System lifetime,years,38.7,404.6113118022144
+system_lifetime_years,System lifetime,years,39.0,404.0244874792376
+system_lifetime_years,System lifetime,years,39.3,403.4506836000409
+system_lifetime_years,System lifetime,years,39.599999999999994,402.88957061511115
+system_lifetime_years,System lifetime,years,39.9,402.34082896166296
+system_lifetime_years,System lifetime,years,40.2,401.80414869468626
+system_lifetime_years,System lifetime,years,40.5,401.27922913432604
+system_lifetime_years,System lifetime,years,40.8,400.765778528754
+system_lifetime_years,System lifetime,years,41.099999999999994,400.26351373174026
+system_lifetime_years,System lifetime,years,41.4,399.77215989417937
+system_lifetime_years,System lifetime,years,41.7,399.29145016886775
+system_lifetime_years,System lifetime,years,42.0,398.8211254278702
+system_lifetime_years,System lifetime,years,42.3,398.3609339918498
+system_lifetime_years,System lifetime,years,42.599999999999994,397.9106313707723
+system_lifetime_years,System lifetime,years,42.9,397.46998001542823
+system_lifetime_years,System lifetime,years,43.2,397.0387490792451
+system_lifetime_years,System lifetime,years,43.5,396.61671418989636
+system_lifetime_years,System lifetime,years,43.8,396.203657230234
+system_lifetime_years,System lifetime,years,44.099999999999994,395.79936612810354
+system_lifetime_years,System lifetime,years,44.4,395.4036346546202
+system_lifetime_years,System lifetime,years,44.7,395.01626223050846
+system_lifetime_years,System lifetime,years,45.0,394.63705374013085
+capacity_factor,Capacity factor / availability,fraction,0.6,642.3761707622823
+capacity_factor,Capacity factor / availability,fraction,0.6038,638.3522730330728
+capacity_factor,Capacity factor / availability,fraction,0.6076,634.3787071385276
+capacity_factor,Capacity factor / availability,fraction,0.6113999999999999,630.4545346047913
+capacity_factor,Capacity factor / availability,fraction,0.6152,626.5788401452688
+capacity_factor,Capacity factor / availability,fraction,0.619,622.7507309489004
+capacity_factor,Capacity factor / availability,fraction,0.6228,618.9693359944915
+capacity_factor,Capacity factor / availability,fraction,0.6265999999999999,615.2338053899927
+capacity_factor,Capacity factor / availability,fraction,0.6304,611.5433097356747
+capacity_factor,Capacity factor / availability,fraction,0.6342,607.8970395102008
+capacity_factor,Capacity factor / availability,fraction,0.638,604.2942044786354
+capacity_factor,Capacity factor / availability,fraction,0.6417999999999999,600.7340331214855
+capacity_factor,Capacity factor / availability,fraction,0.6456,597.2157720839054
+capacity_factor,Capacity factor / availability,fraction,0.6494,593.7386856442398
+capacity_factor,Capacity factor / availability,fraction,0.6532,590.3020552011166
+capacity_factor,Capacity factor / availability,fraction,0.657,586.90517877834
+capacity_factor,Capacity factor / availability,fraction,0.6607999999999999,583.5473705468665
+capacity_factor,Capacity factor / availability,fraction,0.6646,580.2279603631799
+capacity_factor,Capacity factor / availability,fraction,0.6684,576.9462933234131
+capacity_factor,Capacity factor / availability,fraction,0.6722,573.7017293325935
+capacity_factor,Capacity factor / availability,fraction,0.6759999999999999,570.4936426884163
+capacity_factor,Capacity factor / availability,fraction,0.6798,567.3214216789781
+capacity_factor,Capacity factor / availability,fraction,0.6836,564.1844681939283
+capacity_factor,Capacity factor / availability,fraction,0.6874,561.0821973485153
+capacity_factor,Capacity factor / availability,fraction,0.6912,558.0140371200367
+capacity_factor,Capacity factor / availability,fraction,0.695,554.9794279962149
+capacity_factor,Capacity factor / availability,fraction,0.6988,551.9778226350448
+capacity_factor,Capacity factor / availability,fraction,0.7026,549.0086855356808
+capacity_factor,Capacity factor / availability,fraction,0.7063999999999999,546.0714927199454
+capacity_factor,Capacity factor / availability,fraction,0.7101999999999999,543.1657314240629
+capacity_factor,Capacity factor / availability,fraction,0.714,540.2908998002372
+capacity_factor,Capacity factor / availability,fraction,0.7178,537.4465066277088
+capacity_factor,Capacity factor / availability,fraction,0.7216,534.6320710329398
+capacity_factor,Capacity factor / availability,fraction,0.7254,531.8471222185957
+capacity_factor,Capacity factor / availability,fraction,0.7292,529.0911992010002
+capacity_factor,Capacity factor / availability,fraction,0.733,526.3638505557562
+capacity_factor,Capacity factor / availability,fraction,0.7368,523.6646341712396
+capacity_factor,Capacity factor / availability,fraction,0.7405999999999999,520.9931170096805
+capacity_factor,Capacity factor / availability,fraction,0.7444,518.3488748755633
+capacity_factor,Capacity factor / availability,fraction,0.7482,515.7314921910844
+capacity_factor,Capacity factor / availability,fraction,0.752,513.1405617784167
+capacity_factor,Capacity factor / availability,fraction,0.7558,510.57568464854376
+capacity_factor,Capacity factor / availability,fraction,0.7595999999999999,508.03646979643156
+capacity_factor,Capacity factor / availability,fraction,0.7634,505.52253400231774
+capacity_factor,Capacity factor / availability,fraction,0.7672,503.0335016389069
+capacity_factor,Capacity factor / availability,fraction,0.771,500.5690044842664
+capacity_factor,Capacity factor / availability,fraction,0.7747999999999999,498.12868154022897
+capacity_factor,Capacity factor / availability,fraction,0.7786,495.7121788561127
+capacity_factor,Capacity factor / availability,fraction,0.7824,493.3191493575784
+capacity_factor,Capacity factor / availability,fraction,0.7862,490.94925268044943
+capacity_factor,Capacity factor / availability,fraction,0.79,488.60215500932827
+capacity_factor,Capacity factor / availability,fraction,0.7938,486.2775289208483
+capacity_factor,Capacity factor / availability,fraction,0.7976,483.9750532314059
+capacity_factor,Capacity factor / availability,fraction,0.8014,481.69441284922556
+capacity_factor,Capacity factor / availability,fraction,0.8051999999999999,479.43529863061275
+capacity_factor,Capacity factor / availability,fraction,0.8089999999999999,477.1974072402588
+capacity_factor,Capacity factor / availability,fraction,0.8128,474.98044101546424
+capacity_factor,Capacity factor / availability,fraction,0.8166,472.784107834153
+capacity_factor,Capacity factor / availability,fraction,0.8204,470.6081209865545
+capacity_factor,Capacity factor / availability,fraction,0.8242,468.452199050436
+capacity_factor,Capacity factor / availability,fraction,0.828,466.31606576976975
+capacity_factor,Capacity factor / availability,fraction,0.8318,464.1994499367268
+capacity_factor,Capacity factor / availability,fraction,0.8356,462.1020852768901
+capacity_factor,Capacity factor / availability,fraction,0.8393999999999999,460.02371033758567
+capacity_factor,Capacity factor / availability,fraction,0.8432,457.9640683792331
+capacity_factor,Capacity factor / availability,fraction,0.847,455.9229072696214
+capacity_factor,Capacity factor / availability,fraction,0.8508,453.8999793810171
+capacity_factor,Capacity factor / availability,fraction,0.8546,451.89504149001795
+capacity_factor,Capacity factor / availability,fraction,0.8584,449.9078546800668
+capacity_factor,Capacity factor / availability,fraction,0.8622,447.93818424654296
+capacity_factor,Capacity factor / availability,fraction,0.866,445.9857996043526
+capacity_factor,Capacity factor / availability,fraction,0.8697999999999999,444.05047419794136
+capacity_factor,Capacity factor / availability,fraction,0.8735999999999999,442.13198541365546
+capacity_factor,Capacity factor / availability,fraction,0.8774,440.2301144943804
+capacity_factor,Capacity factor / availability,fraction,0.8812,438.34464645638826
+capacity_factor,Capacity factor / availability,fraction,0.885,436.47537000832693
+capacity_factor,Capacity factor / availability,fraction,0.8888,434.62207747228774
+capacity_factor,Capacity factor / availability,fraction,0.8926000000000001,432.7845647068892
+capacity_factor,Capacity factor / availability,fraction,0.8964,430.96263103231746
+capacity_factor,Capacity factor / availability,fraction,0.9002,429.15607915726434
+capacity_factor,Capacity factor / availability,fraction,0.9039999999999999,427.3647151077095
+capacity_factor,Capacity factor / availability,fraction,0.9077999999999999,425.58834815749
+capacity_factor,Capacity factor / availability,fraction,0.9116,423.826790760607
+capacity_factor,Capacity factor / availability,fraction,0.9154,422.0798584852189
+capacity_factor,Capacity factor / availability,fraction,0.9192,420.3473699492704
+capacity_factor,Capacity factor / availability,fraction,0.923,418.6291467577133
+capacity_factor,Capacity factor / availability,fraction,0.9268,416.9250134412703
+capacity_factor,Capacity factor / availability,fraction,0.9306,415.23479739670034
+capacity_factor,Capacity factor / availability,fraction,0.9343999999999999,413.55832882852036
+capacity_factor,Capacity factor / availability,fraction,0.9381999999999999,411.8954406921439
+capacity_factor,Capacity factor / availability,fraction,0.942,410.24596863839633
+capacity_factor,Capacity factor / availability,fraction,0.9458,408.60975095936703
+capacity_factor,Capacity factor / availability,fraction,0.9496,406.98662853556164
+capacity_factor,Capacity factor / availability,fraction,0.9534,405.3764447843186
+capacity_factor,Capacity factor / availability,fraction,0.9572,403.779045609454
+capacity_factor,Capacity factor / availability,fraction,0.961,402.1942793521013
+capacity_factor,Capacity factor / availability,fraction,0.9648,400.62199674271284
+capacity_factor,Capacity factor / availability,fraction,0.9685999999999999,399.06205085419094
+capacity_factor,Capacity factor / availability,fraction,0.9723999999999999,397.5142970561182
+capacity_factor,Capacity factor / availability,fraction,0.9762,395.9785929700567
+capacity_factor,Capacity factor / availability,fraction,0.98,394.4547984258871
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,0.0,335.31121455597037
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,30.0,349.402149448803
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,60.0,363.49308434163567
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,90.0,377.5840192344683
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,120.0,391.6749541273011
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,150.0,405.7658890201337
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,180.0,419.8568239129663
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,210.0,433.94775880579897
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,240.0,448.0386936986316
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,270.0,462.1296285914643
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,300.0,476.22056348429703
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,330.0,490.3114983771297
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,360.0,504.40243326996233
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,390.0,518.493368162795
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,420.0,532.5843030556276
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,450.0,546.6752379484602
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,480.0,560.7661728412929
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,510.0,574.8571077341256
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,540.0,588.9480426269582
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,570.0,603.038977519791
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,600.0,617.1299124126236
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,630.0,631.2208473054563
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,660.0,645.311782198289
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,690.0,659.4027170911216
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,720.0,673.4936519839544
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,750.0,687.584586876787
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,780.0,701.6755217696196
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,810.0,715.7664566624522
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,840.0,729.857391555285
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,870.0,743.9483264481175
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,900.0,758.0392613409502
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,930.0,772.1301962337828
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,960.0,786.2211311266157
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,990.0,800.3120660194484
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1020.0,814.403000912281
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1050.0,828.4939358051137
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1080.0,842.5848706979463
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1110.0,856.675805590779
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1140.0,870.7667404836116
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1170.0,884.8576753764443
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1200.0,898.9486102692769
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1230.0,913.0395451621096
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1260.0,927.1304800549422
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1290.0,941.2214149477749
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1320.0,955.3123498406077
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1350.0,969.4032847334403
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1380.0,983.494219626273
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1410.0,997.5851545191056
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1440.0,1011.6760894119383
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1470.0,1025.7670243047708
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1500.0,1039.8579591976036
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1530.0,1053.9488940904362
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1560.0,1068.039828983269
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1590.0,1082.1307638761018
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1620.0,1096.2216987689344
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1650.0,1110.312633661767
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1680.0,1124.4035685545998
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1710.0,1138.4945034474324
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1740.0,1152.5854383402652
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1770.0,1166.6763732330976
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1800.0,1180.7673081259304
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1830.0,1194.8582430187632
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1860.0,1208.9491779115958
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1890.0,1223.0401128044284
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1920.0,1237.131047697261
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1950.0,1251.2219825900938
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,1980.0,1265.3129174829264
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2010.0,1279.4038523757592
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2040.0,1293.4947872685916
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2070.0,1307.5857221614242
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2100.0,1321.6766570542568
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2130.0,1335.7675919470896
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2160.0,1349.8585268399222
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2190.0,1363.9494617327548
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2220.0,1378.0403966255876
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2250.0,1392.1313315184202
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2280.0,1406.222266411253
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2310.0,1420.3132013040854
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2340.0,1434.4041361969182
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2370.0,1448.4950710897508
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2400.0,1462.5860059825836
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2430.0,1476.6769408754162
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2460.0,1490.7678757682488
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2490.0,1504.8588106610814
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2520.0,1518.9497455539142
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2550.0,1533.0406804467468
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2580.0,1547.1316153395794
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2610.0,1561.2225502324122
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2640.0,1575.3134851252448
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2670.0,1589.4044200180776
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2700.0,1603.4953549109102
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2730.0,1617.5862898037428
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2760.0,1631.6772246965754
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2790.0,1645.7681595894082
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2820.0,1659.8590944822408
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2850.0,1673.9500293750734
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2880.0,1688.040964267906
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2910.0,1702.1318991607388
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2940.0,1716.2228340535717
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2970.0,1730.313768946404
+in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,3000.0,1744.4047038392368
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.002,392.41668613984723
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.00248,394.6267318019477
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.00296,396.83677746404817
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.0034400000000000003,399.0468231261486
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.00392,401.25686878824905
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.0044,403.4669144503495
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.004880000000000001,405.67696011245
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.00536,407.8870057745504
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.00584,410.0970514366509
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.00632,412.30709709875134
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.0068000000000000005,414.5171427608518
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.00728,416.7271884229522
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.00776,418.9372340850527
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.00824,421.14727974715316
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.00872,423.35732540925363
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.0092,425.5673710713541
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.009680000000000001,427.7774167334545
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.01016,429.987462395555
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.01064,432.19750805765545
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.01112,434.4075537197559
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.011600000000000001,436.61759938185634
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.01208,438.8276450439568
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.01256,441.0376907060573
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.01304,443.24773636815775
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.01352,445.45778203025816
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.014,447.6678276923586
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.01448,449.8778733544591
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.014960000000000001,452.08791901655957
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.01544,454.29796467866004
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.01592,456.50801034076045
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.016399999999999998,458.7180560028609
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.01688,460.9281016649614
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.01736,463.13814732706186
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.01784,465.3481929891623
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.018320000000000003,467.5582386512628
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.018799999999999997,469.7682843133632
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.01928,471.9783299754637
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.01976,474.18837563756415
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.02024,476.3984212996646
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.020720000000000002,478.6084669617651
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.021200000000000004,480.81851262386556
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.021679999999999998,483.02855828596597
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.02216,485.2386039480664
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.02264,487.4486496101669
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.02312,489.6586952722674
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.023600000000000003,491.86874093436785
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.024079999999999997,494.0787865964682
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.02456,496.2888322585687
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.02504,498.4988779206692
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.02552,500.70892358276967
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.026000000000000002,502.91896924487014
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.026480000000000004,505.12901490697055
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.026959999999999998,507.33906056907097
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.02744,509.54910623117144
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.02792,511.75915189327196
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.0284,513.9691975553724
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.028880000000000003,516.1792432174728
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.029360000000000004,518.3892888795733
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.02984,520.5993345416738
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.03032,522.8093802037743
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.0308,525.0194258658747
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.03128,527.2294715279752
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.031760000000000004,529.4395171900755
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.03224,531.649562852176
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.03272,533.8596085142765
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.0332,536.069654176377
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.03368,538.2796998384774
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.03416,540.4897455005779
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.034640000000000004,542.6997911626784
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.035120000000000005,544.9098368247788
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.0356,547.1198824868793
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.03608,549.3299281489797
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.03656,551.5399738110801
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.037040000000000003,553.7500194731806
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.037520000000000005,555.9600651352811
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.038000000000000006,558.1701107973815
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.03848,560.380156459482
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.03896,562.5902021215825
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.03944,564.800247783683
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.039920000000000004,567.0102934457833
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.040400000000000005,569.2203391078838
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.04088,571.4303847699842
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.04136,573.6404304320847
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.04184,575.8504760941852
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.04232,578.0605217562857
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.042800000000000005,580.2705674183861
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.043280000000000006,582.4806130804866
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.04376,584.6906587425871
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.04424,586.9007044046874
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.04472,589.1107500667879
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.045200000000000004,591.3207957288884
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.045680000000000005,593.5308413909888
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.04616,595.7408870530893
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.04664,597.9509327151898
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.04712,600.1609783772902
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.0476,602.3710240393907
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.048080000000000005,604.5810697014912
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.048560000000000006,606.7911153635915
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.04904,609.001161025692
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.04952,611.2112066877925
+fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.05,613.4212523498929
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,0.0,426.25078050818814
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,0.2,426.4507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,0.4,426.6507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,0.6000000000000001,426.85078050818817
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,0.8,427.05078050818815
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,1.0,427.25078050818814
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,1.2000000000000002,427.4507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,1.4000000000000001,427.6507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,1.6,427.85078050818817
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,1.8,428.05078050818815
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,2.0,428.25078050818814
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,2.2,428.4507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,2.4000000000000004,428.6507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,2.6,428.85078050818817
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,2.8000000000000003,429.05078050818815
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,3.0,429.25078050818814
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,3.2,429.4507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,3.4000000000000004,429.6507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,3.6,429.85078050818817
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,3.8000000000000003,430.05078050818815
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,4.0,430.25078050818814
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,4.2,430.4507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,4.4,430.6507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,4.6000000000000005,430.85078050818817
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,4.800000000000001,431.05078050818815
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,5.0,431.25078050818814
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,5.2,431.4507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,5.4,431.6507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,5.6000000000000005,431.85078050818817
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,5.800000000000001,432.05078050818815
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,6.0,432.25078050818814
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,6.2,432.4507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,6.4,432.6507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,6.6000000000000005,432.85078050818817
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,6.800000000000001,433.05078050818815
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,7.0,433.25078050818814
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,7.2,433.4507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,7.4,433.6507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,7.6000000000000005,433.85078050818817
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,7.800000000000001,434.05078050818815
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,8.0,434.25078050818814
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,8.200000000000001,434.4507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,8.4,434.6507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,8.6,434.85078050818817
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,8.8,435.05078050818815
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,9.0,435.25078050818814
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,9.200000000000001,435.4507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,9.4,435.6507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,9.600000000000001,435.85078050818817
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,9.8,436.05078050818815
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,10.0,436.25078050818814
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,10.200000000000001,436.4507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,10.4,436.6507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,10.600000000000001,436.85078050818817
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,10.8,437.05078050818815
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,11.0,437.25078050818814
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,11.200000000000001,437.4507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,11.4,437.6507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,11.600000000000001,437.85078050818817
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,11.8,438.05078050818815
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,12.0,438.25078050818814
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,12.200000000000001,438.4507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,12.4,438.6507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,12.600000000000001,438.85078050818817
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,12.8,439.05078050818815
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,13.0,439.25078050818814
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,13.200000000000001,439.4507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,13.4,439.6507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,13.600000000000001,439.85078050818817
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,13.8,440.05078050818815
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,14.0,440.25078050818814
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,14.200000000000001,440.4507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,14.4,440.6507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,14.600000000000001,440.85078050818817
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,14.8,441.05078050818815
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,15.0,441.25078050818814
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,15.200000000000001,441.4507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,15.4,441.6507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,15.600000000000001,441.85078050818817
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,15.8,442.05078050818815
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,16.0,442.25078050818814
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,16.2,442.4507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,16.400000000000002,442.6507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,16.6,442.85078050818817
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,16.8,443.05078050818815
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,17.0,443.25078050818814
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,17.2,443.4507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,17.400000000000002,443.6507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,17.6,443.85078050818817
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,17.8,444.05078050818815
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,18.0,444.25078050818814
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,18.2,444.4507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,18.400000000000002,444.6507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,18.6,444.85078050818817
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,18.8,445.05078050818815
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,19.0,445.25078050818814
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,19.200000000000003,445.4507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,19.400000000000002,445.6507805081882
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,19.6,445.85078050818817
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,19.8,446.05078050818815
+variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,20.0,446.25078050818814
