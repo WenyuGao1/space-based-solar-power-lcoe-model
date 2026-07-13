@@ -1,126 +1,233 @@
+<div align="center">
+
 # UK Space-Based Solar Power Cost-Threshold Assessment
 
-This repository is a reproducible techno-economic assessment of when space-based solar power (SBSP) could become comparable with UK electricity cost benchmarks.
+### A reproducible, decision-focused techno-economic assessment of when SBSP could enter UK-relevant electricity cost ranges
 
-Unlike a fixed-year deployment forecast, this project asks a threshold question: **what technical and financial conditions would be required for delivered-grid SBSP to reach 150, 120, 100, 80 or 60 GBP/MWh?** It treats launch cost, orbital mass, space hardware cost, in-orbit assembly cost, rectenna cost, financing cost, end-to-end efficiency, capacity factor, lifetime and OPEX as explicit model inputs.
+[![Tests](https://github.com/WenyuGao1/uk-sbsp-cost-threshold-assessment/actions/workflows/tests.yml/badge.svg)](https://github.com/WenyuGao1/uk-sbsp-cost-threshold-assessment/actions/workflows/tests.yml)
+[![Python](https://img.shields.io/badge/Python-3.12%2B-3776AB?logo=python&logoColor=white)](requirements.txt)
+[![License: MIT](https://img.shields.io/badge/License-MIT-2E8B57.svg)](LICENSE)
+[![Reproducible](https://img.shields.io/badge/Analysis-Reproducible-6f42c1.svg)](analysis/run_full_analysis.py)
+[![Reports](https://img.shields.io/badge/Reports-English%20%7C%20中文-0A66C2.svg)](report/)
 
-[Read the English report](report/final_report_EN.md) · [English PDF](report/final_report_EN.pdf) · [阅读中文报告](report/final_report_zh.md) · [中文 PDF](report/final_report_zh.pdf)
+[English report](report/final_report_EN.md) · [English PDF](report/final_report_EN.pdf) · [中文报告](report/final_report_zh.md) · [中文 PDF](report/final_report_zh.pdf) · [Verification note](report/verification_note.md)
+
+</div>
+
+---
+
+This project asks a deliberately different question from a fixed-year deployment forecast:
+
+> **What technical and financial conditions would be required for delivered-grid space-based solar power (SBSP) to reach 150, 120, 100, 80 or 60 GBP/MWh in a UK decision context?**
+
+The model treats launch cost, specific mass, orbital hardware, in-orbit assembly, wireless transmission, rectenna cost, financing, end-to-end efficiency, availability, lifetime and OPEX as explicit inputs. It then calculates one-way thresholds, interacting-parameter contours and combined-improvement frontiers.
 
 ![Combined SBSP cost-improvement frontier](figures/combined_progress_frontier.png)
 
-## Headline Results
+## At a Glance
 
-- The analytical reference point is 429 GBP/MWh. It is a sensitivity anchor, not a forecast or preferred design.
-- Specific mass is the only single input that reaches the 150 GBP/MWh screening line within its explored one-way range.
-- Reducing launch cost alone to 20 GBP/kg still leaves the model at about 204 GBP/MWh; increasing end-to-end efficiency alone to 35% leaves it at about 188 GBP/MWh.
-- Reaching the 80-120 GBP/MWh decision range requires simultaneous progress in mass, efficiency, launch, assembly, orbital hardware and financing conditions.
+| Item | Result |
+| --- | --- |
+| Analytical reference point | **429 GBP/MWh** delivered-grid LCOE |
+| UK decision range used in the assessment | **80-120 GBP/MWh** |
+| Broad screening ceiling | **150 GBP/MWh** |
+| Strongest single lever | **Specific mass** |
+| Main finding | Lower launch cost alone is insufficient; mass, efficiency, assembly, hardware and finance must improve together |
+| Project format | Open model, structured assumptions, processed outputs, English/Chinese charts and reports, automated tests |
 
-## What This Adds
+The 429 GBP/MWh reference point is an analytical anchor for sensitivity analysis. It is **not** a forecast, preferred architecture, investment case or claim about a future deployment year.
 
-Existing SBSP studies commonly assess named architectures or future deployment scenarios. This repository complements that work with an architecture-parameterised, continuous threshold view:
+## What Is Distinctive About This Assessment?
 
-- it reports the value at which individual inputs cross decision-relevant LCOE targets;
-- it maps interacting parameters with two-dimensional cost contours;
-- it calculates equal-fraction and alternative combined-improvement frontiers;
-- it keeps assumptions, source metadata, processed results, reports and validation tests together in a public, executable workflow.
+The contribution is not that previous SBSP studies lack cost or sensitivity analysis. Several major studies already examine architecture costs, uncertainty and power-system value. This repository adds a complementary **continuous threshold view**.
 
-The results are **model-conditional thresholds**, not universal engineering requirements. The project does not claim greater forecasting accuracy than architecture-specific or whole-system studies.
+| Dimension | Typical architecture/scenario study | This repository |
+| --- | --- | --- |
+| Primary question | What might a named design cost in a future deployment scenario? | What parameter conditions are required to cross a defined cost target? |
+| Architecture treatment | Usually tied to one or more specified system designs | Parameterised model that exposes architecture-driving variables directly |
+| Time treatment | Often organised around 2030, 2040 or 2050 cases | No fixed-year cost forecast |
+| Main output | Scenario LCOE, uncertainty, roadmap or system value | One-way thresholds, LCOE floors, 2D contours and combined-improvement frontiers |
+| Auditability | Method and selected assumptions published in a report | Code, assumptions, sources, processed results, charts, reports and tests in one executable repository |
+| Communication | Usually one report language | Aligned English and Chinese reports and figures |
 
-## Repository Structure
+This makes the project especially useful for:
 
-- `data/`: structured assumptions, benchmark data, source registry, raw official workbooks and processed model outputs.
-- `src/`: model, parameter loading, sensitivity analysis, plotting, reporting, PDF generation and validation modules.
-- `analysis/run_full_analysis.py`: end-to-end runner for processed data, English figures, Chinese figures and both final reports.
-- `figures/`: English-labelled final figures.
-- `figures_zh/`: Chinese-labelled final figures.
-- `report/`: current English and Chinese reports and verification note.
-- `tmp/`: local scratch space for plotting and PDF rendering.
+- identifying which assumptions actually control the result;
+- testing alternative launch, mass, efficiency or financing assumptions;
+- separating a cost-screening result from engineering feasibility and market readiness;
+- showing why an apparently attractive improvement in one input may fail at whole-system level;
+- providing a transparent starting point for a later architecture-specific or GB power-system study.
+
+It does **not** claim inherently greater forecasting accuracy than detailed engineering or whole-system models. Its advantage is transparency, reproducibility and resolution around the threshold question.
+
+## Key Results
+
+### 1. The reference case is dominated by capital-intensive orbital deployment
+
+<table>
+  <tr>
+    <td width="50%"><img src="figures/reference_lcoe_components.png" alt="Reference LCOE components"></td>
+    <td width="50%"><img src="figures/uk_electricity_cost_benchmark_comparison.png" alt="UK electricity cost benchmarks"></td>
+  </tr>
+  <tr>
+    <td><b>Reference cost structure.</b> Annualised CAPEX contributes about 82% of the 429 GBP/MWh reference LCOE.</td>
+    <td><b>Decision context.</b> The model separates generation-only benchmarks from broader system-adjusted comparisons.</td>
+  </tr>
+</table>
+
+At the reference point, a 2 GW grid-delivered system requires approximately 13.33 GW of space-side power and 66,667 tonnes of orbital hardware. Launch, orbit transfer and in-orbit assembly therefore scale together.
+
+### 2. Most single-variable improvements do not cross the screening line
+
+<table>
+  <tr>
+    <td width="50%"><img src="figures/one_way_lcoe_floors.png" alt="Best LCOE reached by each one-way change"></td>
+    <td width="50%"><img src="figures/specific_mass_threshold_focus.png" alt="Specific mass thresholds near the decision window"></td>
+  </tr>
+  <tr>
+    <td><b>One-way limits.</b> Only specific mass reaches 150 GBP/MWh within the explored single-input ranges.</td>
+    <td><b>Mass threshold.</b> Specific mass must fall to about 1.28, 0.88 and 0.62 kg/kW-space to reach 150, 120 and 100 GBP/MWh respectively, with other inputs fixed.</td>
+  </tr>
+</table>
+
+| One-way change | Best explored value | Resulting LCOE |
+| --- | ---: | ---: |
+| Specific mass | 0.5 kg/kW-space | **91 GBP/MWh** |
+| End-to-end efficiency | 35% | **188 GBP/MWh** |
+| Launch cost | 20 GBP/kg | **204 GBP/MWh** |
+| WACC | 3% | **312 GBP/MWh** |
+| In-orbit assembly | 0 GBP/kg | **335 GBP/MWh** |
+
+The key point is structural: reducing the price per launched kilogram does not remove the cost of having to launch, transfer and assemble a heavy, low-efficiency architecture.
+
+### 3. Launch cost only becomes decisive when efficiency and mass are credible
+
+<table>
+  <tr>
+    <td width="50%"><img src="figures/sbsp_break_even_thresholds.png" alt="Launch cost and efficiency threshold matrix"></td>
+    <td width="50%"><img src="figures/contour_launch_cost_vs_end_to_end_efficiency_zoom.png" alt="Launch cost and efficiency decision contours"></td>
+  </tr>
+  <tr>
+    <td><b>Threshold matrix.</b> At 25% efficiency, the 150 GBP/MWh target requires launch cost of roughly 109 GBP/kg or less. At 35% efficiency, 100 GBP/MWh requires about 64 GBP/kg.</td>
+    <td><b>Continuous interaction.</b> The contour view shows that cheap launch applied to an inefficient architecture still leaves high delivered costs.</td>
+  </tr>
+</table>
+
+### 4. Reaching the decision range requires coordinated progress
+
+![Model-normalised joint improvement needed for each target](figures/combined_progress_frontier.png)
+
+The combined frontier moves the principal physical and financial bottlenecks by an equal fraction from their reference values toward their favourable explored bounds. It is a mathematical comparison device, not a technology-readiness score or development schedule.
+
+| Target LCOE | Model-normalised joint movement | Illustrative launch cost | Specific mass | Efficiency | WACC |
+| ---: | ---: | ---: | ---: | ---: | ---: |
+| 150 GBP/MWh | 26% | 373 GBP/kg | 3.81 kg/kW | 20% | 5.6% |
+| 120 GBP/MWh | 32% | 347 GBP/kg | 3.57 kg/kW | 21% | 5.4% |
+| 100 GBP/MWh | 36% | 327 GBP/kg | 3.38 kg/kW | 22% | 5.2% |
+| 80 GBP/MWh | 41% | 303 GBP/kg | 3.15 kg/kW | 23% | 5.1% |
+
+These values must be read together with the simultaneous changes in orbital hardware, assembly, transfer, rectenna, grid connection, availability, lifetime, margins and OPEX recorded in [`combined_improvement_frontier.csv`](data/processed/combined_improvement_frontier.csv).
+
+## Model Logic
+
+The principal relationships are deliberately compact and inspectable:
+
+```text
+required space-side power = delivered grid power / end-to-end efficiency
+
+orbital mass = required space-side power × specific mass
+
+annual delivered electricity = delivered capacity × 8,760 × capacity factor
+
+annual total cost = annualised CAPEX
+                  + fixed OPEX
+                  + replacement/refurbishment allowance
+                  + variable OPEX
+
+delivered-grid LCOE = annual total cost / annual delivered electricity
+```
+
+Initial CAPEX includes the space segment, wireless power transmission, launch, orbit transfer, in-orbit assembly, rectenna, grid connection and programme margin. The implementation is in [`src/model.py`](src/model.py); threshold and contour methods are in [`src/analysis.py`](src/analysis.py).
 
 ## Reproduce the Analysis
 
-Install dependencies:
-
 ```bash
-python3 -m pip install -r requirements.txt
+git clone https://github.com/WenyuGao1/uk-sbsp-cost-threshold-assessment.git
+cd uk-sbsp-cost-threshold-assessment
+python3 -m venv .venv
+source .venv/bin/activate
+python -m pip install -r requirements.txt
+python analysis/run_full_analysis.py
+python -m unittest discover -s tests -v
 ```
 
-Run the full pipeline:
+The full runner regenerates all processed CSVs, English and Chinese figures, Markdown reports, PDF reports and the verification note. GitHub Actions repeats both the numerical tests and full generation pipeline on every push and pull request.
 
-```bash
-python3 analysis/run_full_analysis.py
-```
+## Repository Guide
 
-Run the numerical and evidence checks:
+| Path | Purpose |
+| --- | --- |
+| [`data/sbsp_parameters.csv`](data/sbsp_parameters.csv) | Reference values, explored ranges, directions of improvement and source labels |
+| [`data/source_registry.csv`](data/source_registry.csv) | External source metadata, URLs and analytical roles |
+| [`data/raw/`](data/raw/) | Official UK source workbooks retained for traceability |
+| [`data/processed/`](data/processed/) | Reproducible model outputs and threshold tables |
+| [`src/model.py`](src/model.py) | Delivered-grid LCOE calculation |
+| [`src/analysis.py`](src/analysis.py) | Sensitivities, thresholds, contours and combined frontiers |
+| [`figures/`](figures/) | English-labelled analytical figures |
+| [`figures_zh/`](figures_zh/) | Chinese-labelled analytical figures |
+| [`report/`](report/) | Final English and Chinese reports, PDFs and verification note |
+| [`tests/`](tests/) | Numerical reconciliation and evidence-file checks |
 
-```bash
-python3 -m unittest discover -s tests -v
-```
+## Evidence and Quality Controls
 
-The runner regenerates:
+- Parameter reference values must remain inside their explored ranges.
+- Initial CAPEX and annual cost components are reconciled numerically.
+- The reference LCOE and key specific-mass thresholds are regression-tested.
+- Raw `.xlsx` evidence files are checked as genuine workbook containers rather than failed HTML/JSON downloads.
+- Figure reference markers are checked against the true analytical reference case.
+- Expected reports, tables and figures must exist and be non-empty.
+- Both final PDFs have been rendered and visually reviewed for missing pages, clipping, table overflow, font problems and unreadable chart labels.
 
-- `data/processed/reference_lcoe.csv`
-- `data/processed/sensitivity_curves.csv`
-- `data/processed/thresholds_one_way.csv`
-- `data/processed/one_way_feasibility_matrix.csv`
-- `data/processed/cost_driver_importance.csv`
-- `data/processed/contour_grids.csv`
-- `data/processed/launch_efficiency_frontier.csv`
-- `data/processed/combined_improvement_frontier.csv`
-- `data/processed/alternative_combined_pathways.csv`
-- all English figures in `figures/`
-- all Chinese figures in `figures_zh/`
-- `report/final_report_EN.md`
-- `report/final_report_EN.pdf`
-- `report/final_report_zh.md`
-- `report/final_report_zh.pdf`
-- `report/verification_note.md`
-
-The main reports are decision-focused: the core sections use compact tables and charts cropped around the 80-150 GBP/MWh decision range. Full-range sensitivity diagnostics remain in the appendices and figure folders for traceability.
-
-GitHub Actions runs both the test suite and complete generation pipeline on every push and pull request and validates that all expected outputs are created.
-
-## Model Boundary
-
-The delivered-grid SBSP model includes:
-
-- space segment CAPEX;
-- launch cost;
-- orbit transfer cost;
-- in-orbit assembly and deployment;
-- wireless power transmission hardware;
-- rectenna CAPEX;
-- grid connection;
-- programme margin and contingency;
-- replacement and refurbishment allowance;
-- fixed OPEX;
-- variable OPEX;
-- capacity factor and availability;
-- end-to-end efficiency;
-- system lifetime;
-- WACC;
-- annual delivered electricity.
-
-The main output unit is GBP/MWh delivered to the grid.
+See the generated [`verification_note.md`](report/verification_note.md) for the current release checks and evidence limitations.
 
 ## UK Benchmark Treatment
 
-The repository separates:
+The repository deliberately separates:
 
-- generation-only UK electricity cost benchmarks in `data/uk_generation_costs.csv`;
-- system-adjusted renewable cost benchmarks in `data/uk_system_adjusted_costs.csv`.
+- **generation-only LCOE**, which measures cost at the generator boundary; and
+- **system-adjusted comparison ranges**, which provide broader but still indicative context for balancing, curtailment, networks, flexibility and reliability.
 
-Generation-only LCOE measures generator-boundary cost. It excludes grid reinforcement, balancing, curtailment, backup capacity, storage, long-duration flexibility and other reliability costs.
+The project does not silently treat benchmarks with different real-price bases as perfectly comparable. It also does not claim that an SBSP LCOE inside the 80-120 GBP/MWh region automatically creates market competitiveness.
 
-System-adjusted costs are broader comparators. They are not direct market prices and should not be read as precise forecasts. They are used to understand when SBSP might become relevant against the additional cost of maintaining reliability in high-renewable power systems.
+## Relationship to Existing SBSP Studies
 
-## Key Limitations
+This repository is designed to complement, not replace, larger architecture and system studies:
 
-Commercial-scale SBSP has not been deployed, so many architecture parameters are exploratory threshold assumptions. The reference point is an analytical anchor for sensitivity curves, not a final design recommendation.
+- The [2021 UK Government / Frazer-Nash assessment](https://www.gov.uk/government/publications/space-based-solar-power-de-risking-the-pathway-to-net-zero) examined engineering feasibility, economics, risks and a possible UK development pathway.
+- The [DESNZ small-scale SBSP study](https://assets.publishing.service.gov.uk/media/698f167c7da91680ad7f43ad/SBSP-enabled-pathways-to-net-zero-final-report-raf036-2425.pdf) assessed an early-market minimum viable product, uncertainty, financing support and GB energy-system benefits.
+- The [NASA OTPS assessment](https://www.nasa.gov/organizations/otps/space-based-solar-power-report/) compared conceptual SBSP lifecycle cost and emissions with terrestrial alternatives.
 
-The model identifies cost-parity conditions. It does not prove engineering feasibility, commercial readiness or full GB power-system value. Those require separate engineering demonstration, financeability assessment and whole-system modelling.
+Those studies provide architecture, deployment, policy and system context. This project contributes a public, bilingual and executable way to ask: **which parameter combinations are required to cross a chosen delivered-cost line?**
 
-## Data, Sources and Licensing
+## Scope and Limitations
 
-Every external source is listed in [`data/source_registry.csv`](data/source_registry.csv), and the data layout is explained in [`data/README.md`](data/README.md). Third-party workbooks retain their original terms; see [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).
+Commercial-scale SBSP has not been deployed. Many architecture parameters are therefore exploratory rather than observed commercial data.
 
-Original code and project-authored documentation are released under the [MIT License](LICENSE).
+The model identifies **cost-parity conditions under its stated assumptions**. It does not prove:
+
+- engineering feasibility or technology readiness;
+- safe and regulator-approved wireless power transmission;
+- construction delivery or commercial financeability;
+- frequency, beam, spectrum, land-use or public-acceptance compliance;
+- the complete value of firm low-carbon power in the future GB system;
+- investment attractiveness or a future electricity price.
+
+Those questions require architecture-specific engineering, demonstration, financing and whole-system modelling.
+
+## Citation
+
+Citation metadata is provided in [`CITATION.cff`](CITATION.cff). If you reuse the model or figures, please cite the repository and preserve the distinction between model-conditional thresholds and real-world engineering requirements.
+
+## Licence and Third-Party Material
+
+Original code and project-authored documentation are released under the [MIT License](LICENSE). External workbooks and source material retain their original terms; see [`THIRD_PARTY_NOTICES.md`](THIRD_PARTY_NOTICES.md).

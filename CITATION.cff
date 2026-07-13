@@ -1,0 +1,24 @@
+cff-version: 1.2.0
+message: "If you use this model, reports or figures, please cite this repository."
+title: "UK Space-Based Solar Power Cost-Threshold Assessment"
+type: software
+authors:
+  - family-names: "Gao"
+    given-names: "Wenyu"
+repository-code: "https://github.com/WenyuGao1/uk-sbsp-cost-threshold-assessment"
+url: "https://github.com/WenyuGao1/uk-sbsp-cost-threshold-assessment"
+version: "1.1"
+date-released: 2026-07-14
+license: MIT
+abstract: >-
+  A reproducible techno-economic assessment of the technical and financial
+  parameter thresholds required for space-based solar power to enter
+  UK-relevant delivered-grid electricity cost ranges.
+keywords:
+  - space-based solar power
+  - SBSP
+  - techno-economic analysis
+  - levelised cost of electricity
+  - LCOE
+  - sensitivity analysis
+  - United Kingdom
