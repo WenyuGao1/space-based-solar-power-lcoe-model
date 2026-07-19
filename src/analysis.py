@@ -14,12 +14,17 @@ SENSITIVITY_PARAMETERS = [
     "launch_cost_gbp_per_kg",
     "specific_mass_kg_per_kw_space_power",
     "space_hardware_cost_gbp_per_w_space",
+    "wireless_power_transmission_cost_gbp_per_w_space",
     "end_to_end_efficiency",
     "wacc",
     "rectenna_cost_gbp_per_w_delivered",
+    "grid_connection_cost_gbp_per_kw_delivered",
     "system_lifetime_years",
     "capacity_factor",
     "in_orbit_assembly_cost_gbp_per_kg",
+    "orbit_transfer_cost_gbp_per_kg",
+    "programme_margin_pct",
+    "replacement_refurbishment_pct_capex_per_year",
     "fixed_opex_pct_capex_per_year",
     "variable_opex_gbp_per_mwh",
 ]
@@ -108,29 +113,34 @@ def one_way_thresholds(
     targets: list[int] | None = None,
     points: int = 2001,
 ) -> list[dict[str, object]]:
-    targets = targets or TARGET_LCOE_GBP_PER_MWH
+    """Solve high-precision monotonic one-way thresholds with bisection.
+
+    ``points`` is retained for API compatibility with earlier releases but is no
+    longer used.  Returning a root-solved threshold avoids presenting the
+    resolution of an arbitrary sampling grid as numerical precision.
+    """
+
+    _ = points
+    targets = TARGET_LCOE_GBP_PER_MWH if targets is None else targets
     rows: list[dict[str, object]] = []
+    reference_lcoe = calculate_lcoe(reference).lcoe_gbp_per_mwh
     for name in SENSITIVITY_PARAMETERS:
         parameter = params[name]
-        values = np.linspace(parameter.min_value, parameter.max_value, points)
-        lcoes = []
-        for value in values:
-            case = dict(reference)
-            case[name] = float(value)
-            lcoes.append(calculate_lcoe(case).lcoe_gbp_per_mwh)
-        lcoe_array = np.asarray(lcoes)
-        feasible_min = float(np.nanmin(lcoe_array))
-        reference_lcoe = calculate_lcoe(reference).lcoe_gbp_per_mwh
+        favourable_value = parameter.min_value if parameter.improvement_direction == "lower" else parameter.max_value
+        favourable_case = dict(reference)
+        favourable_case[name] = favourable_value
+        feasible_min = calculate_lcoe(favourable_case).lcoe_gbp_per_mwh
         for target in targets:
-            feasible = values[lcoe_array <= target]
-            if feasible.size == 0:
-                threshold_value: float | None = None
+            threshold_value, threshold_lcoe = _solve_monotonic_threshold(
+                reference,
+                parameter,
+                target,
+            )
+            if threshold_value is None:
                 status = "not reached within explored one-way range"
             elif parameter.improvement_direction == "lower":
-                threshold_value = float(np.max(feasible))
                 status = "maximum value meeting target"
             else:
-                threshold_value = float(np.min(feasible))
                 status = "minimum value meeting target"
             rows.append(
                 {
@@ -142,10 +152,58 @@ def one_way_thresholds(
                     "reference_value": parameter.reference_value,
                     "reference_lcoe_gbp_per_mwh": reference_lcoe,
                     "best_lcoe_in_range_gbp_per_mwh": feasible_min,
+                    "lcoe_at_threshold_gbp_per_mwh": threshold_lcoe,
+                    "solution_method": "monotonic bisection",
                     "status": status,
                 }
             )
     return rows
+
+
+def _solve_monotonic_threshold(
+    reference: dict[str, float],
+    parameter: Parameter,
+    target_lcoe_gbp_per_mwh: float,
+    iterations: int = 80,
+) -> tuple[float | None, float | None]:
+    """Return the limiting feasible value and its LCOE for one monotonic input."""
+
+    def lcoe_at(value: float) -> float:
+        case = dict(reference)
+        case[parameter.name] = float(value)
+        return calculate_lcoe(case).lcoe_gbp_per_mwh
+
+    low = float(parameter.min_value)
+    high = float(parameter.max_value)
+    low_lcoe = lcoe_at(low)
+    high_lcoe = lcoe_at(high)
+
+    if parameter.improvement_direction == "lower":
+        # Low values are favourable. Find the largest feasible value.
+        if low_lcoe > target_lcoe_gbp_per_mwh:
+            return None, None
+        if high_lcoe <= target_lcoe_gbp_per_mwh:
+            return high, high_lcoe
+        for _ in range(iterations):
+            mid = (low + high) / 2.0
+            if lcoe_at(mid) <= target_lcoe_gbp_per_mwh:
+                low = mid
+            else:
+                high = mid
+        return low, lcoe_at(low)
+
+    # High values are favourable. Find the smallest feasible value.
+    if high_lcoe > target_lcoe_gbp_per_mwh:
+        return None, None
+    if low_lcoe <= target_lcoe_gbp_per_mwh:
+        return low, low_lcoe
+    for _ in range(iterations):
+        mid = (low + high) / 2.0
+        if lcoe_at(mid) <= target_lcoe_gbp_per_mwh:
+            high = mid
+        else:
+            low = mid
+    return high, lcoe_at(high)
 
 
 def cost_driver_importance(reference: dict[str, float], params: dict[str, Parameter]) -> list[dict[str, object]]:
@@ -221,27 +279,27 @@ def launch_efficiency_frontier(
     target_values: list[int] | None = None,
     efficiencies: list[float] | None = None,
 ) -> list[dict[str, object]]:
-    target_values = target_values or TARGET_LCOE_GBP_PER_MWH
-    efficiencies = efficiencies or [0.20, 0.25, 0.30, 0.35]
+    target_values = TARGET_LCOE_GBP_PER_MWH if target_values is None else target_values
+    efficiencies = [0.20, 0.25, 0.30, 0.35] if efficiencies is None else efficiencies
     launch_param = params["launch_cost_gbp_per_kg"]
     rows: list[dict[str, object]] = []
-    launch_values = np.linspace(launch_param.min_value, launch_param.max_value, 5001)
     for efficiency in efficiencies:
         for target in target_values:
-            feasible_launch: list[float] = []
-            for launch_cost in launch_values:
-                case = dict(reference)
-                case["end_to_end_efficiency"] = efficiency
-                case["launch_cost_gbp_per_kg"] = float(launch_cost)
-                lcoe = calculate_lcoe(case).lcoe_gbp_per_mwh
-                if lcoe <= target:
-                    feasible_launch.append(float(launch_cost))
+            efficiency_case = dict(reference)
+            efficiency_case["end_to_end_efficiency"] = efficiency
+            threshold, threshold_lcoe = _solve_monotonic_threshold(
+                efficiency_case,
+                launch_param,
+                target,
+            )
             rows.append(
                 {
                     "end_to_end_efficiency": efficiency,
                     "target_lcoe_gbp_per_mwh": target,
-                    "max_launch_cost_gbp_per_kg": max(feasible_launch) if feasible_launch else None,
-                    "status": "feasible" if feasible_launch else "not feasible within explored launch range",
+                    "max_launch_cost_gbp_per_kg": threshold,
+                    "lcoe_at_threshold_gbp_per_mwh": threshold_lcoe,
+                    "solution_method": "monotonic bisection",
+                    "status": "feasible" if threshold is not None else "not feasible within explored launch range",
                 }
             )
     return rows
@@ -266,7 +324,7 @@ def combined_improvement_frontier(
     where each LCOE target is reached.
     """
 
-    target_values = target_values or TARGET_LCOE_GBP_PER_MWH
+    target_values = TARGET_LCOE_GBP_PER_MWH if target_values is None else target_values
     rows: list[dict[str, object]] = []
 
     def case_at(progress: float) -> dict[str, float]:
@@ -276,6 +334,19 @@ def combined_improvement_frontier(
         return case
 
     for target in target_values:
+        baseline_case = case_at(0.0)
+        baseline_result = calculate_lcoe(baseline_case)
+        if baseline_result.lcoe_gbp_per_mwh <= target:
+            row: dict[str, object] = {
+                "target_lcoe_gbp_per_mwh": target,
+                "progress_fraction": 0.0,
+                "lcoe_gbp_per_mwh": baseline_result.lcoe_gbp_per_mwh,
+                "status": "already feasible at baseline",
+            }
+            for name in COMBINED_FRONTIER_PARAMETERS:
+                row[name] = baseline_case[name]
+            rows.append(row)
+            continue
         if calculate_lcoe(case_at(1.0)).lcoe_gbp_per_mwh > target:
             rows.append({"target_lcoe_gbp_per_mwh": target, "progress_fraction": None, "status": "not feasible within explored combined range"})
             continue
@@ -313,7 +384,7 @@ def alternative_combined_pathways(
     needed across the remaining bottlenecks to hit each LCOE target.
     """
 
-    target_values = target_values or TARGET_LCOE_GBP_PER_MWH
+    target_values = TARGET_LCOE_GBP_PER_MWH if target_values is None else target_values
     rows: list[dict[str, object]] = []
 
     for definition in ALTERNATIVE_PATHWAY_DEFINITIONS:
@@ -328,6 +399,22 @@ def alternative_combined_pathways(
             return case
 
         for target in target_values:
+            baseline_case = case_at(0.0)
+            baseline_result = calculate_lcoe(baseline_case)
+            if baseline_result.lcoe_gbp_per_mwh <= target:
+                row: dict[str, object] = {
+                    "pathway": definition["pathway"],
+                    "display_name": definition["display_name"],
+                    "description": definition["description"],
+                    "target_lcoe_gbp_per_mwh": target,
+                    "progress_fraction": 0.0,
+                    "lcoe_gbp_per_mwh": baseline_result.lcoe_gbp_per_mwh,
+                    "status": "already feasible at slice baseline",
+                }
+                for name in COMBINED_FRONTIER_PARAMETERS:
+                    row[name] = baseline_case[name]
+                rows.append(row)
+                continue
             if calculate_lcoe(case_at(1.0)).lcoe_gbp_per_mwh > target:
                 rows.append(
                     {

@@ -28,9 +28,9 @@ DECISION_BAND = (80, 120)
 PARAMETER_ZH = {
     "Delivered grid capacity": "并网交付容量",
     "End-to-end efficiency": "端到端效率",
-    "Capacity factor / availability": "容量因子/可用率",
+    "Delivered capacity factor (model proxy)": "交付容量因子（模型代理变量）",
     "System lifetime": "系统寿命",
-    "WACC / discount rate": "加权平均资本成本/折现率",
+    "Real project discount-rate proxy": "实际项目贴现率代理变量",
     "Specific mass": "比质量",
     "Space hardware cost": "空间段硬件成本",
     "Wireless power transmission cost": "无线输电硬件成本",
@@ -229,7 +229,7 @@ def plot_specific_mass_threshold_focus_zh(
         ax.axhline(target, color=colors[target], linestyle="--", linewidth=1.0, alpha=0.65)
         ax.scatter([value], [target], color=colors[target], edgecolor="white", linewidth=0.8, s=52, zorder=5)
         ax.annotate(
-            f"{target}英镑/MWh：{value:.2f} kg/kW",
+            f"{target}英镑/MWh：{value:.2f} kg/kW-空间端",
             xy=(value, target),
             xytext=(8, 8),
             textcoords="offset points",
@@ -340,6 +340,7 @@ def plot_uk_benchmarks_zh(
         "Onshore wind",
         "Fixed offshore wind",
         "Floating offshore wind",
+        "Gas CCGT high load factor",
         "Gas with CCUS high load factor",
         "Nuclear Hinkley Point C public contract marker",
     ]
@@ -375,8 +376,8 @@ def plot_uk_benchmarks_zh(
     y_positions = np.arange(len(records))
     fig, ax = plt.subplots(figsize=(8.5, 5.3))
     fig.subplots_adjust(left=0.27, right=0.98, top=0.90, bottom=0.17)
-    ax.axvspan(*DECISION_BAND, color="#d7e8f5", alpha=0.55, label="SBSP决策区间")
-    ax.axvline(150, color="#d1495b", linestyle="--", linewidth=1.2, label="150英镑/MWh筛选上限")
+    ax.axvspan(*DECISION_BAND, color="#d7e8f5", alpha=0.55, label="本研究定义的SBSP决策区间")
+    ax.axvline(150, color="#d1495b", linestyle="--", linewidth=1.2, label="本研究定义的150英镑/MWh筛选线")
     color_map = {"generation": "#5878a8", "system": "#2e8b57", "contract": "#9b6a33"}
     for y_pos, (_, low, mid, high, kind) in zip(y_positions, records):
         color = color_map[kind]
@@ -388,14 +389,14 @@ def plot_uk_benchmarks_zh(
     ax.invert_yaxis()
     ax.set_xlim(35, 165)
     ax.set_xlabel("成本基准（英镑/MWh）")
-    ax.set_title("英国电力成本基准与SBSP决策区间", fontsize=12, weight="bold")
+    ax.set_title("英国电力成本基准与本研究定义的SBSP筛选区间", fontsize=12, weight="bold")
     ax.grid(axis="x", color="#d7dde5", linewidth=0.7)
     ax.grid(axis="y", visible=False)
     ax.legend(loc="lower right", fontsize=8, frameon=True)
     fig.text(
         0.01,
         0.01,
-        "DESNZ为2024年实际英镑；BEIS系统调整值为2018年实际英镑；Hinkley Point C为2012年名义合同价格。",
+        "DESNZ为2024年实际英镑；BEIS系统调整值为2018年实际英镑；Hinkley差价合约点以2012年价格表述并按CPI调整。",
         fontsize=7,
         color="#5d6d7e",
     )
@@ -420,7 +421,8 @@ def plot_break_even_frontier_zh(rows: list[dict[str, object]], output_path: str 
 
     cmap = matplotlib.colormaps["YlGnBu"].copy()
     cmap.set_bad("#e9eef3")
-    fig, ax = plt.subplots(figsize=(8.5, 4.2), constrained_layout=True)
+    fig, ax = plt.subplots(figsize=(8.5, 4.4))
+    fig.subplots_adjust(left=0.11, right=0.98, top=0.86, bottom=0.23)
     ax.imshow(matrix, cmap=cmap, vmin=20, vmax=max(320, float(np.nanmax(matrix))), aspect="auto")
     ax.set_title("达到各LCOE目标所允许的最高发射成本", fontsize=12, weight="bold")
     ax.set_xticks(np.arange(len(targets)), [str(target) for target in targets])
@@ -437,7 +439,7 @@ def plot_break_even_frontier_zh(rows: list[dict[str, object]], output_path: str 
     ax.set_yticks(np.arange(-0.5, len(efficiencies), 1), minor=True)
     ax.grid(which="minor", color="white", linewidth=1.2)
     ax.tick_params(which="minor", bottom=False, left=False)
-    fig.text(0.01, 0.01, "破折号表示在20-5,000英镑/kg发射成本探索范围内没有解。", fontsize=7, color="#5d6d7e")
+    fig.text(0.11, 0.04, "破折号表示在20-5,000英镑/kg发射成本探索范围内没有解。", fontsize=7, color="#5d6d7e")
     fig.savefig(output_path, dpi=FIGURE_DPI)
     plt.close(fig)
 
@@ -456,8 +458,8 @@ def plot_combined_progress_frontier_zh(rows: list[dict[str, object]], output_pat
         "达到各LCOE目标所需的模型内联合改善幅度",
         ylabel="从参考值向有利边界移动的归一化幅度（%）",
     )
-    ax.axvspan(*DECISION_BAND, color="#d7e8f5", alpha=0.55, label="80-120英镑/MWh决策区间")
-    ax.axvline(150, color="#d1495b", linestyle="--", linewidth=1.0, label="150英镑/MWh筛选上限")
+    ax.axvspan(*DECISION_BAND, color="#d7e8f5", alpha=0.55, label="本研究定义的80-120英镑/MWh区间")
+    ax.axvline(150, color="#d1495b", linestyle="--", linewidth=1.0, label="本研究定义的150英镑/MWh筛选线")
     ax.plot(targets, movement, color="#6f4e9b", marker="o", linewidth=2.4)
     ax.set_xlabel("SBSP目标LCOE（英镑/MWh）")
     ax.set_ylim(0, min(100, max(movement) * 1.25))
@@ -478,8 +480,8 @@ def plot_one_way_lcoe_floors_zh(rows: list[dict[str, object]], output_path: str 
 
     fig, ax = plt.subplots(figsize=(8.8, 5.8), constrained_layout=True)
     ax.axvspan(*SYSTEM_ADJUSTED_RENEWABLE_BAND, color="#2e8b57", alpha=0.11, label="BEIS系统调整区间")
-    ax.axvspan(*DECISION_BAND, color="#d7e8f5", alpha=0.55, label="80-120英镑/MWh决策区间")
-    ax.axvline(150, color="#d1495b", linestyle="--", linewidth=1.2, label="150英镑/MWh筛选上限")
+    ax.axvspan(*DECISION_BAND, color="#d7e8f5", alpha=0.55, label="本研究定义的80-120英镑/MWh区间")
+    ax.axvline(150, color="#d1495b", linestyle="--", linewidth=1.2, label="本研究定义的150英镑/MWh筛选线")
     ax.hlines(y_positions, best, reference, color="#aab7c4", linewidth=2.0)
     colors = ["#2e8b57" if value <= 150 else "#0b5cad" if value <= 220 else "#7f8c8d" for value in best]
     ax.scatter(best, y_positions, c=colors, s=48, zorder=4)
@@ -500,7 +502,7 @@ def plot_one_way_lcoe_floors_zh(rows: list[dict[str, object]], output_path: str 
     ax.invert_yaxis()
     ax.set_xlim(40, 455)
     ax.set_xlabel("探索范围内的最佳一维LCOE（英镑/MWh）")
-    ax.set_title("只有比质量能够单独通过150英镑/MWh筛选线", fontsize=12, weight="bold")
+    ax.set_title("在所选范围内，仅比质量能够单独通过150英镑/MWh筛选线", fontsize=12, weight="bold")
     ax.grid(axis="x", color="#d7dde5", linewidth=0.7)
     ax.grid(axis="y", visible=False)
     ax.legend(loc="lower left", fontsize=8, frameon=True)
@@ -560,8 +562,8 @@ def plot_cost_component_waterfall_zh(reference: dict[str, float], output_path: s
     total = sum(values)
 
     fig, ax = plt.subplots(figsize=(8.5, 3.8), constrained_layout=True)
-    ax.axvspan(*DECISION_BAND, color="#d7e8f5", alpha=0.55, label="80-120英镑/MWh决策区间")
-    ax.axvline(150, color="#d1495b", linestyle="--", linewidth=1.2, label="150英镑/MWh筛选上限")
+    ax.axvspan(*DECISION_BAND, color="#d7e8f5", alpha=0.55, label="本研究定义的80-120英镑/MWh区间")
+    ax.axvline(150, color="#d1495b", linestyle="--", linewidth=1.2, label="本研究定义的150英镑/MWh筛选线")
     left = 0.0
     for label, value, color in zip(labels, values, colors):
         ax.barh([0], [value], left=left, height=0.48, color=color, label=label)

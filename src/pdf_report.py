@@ -12,14 +12,38 @@ from reportlab.lib.units import inch
 from reportlab.pdfbase import pdfmetrics
 from reportlab.pdfbase.cidfonts import UnicodeCIDFont
 from reportlab.pdfbase.ttfonts import TTFont
-from reportlab.platypus import Image, KeepTogether, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
+from reportlab.platypus import CondPageBreak, Image, KeepTogether, PageBreak, Paragraph, SimpleDocTemplate, Spacer, Table, TableStyle
 
 
 def _clean_inline(text: str) -> str:
+    text = text.replace("&", "&amp;")
+    text = re.sub(
+        r"\[([^\]]+)\]\(([^)]+)\)",
+        r'<a href="\2" color="#0b5cad"><u>\1</u></a>',
+        text,
+    )
     text = re.sub(r"`([^`]+)`", r"\1", text)
     text = re.sub(r"\*\*([^*]+)\*\*", r"<b>\1</b>", text)
     text = re.sub(r"\*([^*]+)\*", r"\1", text)
-    return text.replace("&", "&amp;")
+    return text
+
+
+class _ReportDocTemplate(SimpleDocTemplate):
+    """Simple document template with PDF outline bookmarks for headings."""
+
+    def afterFlowable(self, flowable: object) -> None:
+        if not isinstance(flowable, Paragraph):
+            return
+        levels = {"Title": 0, "Heading1": 0, "Heading2": 1, "Heading3": 2}
+        style_name = flowable.style.name
+        if style_name not in levels:
+            return
+        text = flowable.getPlainText()
+        bookmark_count = getattr(self, "_bookmark_count", 0) + 1
+        self._bookmark_count = bookmark_count
+        key = f"heading-{bookmark_count}"
+        self.canv.bookmarkPage(key)
+        self.canv.addOutlineEntry(text, key, level=levels[style_name], closed=False)
 
 
 def _register_cjk_font() -> str:
@@ -84,11 +108,13 @@ def _table_from_lines(
     else:
         weights = [1.0 / n_cols] * n_cols
     col_widths = [max_width * weight for weight in weights]
+    table_font_size = 7.9 if n_cols == 4 else (8.0 if n_cols >= 5 else 8.3)
+    table_leading = 9.4 if n_cols == 4 else (9.8 if n_cols >= 5 else 10.2)
     table_body_style = ParagraphStyle(
         "TableCell",
         parent=body_style,
-        fontSize=8.0 if n_cols >= 5 else 8.3,
-        leading=9.8 if n_cols >= 5 else 10.2,
+        fontSize=table_font_size,
+        leading=table_leading,
     )
     data = [[Paragraph(_clean_inline(cell), table_body_style) for cell in row] for row in normalized]
     table = Table(data, colWidths=col_widths, repeatRows=1)
@@ -100,8 +126,8 @@ def _table_from_lines(
         ("FONTNAME", (0, 0), (-1, 0), header_font),
         ("LEFTPADDING", (0, 0), (-1, -1), 4),
         ("RIGHTPADDING", (0, 0), (-1, -1), 4),
-        ("TOPPADDING", (0, 0), (-1, -1), 3),
-        ("BOTTOMPADDING", (0, 0), (-1, -1), 3),
+        ("TOPPADDING", (0, 0), (-1, -1), 2.5),
+        ("BOTTOMPADDING", (0, 0), (-1, -1), 2.5),
     ]
     for row_index in range(2, len(data), 2):
         style_commands.append(("BACKGROUND", (0, row_index), (-1, row_index), colors.HexColor("#f7f9fb")))
@@ -112,7 +138,7 @@ def _table_from_lines(
 def build_pdf(
     markdown_path: str | Path,
     output_path: str | Path,
-    title: str = "UK Space-Based Solar Power Cost-Threshold Assessment",
+    title: str = "UK Space-Based Solar Power Cost-Condition Map",
     cjk: bool = False,
 ) -> None:
     markdown_path = Path(markdown_path)
@@ -136,8 +162,10 @@ def build_pdf(
     styles["Title"].leading = 24
     styles["Heading1"].fontSize = 15
     styles["Heading1"].leading = 18
+    styles["Heading1"].keepWithNext = 1
     styles["Heading2"].fontSize = 11.5
     styles["Heading2"].leading = 14
+    styles["Heading2"].keepWithNext = 1
     styles["Heading3"].fontSize = 10.5
     styles["Heading3"].leading = 13
 
@@ -171,7 +199,7 @@ def build_pdf(
         if not line:
             flush_paragraph()
             continue
-        if line == "[[PAGEBREAK]]":
+        if line.strip() in {"[[PAGEBREAK]]", "<!-- PAGEBREAK -->"}:
             flush_paragraph()
             story.append(PageBreak())
             continue
@@ -181,8 +209,11 @@ def build_pdf(
             story.append(Spacer(1, 0.18 * inch))
         elif line.startswith("## "):
             flush_paragraph()
+            heading_text = line[3:]
+            minimum_following_space = 2.75 if re.match(r"[678]\.\s", heading_text) else 2.0
+            story.append(CondPageBreak(minimum_following_space * inch))
             story.append(Spacer(1, 0.12 * inch))
-            story.append(Paragraph(_clean_inline(line[3:]), styles["Heading1"]))
+            story.append(Paragraph(_clean_inline(heading_text), styles["Heading1"]))
         elif line.startswith("### "):
             flush_paragraph()
             story.append(Paragraph(_clean_inline(line[4:]), styles["Heading2"]))
@@ -192,7 +223,6 @@ def build_pdf(
             if match:
                 image_path = (markdown_path.parent / match.group("path")).resolve()
                 if image_path.exists():
-                    story.append(Spacer(1, 0.08 * inch))
                     image_heading = Paragraph(_clean_inline(match.group("caption")), styles["Heading2"])
                     img = Image(str(image_path))
                     max_width = 6.6 * inch
@@ -200,7 +230,7 @@ def build_pdf(
                     scale = min(max_width / img.imageWidth, max_height / img.imageHeight)
                     img.drawWidth = img.imageWidth * scale
                     img.drawHeight = img.imageHeight * scale
-                    story.append(KeepTogether([image_heading, img]))
+                    story.append(KeepTogether([Spacer(1, 0.08 * inch), image_heading, img]))
                     story.append(Spacer(1, 0.08 * inch))
         elif line.startswith("- "):
             flush_paragraph()
@@ -233,7 +263,7 @@ def build_pdf(
     flush_paragraph()
     flush_table()
 
-    doc = SimpleDocTemplate(
+    doc = _ReportDocTemplate(
         str(output_path),
         pagesize=A4,
         leftMargin=0.55 * inch,
@@ -241,6 +271,9 @@ def build_pdf(
         topMargin=0.55 * inch,
         bottomMargin=0.55 * inch,
         title=title,
+        author="Wenyu Gao",
+        subject="Reproducible bilingual UK SBSP cost-condition threshold assessment",
+        keywords="space-based solar power, SBSP, LCOE, threshold analysis, United Kingdom",
     )
     def _draw_later_page(canvas, doc_obj) -> None:
         canvas.saveState()

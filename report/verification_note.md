@@ -1,67 +1,34 @@
 # Verification Note
 
-## Verification completed
+Version: v1.2
 
-- Loaded and validated the parameter, generation-benchmark and system-adjusted benchmark CSVs.
-- Validated all raw XLSX evidence files as genuine workbook containers.
-- Reconciled reference LCOE, initial CAPEX, annual costs and delivered electricity.
-- Checked one-way thresholds, true reference markers and combined-frontier outputs.
-- Regenerated aligned English and Chinese figures, Markdown reports and PDF reports.
-- Checked report numbering, required outputs and non-empty files.
-- final_report_EN.pdf built with current Python reportlab installation.
-- final_report_zh.pdf built with current Python reportlab installation.
+Evidence review date: 2026-07-19
 
-## Refinement changes
+Overall automated status: **PASS**
 
-- Reduced the main report to seven decision-led sections with compact tables and a complete audit appendix.
-- Replaced high-range main curves with one-way floors, a specific-mass decision-window view and a launch-efficiency matrix.
-- Displayed UK benchmarks as intervals with explicit price bases and a separate 80-120 GBP/MWh decision region.
-- Masked contour values above 220 GBP/MWh and highlighted the 80, 100, 120 and 150 GBP/MWh cost lines.
-- Corrected reference markers, CAPEX reconciliation and the invalid raw-workbook placeholder.
-- Improved PDF table widths, prevented the CAPEX table from splitting and removed repeated assumption-classification text.
-- Aligned all chart labels and report content across English and Chinese outputs.
-- Archived the superseded unlabelled report files under report/archive/.
+Table 1. Verification categories
 
-## Evidence limits
+| Category | Status | Evidence |
+| --- | --- | --- |
+| Numerical model | PASS | Reference CAPEX and annual-cost identities reconcile; root-solved thresholds are written with their target residuals. |
+| Input data structure | PASS | CSV record lengths, headers, required parameter bounds and official XLSX parseability were checked. |
+| Source and benchmark traceability | PASS | Source foreign keys resolve; exact SBSP inputs are study-authored; selected DESNZ 2025 cells reconcile to the benchmark CSV. |
+| Bilingual numerical parity | PASS | Both Markdown reports contain the shared version, reference LCOE, mass thresholds and coupled-frontier percentages. |
+| Output completeness | PASS | Checked 71 expected files, generated CSV row/schema invariants, decodable PNGs and seven resolved main figures per report. |
+| PDF structure | PASS | Both PDFs were parsed, checked for a minimum page count and checked for extractable text. |
 
-- The latest DESNZ generation-cost data does not provide a directly comparable updated generic nuclear LCOE.
-- The latest DESNZ generation-cost report excludes wider system costs; BEIS 2020 enhanced LCOE ranges are used as the system-adjusted benchmark.
-- The wider high-renewable system-pressure comparator remains qualitative because grid, storage, curtailment and backup costs are not directly comparable single LCOE values in the cited evidence.
-- System-adjusted costs remain indicative comparators rather than direct market prices.
-- SBSP architecture parameters remain exploratory because commercial-scale SBSP has not been deployed.
-
-## Model uncertainties
+## Known warnings and residual uncertainty
 
 - Actual orbital mass, assembly cost, replacement rate and end-to-end efficiency remain architecture-dependent.
-- System value of SBSP as firm low-carbon power requires full UK power-system modelling and is not monetised in this LCOE model.
-- Real cost of capital would depend on technology maturity, support mechanism and risk allocation.
-- Alternative combined frontiers are illustrative parameter-space slices, not engineering roadmaps or predictions.
+- BEIS 2018-real-GBP system-adjusted values and DESNZ 2024-real-GBP generation values are disclosed but not price-normalised.
+- System value requires a full GB power-system model and is not monetised here.
+- PDF visual quality is verified separately during release review; the pipeline checks structure and extractable content.
 
-## Acceptance Criteria Status
+## Reproduction commands
 
-| Criterion | Status |
-| --- | --- |
-| A: no fixed-year SBSP forecast | satisfied |
-| B: no named deployment-case framing | satisfied |
-| C: reference point and limitations explained | satisfied |
-| D: UK system-cost benchmark discussion improved | satisfied |
-| E: continuous curves and 2D contours generated | satisfied |
-| F: break-even threshold tables generated | satisfied |
-| G: external numerical inputs cited or labelled | satisfied |
-| H: model thresholds, feasibility, readiness and system value distinguished | satisfied |
-| I: English and Chinese final reports generated | satisfied |
-| J: reproducible repository structure | satisfied |
-| K: key figures integrated into analytical sections | satisfied |
-| L: full one-way diagnostic retained in Appendix A | satisfied |
-| M: BEIS 45-87 comparator treated as conservative rather than definitive | satisfied |
-| N: industry-style front matter and title page added | satisfied |
-| O: executive decision summary and limitations section added | satisfied |
-| P: figure and table numbering standardized | satisfied |
-| Q: appendices A-C structured for secondary figures, sources and assumptions | satisfied |
-| R: analytical content preserved while presentation was refined | satisfied |
-| S: raw XLSX evidence files validated as real workbook containers | satisfied |
-| T: main charts prioritise the decision-cost window | satisfied |
-| English PDF report | satisfied |
-| Chinese PDF report | satisfied |
+- `python -m unittest discover -s tests -v`
+- `python analysis/run_full_analysis.py`
 
-Overall status: all acceptance criteria are satisfied. For this release, both PDFs were rendered to PNG pages with Poppler and inspected for missing pages, font rendering, clipping, table overflow and chart-label legibility.
+## Interpretation
+
+`PASS` means the recorded automated checks completed for the current generated files. It does not prove engineering feasibility or eliminate judgement in exploratory ranges. PDF structural checks confirm that documents can be opened and contain the expected pages and text; visual release QA remains a separate human inspection step.
