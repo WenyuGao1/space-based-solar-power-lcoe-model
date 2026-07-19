@@ -150,7 +150,7 @@ def plot_specific_mass_threshold_focus(
         ax.axhline(target, color=colors[target], linestyle="--", linewidth=1.0, alpha=0.65)
         ax.scatter([value], [target], color=colors[target], edgecolor="white", linewidth=0.8, s=52, zorder=5)
         ax.annotate(
-            f"{target} GBP/MWh at {value:.2f} kg/kW",
+            f"{target} GBP/MWh at {value:.2f} kg/kW-space",
             xy=(value, target),
             xytext=(8, 8),
             textcoords="offset points",
@@ -257,6 +257,7 @@ def plot_uk_benchmarks(
         "Onshore wind",
         "Fixed offshore wind",
         "Floating offshore wind",
+        "Gas CCGT high load factor",
         "Gas with CCUS high load factor",
         "Nuclear Hinkley Point C public contract marker",
     ]
@@ -292,8 +293,8 @@ def plot_uk_benchmarks(
     y_positions = np.arange(len(records))
     fig, ax = plt.subplots(figsize=(8.5, 5.3))
     fig.subplots_adjust(left=0.27, right=0.98, top=0.90, bottom=0.17)
-    ax.axvspan(*DECISION_BAND, color="#d7e8f5", alpha=0.55, label="SBSP decision region")
-    ax.axvline(150, color="#d1495b", linestyle="--", linewidth=1.2, label="150 screening ceiling")
+    ax.axvspan(*DECISION_BAND, color="#d7e8f5", alpha=0.55, label="Study-defined SBSP decision region")
+    ax.axvline(150, color="#d1495b", linestyle="--", linewidth=1.2, label="Study-defined 150 screen")
     color_map = {"generation": "#5878a8", "system": "#2e8b57", "contract": "#9b6a33"}
     for y_pos, (_, low, mid, high, kind) in zip(y_positions, records):
         color = color_map[kind]
@@ -305,14 +306,14 @@ def plot_uk_benchmarks(
     ax.invert_yaxis()
     ax.set_xlim(35, 165)
     ax.set_xlabel("Cost benchmark (GBP/MWh)")
-    ax.set_title("UK electricity cost benchmarks and the SBSP decision region", fontsize=12, weight="bold")
+    ax.set_title("UK electricity cost benchmarks and the study-defined SBSP screen", fontsize=12, weight="bold")
     ax.grid(axis="x", color="#d7dde5", linewidth=0.7)
     ax.grid(axis="y", visible=False)
     ax.legend(loc="lower right", fontsize=8, frameon=True)
     fig.text(
         0.01,
         0.01,
-        "DESNZ values are 2024 real GBP; BEIS system-adjusted values are 2018 real GBP; the Hinkley marker is 2012 nominal GBP.",
+        "DESNZ values are 2024 real GBP; BEIS system-adjusted values are 2018 real GBP; the Hinkley CfD marker is in 2012 prices and CPI-indexed.",
         fontsize=7,
         color="#5d6d7e",
     )
@@ -337,7 +338,8 @@ def plot_break_even_frontier(rows: list[dict[str, object]], output_path: str | P
 
     cmap = matplotlib.colormaps["YlGnBu"].copy()
     cmap.set_bad("#e9eef3")
-    fig, ax = plt.subplots(figsize=(8.5, 4.2), constrained_layout=True)
+    fig, ax = plt.subplots(figsize=(8.5, 4.4))
+    fig.subplots_adjust(left=0.11, right=0.98, top=0.86, bottom=0.23)
     ax.imshow(matrix, cmap=cmap, vmin=20, vmax=max(320, float(np.nanmax(matrix))), aspect="auto")
     ax.set_title("Maximum launch cost meeting each LCOE target", fontsize=12, weight="bold")
     ax.set_xticks(np.arange(len(targets)), [str(target) for target in targets])
@@ -354,7 +356,7 @@ def plot_break_even_frontier(rows: list[dict[str, object]], output_path: str | P
     ax.set_yticks(np.arange(-0.5, len(efficiencies), 1), minor=True)
     ax.grid(which="minor", color="white", linewidth=1.2)
     ax.tick_params(which="minor", bottom=False, left=False)
-    fig.text(0.01, 0.01, "A dash means no solution within the explored 20-5,000 GBP/kg launch-cost range.", fontsize=7, color="#5d6d7e")
+    fig.text(0.11, 0.04, "A dash means no solution within the explored 20-5,000 GBP/kg launch-cost range.", fontsize=7, color="#5d6d7e")
     fig.savefig(output_path, dpi=FIGURE_DPI)
     plt.close(fig)
 
@@ -373,8 +375,8 @@ def plot_combined_progress_frontier(rows: list[dict[str, object]], output_path: 
         "Model-normalised joint improvement needed for each target",
         ylabel="Movement from reference values toward favourable bounds (%)",
     )
-    ax.axvspan(*DECISION_BAND, color="#d7e8f5", alpha=0.55, label="80-120 decision region")
-    ax.axvline(150, color="#d1495b", linestyle="--", linewidth=1.0, label="150 screening ceiling")
+    ax.axvspan(*DECISION_BAND, color="#d7e8f5", alpha=0.55, label="Study-defined 80-120 GBP/MWh region")
+    ax.axvline(150, color="#d1495b", linestyle="--", linewidth=1.0, label="Study-defined 150 GBP/MWh screen")
     ax.plot(targets, movement, color="#6f4e9b", marker="o", linewidth=2.4)
     ax.set_xlabel("Target SBSP LCOE (GBP/MWh)")
     ax.set_ylim(0, min(100, max(movement) * 1.25))
@@ -395,8 +397,8 @@ def plot_one_way_lcoe_floors(rows: list[dict[str, object]], output_path: str | P
 
     fig, ax = plt.subplots(figsize=(8.8, 5.8), constrained_layout=True)
     ax.axvspan(*SYSTEM_ADJUSTED_RENEWABLE_BAND, color="#2e8b57", alpha=0.11, label="BEIS system-adjusted range")
-    ax.axvspan(*DECISION_BAND, color="#d7e8f5", alpha=0.55, label="80-120 decision region")
-    ax.axvline(150, color="#d1495b", linestyle="--", linewidth=1.2, label="150 screening ceiling")
+    ax.axvspan(*DECISION_BAND, color="#d7e8f5", alpha=0.55, label="Study-defined 80-120 GBP/MWh region")
+    ax.axvline(150, color="#d1495b", linestyle="--", linewidth=1.2, label="Study-defined 150 GBP/MWh screen")
     ax.hlines(y_positions, best, reference, color="#aab7c4", linewidth=2.0)
     colors = ["#2e8b57" if value <= 150 else "#0b5cad" if value <= 220 else "#7f8c8d" for value in best]
     ax.scatter(best, y_positions, c=colors, s=48, zorder=4)
@@ -417,7 +419,7 @@ def plot_one_way_lcoe_floors(rows: list[dict[str, object]], output_path: str | P
     ax.invert_yaxis()
     ax.set_xlim(40, 455)
     ax.set_xlabel("Best one-way LCOE within the explored range (GBP/MWh)")
-    ax.set_title("Only specific mass reaches the 150 GBP/MWh screen on its own", fontsize=12, weight="bold")
+    ax.set_title("Within selected ranges, only specific mass crosses the 150 GBP/MWh screen", fontsize=12, weight="bold")
     ax.grid(axis="x", color="#d7dde5", linewidth=0.7)
     ax.grid(axis="y", visible=False)
     ax.legend(loc="lower left", fontsize=8, frameon=True)
@@ -477,8 +479,8 @@ def plot_cost_component_waterfall(reference: dict[str, float], output_path: str 
     total = sum(values)
 
     fig, ax = plt.subplots(figsize=(8.5, 3.8), constrained_layout=True)
-    ax.axvspan(*DECISION_BAND, color="#d7e8f5", alpha=0.55, label="80-120 decision region")
-    ax.axvline(150, color="#d1495b", linestyle="--", linewidth=1.2, label="150 screening ceiling")
+    ax.axvspan(*DECISION_BAND, color="#d7e8f5", alpha=0.55, label="Study-defined 80-120 GBP/MWh region")
+    ax.axvline(150, color="#d1495b", linestyle="--", linewidth=1.2, label="Study-defined 150 GBP/MWh screen")
     left = 0.0
     for label, value, color in zip(labels, values, colors):
         ax.barh([0], [value], left=left, height=0.48, color=color, label=label)

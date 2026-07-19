@@ -1,21 +1,21 @@
-end_to_end_efficiency,target_lcoe_gbp_per_mwh,max_launch_cost_gbp_per_kg,status
-0.2,150,,not feasible within explored launch range
-0.2,120,,not feasible within explored launch range
-0.2,100,,not feasible within explored launch range
-0.2,80,,not feasible within explored launch range
-0.2,60,,not feasible within explored launch range
-0.25,150,108.644,feasible
-0.25,120,,not feasible within explored launch range
-0.25,100,,not feasible within explored launch range
-0.25,80,,not feasible within explored launch range
-0.25,60,,not feasible within explored launch range
-0.3,150,210.236,feasible
-0.3,120,82.74799999999999,feasible
-0.3,100,,not feasible within explored launch range
-0.3,80,,not feasible within explored launch range
-0.3,60,,not feasible within explored launch range
-0.35,150,311.828,feasible
-0.35,120,163.424,feasible
-0.35,100,63.824,feasible
-0.35,80,,not feasible within explored launch range
-0.35,60,,not feasible within explored launch range
+end_to_end_efficiency,target_lcoe_gbp_per_mwh,max_launch_cost_gbp_per_kg,lcoe_at_threshold_gbp_per_mwh,solution_method,status
+0.2,150,,,monotonic bisection,not feasible within explored launch range
+0.2,120,,,monotonic bisection,not feasible within explored launch range
+0.2,100,,,monotonic bisection,not feasible within explored launch range
+0.2,80,,,monotonic bisection,not feasible within explored launch range
+0.2,60,,,monotonic bisection,not feasible within explored launch range
+0.25,150,109.11194809994959,150.0,monotonic bisection,feasible
+0.25,120,,,monotonic bisection,not feasible within explored launch range
+0.25,100,,,monotonic bisection,not feasible within explored launch range
+0.25,80,,,monotonic bisection,not feasible within explored launch range
+0.25,60,,,monotonic bisection,not feasible within explored launch range
+0.3,150,210.93433771993946,150.0,monotonic bisection,feasible
+0.3,120,83.1926361444416,119.99999999999999,monotonic bisection,feasible
+0.3,100,,,monotonic bisection,not feasible within explored launch range
+0.3,80,,,monotonic bisection,not feasible within explored launch range
+0.3,60,,,monotonic bisection,not feasible within explored launch range
+0.35,150,312.75672733992934,150.0,monotonic bisection,feasible
+0.35,120,163.72474216851518,119.99999999999999,monotonic bisection,feasible
+0.35,100,64.37008538757236,100.0,monotonic bisection,feasible
+0.35,80,,,monotonic bisection,not feasible within explored launch range
+0.35,60,,,monotonic bisection,not feasible within explored launch range

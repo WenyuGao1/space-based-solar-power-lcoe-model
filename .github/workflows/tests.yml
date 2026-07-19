@@ -28,3 +28,6 @@ jobs:
 
       - name: Run the complete reproducibility pipeline
         run: python analysis/run_full_analysis.py
+
+      - name: Check deterministic analytical artifacts for drift
+        run: git diff --exit-code -- data/processed report/final_report_EN.md report/final_report_zh.md report/verification_note.md

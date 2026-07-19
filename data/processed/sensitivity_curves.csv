@@ -302,6 +302,107 @@ space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.8515,847.4
 space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.901,852.0727668591203
 space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,4.9505,856.7227753737551
 space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,5.0,861.3727838883898
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.02,421.73561523201073
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.0298,422.6562229783425
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.039599999999999996,423.57683072467415
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.0494,424.49743847100586
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.0592,425.4180462173377
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.069,426.33865396366934
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.0788,427.2592617100011
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.0886,428.1798694563329
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.0984,429.10047720266454
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.1082,430.0210849489963
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.11800000000000001,430.9416926953281
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.1278,431.8623004416597
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.1376,432.7829081879915
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.14739999999999998,433.70351593432326
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.15719999999999998,434.624123680655
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.16699999999999998,435.5447314269867
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.17679999999999998,436.4653391733184
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.1866,437.38594691965017
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.1964,438.30655466598193
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.2062,439.2271624123137
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.216,440.14777015864536
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.22579999999999997,441.0683779049771
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.23559999999999998,441.98898565130884
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.24539999999999998,442.90959339764055
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.2552,443.83020114397226
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.265,444.75080889030414
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.2748,445.6714166366358
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.2846,446.5920243829675
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.2944,447.5126321292993
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.3042,448.433239875631
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.314,449.3538476219627
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.32380000000000003,450.2744553682945
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.3336,451.1950631146262
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.3434,452.1156708609579
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.3532,453.0362786072897
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.363,453.95688635362137
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.3728,454.8774940999531
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.3826,455.79810184628496
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.3924,456.7187095926166
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.4022,457.63931733894833
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.41200000000000003,458.5599250852801
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.4218,459.48053283161175
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.4316,460.4011405779435
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.4414,461.32174832427535
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.4512,462.242356070607
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.461,463.1629638169387
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.4708,464.08357156327054
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.4806,465.0041793096022
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.4904,465.9247870559339
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.5002,466.8453948022656
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.51,467.76600254859744
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.5197999999999999,468.68661029492915
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.5296,469.60721804126086
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.5394,470.5278257875926
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.5492,471.44843353392434
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.559,472.3690412802561
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.5688,473.28964902658777
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.5786,474.21025677291954
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.5884,475.13086451925136
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.5982,476.051472265583
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.608,476.9720800119147
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.6178,477.8926877582465
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.6276,478.81329550457815
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.6374,479.73390325091
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.6472,480.65451099724174
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.657,481.5751187435734
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.6668,482.4957264899051
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.6766,483.41633423623693
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.6864,484.3369419825686
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.6962,485.25754972890036
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.706,486.1781574752322
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.7158,487.09876522156384
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.7256,488.0193729678956
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.7353999999999999,488.93998071422726
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.7452,489.860588460559
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.755,490.78119620689085
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.7648,491.7018039532225
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.7746,492.6224116995542
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.7844,493.54301944588605
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.7942,494.4636271922177
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.804,495.3842349385494
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.8138,496.3048426848812
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.8236,497.2254504312129
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.8334,498.1460581775446
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.8432,499.0666659238764
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.853,499.9872736702081
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.8628,500.9078814165398
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.8726,501.8284891628716
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.8824,502.74909690920333
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.8922,503.66970465553504
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.902,504.5903124018668
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.9117999999999999,505.51092014819847
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.9216,506.43152789453023
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.9314,507.352135640862
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.9412,508.27274338719366
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.951,509.1933511335254
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.9608,510.11395887985725
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.9706,511.0345666261889
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.9803999999999999,511.9551743725206
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,0.9902,512.8757821188525
+wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,1.0,513.7963898651841
 end_to_end_efficiency,End-to-end efficiency,fraction,0.05,1274.706874078148
 end_to_end_efficiency,End-to-end efficiency,fraction,0.053000000000000005,1202.9228661335287
 end_to_end_efficiency,End-to-end efficiency,fraction,0.056,1138.8300018972618
@@ -403,107 +504,107 @@ end_to_end_efficiency,End-to-end efficiency,fraction,0.34099999999999997,192.473
 end_to_end_efficiency,End-to-end efficiency,fraction,0.344,190.85182389107734
 end_to_end_efficiency,End-to-end efficiency,fraction,0.347,189.25820063314185
 end_to_end_efficiency,End-to-end efficiency,fraction,0.35,187.69189663105675
-wacc,WACC / discount rate,fraction,0.03,311.57421528731203
-wacc,WACC / discount rate,fraction,0.0309,314.31525573952536
-wacc,WACC / discount rate,fraction,0.0318,317.07267939898725
-wacc,WACC / discount rate,fraction,0.0327,319.84638698142
-wacc,WACC / discount rate,fraction,0.0336,322.63627778286536
-wacc,WACC / discount rate,fraction,0.034499999999999996,325.4422497246757
-wacc,WACC / discount rate,fraction,0.0354,328.26419939859403
-wacc,WACC / discount rate,fraction,0.0363,331.1020221119233
-wacc,WACC / discount rate,fraction,0.0372,333.95561193272147
-wacc,WACC / discount rate,fraction,0.038099999999999995,336.82486173501366
-wacc,WACC / discount rate,fraction,0.039,339.7096632439782
-wacc,WACC / discount rate,fraction,0.0399,342.60990708107
-wacc,WACC / discount rate,fraction,0.0408,345.52548280906944
-wacc,WACC / discount rate,fraction,0.0417,348.45627897700047
-wacc,WACC / discount rate,fraction,0.0426,351.402183164917
-wacc,WACC / discount rate,fraction,0.0435,354.363082028501
-wacc,WACC / discount rate,fraction,0.044399999999999995,357.3388613434706
-wacc,WACC / discount rate,fraction,0.0453,360.32940604974607
-wacc,WACC / discount rate,fraction,0.0462,363.33460029536764
-wacc,WACC / discount rate,fraction,0.0471,366.3543274801296
-wacc,WACC / discount rate,fraction,0.048,369.3884702989014
-wacc,WACC / discount rate,fraction,0.0489,372.4369107846258
-wacc,WACC / discount rate,fraction,0.0498,375.4995303509529
-wacc,WACC / discount rate,fraction,0.050699999999999995,378.57620983450516
-wacc,WACC / discount rate,fraction,0.0516,381.6668295367345
-wacc,WACC / discount rate,fraction,0.0525,384.771269265367
-wacc,WACC / discount rate,fraction,0.0534,387.8894083753998
-wacc,WACC / discount rate,fraction,0.0543,391.02112580964274
-wacc,WACC / discount rate,fraction,0.0552,394.16630013878165
-wacc,WACC / discount rate,fraction,0.0561,397.3248096009406
-wacc,WACC / discount rate,fraction,0.056999999999999995,400.4965321407389
-wacc,WACC / discount rate,fraction,0.05789999999999999,403.68134544781094
-wacc,WACC / discount rate,fraction,0.0588,406.87912699479045
-wacc,WACC / discount rate,fraction,0.0597,410.08975407472803
-wacc,WACC / discount rate,fraction,0.0606,413.3131038379456
-wacc,WACC / discount rate,fraction,0.0615,416.54905332829776
-wacc,WACC / discount rate,fraction,0.0624,419.7974795188451
-wacc,WACC / discount rate,fraction,0.0633,423.0582593469126
-wacc,WACC / discount rate,fraction,0.06420000000000001,426.3312697485363
-wacc,WACC / discount rate,fraction,0.06509999999999999,429.6163876922809
-wacc,WACC / discount rate,fraction,0.066,432.9134902124196
-wacc,WACC / discount rate,fraction,0.0669,436.22245444147484
-wacc,WACC / discount rate,fraction,0.0678,439.54315764210247
-wacc,WACC / discount rate,fraction,0.0687,442.87547723832563
-wacc,WACC / discount rate,fraction,0.0696,446.2192908460983
-wacc,WACC / discount rate,fraction,0.07050000000000001,449.5744763032073
-wacc,WACC / discount rate,fraction,0.07139999999999999,452.9409116984986
-wacc,WACC / discount rate,fraction,0.0723,456.31847540042855
-wacc,WACC / discount rate,fraction,0.0732,459.7070460849381
-wacc,WACC / discount rate,fraction,0.0741,463.1065027626423
-wacc,WACC / discount rate,fraction,0.075,466.5167248053433
-wacc,WACC / discount rate,fraction,0.0759,469.9375919718518
-wacc,WACC / discount rate,fraction,0.07680000000000001,473.36898443313385
-wacc,WACC / discount rate,fraction,0.07769999999999999,476.81078279676433
-wacc,WACC / discount rate,fraction,0.0786,480.2628681307062
-wacc,WACC / discount rate,fraction,0.07949999999999999,483.72512198640067
-wacc,WACC / discount rate,fraction,0.0804,487.1974264211829
-wacc,WACC / discount rate,fraction,0.0813,490.67966402001724
-wacc,WACC / discount rate,fraction,0.0822,494.1717179165584
-wacc,WACC / discount rate,fraction,0.08310000000000001,497.6734718135429
-wacc,WACC / discount rate,fraction,0.08399999999999999,501.18481000250887
-wacc,WACC / discount rate,fraction,0.0849,504.70561738285903
-wacc,WACC / discount rate,fraction,0.08579999999999999,508.23577948025786
-wacc,WACC / discount rate,fraction,0.0867,511.7751824643803
-wacc,WACC / discount rate,fraction,0.0876,515.3237131660115
-wacc,WACC / discount rate,fraction,0.0885,518.8812590935015
-wacc,WACC / discount rate,fraction,0.08940000000000001,522.4477084485877
-wacc,WACC / discount rate,fraction,0.09029999999999999,526.0229501415845
-wacc,WACC / discount rate,fraction,0.0912,529.6068738059535
-wacc,WACC / discount rate,fraction,0.09209999999999999,533.1993698122534
-wacc,WACC / discount rate,fraction,0.093,536.8003292814883
-wacc,WACC / discount rate,fraction,0.0939,540.4096440978482
-wacc,WACC / discount rate,fraction,0.0948,544.0272069208636
-wacc,WACC / discount rate,fraction,0.0957,547.6529111969712
-wacc,WACC / discount rate,fraction,0.09659999999999999,551.2866511705055
-wacc,WACC / discount rate,fraction,0.0975,554.9283218941235
-wacc,WACC / discount rate,fraction,0.0984,558.5778192386695
-wacc,WACC / discount rate,fraction,0.0993,562.2350399024921
-wacc,WACC / discount rate,fraction,0.1002,565.899881420218
-wacc,WACC / discount rate,fraction,0.1011,569.5722421709983
-wacc,WACC / discount rate,fraction,0.102,573.2520213862294
-wacc,WACC / discount rate,fraction,0.10289999999999999,576.9391191567646
-wacc,WACC / discount rate,fraction,0.1038,580.6334364396205
-wacc,WACC / discount rate,fraction,0.1047,584.3348750641921
-wacc,WACC / discount rate,fraction,0.1056,588.043337737985
-wacc,WACC / discount rate,fraction,0.1065,591.758728051872
-wacc,WACC / discount rate,fraction,0.1074,595.4809504848896
-wacc,WACC / discount rate,fraction,0.1083,599.2099104085773
-wacc,WACC / discount rate,fraction,0.10919999999999999,602.9455140908773
-wacc,WACC / discount rate,fraction,0.1101,606.6876686995973
-wacc,WACC / discount rate,fraction,0.111,610.4362823054518
-wacc,WACC / discount rate,fraction,0.1119,614.1912638846892
-wacc,WACC / discount rate,fraction,0.1128,617.9525233213154
-wacc,WACC / discount rate,fraction,0.1137,621.719971408925
-wacc,WACC / discount rate,fraction,0.1146,625.4935198521463
-wacc,WACC / discount rate,fraction,0.11549999999999999,629.2730812677161
-wacc,WACC / discount rate,fraction,0.1164,633.0585691851874
-wacc,WACC / discount rate,fraction,0.1173,636.8498980472862
-wacc,WACC / discount rate,fraction,0.1182,640.6469832099215
-wacc,WACC / discount rate,fraction,0.1191,644.449740941863
-wacc,WACC / discount rate,fraction,0.12,648.2580884240916
+wacc,Real project discount-rate proxy,fraction,0.03,311.57421528731203
+wacc,Real project discount-rate proxy,fraction,0.0309,314.31525573952536
+wacc,Real project discount-rate proxy,fraction,0.0318,317.07267939898725
+wacc,Real project discount-rate proxy,fraction,0.0327,319.84638698142
+wacc,Real project discount-rate proxy,fraction,0.0336,322.63627778286536
+wacc,Real project discount-rate proxy,fraction,0.034499999999999996,325.4422497246757
+wacc,Real project discount-rate proxy,fraction,0.0354,328.26419939859403
+wacc,Real project discount-rate proxy,fraction,0.0363,331.1020221119233
+wacc,Real project discount-rate proxy,fraction,0.0372,333.95561193272147
+wacc,Real project discount-rate proxy,fraction,0.038099999999999995,336.82486173501366
+wacc,Real project discount-rate proxy,fraction,0.039,339.7096632439782
+wacc,Real project discount-rate proxy,fraction,0.0399,342.60990708107
+wacc,Real project discount-rate proxy,fraction,0.0408,345.52548280906944
+wacc,Real project discount-rate proxy,fraction,0.0417,348.45627897700047
+wacc,Real project discount-rate proxy,fraction,0.0426,351.402183164917
+wacc,Real project discount-rate proxy,fraction,0.0435,354.363082028501
+wacc,Real project discount-rate proxy,fraction,0.044399999999999995,357.3388613434706
+wacc,Real project discount-rate proxy,fraction,0.0453,360.32940604974607
+wacc,Real project discount-rate proxy,fraction,0.0462,363.33460029536764
+wacc,Real project discount-rate proxy,fraction,0.0471,366.3543274801296
+wacc,Real project discount-rate proxy,fraction,0.048,369.3884702989014
+wacc,Real project discount-rate proxy,fraction,0.0489,372.4369107846258
+wacc,Real project discount-rate proxy,fraction,0.0498,375.4995303509529
+wacc,Real project discount-rate proxy,fraction,0.050699999999999995,378.57620983450516
+wacc,Real project discount-rate proxy,fraction,0.0516,381.6668295367345
+wacc,Real project discount-rate proxy,fraction,0.0525,384.771269265367
+wacc,Real project discount-rate proxy,fraction,0.0534,387.8894083753998
+wacc,Real project discount-rate proxy,fraction,0.0543,391.02112580964274
+wacc,Real project discount-rate proxy,fraction,0.0552,394.16630013878165
+wacc,Real project discount-rate proxy,fraction,0.0561,397.3248096009406
+wacc,Real project discount-rate proxy,fraction,0.056999999999999995,400.4965321407389
+wacc,Real project discount-rate proxy,fraction,0.05789999999999999,403.68134544781094
+wacc,Real project discount-rate proxy,fraction,0.0588,406.87912699479045
+wacc,Real project discount-rate proxy,fraction,0.0597,410.08975407472803
+wacc,Real project discount-rate proxy,fraction,0.0606,413.3131038379456
+wacc,Real project discount-rate proxy,fraction,0.0615,416.54905332829776
+wacc,Real project discount-rate proxy,fraction,0.0624,419.7974795188451
+wacc,Real project discount-rate proxy,fraction,0.0633,423.0582593469126
+wacc,Real project discount-rate proxy,fraction,0.06420000000000001,426.3312697485363
+wacc,Real project discount-rate proxy,fraction,0.06509999999999999,429.6163876922809
+wacc,Real project discount-rate proxy,fraction,0.066,432.9134902124196
+wacc,Real project discount-rate proxy,fraction,0.0669,436.22245444147484
+wacc,Real project discount-rate proxy,fraction,0.0678,439.54315764210247
+wacc,Real project discount-rate proxy,fraction,0.0687,442.87547723832563
+wacc,Real project discount-rate proxy,fraction,0.0696,446.2192908460983
+wacc,Real project discount-rate proxy,fraction,0.07050000000000001,449.5744763032073
+wacc,Real project discount-rate proxy,fraction,0.07139999999999999,452.9409116984986
+wacc,Real project discount-rate proxy,fraction,0.0723,456.31847540042855
+wacc,Real project discount-rate proxy,fraction,0.0732,459.7070460849381
+wacc,Real project discount-rate proxy,fraction,0.0741,463.1065027626423
+wacc,Real project discount-rate proxy,fraction,0.075,466.5167248053433
+wacc,Real project discount-rate proxy,fraction,0.0759,469.9375919718518
+wacc,Real project discount-rate proxy,fraction,0.07680000000000001,473.36898443313385
+wacc,Real project discount-rate proxy,fraction,0.07769999999999999,476.81078279676433
+wacc,Real project discount-rate proxy,fraction,0.0786,480.2628681307062
+wacc,Real project discount-rate proxy,fraction,0.07949999999999999,483.72512198640067
+wacc,Real project discount-rate proxy,fraction,0.0804,487.1974264211829
+wacc,Real project discount-rate proxy,fraction,0.0813,490.67966402001724
+wacc,Real project discount-rate proxy,fraction,0.0822,494.1717179165584
+wacc,Real project discount-rate proxy,fraction,0.08310000000000001,497.6734718135429
+wacc,Real project discount-rate proxy,fraction,0.08399999999999999,501.18481000250887
+wacc,Real project discount-rate proxy,fraction,0.0849,504.70561738285903
+wacc,Real project discount-rate proxy,fraction,0.08579999999999999,508.23577948025786
+wacc,Real project discount-rate proxy,fraction,0.0867,511.7751824643803
+wacc,Real project discount-rate proxy,fraction,0.0876,515.3237131660115
+wacc,Real project discount-rate proxy,fraction,0.0885,518.8812590935015
+wacc,Real project discount-rate proxy,fraction,0.08940000000000001,522.4477084485877
+wacc,Real project discount-rate proxy,fraction,0.09029999999999999,526.0229501415845
+wacc,Real project discount-rate proxy,fraction,0.0912,529.6068738059535
+wacc,Real project discount-rate proxy,fraction,0.09209999999999999,533.1993698122534
+wacc,Real project discount-rate proxy,fraction,0.093,536.8003292814883
+wacc,Real project discount-rate proxy,fraction,0.0939,540.4096440978482
+wacc,Real project discount-rate proxy,fraction,0.0948,544.0272069208636
+wacc,Real project discount-rate proxy,fraction,0.0957,547.6529111969712
+wacc,Real project discount-rate proxy,fraction,0.09659999999999999,551.2866511705055
+wacc,Real project discount-rate proxy,fraction,0.0975,554.9283218941235
+wacc,Real project discount-rate proxy,fraction,0.0984,558.5778192386695
+wacc,Real project discount-rate proxy,fraction,0.0993,562.2350399024921
+wacc,Real project discount-rate proxy,fraction,0.1002,565.899881420218
+wacc,Real project discount-rate proxy,fraction,0.1011,569.5722421709983
+wacc,Real project discount-rate proxy,fraction,0.102,573.2520213862294
+wacc,Real project discount-rate proxy,fraction,0.10289999999999999,576.9391191567646
+wacc,Real project discount-rate proxy,fraction,0.1038,580.6334364396205
+wacc,Real project discount-rate proxy,fraction,0.1047,584.3348750641921
+wacc,Real project discount-rate proxy,fraction,0.1056,588.043337737985
+wacc,Real project discount-rate proxy,fraction,0.1065,591.758728051872
+wacc,Real project discount-rate proxy,fraction,0.1074,595.4809504848896
+wacc,Real project discount-rate proxy,fraction,0.1083,599.2099104085773
+wacc,Real project discount-rate proxy,fraction,0.10919999999999999,602.9455140908773
+wacc,Real project discount-rate proxy,fraction,0.1101,606.6876686995973
+wacc,Real project discount-rate proxy,fraction,0.111,610.4362823054518
+wacc,Real project discount-rate proxy,fraction,0.1119,614.1912638846892
+wacc,Real project discount-rate proxy,fraction,0.1128,617.9525233213154
+wacc,Real project discount-rate proxy,fraction,0.1137,621.719971408925
+wacc,Real project discount-rate proxy,fraction,0.1146,625.4935198521463
+wacc,Real project discount-rate proxy,fraction,0.11549999999999999,629.2730812677161
+wacc,Real project discount-rate proxy,fraction,0.1164,633.0585691851874
+wacc,Real project discount-rate proxy,fraction,0.1173,636.8498980472862
+wacc,Real project discount-rate proxy,fraction,0.1182,640.6469832099215
+wacc,Real project discount-rate proxy,fraction,0.1191,644.449740941863
+wacc,Real project discount-rate proxy,fraction,0.12,648.2580884240916
 rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.02,427.4189589721199
 rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.0298,427.5570501340697
 rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.039599999999999996,427.6951412960195
@@ -605,6 +706,107 @@ rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.9706,440.8138
 rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.9803999999999999,440.95189284319645
 rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,0.9902,441.0899840051462
 rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,1.0,441.22807516709594
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,20.0,428.12350571676154
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,22.8,428.1629603344615
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,25.6,428.2024149521614
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,28.4,428.24186956986136
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,31.2,428.2813241875613
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,34.0,428.3207788052612
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,36.8,428.3602334229612
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,39.599999999999994,428.3996880406611
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,42.4,428.439142658361
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,45.2,428.47859727606095
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,48.0,428.51805189376086
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,50.8,428.5575065114608
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,53.599999999999994,428.5969611291607
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,56.4,428.6364157468607
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,59.199999999999996,428.67587036456064
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,62.0,428.71532498226054
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,64.8,428.7547795999605
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,67.6,428.7942342176604
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,70.4,428.8336888353603
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,73.19999999999999,428.87314345306027
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,76.0,428.91259807076017
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,78.8,428.9520526884601
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,81.6,428.9915073061601
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,84.39999999999999,429.03096192386
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,87.19999999999999,429.07041654155995
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,90.0,429.10987115925985
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,92.8,429.14932577695976
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,95.6,429.1887803946597
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,98.39999999999999,429.2282350123596
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,101.19999999999999,429.2676896300596
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,104.0,429.3071442477595
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,106.8,429.34659886545944
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,109.6,429.3860534831594
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,112.39999999999999,429.4255081008593
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,115.19999999999999,429.46496271855926
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,118.0,429.5044173362592
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,120.8,429.54387195395907
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,123.6,429.58332657165903
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,126.39999999999999,429.62278118935893
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,129.2,429.6622358070589
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,132.0,429.70169042475885
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,134.8,429.74114504245875
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,137.6,429.7805996601587
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,140.39999999999998,429.8200542778586
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,143.2,429.8595088955586
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,146.0,429.8989635132585
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,148.79999999999998,429.9384181309584
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,151.6,429.97787274865834
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,154.39999999999998,430.01732736635824
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,157.2,430.0567819840582
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,160.0,430.09623660175816
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,162.79999999999998,430.13569121945807
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,165.6,430.175145837158
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,168.39999999999998,430.21460045485793
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,171.2,430.25405507255783
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,174.0,430.2935096902578
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,176.79999999999998,430.3329643079577
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,179.6,430.37241892565766
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,182.39999999999998,430.4118735433576
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,185.2,430.4513281610575
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,188.0,430.4907827787575
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,190.79999999999998,430.5302373964574
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,193.6,430.56969201415734
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,196.39999999999998,430.6091466318573
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,199.2,430.64860124955715
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,202.0,430.6880558672571
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,204.79999999999998,430.727510484957
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,207.6,430.76696510265697
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,210.39999999999998,430.8064197203569
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,213.2,430.84587433805683
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,216.0,430.8853289557568
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,218.79999999999998,430.9247835734567
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,221.6,430.96423819115665
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,224.39999999999998,431.00369280885656
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,227.2,431.04314742655646
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,230.0,431.0826020442564
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,232.79999999999998,431.1220566619564
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,235.6,431.1615112796563
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,238.39999999999998,431.20096589735624
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,241.2,431.24042051505614
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,244.0,431.2798751327561
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,246.79999999999998,431.31932975045606
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,249.6,431.3587843681559
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,252.39999999999998,431.39823898585587
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,255.2,431.4376936035558
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,258.0,431.47714822125573
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,260.79999999999995,431.5166028389557
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,263.6,431.5560574566556
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,266.4,431.59551207435555
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,269.2,431.63496669205546
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,272.0,431.6744213097554
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,274.79999999999995,431.7138759274554
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,277.59999999999997,431.7533305451552
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,280.4,431.7927851628552
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,283.2,431.83223978055514
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,286.0,431.87169439825504
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,288.79999999999995,431.911149015955
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,291.59999999999997,431.9506036336549
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,294.4,431.99005825135487
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,297.2,432.0295128690548
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,300.0,432.06896748675473
 system_lifetime_years,System lifetime,years,15.0,566.3442442455315
 system_lifetime_years,System lifetime,years,15.3,560.5825270315635
 system_lifetime_years,System lifetime,years,15.6,555.058942988616
@@ -706,107 +908,107 @@ system_lifetime_years,System lifetime,years,44.099999999999994,395.7993661281035
 system_lifetime_years,System lifetime,years,44.4,395.4036346546202
 system_lifetime_years,System lifetime,years,44.7,395.01626223050846
 system_lifetime_years,System lifetime,years,45.0,394.63705374013085
-capacity_factor,Capacity factor / availability,fraction,0.6,642.3761707622823
-capacity_factor,Capacity factor / availability,fraction,0.6038,638.3522730330728
-capacity_factor,Capacity factor / availability,fraction,0.6076,634.3787071385276
-capacity_factor,Capacity factor / availability,fraction,0.6113999999999999,630.4545346047913
-capacity_factor,Capacity factor / availability,fraction,0.6152,626.5788401452688
-capacity_factor,Capacity factor / availability,fraction,0.619,622.7507309489004
-capacity_factor,Capacity factor / availability,fraction,0.6228,618.9693359944915
-capacity_factor,Capacity factor / availability,fraction,0.6265999999999999,615.2338053899927
-capacity_factor,Capacity factor / availability,fraction,0.6304,611.5433097356747
-capacity_factor,Capacity factor / availability,fraction,0.6342,607.8970395102008
-capacity_factor,Capacity factor / availability,fraction,0.638,604.2942044786354
-capacity_factor,Capacity factor / availability,fraction,0.6417999999999999,600.7340331214855
-capacity_factor,Capacity factor / availability,fraction,0.6456,597.2157720839054
-capacity_factor,Capacity factor / availability,fraction,0.6494,593.7386856442398
-capacity_factor,Capacity factor / availability,fraction,0.6532,590.3020552011166
-capacity_factor,Capacity factor / availability,fraction,0.657,586.90517877834
-capacity_factor,Capacity factor / availability,fraction,0.6607999999999999,583.5473705468665
-capacity_factor,Capacity factor / availability,fraction,0.6646,580.2279603631799
-capacity_factor,Capacity factor / availability,fraction,0.6684,576.9462933234131
-capacity_factor,Capacity factor / availability,fraction,0.6722,573.7017293325935
-capacity_factor,Capacity factor / availability,fraction,0.6759999999999999,570.4936426884163
-capacity_factor,Capacity factor / availability,fraction,0.6798,567.3214216789781
-capacity_factor,Capacity factor / availability,fraction,0.6836,564.1844681939283
-capacity_factor,Capacity factor / availability,fraction,0.6874,561.0821973485153
-capacity_factor,Capacity factor / availability,fraction,0.6912,558.0140371200367
-capacity_factor,Capacity factor / availability,fraction,0.695,554.9794279962149
-capacity_factor,Capacity factor / availability,fraction,0.6988,551.9778226350448
-capacity_factor,Capacity factor / availability,fraction,0.7026,549.0086855356808
-capacity_factor,Capacity factor / availability,fraction,0.7063999999999999,546.0714927199454
-capacity_factor,Capacity factor / availability,fraction,0.7101999999999999,543.1657314240629
-capacity_factor,Capacity factor / availability,fraction,0.714,540.2908998002372
-capacity_factor,Capacity factor / availability,fraction,0.7178,537.4465066277088
-capacity_factor,Capacity factor / availability,fraction,0.7216,534.6320710329398
-capacity_factor,Capacity factor / availability,fraction,0.7254,531.8471222185957
-capacity_factor,Capacity factor / availability,fraction,0.7292,529.0911992010002
-capacity_factor,Capacity factor / availability,fraction,0.733,526.3638505557562
-capacity_factor,Capacity factor / availability,fraction,0.7368,523.6646341712396
-capacity_factor,Capacity factor / availability,fraction,0.7405999999999999,520.9931170096805
-capacity_factor,Capacity factor / availability,fraction,0.7444,518.3488748755633
-capacity_factor,Capacity factor / availability,fraction,0.7482,515.7314921910844
-capacity_factor,Capacity factor / availability,fraction,0.752,513.1405617784167
-capacity_factor,Capacity factor / availability,fraction,0.7558,510.57568464854376
-capacity_factor,Capacity factor / availability,fraction,0.7595999999999999,508.03646979643156
-capacity_factor,Capacity factor / availability,fraction,0.7634,505.52253400231774
-capacity_factor,Capacity factor / availability,fraction,0.7672,503.0335016389069
-capacity_factor,Capacity factor / availability,fraction,0.771,500.5690044842664
-capacity_factor,Capacity factor / availability,fraction,0.7747999999999999,498.12868154022897
-capacity_factor,Capacity factor / availability,fraction,0.7786,495.7121788561127
-capacity_factor,Capacity factor / availability,fraction,0.7824,493.3191493575784
-capacity_factor,Capacity factor / availability,fraction,0.7862,490.94925268044943
-capacity_factor,Capacity factor / availability,fraction,0.79,488.60215500932827
-capacity_factor,Capacity factor / availability,fraction,0.7938,486.2775289208483
-capacity_factor,Capacity factor / availability,fraction,0.7976,483.9750532314059
-capacity_factor,Capacity factor / availability,fraction,0.8014,481.69441284922556
-capacity_factor,Capacity factor / availability,fraction,0.8051999999999999,479.43529863061275
-capacity_factor,Capacity factor / availability,fraction,0.8089999999999999,477.1974072402588
-capacity_factor,Capacity factor / availability,fraction,0.8128,474.98044101546424
-capacity_factor,Capacity factor / availability,fraction,0.8166,472.784107834153
-capacity_factor,Capacity factor / availability,fraction,0.8204,470.6081209865545
-capacity_factor,Capacity factor / availability,fraction,0.8242,468.452199050436
-capacity_factor,Capacity factor / availability,fraction,0.828,466.31606576976975
-capacity_factor,Capacity factor / availability,fraction,0.8318,464.1994499367268
-capacity_factor,Capacity factor / availability,fraction,0.8356,462.1020852768901
-capacity_factor,Capacity factor / availability,fraction,0.8393999999999999,460.02371033758567
-capacity_factor,Capacity factor / availability,fraction,0.8432,457.9640683792331
-capacity_factor,Capacity factor / availability,fraction,0.847,455.9229072696214
-capacity_factor,Capacity factor / availability,fraction,0.8508,453.8999793810171
-capacity_factor,Capacity factor / availability,fraction,0.8546,451.89504149001795
-capacity_factor,Capacity factor / availability,fraction,0.8584,449.9078546800668
-capacity_factor,Capacity factor / availability,fraction,0.8622,447.93818424654296
-capacity_factor,Capacity factor / availability,fraction,0.866,445.9857996043526
-capacity_factor,Capacity factor / availability,fraction,0.8697999999999999,444.05047419794136
-capacity_factor,Capacity factor / availability,fraction,0.8735999999999999,442.13198541365546
-capacity_factor,Capacity factor / availability,fraction,0.8774,440.2301144943804
-capacity_factor,Capacity factor / availability,fraction,0.8812,438.34464645638826
-capacity_factor,Capacity factor / availability,fraction,0.885,436.47537000832693
-capacity_factor,Capacity factor / availability,fraction,0.8888,434.62207747228774
-capacity_factor,Capacity factor / availability,fraction,0.8926000000000001,432.7845647068892
-capacity_factor,Capacity factor / availability,fraction,0.8964,430.96263103231746
-capacity_factor,Capacity factor / availability,fraction,0.9002,429.15607915726434
-capacity_factor,Capacity factor / availability,fraction,0.9039999999999999,427.3647151077095
-capacity_factor,Capacity factor / availability,fraction,0.9077999999999999,425.58834815749
-capacity_factor,Capacity factor / availability,fraction,0.9116,423.826790760607
-capacity_factor,Capacity factor / availability,fraction,0.9154,422.0798584852189
-capacity_factor,Capacity factor / availability,fraction,0.9192,420.3473699492704
-capacity_factor,Capacity factor / availability,fraction,0.923,418.6291467577133
-capacity_factor,Capacity factor / availability,fraction,0.9268,416.9250134412703
-capacity_factor,Capacity factor / availability,fraction,0.9306,415.23479739670034
-capacity_factor,Capacity factor / availability,fraction,0.9343999999999999,413.55832882852036
-capacity_factor,Capacity factor / availability,fraction,0.9381999999999999,411.8954406921439
-capacity_factor,Capacity factor / availability,fraction,0.942,410.24596863839633
-capacity_factor,Capacity factor / availability,fraction,0.9458,408.60975095936703
-capacity_factor,Capacity factor / availability,fraction,0.9496,406.98662853556164
-capacity_factor,Capacity factor / availability,fraction,0.9534,405.3764447843186
-capacity_factor,Capacity factor / availability,fraction,0.9572,403.779045609454
-capacity_factor,Capacity factor / availability,fraction,0.961,402.1942793521013
-capacity_factor,Capacity factor / availability,fraction,0.9648,400.62199674271284
-capacity_factor,Capacity factor / availability,fraction,0.9685999999999999,399.06205085419094
-capacity_factor,Capacity factor / availability,fraction,0.9723999999999999,397.5142970561182
-capacity_factor,Capacity factor / availability,fraction,0.9762,395.9785929700567
-capacity_factor,Capacity factor / availability,fraction,0.98,394.4547984258871
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6,642.3761707622823
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6038,638.3522730330728
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6076,634.3787071385276
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6113999999999999,630.4545346047913
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6152,626.5788401452688
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.619,622.7507309489004
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6228,618.9693359944915
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6265999999999999,615.2338053899927
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6304,611.5433097356747
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6342,607.8970395102008
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.638,604.2942044786354
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6417999999999999,600.7340331214855
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6456,597.2157720839054
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6494,593.7386856442398
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6532,590.3020552011166
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.657,586.90517877834
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6607999999999999,583.5473705468665
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6646,580.2279603631799
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6684,576.9462933234131
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6722,573.7017293325935
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6759999999999999,570.4936426884163
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6798,567.3214216789781
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6836,564.1844681939283
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6874,561.0821973485153
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6912,558.0140371200367
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.695,554.9794279962149
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.6988,551.9778226350448
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.7026,549.0086855356808
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.7063999999999999,546.0714927199454
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.7101999999999999,543.1657314240629
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.714,540.2908998002372
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.7178,537.4465066277088
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.7216,534.6320710329398
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.7254,531.8471222185957
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.7292,529.0911992010002
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.733,526.3638505557562
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.7368,523.6646341712396
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.7405999999999999,520.9931170096805
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.7444,518.3488748755633
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.7482,515.7314921910844
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.752,513.1405617784167
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.7558,510.57568464854376
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.7595999999999999,508.03646979643156
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.7634,505.52253400231774
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.7672,503.0335016389069
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.771,500.5690044842664
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.7747999999999999,498.12868154022897
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.7786,495.7121788561127
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.7824,493.3191493575784
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.7862,490.94925268044943
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.79,488.60215500932827
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.7938,486.2775289208483
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.7976,483.9750532314059
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.8014,481.69441284922556
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.8051999999999999,479.43529863061275
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.8089999999999999,477.1974072402588
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.8128,474.98044101546424
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.8166,472.784107834153
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.8204,470.6081209865545
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.8242,468.452199050436
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.828,466.31606576976975
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.8318,464.1994499367268
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.8356,462.1020852768901
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.8393999999999999,460.02371033758567
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.8432,457.9640683792331
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.847,455.9229072696214
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.8508,453.8999793810171
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.8546,451.89504149001795
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.8584,449.9078546800668
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.8622,447.93818424654296
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.866,445.9857996043526
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.8697999999999999,444.05047419794136
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.8735999999999999,442.13198541365546
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.8774,440.2301144943804
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.8812,438.34464645638826
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.885,436.47537000832693
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.8888,434.62207747228774
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.8926000000000001,432.7845647068892
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.8964,430.96263103231746
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.9002,429.15607915726434
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.9039999999999999,427.3647151077095
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.9077999999999999,425.58834815749
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.9116,423.826790760607
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.9154,422.0798584852189
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.9192,420.3473699492704
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.923,418.6291467577133
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.9268,416.9250134412703
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.9306,415.23479739670034
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.9343999999999999,413.55832882852036
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.9381999999999999,411.8954406921439
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.942,410.24596863839633
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.9458,408.60975095936703
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.9496,406.98662853556164
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.9534,405.3764447843186
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.9572,403.779045609454
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.961,402.1942793521013
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.9648,400.62199674271284
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.9685999999999999,399.06205085419094
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.9723999999999999,397.5142970561182
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.9762,395.9785929700567
+capacity_factor,Delivered capacity factor (model proxy),fraction,0.98,394.4547984258871
 in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,0.0,335.31121455597037
 in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,30.0,349.402149448803
 in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,60.0,363.49308434163567
@@ -908,6 +1110,309 @@ in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2
 in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2940.0,1716.2228340535717
 in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,2970.0,1730.313768946404
 in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,3000.0,1744.4047038392368
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,0.0,382.2809975320792
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,10.0,386.97797582969014
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,20.0,391.6749541273011
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,30.0,396.37193242491185
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,40.0,401.0689107225228
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,50.0,405.7658890201337
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,60.0,410.46286731774455
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,70.0,415.1598456153555
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,80.0,419.8568239129663
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,90.0,424.55380221057726
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,100.0,429.25078050818814
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,110.0,433.94775880579897
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,120.0,438.6447371034099
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,130.0,443.34171540102085
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,140.0,448.0386936986316
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,150.0,452.73567199624256
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,160.0,457.4326502938535
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,170.0,462.1296285914643
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,180.0,466.8266068890752
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,190.0,471.52358518668615
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,200.0,476.22056348429703
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,210.0,480.91754178190786
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,220.0,485.61452007951885
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,230.0,490.3114983771297
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,240.0,495.0084766747406
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,250.0,499.7054549723514
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,260.0,504.40243326996233
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,270.0,509.09941156757327
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,280.0,513.7963898651841
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,290.0,518.493368162795
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,300.0,523.190346460406
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,310.0,527.8873247580168
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,320.0,532.5843030556276
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,330.0,537.2812813532387
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,340.0,541.9782596508494
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,350.0,546.6752379484602
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,360.0,551.3722162460714
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,370.0,556.0691945436821
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,380.0,560.7661728412929
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,390.0,565.463151138904
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,400.0,570.1601294365147
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,410.0,574.8571077341256
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,420.0,579.5540860317367
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,430.0,584.2510643293474
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,440.0,588.9480426269582
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,450.0,593.6450209245693
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,460.0,598.3419992221801
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,470.0,603.038977519791
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,480.0,607.735955817402
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,490.0,612.4329341150127
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,500.0,617.1299124126236
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,510.0,621.8268907102346
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,520.0,626.5238690078455
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,530.0,631.2208473054563
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,540.0,635.9178256030673
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,550.0,640.6148039006781
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,560.0,645.311782198289
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,570.0,650.0087604958999
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,580.0,654.7057387935109
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,590.0,659.4027170911216
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,600.0,664.0996953887326
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,610.0,668.7966736863435
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,620.0,673.4936519839544
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,630.0,678.1906302815652
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,640.0,682.8876085791762
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,650.0,687.584586876787
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,660.0,692.2815651743979
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,670.0,696.9785434720088
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,680.0,701.6755217696196
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,690.0,706.3725000672305
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,700.0,711.0694783648415
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,710.0,715.7664566624522
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,720.0,720.4634349600633
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,730.0,725.1604132576741
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,740.0,729.857391555285
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,750.0,734.554369852896
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,760.0,739.2513481505068
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,770.0,743.9483264481175
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,780.0,748.6453047457286
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,790.0,753.3422830433394
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,800.0,758.0392613409502
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,810.0,762.7362396385613
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,820.0,767.4332179361721
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,830.0,772.1301962337828
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,840.0,776.8271745313939
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,850.0,781.5241528290047
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,860.0,786.2211311266157
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,870.0,790.9181094242266
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,880.0,795.6150877218374
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,890.0,800.3120660194484
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,900.0,805.0090443170592
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,910.0,809.7060226146701
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,920.0,814.403000912281
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,930.0,819.0999792098918
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,940.0,823.796957507503
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,950.0,828.4939358051137
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,960.0,833.1909141027245
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,970.0,837.8878924003355
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,980.0,842.5848706979463
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,990.0,847.2818489955571
+orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,1000.0,851.9788272931683
+programme_margin_pct,Programme margin / contingency,fraction,0.0,358.20898375682344
+programme_margin_pct,Programme margin / contingency,fraction,0.005,359.98502867560757
+programme_margin_pct,Programme margin / contingency,fraction,0.01,361.7610735943917
+programme_margin_pct,Programme margin / contingency,fraction,0.015,363.5371185131758
+programme_margin_pct,Programme margin / contingency,fraction,0.02,365.31316343195994
+programme_margin_pct,Programme margin / contingency,fraction,0.025,367.08920835074406
+programme_margin_pct,Programme margin / contingency,fraction,0.03,368.8652532695281
+programme_margin_pct,Programme margin / contingency,fraction,0.035,370.6412981883123
+programme_margin_pct,Programme margin / contingency,fraction,0.04,372.41734310709637
+programme_margin_pct,Programme margin / contingency,fraction,0.045,374.19338802588055
+programme_margin_pct,Programme margin / contingency,fraction,0.05,375.9694329446646
+programme_margin_pct,Programme margin / contingency,fraction,0.055,377.74547786344874
+programme_margin_pct,Programme margin / contingency,fraction,0.06,379.52152278223286
+programme_margin_pct,Programme margin / contingency,fraction,0.065,381.297567701017
+programme_margin_pct,Programme margin / contingency,fraction,0.07,383.07361261980105
+programme_margin_pct,Programme margin / contingency,fraction,0.075,384.84965753858523
+programme_margin_pct,Programme margin / contingency,fraction,0.08,386.6257024573693
+programme_margin_pct,Programme margin / contingency,fraction,0.085,388.4017473761535
+programme_margin_pct,Programme margin / contingency,fraction,0.09,390.17779229493755
+programme_margin_pct,Programme margin / contingency,fraction,0.095,391.95383721372167
+programme_margin_pct,Programme margin / contingency,fraction,0.1,393.7298821325058
+programme_margin_pct,Programme margin / contingency,fraction,0.105,395.5059270512899
+programme_margin_pct,Programme margin / contingency,fraction,0.11,397.28197197007404
+programme_margin_pct,Programme margin / contingency,fraction,0.115,399.05801688885816
+programme_margin_pct,Programme margin / contingency,fraction,0.12,400.83406180764223
+programme_margin_pct,Programme margin / contingency,fraction,0.125,402.6101067264264
+programme_margin_pct,Programme margin / contingency,fraction,0.13,404.3861516452105
+programme_margin_pct,Programme margin / contingency,fraction,0.135,406.1621965639946
+programme_margin_pct,Programme margin / contingency,fraction,0.14,407.9382414827788
+programme_margin_pct,Programme margin / contingency,fraction,0.145,409.7142864015628
+programme_margin_pct,Programme margin / contingency,fraction,0.15,411.49033132034697
+programme_margin_pct,Programme margin / contingency,fraction,0.155,413.26637623913115
+programme_margin_pct,Programme margin / contingency,fraction,0.16,415.0424211579152
+programme_margin_pct,Programme margin / contingency,fraction,0.165,416.8184660766994
+programme_margin_pct,Programme margin / contingency,fraction,0.17,418.59451099548346
+programme_margin_pct,Programme margin / contingency,fraction,0.17500000000000002,420.37055591426764
+programme_margin_pct,Programme margin / contingency,fraction,0.18,422.1466008330517
+programme_margin_pct,Programme margin / contingency,fraction,0.185,423.92264575183583
+programme_margin_pct,Programme margin / contingency,fraction,0.19,425.69869067061995
+programme_margin_pct,Programme margin / contingency,fraction,0.195,427.4747355894041
+programme_margin_pct,Programme margin / contingency,fraction,0.2,429.25078050818814
+programme_margin_pct,Programme margin / contingency,fraction,0.20500000000000002,431.0268254269723
+programme_margin_pct,Programme margin / contingency,fraction,0.21,432.8028703457564
+programme_margin_pct,Programme margin / contingency,fraction,0.215,434.57891526454057
+programme_margin_pct,Programme margin / contingency,fraction,0.22,436.35496018332464
+programme_margin_pct,Programme margin / contingency,fraction,0.225,438.13100510210876
+programme_margin_pct,Programme margin / contingency,fraction,0.23,439.9070500208929
+programme_margin_pct,Programme margin / contingency,fraction,0.23500000000000001,441.683094939677
+programme_margin_pct,Programme margin / contingency,fraction,0.24,443.4591398584611
+programme_margin_pct,Programme margin / contingency,fraction,0.245,445.23518477724525
+programme_margin_pct,Programme margin / contingency,fraction,0.25,447.0112296960293
+programme_margin_pct,Programme margin / contingency,fraction,0.255,448.7872746148135
+programme_margin_pct,Programme margin / contingency,fraction,0.26,450.56331953359756
+programme_margin_pct,Programme margin / contingency,fraction,0.265,452.33936445238174
+programme_margin_pct,Programme margin / contingency,fraction,0.27,454.1154093711658
+programme_margin_pct,Programme margin / contingency,fraction,0.275,455.89145428994993
+programme_margin_pct,Programme margin / contingency,fraction,0.28,457.66749920873406
+programme_margin_pct,Programme margin / contingency,fraction,0.28500000000000003,459.4435441275182
+programme_margin_pct,Programme margin / contingency,fraction,0.29,461.2195890463022
+programme_margin_pct,Programme margin / contingency,fraction,0.295,462.99563396508637
+programme_margin_pct,Programme margin / contingency,fraction,0.3,464.77167888387044
+programme_margin_pct,Programme margin / contingency,fraction,0.305,466.5477238026547
+programme_margin_pct,Programme margin / contingency,fraction,0.31,468.32376872143874
+programme_margin_pct,Programme margin / contingency,fraction,0.315,470.09981364022286
+programme_margin_pct,Programme margin / contingency,fraction,0.32,471.875858559007
+programme_margin_pct,Programme margin / contingency,fraction,0.325,473.6519034777911
+programme_margin_pct,Programme margin / contingency,fraction,0.33,475.4279483965752
+programme_margin_pct,Programme margin / contingency,fraction,0.335,477.20399331535936
+programme_margin_pct,Programme margin / contingency,fraction,0.34,478.9800382341434
+programme_margin_pct,Programme margin / contingency,fraction,0.34500000000000003,480.7560831529276
+programme_margin_pct,Programme margin / contingency,fraction,0.35000000000000003,482.53212807171167
+programme_margin_pct,Programme margin / contingency,fraction,0.355,484.30817299049573
+programme_margin_pct,Programme margin / contingency,fraction,0.36,486.0842179092799
+programme_margin_pct,Programme margin / contingency,fraction,0.365,487.86026282806404
+programme_margin_pct,Programme margin / contingency,fraction,0.37,489.63630774684816
+programme_margin_pct,Programme margin / contingency,fraction,0.375,491.4123526656323
+programme_margin_pct,Programme margin / contingency,fraction,0.38,493.18839758441635
+programme_margin_pct,Programme margin / contingency,fraction,0.385,494.96444250320053
+programme_margin_pct,Programme margin / contingency,fraction,0.39,496.7404874219846
+programme_margin_pct,Programme margin / contingency,fraction,0.395,498.5165323407688
+programme_margin_pct,Programme margin / contingency,fraction,0.4,500.29257725955284
+programme_margin_pct,Programme margin / contingency,fraction,0.405,502.06862217833697
+programme_margin_pct,Programme margin / contingency,fraction,0.41000000000000003,503.8446670971211
+programme_margin_pct,Programme margin / contingency,fraction,0.41500000000000004,505.6207120159052
+programme_margin_pct,Programme margin / contingency,fraction,0.42,507.39675693468934
+programme_margin_pct,Programme margin / contingency,fraction,0.425,509.17280185347346
+programme_margin_pct,Programme margin / contingency,fraction,0.43,510.9488467722576
+programme_margin_pct,Programme margin / contingency,fraction,0.435,512.7248916910416
+programme_margin_pct,Programme margin / contingency,fraction,0.44,514.5009366098259
+programme_margin_pct,Programme margin / contingency,fraction,0.445,516.2769815286099
+programme_margin_pct,Programme margin / contingency,fraction,0.45,518.053026447394
+programme_margin_pct,Programme margin / contingency,fraction,0.455,519.8290713661781
+programme_margin_pct,Programme margin / contingency,fraction,0.46,521.6051162849623
+programme_margin_pct,Programme margin / contingency,fraction,0.465,523.3811612037464
+programme_margin_pct,Programme margin / contingency,fraction,0.47000000000000003,525.1572061225305
+programme_margin_pct,Programme margin / contingency,fraction,0.47500000000000003,526.9332510413146
+programme_margin_pct,Programme margin / contingency,fraction,0.48,528.7092959600988
+programme_margin_pct,Programme margin / contingency,fraction,0.485,530.4853408788829
+programme_margin_pct,Programme margin / contingency,fraction,0.49,532.261385797667
+programme_margin_pct,Programme margin / contingency,fraction,0.495,534.0374307164511
+programme_margin_pct,Programme margin / contingency,fraction,0.5,535.8134756352352
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0,401.62520973193244
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0003,403.00648827074525
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0006,404.38776680955806
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0009,405.7690453483708
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0012,407.1503238871836
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0014999999999999998,408.53160242599637
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0018,409.9128809648092
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0021,411.294159503622
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0024,412.67543804243473
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0026999999999999997,414.05671658124754
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0029999999999999996,415.4379951200603
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0032999999999999995,416.8192736588731
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0036,418.2005521976859
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0039,419.58183073649866
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0042,420.96310927531147
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0045,422.3443878141242
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0048,423.725666352937
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0050999999999999995,425.10694489174983
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.005399999999999999,426.4882234305626
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.005699999999999999,427.8695019693754
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.005999999999999999,429.25078050818814
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.006299999999999999,430.63205904700095
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.006599999999999999,432.01333758581376
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.006899999999999999,433.3946161246265
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0072,434.7758946634393
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0075,436.1571732022521
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0078,437.5384517410649
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0081,438.9197302798777
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0084,440.30100881869043
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0087,441.68228735750324
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.009,443.06356589631605
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0093,444.4448444351288
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0096,445.8261229739416
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.009899999999999999,447.20740151275436
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.010199999999999999,448.58868005156717
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.010499999999999999,449.96995859038
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.010799999999999999,451.3512371291927
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.011099999999999999,452.73251566800553
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.011399999999999999,454.1137942068183
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.011699999999999999,455.4950727456311
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.011999999999999999,456.8763512844439
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.012299999999999998,458.25762982325665
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.012599999999999998,459.63890836206946
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.012899999999999998,461.0201869008822
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.013199999999999998,462.401465439695
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.013499999999999998,463.7827439785078
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.013799999999999998,465.1640225173206
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.014099999999999998,466.5453010561334
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0144,467.92657959494613
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0147,469.30785813375894
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.015,470.68913667257175
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0153,472.0704152113845
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0156,473.4516937501973
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.015899999999999997,474.8329722890101
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0162,476.21425082782287
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.016499999999999997,477.5955293666357
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0168,478.9768079054484
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.017099999999999997,480.35808644426123
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0174,481.73936498307404
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.017699999999999997,483.1206435218868
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.018,484.5019220606996
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.018299999999999997,485.88320059951235
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0186,487.26447913832516
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.018899999999999997,488.64575767713796
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0192,490.0270362159507
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0195,491.4083147547635
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.019799999999999998,492.7895932935763
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0201,494.1708718323891
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.020399999999999998,495.5521503712019
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0207,496.93342891001464
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.020999999999999998,498.31470744882745
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0213,499.6959859876402
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.021599999999999998,501.077264526453
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0219,502.4585430652658
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.022199999999999998,503.83982160407857
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0225,505.2211001428914
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.022799999999999997,506.6023786817041
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0231,507.98365722051693
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.023399999999999997,509.36493575932974
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0237,510.7462142981425
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.023999999999999997,512.1274928369553
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0243,513.5087713757681
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.024599999999999997,514.8900499145809
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0249,516.2713284533936
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.025199999999999997,517.6526069922064
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0255,519.0338855310192
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.025799999999999997,520.415164069832
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.026099999999999998,521.7964426086448
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.026399999999999996,523.1777211474575
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.026699999999999998,524.5589996862703
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.026999999999999996,525.9402782250831
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.027299999999999998,527.321556763896
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.027599999999999996,528.7028353027088
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.027899999999999998,530.0841138415215
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.028199999999999996,531.4653923803343
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.028499999999999998,532.8466709191471
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0288,534.2279494579599
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.029099999999999997,535.6092279967727
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.0294,536.9905065355855
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.029699999999999997,538.3717850743983
+replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,0.03,539.7530636132111
 fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.002,392.41668613984723
 fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.00248,394.6267318019477
 fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,0.00296,396.83677746404817
