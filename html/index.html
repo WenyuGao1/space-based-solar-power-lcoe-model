@@ -1366,12 +1366,17 @@
       .report-grid { grid-template-columns: 1fr; }
     }
 
-    @media (max-width: 860px) {
+    @media (max-width: 880px) {
       .app-shell { padding: 12px; }
       .brand-sub, .price-basis { display: none; }
       .workspace { grid-template-columns: 1fr; grid-template-rows: auto; min-height: auto; }
-      .control-panel { height: auto; }
-      .control-scroll { max-height: 620px; }
+      .control-panel { height: auto; min-height: auto; }
+      .control-scroll {
+        flex: 0 0 auto;
+        min-height: auto;
+        max-height: none;
+        overflow: visible;
+      }
       .result-panel { padding: 28px 22px; }
       .result-top { align-items: flex-end; }
       .status-block { width: 215px; }
@@ -1395,10 +1400,51 @@
       .control-panel, .result-panel { border-right: 0; border-left: 0; border-radius: 0; }
       .control-head { padding: 22px 18px 18px; }
       .presets { grid-template-columns: repeat(2, 1fr); }
+      .control-scroll { padding: 6px 18px 18px; }
+      summary { min-height: 58px; padding: 0 2px; font-size: 13.5px; }
+      .control-list { padding: 0 2px 16px; }
+      .control { padding: 15px 0 18px; }
+      .control-row {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto;
+        align-items: start;
+        gap: 10px;
+        margin-bottom: 8px;
+      }
+      .control-label { font-size: 13px; }
+      .value-box { min-width: 82px; font-size: 12.5px; }
+      input[type="range"] { height: 34px; }
+      input[type="range"]::-webkit-slider-runnable-track { height: 5px; }
+      input[type="range"]::-moz-range-track,
+      input[type="range"]::-moz-range-progress { height: 5px; }
+      input[type="range"]::-webkit-slider-thumb {
+        width: 20px;
+        height: 20px;
+        margin-top: -7.5px;
+      }
+      input[type="range"]::-moz-range-thumb { width: 16px; height: 16px; }
+      .range-meta {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        align-items: start;
+        gap: 6px;
+        line-height: 1.35;
+      }
+      .range-meta span:nth-child(2) { text-align: center; }
+      .range-meta span:last-child { text-align: right; }
+      .control-footer { padding: 15px 18px; }
       .result-top { display: block; }
       .lcoe { font-size: clamp(68px, 22vw, 100px); }
       .status-block { width: 100%; margin-top: 24px; }
       .benchmark { margin-top: 28px; }
+      .benchmark-caption {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 6px;
+        margin-top: 46px;
+      }
+      .benchmark-caption span:nth-child(2) { text-align: center; }
+      .benchmark-caption span:last-child { text-align: right; }
       .benchmark-annotation-stage { height: 150px; }
       .benchmark-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(3, 36px); gap: 9px; }
       .energy-card { grid-column: auto !important; grid-row: auto !important; grid-template-columns: 1fr; align-content: center; gap: 2px; padding: 5px 7px; }
@@ -1420,8 +1466,8 @@
       .report-card-head { flex-direction: column; }
       .oneway-row { grid-template-columns: minmax(92px, 1fr) minmax(100px, 1.45fr) 50px; gap: 8px; }
       .oneway-axis { grid-template-columns: minmax(92px, 1fr) minmax(100px, 1.45fr) 50px; gap: 8px; }
-      .uk-benchmark-row { grid-template-columns: minmax(104px, 1fr) minmax(120px, 1.8fr) 60px; gap: 8px; }
-      .benchmark-axis { grid-template-columns: minmax(104px, 1fr) minmax(120px, 1.8fr) 60px; gap: 8px; }
+      .uk-benchmark-row { grid-template-columns: minmax(88px, 1fr) minmax(96px, 1.7fr) 52px; gap: 6px; }
+      .benchmark-axis { grid-template-columns: minmax(88px, 1fr) minmax(96px, 1.7fr) 52px; gap: 6px; }
       .benchmark-summary { align-items: flex-start; flex-direction: column; }
     }
 
