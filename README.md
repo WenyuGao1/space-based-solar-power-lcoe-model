@@ -9,10 +9,21 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-2E8B57.svg)](LICENSE)
 [![Reproducible](https://img.shields.io/badge/Analysis-Reproducible-6f42c1.svg)](analysis/run_full_analysis.py)
 [![Reports](https://img.shields.io/badge/Reports-English%20%7C%20中文-0A66C2.svg)](report/)
+[![Interactive explorer](https://img.shields.io/badge/Interactive%20Explorer-Open%20Tool-0F766E.svg)](https://wenyugao1.github.io/uk-sbsp-cost-threshold-assessment/)
 
-[English report](report/final_report_EN.md) · [English PDF](report/final_report_EN.pdf) · [中文报告](report/final_report_zh.md) · [中文 PDF](report/final_report_zh.pdf) · [Verification note](report/verification_note.md)
+[Open interactive explorer](https://wenyugao1.github.io/uk-sbsp-cost-threshold-assessment/) · [English report](report/final_report_EN.md) · [English PDF](report/final_report_EN.pdf) · [中文报告](report/final_report_zh.md) · [中文 PDF](report/final_report_zh.pdf) · [Verification note](report/verification_note.md)
 
 </div>
+
+---
+
+## Interactive Cost Explorer
+
+> **[Launch the bilingual interactive SBSP cost explorer →](https://wenyugao1.github.io/uk-sbsp-cost-threshold-assessment/)**
+
+Adjust technical, deployment, financing and operating assumptions to see how delivered-grid LCOE, annualised cost composition, initial CAPEX allocation and study-defined cost thresholds change in real time. The explorer is an interactive companion to the reports: it exposes the model assumptions but does not turn them into a deployment forecast or investment recommendation.
+
+[View the standalone HTML source](html/index.html) · [Read the English methodology](report/final_report_EN.md) · [阅读中文报告](report/final_report_zh.md)
 
 ---
 
@@ -33,7 +44,7 @@ The model treats launch cost, specific mass, orbital hardware, in-orbit assembly
 | Study-defined broad screening line | **150 GBP/MWh** |
 | Strongest one-way lever within selected ranges | **Whole-architecture specific mass** |
 | Main finding | Lower launch cost alone is insufficient; only specific mass crosses the 150-100 GBP/MWh lines one-way, while the 80-60 GBP/MWh lines need some coupled improvement within the tested ranges |
-| Project format | Open model, structured assumptions, processed outputs, English/Chinese charts and reports, automated tests |
+| Project format | Interactive bilingual explorer, open model, structured assumptions, processed outputs, English/Chinese charts and reports, automated tests |
 
 The 429 GBP/MWh reference point is an analytical anchor for sensitivity analysis. It is **not** a forecast, preferred architecture, investment case or claim about a future deployment year.
 
@@ -178,6 +189,7 @@ The full runner regenerates all processed CSVs, English and Chinese figures, Mar
 | [`src/analysis.py`](src/analysis.py) | Sensitivities, thresholds, contours and combined frontiers |
 | [`figures/`](figures/) | English-labelled analytical figures |
 | [`figures_zh/`](figures_zh/) | Chinese-labelled analytical figures |
+| [`html/index.html`](html/index.html) | Standalone bilingual interactive cost explorer |
 | [`report/`](report/) | Final English and Chinese reports, PDFs and verification note |
 | [`tests/`](tests/) | Numerical reconciliation and evidence-file checks |
 
