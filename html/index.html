@@ -1,0 +1,2494 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Interactive levelised cost of electricity calculator for the UK SBSP cost-condition model.">
+  <title>SBSP Cost Lab</title>
+  <style>
+    :root {
+      color-scheme: light;
+      --page: #ffffff;
+      --panel: #ffffff;
+      --panel-2: #f6f8f7;
+      --panel-3: #edf3f1;
+      --ink: #17211f;
+      --muted: #687671;
+      --soft: #33413d;
+      --line: #dfe6e3;
+      --line-strong: #c8d4d0;
+      --lime: #0f766e;
+      --cyan: #14978e;
+      --amber: #ad6b16;
+      --coral: #bd624f;
+      --blue: #4f7fa7;
+      --shadow: 0 18px 50px rgba(27, 53, 45, 0.08);
+      --radius: 18px;
+    }
+
+    * { box-sizing: border-box; }
+
+    html { min-width: 320px; background: var(--page); }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      background: var(--page);
+      font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI",
+        "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    button, input, select { font: inherit; }
+    button { color: inherit; }
+
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+
+    .app-shell {
+      width: min(1600px, 100%);
+      min-height: 100vh;
+      margin: 0 auto;
+      padding: 18px;
+    }
+
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 58px;
+      padding: 0 8px 18px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+    }
+
+    .brand-mark {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border: 1px solid rgba(15, 118, 110, 0.42);
+      border-radius: 50%;
+      color: var(--lime);
+      font-weight: 800;
+      letter-spacing: -0.06em;
+      background: #f0f8f6;
+      box-shadow: inset 0 0 0 7px rgba(15, 118, 110, 0.04);
+    }
+
+    .brand-name {
+      font-size: 15px;
+      font-weight: 720;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+
+    .brand-sub {
+      margin-left: 10px;
+      color: var(--muted);
+      font-size: 12px;
+      font-weight: 500;
+      white-space: nowrap;
+    }
+
+    .top-meta {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .language-picker {
+      position: relative;
+      margin-left: 6px;
+    }
+
+    .language-picker::after {
+      content: "⌄";
+      position: absolute;
+      top: 50%;
+      right: 12px;
+      color: var(--muted);
+      font-size: 12px;
+      pointer-events: none;
+      transform: translateY(-58%);
+    }
+
+    .language-select {
+      min-width: 112px;
+      height: 36px;
+      padding: 0 31px 0 12px;
+      appearance: none;
+      -webkit-appearance: none;
+      border: 1px solid var(--line);
+      border-radius: 9px;
+      outline: none;
+      background: var(--panel);
+      color: var(--soft);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color .2s ease, box-shadow .2s ease;
+    }
+
+    .language-select:hover { border-color: var(--line-strong); }
+    .language-select:focus-visible {
+      border-color: var(--cyan);
+      box-shadow: 0 0 0 3px rgba(20, 151, 142, .12);
+    }
+
+    .live-dot {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--cyan);
+      box-shadow: 0 0 0 5px rgba(99, 217, 208, 0.08);
+    }
+
+    .workspace {
+      display: grid;
+      grid-template-columns: minmax(390px, 0.76fr) minmax(610px, 1.24fr);
+      grid-template-rows: minmax(0, 1fr);
+      gap: 18px;
+      min-height: calc(100vh - 95px);
+      padding-top: 18px;
+      align-items: stretch;
+    }
+
+    .control-panel,
+    .result-panel {
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      height: 100%;
+      background: var(--panel);
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .control-panel {
+      display: flex;
+      flex-direction: column;
+      min-height: 0;
+    }
+
+    .control-head {
+      padding: 24px 24px 20px;
+      border-bottom: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(15,118,110,0.025), transparent);
+    }
+
+    .eyebrow {
+      margin: 0 0 8px;
+      color: var(--cyan);
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+    }
+
+    h1, h2, h3, p { margin-top: 0; }
+
+    .control-head h1 {
+      margin-bottom: 9px;
+      font-size: clamp(24px, 2.1vw, 34px);
+      line-height: 1.14;
+      letter-spacing: -0.045em;
+    }
+
+    .intro {
+      max-width: 49ch;
+      margin-bottom: 18px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .presets {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 7px;
+    }
+
+    .preset {
+      min-height: 38px;
+      padding: 7px 8px;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      background: #ffffff;
+      color: var(--soft);
+      font-size: 12px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: border-color .2s ease, background .2s ease, color .2s ease, transform .2s ease;
+    }
+
+    .preset:hover { border-color: var(--line-strong); transform: translateY(-1px); }
+    .preset[aria-pressed="true"] {
+      border-color: rgba(15, 118, 110, 0.55);
+      background: rgba(15, 118, 110, 0.075);
+      color: var(--lime);
+    }
+
+    .path-note {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      margin: 12px 0 0;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.45;
+    }
+
+    .info-mark {
+      display: inline-grid;
+      flex: 0 0 auto;
+      place-items: center;
+      width: 15px;
+      height: 15px;
+      border: 1px solid var(--line-strong);
+      border-radius: 50%;
+      color: var(--lime);
+      font-size: 9px;
+      font-weight: 800;
+    }
+
+    .control-scroll {
+      flex: 1 1 0;
+      min-height: 0;
+      padding: 8px 10px 16px;
+      overflow-y: auto;
+      scrollbar-color: rgba(15,118,110,.25) transparent;
+      scrollbar-width: thin;
+    }
+
+    details {
+      border-bottom: 1px solid var(--line);
+    }
+
+    details:last-child { border-bottom: 0; }
+
+    summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      min-height: 52px;
+      padding: 0 13px;
+      list-style: none;
+      color: var(--soft);
+      font-size: 13px;
+      font-weight: 750;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    summary::-webkit-details-marker { display: none; }
+    summary::after {
+      content: "+";
+      color: var(--muted);
+      font-size: 18px;
+      font-weight: 400;
+    }
+    details[open] summary::after { content: "−"; }
+
+    .group-count {
+      margin-left: 8px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 600;
+    }
+
+    .control-list { padding: 0 13px 15px; }
+
+    .control {
+      padding: 12px 0 15px;
+      border-top: 1px solid #edf1ef;
+    }
+
+    .control:first-child { border-top: 0; }
+
+    .control-row {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      margin-bottom: 9px;
+    }
+
+    .control-label {
+      color: var(--soft);
+      font-size: 12.5px;
+      font-weight: 650;
+      line-height: 1.3;
+    }
+
+    .value-box {
+      flex: 0 0 auto;
+      min-width: 78px;
+      color: var(--lime);
+      font-variant-numeric: tabular-nums;
+      font-size: 12px;
+      font-weight: 800;
+      text-align: right;
+    }
+
+    .range-wrap { position: relative; }
+
+    input[type="range"] {
+      width: 100%;
+      height: 20px;
+      margin: 0;
+      appearance: none;
+      -webkit-appearance: none;
+      background: transparent;
+      cursor: pointer;
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track {
+      height: 4px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, var(--cyan) 0 var(--fill, 50%), #dce4e1 var(--fill, 50%) 100%);
+    }
+
+    input[type="range"]::-moz-range-track {
+      height: 4px;
+      border-radius: 999px;
+      background: #dce4e1;
+    }
+
+    input[type="range"]::-moz-range-progress {
+      height: 4px;
+      border-radius: 999px;
+      background: var(--cyan);
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      width: 16px;
+      height: 16px;
+      margin-top: -6px;
+      appearance: none;
+      -webkit-appearance: none;
+      border: 3px solid var(--panel);
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 0 1px rgba(15,118,110,.65), 0 3px 10px rgba(27,53,45,.18);
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 12px;
+      height: 12px;
+      border: 3px solid var(--panel);
+      border-radius: 50%;
+      background: var(--lime);
+      box-shadow: 0 0 0 1px rgba(15,118,110,.65);
+    }
+
+    input[type="range"]:focus-visible { outline: none; }
+    input[type="range"]:focus-visible::-webkit-slider-thumb { box-shadow: 0 0 0 4px rgba(99,217,208,.23); }
+
+    .range-meta {
+      display: flex;
+      justify-content: space-between;
+      color: #7b8984;
+      font-size: 9.5px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .control-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      padding: 14px 22px;
+      border-top: 1px solid var(--line);
+      background: var(--panel-2);
+      color: var(--muted);
+      font-size: 10.5px;
+      line-height: 1.4;
+    }
+
+    .reset-button {
+      flex: 0 0 auto;
+      border: 0;
+      background: transparent;
+      color: var(--soft);
+      font-size: 11px;
+      font-weight: 750;
+      cursor: pointer;
+    }
+    .reset-button:hover { color: var(--lime); }
+
+    .result-panel {
+      position: relative;
+      padding: clamp(24px, 3vw, 46px);
+      background:
+        linear-gradient(145deg, rgba(15,118,110,.022), transparent 38%),
+        var(--panel);
+    }
+
+    .result-panel::before {
+      content: "";
+      position: absolute;
+      top: -130px;
+      right: -90px;
+      width: 360px;
+      height: 360px;
+      border: 1px solid rgba(20, 151, 142, 0.1);
+      border-radius: 50%;
+      box-shadow:
+        0 0 0 42px rgba(20, 151, 142, 0.018),
+        0 0 0 92px rgba(20, 151, 142, 0.008);
+      pointer-events: none;
+    }
+
+    .result-top {
+      position: relative;
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 24px;
+    }
+
+    .result-kicker {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: 11px;
+      font-weight: 750;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .result-kicker::before {
+      content: "";
+      width: 18px;
+      height: 1px;
+      background: var(--cyan);
+    }
+
+    .lcoe-line {
+      display: flex;
+      align-items: flex-end;
+      gap: 12px;
+      min-height: 93px;
+    }
+
+    .currency {
+      padding-bottom: 14px;
+      color: var(--lime);
+      font-size: clamp(25px, 3vw, 42px);
+      font-weight: 780;
+    }
+
+    .lcoe {
+      color: var(--ink);
+      font-size: clamp(70px, 8.4vw, 132px);
+      font-weight: 760;
+      line-height: .78;
+      letter-spacing: -.075em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .unit {
+      padding-bottom: 10px;
+      color: var(--muted);
+      font-size: clamp(13px, 1.4vw, 18px);
+      font-weight: 650;
+    }
+
+    .delta-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 19px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .delta-value {
+      padding: 6px 9px;
+      border: 1px solid var(--line);
+      border-radius: 7px;
+      background: var(--panel-2);
+      color: var(--soft);
+      font-weight: 800;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .status-block {
+      position: relative;
+      z-index: 1;
+      width: min(245px, 31%);
+      padding: 17px 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--panel-2);
+    }
+
+    .status-label {
+      margin-bottom: 7px;
+      color: var(--muted);
+      font-size: 10px;
+      font-weight: 750;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+    }
+
+    .status-value {
+      color: var(--amber);
+      font-size: 15px;
+      font-weight: 800;
+      line-height: 1.35;
+    }
+
+    .status-note {
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    .benchmark {
+      position: relative;
+      margin-top: 38px;
+      padding: 20px 0 27px;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 0;
+      color: var(--soft);
+      font-size: 13px;
+      letter-spacing: .01em;
+    }
+
+    .section-heading span {
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .benchmark-track {
+      position: relative;
+      height: 9px;
+      margin-top: 0;
+      border-radius: 999px;
+      background: linear-gradient(90deg,
+        rgba(20,151,142,.5) 0 var(--target-low, 16%),
+        rgba(15,118,110,.28) var(--target-low, 16%) var(--target-high, 24%),
+        rgba(173,107,22,.24) var(--target-high, 24%) var(--screen, 30%),
+        #e7ecea var(--screen, 30%) 100%);
+    }
+
+    .benchmark-tick {
+      position: absolute;
+      top: 17px;
+      transform: translateX(-50%);
+      color: var(--muted);
+      font-size: 9px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .benchmark-tick::after {
+      content: "";
+      position: absolute;
+      top: -13px;
+      left: 50%;
+      width: 1px;
+      height: 10px;
+      background: #b8c5c0;
+    }
+
+    .current-pin {
+      position: absolute;
+      top: -18px;
+      left: var(--pin, 85%);
+      transform: translateX(-50%);
+      width: 2px;
+      height: 45px;
+      border-radius: 2px;
+      background: var(--lime);
+      box-shadow: 0 0 12px rgba(15,118,110,.25);
+      transition: left .22s ease;
+    }
+
+    .current-pin::before {
+      content: attr(data-label);
+      position: absolute;
+      top: 49px;
+      left: 50%;
+      transform: translateX(-50%);
+      padding: 2px 5px;
+      border-radius: 4px;
+      background: var(--panel);
+      color: var(--lime);
+      font-size: 10px;
+      font-weight: 800;
+      line-height: 1.25;
+      white-space: nowrap;
+    }
+
+    .benchmark-caption {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 52px;
+      color: var(--muted);
+      font-size: 9.5px;
+    }
+
+    .benchmark-caption b { color: var(--soft); font-weight: 700; }
+
+    .benchmark-plot {
+      position: relative;
+      margin-top: 16px;
+    }
+
+    .benchmark-annotation-stage {
+      position: relative;
+      width: min(100%, max(460px, var(--annotation-span, 36%)));
+      height: 108px;
+    }
+
+    .benchmark-card-grid {
+      position: relative;
+      z-index: 2;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      grid-template-rows: repeat(2, 34px);
+      gap: 10px 12px;
+      width: 100%;
+    }
+
+    .energy-card {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      align-items: center;
+      gap: 7px;
+      min-width: 0;
+      padding: 6px 9px;
+      border: 1px solid #dce5e2;
+      border-left: 3px solid var(--card-accent);
+      border-radius: 8px;
+      background: rgba(255,255,255,.98);
+      box-shadow: 0 3px 10px rgba(30,55,48,.055);
+      color: var(--soft);
+      font-size: 8px;
+      line-height: 1.2;
+    }
+
+    .energy-card[data-slot="solar"] { grid-column: 1; grid-row: 1; }
+    .energy-card[data-slot="onshore"] { grid-column: 1; grid-row: 2; }
+    .energy-card[data-slot="fixed"] { grid-column: 2; grid-row: 1; }
+    .energy-card[data-slot="ccus"] { grid-column: 2; grid-row: 2; }
+    .energy-card[data-slot="ccgt"] { grid-column: 3; grid-row: 1; }
+    .energy-card[data-slot="floating"] { grid-column: 3; grid-row: 2; }
+
+    .energy-card-name {
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .energy-card-value {
+      color: var(--card-accent);
+      font-size: 8px;
+      font-weight: 820;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+    }
+
+    .benchmark-card-leaders {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      overflow: visible;
+      pointer-events: none;
+    }
+
+    .benchmark-card-leader {
+      fill: none;
+      stroke: #718983;
+      stroke-width: 1;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+      vector-effect: non-scaling-stroke;
+      opacity: .68;
+    }
+
+    .benchmark-axis-wrap {
+      position: relative;
+      margin-top: 0;
+    }
+
+    .energy-range {
+      position: absolute;
+      top: var(--range-lane, 1px);
+      left: var(--range-low);
+      width: max(4px, calc(var(--range-high) - var(--range-low)));
+      height: 3px;
+      border-radius: 999px;
+      background: var(--range-color, #607b75);
+      box-shadow: 0 0 0 1px rgba(255,255,255,.7);
+    }
+
+    .definition-note {
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      margin-top: 12px;
+      color: var(--muted);
+      font-size: 9.5px;
+      line-height: 1.45;
+    }
+
+    .definition-note strong { color: var(--soft); }
+
+    .analysis-grid {
+      display: grid;
+      grid-template-columns: minmax(265px, .95fr) minmax(330px, 1.25fr);
+      gap: clamp(24px, 3vw, 50px);
+      padding-top: 30px;
+    }
+
+    .composition {
+      display: grid;
+      grid-template-columns: 126px 1fr;
+      align-items: center;
+      gap: 22px;
+    }
+
+    .donut {
+      position: relative;
+      display: grid;
+      place-items: center;
+      width: 126px;
+      aspect-ratio: 1;
+      border-radius: 50%;
+      background: conic-gradient(
+        var(--lime) 0 var(--p1),
+        var(--cyan) var(--p1) var(--p2),
+        var(--amber) var(--p2) var(--p3),
+        var(--coral) var(--p3) 100%);
+      box-shadow: inset 0 0 26px rgba(0,0,0,.14);
+    }
+
+    .donut::after {
+      content: "";
+      position: absolute;
+      inset: 15px;
+      border-radius: 50%;
+      background: var(--panel);
+      box-shadow: 0 0 0 1px var(--line);
+    }
+
+    .donut-center {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+    }
+
+    .donut-value {
+      display: block;
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: -.04em;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .donut-label {
+      display: block;
+      margin-top: 2px;
+      color: var(--muted);
+      font-size: 8.5px;
+    }
+
+    .legend { display: grid; gap: 9px; }
+    .legend-item {
+      display: grid;
+      grid-template-columns: 7px 1fr auto;
+      align-items: center;
+      gap: 8px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+    .legend-item strong {
+      color: var(--soft);
+      font-size: 10.5px;
+      font-variant-numeric: tabular-nums;
+    }
+    .swatch { width: 7px; height: 7px; border-radius: 2px; background: var(--swatch); }
+
+    .driver-list { display: grid; gap: 10px; }
+
+    .driver-row {
+      display: grid;
+      grid-template-columns: minmax(95px, 1fr) minmax(100px, 1.8fr) 67px;
+      align-items: center;
+      gap: 10px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .driver-name {
+      overflow: hidden;
+      color: var(--soft);
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .driver-track {
+      height: 5px;
+      overflow: hidden;
+      border-radius: 999px;
+      background: #e7ecea;
+    }
+
+    .driver-bar {
+      display: block;
+      width: var(--width, 0%);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--bar, var(--cyan));
+      transition: width .22s ease;
+    }
+
+    .driver-value {
+      color: var(--soft);
+      font-variant-numeric: tabular-nums;
+      text-align: right;
+    }
+
+    .metric-strip {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 30px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: var(--panel-2);
+      overflow: hidden;
+    }
+
+    .metric {
+      min-width: 0;
+      padding: 15px 16px;
+      border-right: 1px solid var(--line);
+    }
+
+    .metric:last-child { border-right: 0; }
+
+    .metric-label {
+      margin-bottom: 6px;
+      color: var(--muted);
+      font-size: 9.5px;
+    }
+
+    .metric-value {
+      overflow: hidden;
+      color: var(--soft);
+      font-size: clamp(13px, 1.35vw, 18px);
+      font-weight: 780;
+      letter-spacing: -.025em;
+      font-variant-numeric: tabular-nums;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+
+    .insight {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+      font-size: 10.5px;
+      line-height: 1.5;
+    }
+
+    .insight strong { color: var(--lime); font-weight: 760; }
+    .model-note { max-width: 58ch; text-align: right; }
+
+    .report-section {
+      margin-top: 18px;
+      padding: clamp(28px, 4vw, 54px);
+      border: 1px solid var(--line);
+      border-radius: var(--radius);
+      background: var(--panel);
+      box-shadow: var(--shadow);
+    }
+
+    .report-head {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: 28px;
+      padding-bottom: 28px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .report-head-copy { max-width: 760px; }
+
+    .report-head h2 {
+      max-width: 24ch;
+      margin: 0 0 12px;
+      color: var(--ink);
+      font-size: clamp(28px, 3.2vw, 46px);
+      line-height: 1.08;
+      letter-spacing: -.045em;
+    }
+
+    .report-head p {
+      max-width: 76ch;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.65;
+    }
+
+    .report-actions {
+      display: flex;
+      flex: 0 0 auto;
+      flex-direction: column;
+      align-items: flex-end;
+      gap: 10px;
+    }
+
+    .evidence-date {
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .report-links { display: flex; gap: 8px; }
+
+    .report-link {
+      display: inline-flex;
+      align-items: center;
+      min-height: 34px;
+      padding: 0 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      color: var(--soft);
+      font-size: 10.5px;
+      font-weight: 750;
+      text-decoration: none;
+      transition: border-color .2s ease, color .2s ease, background .2s ease;
+    }
+
+    .report-link:hover {
+      border-color: rgba(15,118,110,.42);
+      background: #f0f8f6;
+      color: var(--lime);
+    }
+
+    .findings-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      margin-top: 28px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .finding {
+      min-width: 0;
+      padding: 22px;
+      border-right: 1px solid var(--line);
+      background: linear-gradient(180deg, rgba(15,118,110,.018), transparent);
+    }
+
+    .finding:last-child { border-right: 0; }
+
+    .finding-label {
+      display: block;
+      margin-bottom: 13px;
+      color: var(--muted);
+      font-size: 9.5px;
+      font-weight: 750;
+      letter-spacing: .06em;
+      text-transform: uppercase;
+    }
+
+    .finding strong {
+      display: block;
+      margin-bottom: 9px;
+      color: var(--ink);
+      font-size: clamp(22px, 2.2vw, 32px);
+      line-height: 1.05;
+      letter-spacing: -.045em;
+    }
+
+    .finding p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 10.5px;
+      line-height: 1.55;
+    }
+
+    .report-grid {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr);
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .report-card {
+      min-width: 0;
+      padding: 24px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      background: #fff;
+    }
+
+    .report-card-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 22px;
+    }
+
+    .report-card h3 {
+      margin-bottom: 6px;
+      color: var(--soft);
+      font-size: 16px;
+      letter-spacing: -.02em;
+    }
+
+    .report-card-head p,
+    .card-note {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.5;
+    }
+
+    .chart-tag {
+      flex: 0 0 auto;
+      padding: 5px 7px;
+      border-radius: 6px;
+      background: var(--panel-2);
+      color: var(--muted);
+      font-size: 9px;
+      font-weight: 750;
+    }
+
+    .oneway-chart { display: grid; gap: 13px; }
+
+    .oneway-row {
+      display: grid;
+      grid-template-columns: minmax(105px, 1.05fr) minmax(130px, 2fr) 58px;
+      align-items: center;
+      gap: 11px;
+      font-size: 10.5px;
+    }
+
+    .oneway-name { color: var(--soft); }
+
+    .oneway-track {
+      position: relative;
+      height: 8px;
+      overflow: visible;
+      border-radius: 999px;
+      background: #edf1ef;
+    }
+
+    .oneway-track::after {
+      content: "";
+      position: absolute;
+      top: -3px;
+      bottom: -3px;
+      left: 33.333%;
+      width: 1px;
+      background: rgba(173,107,22,.62);
+    }
+
+    .oneway-bar {
+      display: block;
+      width: var(--value);
+      height: 100%;
+      border-radius: inherit;
+      background: var(--bar, var(--cyan));
+    }
+
+    .oneway-value {
+      color: var(--soft);
+      font-variant-numeric: tabular-nums;
+      font-weight: 750;
+      text-align: right;
+    }
+
+    .oneway-axis {
+      display: grid;
+      grid-template-columns: minmax(105px, 1.05fr) minmax(130px, 2fr) 58px;
+      gap: 11px;
+      margin-top: 3px;
+      color: var(--muted);
+      font-size: 8.5px;
+    }
+
+    .oneway-axis-scale { display: flex; justify-content: space-between; }
+
+    .chart-conclusion {
+      margin: 18px 0 0;
+      padding-top: 15px;
+      border-top: 1px solid var(--line);
+      color: var(--soft);
+      font-size: 10.5px;
+      line-height: 1.5;
+    }
+
+    .chart-conclusion strong { color: var(--lime); }
+
+    .threshold-stack { display: grid; gap: 22px; }
+
+    .threshold-block h4 {
+      margin: 0 0 9px;
+      color: var(--soft);
+      font-size: 11px;
+    }
+
+    .compact-table,
+    .pathway-table {
+      width: 100%;
+      border-collapse: collapse;
+      color: var(--soft);
+      font-size: 10px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .compact-table th,
+    .compact-table td,
+    .pathway-table th,
+    .pathway-table td {
+      padding: 9px 8px;
+      border-bottom: 1px solid var(--line);
+      text-align: right;
+      white-space: nowrap;
+    }
+
+    .compact-table th:first-child,
+    .compact-table td:first-child,
+    .pathway-table th:first-child,
+    .pathway-table td:first-child { padding-left: 0; text-align: left; }
+
+    .compact-table th,
+    .pathway-table th {
+      color: var(--muted);
+      font-size: 8.5px;
+      font-weight: 750;
+      letter-spacing: .04em;
+      text-transform: uppercase;
+    }
+
+    .compact-table tr:last-child td,
+    .pathway-table tr:last-child td { border-bottom: 0; }
+
+    .not-reached { color: var(--muted); }
+
+    .benchmark-card { margin-top: 18px; }
+
+    .benchmark-summary {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin-bottom: 22px;
+      padding: 12px 14px;
+      border: 1px solid rgba(173,107,22,.22);
+      border-radius: 9px;
+      background: rgba(173,107,22,.045);
+      color: var(--soft);
+      font-size: 10.5px;
+    }
+
+    .benchmark-summary strong {
+      color: var(--amber);
+      font-size: 17px;
+      letter-spacing: -.025em;
+    }
+
+    .uk-benchmark-rows { display: grid; gap: 13px; }
+
+    .uk-benchmark-row {
+      display: grid;
+      grid-template-columns: minmax(125px, 1fr) minmax(200px, 2.5fr) 70px;
+      align-items: center;
+      gap: 12px;
+      font-size: 10px;
+    }
+
+    .uk-benchmark-name { color: var(--soft); }
+
+    .range-track {
+      position: relative;
+      height: 8px;
+      border-radius: 999px;
+      background:
+        linear-gradient(90deg, transparent calc(25% - .5px), #d9e1de calc(25% - .5px) calc(25% + .5px), transparent calc(25% + .5px)),
+        linear-gradient(90deg, transparent calc(50% - .5px), #d9e1de calc(50% - .5px) calc(50% + .5px), transparent calc(50% + .5px)),
+        linear-gradient(90deg, transparent calc(75% - .5px), #d9e1de calc(75% - .5px) calc(75% + .5px), transparent calc(75% + .5px)),
+        #edf1ef;
+    }
+
+    .range-span {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: var(--low);
+      width: max(4px, calc(var(--high) - var(--low)));
+      border-radius: 999px;
+      background: var(--range-color, var(--cyan));
+    }
+
+    .range-value {
+      color: var(--soft);
+      font-variant-numeric: tabular-nums;
+      text-align: right;
+    }
+
+    .benchmark-axis {
+      display: grid;
+      grid-template-columns: minmax(125px, 1fr) minmax(200px, 2.5fr) 70px;
+      gap: 12px;
+      margin-top: 7px;
+      color: var(--muted);
+      font-size: 8.5px;
+    }
+
+    .benchmark-axis-scale { display: flex; justify-content: space-between; }
+
+    .pathway-card { margin-top: 18px; }
+    .table-scroll { overflow-x: auto; }
+    .pathway-table { min-width: 690px; }
+    .pathway-table td:first-child { color: var(--lime); font-weight: 800; }
+
+    .method-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 18px;
+      border: 1px solid var(--line);
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .method-item {
+      min-width: 0;
+      padding: 22px;
+      border-right: 1px solid var(--line);
+      background: var(--panel-2);
+    }
+
+    .method-item:last-child { border-right: 0; }
+
+    .method-item h3 {
+      margin-bottom: 8px;
+      color: var(--soft);
+      font-size: 12px;
+    }
+
+    .method-item p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 10px;
+      line-height: 1.6;
+    }
+
+    .source-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      margin-top: 18px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
+    }
+
+    .source-footer p {
+      max-width: 75ch;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 9.5px;
+      line-height: 1.55;
+    }
+
+    .source-links { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px 14px; }
+
+    .source-links a {
+      color: var(--lime);
+      font-size: 10px;
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .source-links a:hover { text-decoration: underline; }
+
+    @media (max-width: 1120px) {
+      .workspace { grid-template-columns: minmax(340px, .8fr) minmax(500px, 1.2fr); }
+      .analysis-grid { grid-template-columns: 1fr; }
+      .composition { grid-template-columns: 116px minmax(180px, 260px); }
+      .donut { width: 116px; }
+      .metric-strip { grid-template-columns: repeat(2, 1fr); }
+      .metric:nth-child(2) { border-right: 0; }
+      .metric:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .findings-grid { grid-template-columns: repeat(2, 1fr); }
+      .finding:nth-child(2) { border-right: 0; }
+      .finding:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+      .report-grid { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 860px) {
+      .app-shell { padding: 12px; }
+      .brand-sub, .price-basis { display: none; }
+      .workspace { grid-template-columns: 1fr; grid-template-rows: auto; min-height: auto; }
+      .control-panel { height: auto; }
+      .control-scroll { max-height: 620px; }
+      .result-panel { padding: 28px 22px; }
+      .result-top { align-items: flex-end; }
+      .status-block { width: 215px; }
+      .report-head { align-items: flex-start; flex-direction: column; }
+      .report-actions { align-items: flex-start; }
+      .method-strip { grid-template-columns: 1fr; }
+      .method-item { border-right: 0; border-bottom: 1px solid var(--line); }
+      .method-item:last-child { border-bottom: 0; }
+      .source-footer { align-items: flex-start; flex-direction: column; }
+      .source-links { justify-content: flex-start; }
+    }
+
+    @media (max-width: 590px) {
+      .app-shell { padding: 0; }
+      .topbar { padding: 14px 16px; }
+      .top-meta > .live-dot,
+      .top-meta > [data-i18n="liveModel"] { display: none; }
+      .language-picker { margin-left: 0; }
+      .language-select { min-width: 96px; }
+      .workspace { gap: 10px; padding-top: 10px; }
+      .control-panel, .result-panel { border-right: 0; border-left: 0; border-radius: 0; }
+      .control-head { padding: 22px 18px 18px; }
+      .presets { grid-template-columns: repeat(2, 1fr); }
+      .result-top { display: block; }
+      .lcoe { font-size: clamp(68px, 22vw, 100px); }
+      .status-block { width: 100%; margin-top: 24px; }
+      .benchmark { margin-top: 28px; }
+      .benchmark-annotation-stage { height: 150px; }
+      .benchmark-card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(3, 36px); gap: 9px; }
+      .energy-card { grid-column: auto !important; grid-row: auto !important; grid-template-columns: 1fr; align-content: center; gap: 2px; padding: 5px 7px; }
+      .energy-card-value { font-size: 7.5px; }
+      .benchmark-card-leaders { display: none; }
+      .composition { grid-template-columns: 108px 1fr; gap: 16px; }
+      .donut { width: 108px; }
+      .driver-row { grid-template-columns: minmax(80px, 1fr) 1.2fr 60px; }
+      .metric-strip { grid-template-columns: 1fr 1fr; }
+      .metric { padding: 13px 12px; }
+      .metric-value { font-size: 14px; }
+      .insight { align-items: flex-start; flex-direction: column; }
+      .model-note { text-align: left; }
+      .report-section { margin-top: 10px; padding: 28px 18px; border-right: 0; border-left: 0; border-radius: 0; }
+      .findings-grid { grid-template-columns: 1fr; }
+      .finding { border-right: 0; border-bottom: 1px solid var(--line); }
+      .finding:last-child { border-bottom: 0; }
+      .report-card { padding: 20px 16px; }
+      .report-card-head { flex-direction: column; }
+      .oneway-row { grid-template-columns: minmax(92px, 1fr) minmax(100px, 1.45fr) 50px; gap: 8px; }
+      .oneway-axis { grid-template-columns: minmax(92px, 1fr) minmax(100px, 1.45fr) 50px; gap: 8px; }
+      .uk-benchmark-row { grid-template-columns: minmax(104px, 1fr) minmax(120px, 1.8fr) 60px; gap: 8px; }
+      .benchmark-axis { grid-template-columns: minmax(104px, 1fr) minmax(120px, 1.8fr) 60px; gap: 8px; }
+      .benchmark-summary { align-items: flex-start; flex-direction: column; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { scroll-behavior: auto !important; transition: none !important; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand">
+        <div class="brand-mark" aria-hidden="true">S</div>
+        <div class="brand-name" data-i18n="brandName">SBSP Cost Lab</div>
+        <div class="brand-sub" data-i18n="brandSub">Space-based solar power · Cost-condition map</div>
+      </div>
+      <div class="top-meta">
+        <span class="live-dot" aria-hidden="true"></span>
+        <span data-i18n="liveModel">Live model</span>
+        <span class="price-basis" data-i18n="priceBasis">2024 real terms · GBP</span>
+        <div class="language-picker">
+          <label for="language-select" class="sr-only">Language</label>
+          <select class="language-select" id="language-select" aria-label="Language">
+            <option value="en" selected>English</option>
+            <option value="zh">中文</option>
+          </select>
+        </div>
+      </div>
+    </header>
+
+    <div class="workspace">
+      <aside class="control-panel" aria-label="SBSP cost parameters" data-i18n-aria="controlAria">
+        <div class="control-head">
+          <p class="eyebrow" data-i18n="controlEyebrow">Parameter controls</p>
+          <h1 data-i18n-html="heroTitle">Shape the cost of<br>power from space</h1>
+          <p class="intro" data-i18n="intro">Start from the reference architecture and adjust technical, deployment, finance and operating assumptions. Results update instantly.</p>
+          <div class="presets" role="group" aria-label="Scenario presets" data-i18n-aria="presetsAria">
+            <button class="preset" type="button" data-preset="reference" aria-pressed="true" data-i18n="reference">Reference</button>
+            <button class="preset" type="button" data-preset="150" aria-pressed="false" data-i18n="path150">£150 path</button>
+            <button class="preset" type="button" data-preset="120" aria-pressed="false" data-i18n="path120">£120 path</button>
+            <button class="preset" type="button" data-preset="100" aria-pressed="false" data-i18n="path100">£100 path</button>
+            <button class="preset" type="button" data-preset="80" aria-pressed="false" data-i18n="path80">£80 path</button>
+            <button class="preset" type="button" data-preset="60" aria-pressed="false" data-i18n="path60">£60 path</button>
+          </div>
+          <p class="path-note"><span class="info-mark" aria-hidden="true">i</span><span data-i18n="pathMethod">Path presets move multiple inputs together by an equal model-normalised fraction. They are comparison devices, not engineering roadmaps.</span></p>
+        </div>
+
+        <div class="control-scroll" id="controls">
+          <details open>
+            <summary><span><span data-i18n="groupArchitecture">Architecture &amp; energy chain</span> <span class="group-count" data-i18n="items4">4 items</span></span></summary>
+            <div class="control-list" data-group="architecture"></div>
+          </details>
+          <details open>
+            <summary><span><span data-i18n="groupDeployment">Deployment &amp; ground system</span> <span class="group-count" data-i18n="items5">5 items</span></span></summary>
+            <div class="control-list" data-group="deployment"></div>
+          </details>
+          <details>
+            <summary><span><span data-i18n="groupFinance">Finance &amp; operations</span> <span class="group-count" data-i18n="items7">7 items</span></span></summary>
+            <div class="control-list" data-group="finance"></div>
+          </details>
+        </div>
+
+        <div class="control-footer">
+          <span data-i18n="footerNote">Delivered capacity fixed at 2 GW; ranges reflect the modelled exploration space.</span>
+          <button class="reset-button" id="reset" type="button" data-i18n="reset">↺ Reset</button>
+        </div>
+      </aside>
+
+      <section class="result-panel" aria-live="polite" aria-atomic="false">
+        <div class="result-top">
+          <div>
+            <div class="result-kicker" data-i18n="resultKicker">Delivered-grid LCOE</div>
+            <div class="lcoe-line">
+              <span class="currency">£</span>
+              <span class="lcoe" id="lcoe">429</span>
+              <span class="unit">/MWh</span>
+            </div>
+            <div class="delta-row">
+              <span class="delta-value" id="delta">vs reference ±0.0%</span>
+              <span id="delta-text" data-i18n="deltaText">per MWh delivered to the grid connection point</span>
+            </div>
+          </div>
+
+          <div class="status-block">
+            <div class="status-label" data-i18n="costStatus">Cost status</div>
+            <div class="status-value" id="status">Above the £150 screening line</div>
+            <div class="status-note" id="status-note">Coordinated technical and financial improvements are required</div>
+          </div>
+        </div>
+
+        <section class="benchmark" aria-labelledby="benchmark-title">
+          <div class="section-heading">
+            <h2 id="benchmark-title" data-i18n="benchmarkTitle">Target cost scale</h2>
+            <span id="scale-label">Scale £0–500/MWh</span>
+          </div>
+          <div class="definition-note"><span class="info-mark" aria-hidden="true">i</span><span data-i18n-html="studyDefined"><strong>Study-defined thresholds:</strong> these are analytical screening lines, not official UK targets.</span></div>
+          <div class="benchmark-plot">
+            <div class="benchmark-annotation-stage" role="img" aria-label="Selected UK generation LCOE benchmark ranges" data-i18n-aria="benchmarkAria">
+              <div class="benchmark-card-grid">
+                <span class="energy-card" id="card-solar" data-slot="solar" data-row="top" data-port="right" style="--card-accent:#0f766e"><span class="energy-card-name" data-i18n="largeSolarShort">Solar</span><strong class="energy-card-value">£55–60</strong></span>
+                <span class="energy-card" id="card-onshore" data-slot="onshore" data-row="bottom" style="--card-accent:#4a9b94"><span class="energy-card-name" data-i18n="onshoreWindShort">Onshore wind</span><strong class="energy-card-value">£57–58</strong></span>
+                <span class="energy-card" id="card-fixed" data-slot="fixed" data-row="top" data-port="left" style="--card-accent:#4f7fa7"><span class="energy-card-name" data-i18n="fixedOffshoreShort">Fixed offshore</span><strong class="energy-card-value">£98–103</strong></span>
+                <span class="energy-card" id="card-ccus" data-slot="ccus" data-row="bottom" style="--card-accent:#bd624f"><span class="energy-card-name" data-i18n="ccusHighShort">Gas + CCUS</span><strong class="energy-card-value">£104–105</strong></span>
+                <span class="energy-card" id="card-ccgt" data-slot="ccgt" data-row="top" data-port="left" style="--card-accent:#b5792f"><span class="energy-card-name" data-i18n="ccgtHighShort">Gas CCGT</span><strong class="energy-card-value">£111–113</strong></span>
+                <span class="energy-card" id="card-floating" data-slot="floating" data-row="bottom" style="--card-accent:#8069a5"><span class="energy-card-name" data-i18n="floatingOffshoreShort">Floating offshore</span><strong class="energy-card-value">£125–153</strong></span>
+              </div>
+              <svg class="benchmark-card-leaders" aria-hidden="true">
+                <defs>
+                  <marker id="card-arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto" markerUnits="strokeWidth">
+                    <path d="M0,0 L6,3 L0,6 Z" fill="#718983"></path>
+                  </marker>
+                </defs>
+                <path class="benchmark-card-leader" data-card="card-solar" data-low="55" data-high="60" marker-end="url(#card-arrow)"></path>
+                <path class="benchmark-card-leader" data-card="card-onshore" data-low="57" data-high="58" marker-end="url(#card-arrow)"></path>
+                <path class="benchmark-card-leader" data-card="card-fixed" data-low="98" data-high="103" marker-end="url(#card-arrow)"></path>
+                <path class="benchmark-card-leader" data-card="card-ccus" data-low="104" data-high="105" marker-end="url(#card-arrow)"></path>
+                <path class="benchmark-card-leader" data-card="card-ccgt" data-low="111" data-high="113" marker-end="url(#card-arrow)"></path>
+                <path class="benchmark-card-leader" data-card="card-floating" data-low="125" data-high="153" marker-end="url(#card-arrow)"></path>
+              </svg>
+            </div>
+            <div class="benchmark-axis-wrap">
+              <div class="benchmark-track" id="benchmark-track">
+                <span class="energy-range" data-low="55" data-high="60" style="--range-lane:1px;--range-color:#0f766e"></span>
+                <span class="energy-range" data-low="57" data-high="58" style="--range-lane:5px;--range-color:#4a9b94"></span>
+                <span class="energy-range" data-low="98" data-high="103" style="--range-lane:1px;--range-color:#4f7fa7"></span>
+                <span class="energy-range" data-low="104" data-high="105" style="--range-lane:5px;--range-color:#bd624f"></span>
+                <span class="energy-range" data-low="111" data-high="113" style="--range-lane:1px;--range-color:#b5792f"></span>
+                <span class="energy-range" data-low="125" data-high="153" style="--range-lane:5px;--range-color:#8069a5"></span>
+                <span class="benchmark-tick" data-value="60">£60</span>
+                <span class="benchmark-tick" data-value="80">£80</span>
+                <span class="benchmark-tick" data-value="120">£120</span>
+                <span class="benchmark-tick" data-value="150">£150</span>
+                <span class="current-pin" id="current-pin" data-label="Current £429"></span>
+              </div>
+            </div>
+          </div>
+          <div class="benchmark-caption">
+            <span data-i18n-html="deepCost"><b>£60–80</b> deep-cost lines</span>
+            <span data-i18n-html="decisionZone"><b>£80–120</b> study decision region</span>
+            <span data-i18n-html="screeningLine"><b>£150</b> broad screening line</span>
+          </div>
+        </section>
+
+        <div class="analysis-grid">
+          <section aria-labelledby="cost-title">
+            <div class="section-heading">
+              <h2 id="cost-title" data-i18n="annualCost">Annualised cost mix</h2>
+              <span>£/MWh</span>
+            </div>
+            <div class="composition">
+              <div class="donut" id="donut" aria-label="Annualised cost composition chart" data-i18n-aria="donutAria">
+                <div class="donut-center">
+                  <span class="donut-value" id="capex-share">82%</span>
+                  <span class="donut-label" data-i18n="annualCapital">annualised capital</span>
+                </div>
+              </div>
+              <div class="legend" id="legend"></div>
+            </div>
+          </section>
+
+          <section aria-labelledby="drivers-title">
+            <div class="section-heading">
+              <h2 id="drivers-title" data-i18n="capexAllocation">Initial CAPEX allocation</h2>
+              <span data-i18n="sortedCurrent">Sorted for current scenario</span>
+            </div>
+            <div class="driver-list" id="drivers"></div>
+          </section>
+        </div>
+
+        <div class="metric-strip" aria-label="Key model results" data-i18n-aria="metricsAria">
+          <div class="metric">
+            <div class="metric-label" data-i18n="initialCapex">Initial CAPEX</div>
+            <div class="metric-value" id="initial-capex">£72.6bn</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label" data-i18n="annualEnergy">Annual delivered energy</div>
+            <div class="metric-value" id="annual-energy">15.8 TWh</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label" data-i18n="spacePower">Required space-side power</div>
+            <div class="metric-value" id="space-power">13.3 GW</div>
+          </div>
+          <div class="metric">
+            <div class="metric-label" data-i18n="orbitalMass">Orbital system mass</div>
+            <div class="metric-value" id="orbital-mass">66.7 kt</div>
+          </div>
+        </div>
+
+        <div class="insight">
+          <div><span data-i18n="sensitivePrefix">Local 1% sensitivity at this scenario:</span> <strong id="sensitive-lever">Specific mass</strong></div>
+          <div class="model-note" data-i18n="modelNote">The cost boundary ends at the grid connection point. Results are conditional analysis, not a deployment forecast or investment advice.</div>
+        </div>
+      </section>
+    </div>
+
+    <section class="report-section" id="report-findings" aria-labelledby="report-findings-title">
+      <div class="report-head">
+        <div class="report-head-copy">
+          <p class="eyebrow" data-i18n="reportEyebrow">Report findings</p>
+          <h2 id="report-findings-title" data-i18n="reportTitle">What conditions move SBSP into lower-cost regions?</h2>
+          <p data-i18n="reportIntro">The calculator above exposes the model. The evidence below summarises what the full report concludes when each parameter, threshold and comparison is interpreted within the stated boundary.</p>
+        </div>
+        <div class="report-actions">
+          <span class="evidence-date" data-i18n="evidenceDate">Evidence register reviewed to 19 Jul 2026</span>
+          <div class="report-links">
+            <a class="report-link" href="../report/final_report_EN.pdf" target="_blank" rel="noopener" data-i18n="openEnglishReport">English report ↗</a>
+            <a class="report-link" href="../report/final_report_zh.pdf" target="_blank" rel="noopener" data-i18n="openChineseReport">中文报告 ↗</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="findings-grid">
+        <article class="finding">
+          <span class="finding-label" data-i18n="findingAnchorLabel">Reference anchor</span>
+          <strong>£429/MWh</strong>
+          <p data-i18n="findingAnchorText">A 2 GW delivered-grid analytical reference point—not a deployment forecast, preferred design or investment case.</p>
+        </article>
+        <article class="finding">
+          <span class="finding-label" data-i18n="findingLeverLabel">Strongest one-way lever</span>
+          <strong data-i18n="findingLeverValue">Specific mass</strong>
+          <p data-i18n="findingLeverText">With all other inputs fixed, only whole-architecture specific mass crosses the £150 line within the explored range.</p>
+        </article>
+        <article class="finding">
+          <span class="finding-label" data-i18n="findingLimitsLabel">One-way limits</span>
+          <strong>£204 / £188</strong>
+          <p data-i18n="findingLimitsText">Best LCOE from launch cost alone at £20/kg, and efficiency alone at 35%, respectively.</p>
+        </article>
+        <article class="finding">
+          <span class="finding-label" data-i18n="findingCoordLabel">Lower-cost regions</span>
+          <strong data-i18n="findingCoordValue">Coupled progress</strong>
+          <p data-i18n="findingCoordText">No tested one-way change reaches £80 or £60/MWh. Some form of coordinated improvement is required.</p>
+        </article>
+      </div>
+
+      <div class="report-grid">
+        <section class="report-card" aria-labelledby="oneway-title">
+          <div class="report-card-head">
+            <div>
+              <h3 id="oneway-title" data-i18n="oneWayTitle">Best one-way LCOE within explored ranges</h3>
+              <p data-i18n="oneWaySubtitle">One input moves to its favourable bound; every other input remains at the reference point.</p>
+            </div>
+            <span class="chart-tag" data-i18n="screenLineShort">£150 line</span>
+          </div>
+          <div class="oneway-chart" role="img" aria-label="Best one-way LCOE comparison" data-i18n-aria="oneWayAria">
+            <div class="oneway-row">
+              <span class="oneway-name" data-i18n="specificMass">Specific mass</span>
+              <span class="oneway-track"><span class="oneway-bar" style="--value:20.24%;--bar:#0f766e"></span></span>
+              <span class="oneway-value">£91</span>
+            </div>
+            <div class="oneway-row">
+              <span class="oneway-name" data-i18n="efficiencyShort">Efficiency</span>
+              <span class="oneway-track"><span class="oneway-bar" style="--value:41.71%;--bar:#4fa9a1"></span></span>
+              <span class="oneway-value">£188</span>
+            </div>
+            <div class="oneway-row">
+              <span class="oneway-name" data-i18n="launchCost">Launch cost</span>
+              <span class="oneway-track"><span class="oneway-bar" style="--value:45.29%;--bar:#4f7fa7"></span></span>
+              <span class="oneway-value">£204</span>
+            </div>
+            <div class="oneway-row">
+              <span class="oneway-name" data-i18n="discountRateShort">Discount-rate proxy</span>
+              <span class="oneway-track"><span class="oneway-bar" style="--value:69.24%;--bar:#c58a3d"></span></span>
+              <span class="oneway-value">£312</span>
+            </div>
+            <div class="oneway-row">
+              <span class="oneway-name" data-i18n="assemblyShort">In-orbit assembly</span>
+              <span class="oneway-track"><span class="oneway-bar" style="--value:74.51%;--bar:#bd624f"></span></span>
+              <span class="oneway-value">£335</span>
+            </div>
+            <div class="oneway-axis" aria-hidden="true">
+              <span></span>
+              <span class="oneway-axis-scale"><span>£0</span><span>£150</span><span>£300</span><span>£450</span></span>
+              <span></span>
+            </div>
+          </div>
+          <p class="chart-conclusion" data-i18n-html="oneWayConclusion"><strong>Only specific mass crosses £150/MWh</strong> as a one-way change within the tested ranges. The ranking is conditional on those ranges.</p>
+        </section>
+
+        <section class="report-card" aria-labelledby="threshold-title">
+          <div class="report-card-head">
+            <div>
+              <h3 id="threshold-title" data-i18n="thresholdTitle">Conditional thresholds and interactions</h3>
+              <p data-i18n="thresholdSubtitle">Necessary only within this model, accounting boundary and explored parameter space.</p>
+            </div>
+          </div>
+          <div class="threshold-stack">
+            <div class="threshold-block">
+              <h4 data-i18n="massThresholdTitle">Specific-mass ceiling with all other inputs fixed</h4>
+              <table class="compact-table">
+                <thead><tr><th data-i18n="target">Target</th><th data-i18n="maxSpecificMass">Maximum specific mass</th></tr></thead>
+                <tbody>
+                  <tr><td>£150/MWh</td><td>1.28 kg/kW-space</td></tr>
+                  <tr><td>£120/MWh</td><td>0.88 kg/kW-space</td></tr>
+                  <tr><td>£100/MWh</td><td>0.62 kg/kW-space</td></tr>
+                  <tr><td>£80 / £60</td><td class="not-reached" data-i18n="notReached">Not reached one-way</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="threshold-block">
+              <h4 data-i18n="interactionExamples">Launch-cost ceilings at selected efficiencies</h4>
+              <table class="compact-table">
+                <thead><tr><th data-i18n="efficiencyShort">Efficiency</th><th data-i18n="target">Target</th><th data-i18n="maxLaunchCost">Maximum launch cost</th></tr></thead>
+                <tbody>
+                  <tr><td>25%</td><td>£150/MWh</td><td>£109.1/kg</td></tr>
+                  <tr><td>30%</td><td>£120/MWh</td><td>£83.2/kg</td></tr>
+                  <tr><td>35%</td><td>£100/MWh</td><td>£64.4/kg</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+          <p class="chart-conclusion" data-i18n="interactionNote">These pairs hold every unshown input at its reference value; they are not complete engineering-feasibility conditions.</p>
+        </section>
+      </div>
+
+      <section class="report-card benchmark-card" aria-labelledby="uk-benchmark-title">
+        <div class="report-card-head">
+          <div>
+            <h3 id="uk-benchmark-title" data-i18n="ukBenchmarkTitle">Selected UK generation-cost benchmarks</h3>
+            <p data-i18n="ukBenchmarkSubtitle">DESNZ 2025 Annex A generation-only LCOE ranges for 2030–2035, in 2024 real GBP/MWh.</p>
+          </div>
+          <span class="chart-tag">£/MWh</span>
+        </div>
+        <div class="benchmark-summary">
+          <span data-i18n="sbspOutsideScale">The SBSP reference anchor sits outside the comparison chart's £0–200 scale.</span>
+          <strong>SBSP £429</strong>
+        </div>
+        <div class="uk-benchmark-rows" role="img" aria-label="Selected UK generation LCOE benchmark ranges" data-i18n-aria="benchmarkAria">
+          <div class="uk-benchmark-row">
+            <span class="uk-benchmark-name" data-i18n="largeSolar">Large-scale solar</span>
+            <span class="range-track"><span class="range-span" style="--low:27.5%;--high:30%;--range-color:#0f766e"></span></span>
+            <span class="range-value">£55–60</span>
+          </div>
+          <div class="uk-benchmark-row">
+            <span class="uk-benchmark-name" data-i18n="onshoreWind">Onshore wind</span>
+            <span class="range-track"><span class="range-span" style="--low:28.5%;--high:29%;--range-color:#4fa9a1"></span></span>
+            <span class="range-value">£57–58</span>
+          </div>
+          <div class="uk-benchmark-row">
+            <span class="uk-benchmark-name" data-i18n="fixedOffshore">Fixed offshore wind</span>
+            <span class="range-track"><span class="range-span" style="--low:49%;--high:51.5%;--range-color:#4f7fa7"></span></span>
+            <span class="range-value">£98–103</span>
+          </div>
+          <div class="uk-benchmark-row">
+            <span class="uk-benchmark-name" data-i18n="floatingOffshore">Floating offshore wind</span>
+            <span class="range-track"><span class="range-span" style="--low:62.5%;--high:76.5%;--range-color:#8a72ad"></span></span>
+            <span class="range-value">£125–153</span>
+          </div>
+          <div class="uk-benchmark-row">
+            <span class="uk-benchmark-name" data-i18n="ccgtHigh">Gas CCGT, high load factor</span>
+            <span class="range-track"><span class="range-span" style="--low:55.5%;--high:56.5%;--range-color:#c58a3d"></span></span>
+            <span class="range-value">£111–113</span>
+          </div>
+          <div class="uk-benchmark-row">
+            <span class="uk-benchmark-name" data-i18n="ccusHigh">Gas with CCUS, high load factor</span>
+            <span class="range-track"><span class="range-span" style="--low:52%;--high:52.5%;--range-color:#bd624f"></span></span>
+            <span class="range-value">£104–105</span>
+          </div>
+          <div class="benchmark-axis" aria-hidden="true">
+            <span></span>
+            <span class="benchmark-axis-scale"><span>£0</span><span>£50</span><span>£100</span><span>£150</span><span>£200</span></span>
+            <span></span>
+          </div>
+        </div>
+        <p class="chart-conclusion" data-i18n="benchmarkCaveat">These are comparison markers, not a parity claim. System-adjusted ranges use a different 2018 real-price basis, and the Hinkley Point C marker is a contract price rather than a generic nuclear LCOE.</p>
+      </section>
+
+      <section class="report-card pathway-card" aria-labelledby="pathway-title">
+        <div class="report-card-head">
+          <div>
+            <h3 id="pathway-title" data-i18n="pathwayTitle">Model-normalised coordinated pathways</h3>
+            <p data-i18n="pathwaySubtitle">Selected inputs move by the same fraction from the reference point toward their favourable explored bounds.</p>
+          </div>
+          <span class="chart-tag" data-i18n="notRoadmap">Not a roadmap</span>
+        </div>
+        <div class="table-scroll">
+          <table class="pathway-table">
+            <thead>
+              <tr>
+                <th data-i18n="target">Target</th>
+                <th data-i18n="jointMovement">Joint movement</th>
+                <th data-i18n="launchCost">Launch cost</th>
+                <th data-i18n="specificMass">Specific mass</th>
+                <th data-i18n="efficiencyShort">Efficiency</th>
+                <th data-i18n="discountRateShort">Discount-rate proxy</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>£150/MWh</td><td>26.5%</td><td>£373/kg</td><td>3.81 kg/kW-space</td><td>20.3%</td><td>5.57%</td></tr>
+              <tr><td>£120/MWh</td><td>31.8%</td><td>£347/kg</td><td>3.57 kg/kW-space</td><td>21.4%</td><td>5.39%</td></tr>
+              <tr><td>£100/MWh</td><td>36.1%</td><td>£327/kg</td><td>3.38 kg/kW-space</td><td>22.2%</td><td>5.24%</td></tr>
+              <tr><td>£80/MWh</td><td>41.1%</td><td>£303/kg</td><td>3.15 kg/kW-space</td><td>23.2%</td><td>5.06%</td></tr>
+              <tr><td>£60/MWh</td><td>47.4%</td><td>£272/kg</td><td>2.87 kg/kW-space</td><td>24.5%</td><td>4.84%</td></tr>
+            </tbody>
+          </table>
+        </div>
+        <p class="chart-conclusion" data-i18n="pathwayNote">Launch, mass, hardware, assembly, transfer, ground costs, finance, lifetime, delivered energy and OPEX move together. The table shows only four representative inputs.</p>
+      </section>
+
+      <div class="method-strip">
+        <section class="method-item">
+          <h3 data-i18n="boundaryTitle">Model boundary</h3>
+          <p data-i18n="boundaryText">2 GW delivered capacity; 2024 real GBP; LCOE ends at the grid connection point. Capacity factor is a delivered-energy proxy.</p>
+        </section>
+        <section class="method-item">
+          <h3 data-i18n="outOfScopeTitle">Not modelled</h3>
+          <p data-i18n="outOfScopeText">Beam safety, spectrum, thermal control, degradation, debris, deployment feasibility, downstream networks, balancing, storage and monetised system value.</p>
+        </section>
+        <section class="method-item">
+          <h3 data-i18n="evidenceDisciplineTitle">Evidence discipline</h3>
+          <p data-i18n="evidenceDisciplineText">Exact SBSP inputs are exploratory study assumptions. External studies provide context and consistency checks, not like-for-like validation.</p>
+        </section>
+      </div>
+
+      <footer class="source-footer">
+        <p data-i18n="sourceFooterText">This page is an interactive companion to the full bilingual report. Conditional thresholds are not universal engineering requirements, official UK targets or claims of commercial feasibility.</p>
+        <nav class="source-links" aria-label="Report evidence" data-i18n-aria="sourceLinksAria">
+          <a href="../report/final_report_EN.pdf" target="_blank" rel="noopener" data-i18n="englishPdf">English PDF</a>
+          <a href="../report/final_report_zh.pdf" target="_blank" rel="noopener" data-i18n="chinesePdf">中文 PDF</a>
+          <a href="../data/source_registry.csv" target="_blank" rel="noopener" data-i18n="sourceRegister">Source register</a>
+          <a href="../report/verification_note.md" target="_blank" rel="noopener" data-i18n="verificationNote">Verification note</a>
+        </nav>
+      </footer>
+    </section>
+  </main>
+
+  <script>
+    const HOURS_PER_YEAR = 8760;
+    const BASELINE_LCOE = 429.25078050818814;
+
+    let currentLanguage = 'en';
+
+    const translations = {
+      en: {
+        title: 'SBSP Cost Lab',
+        description: 'Interactive levelised cost of electricity calculator for the UK SBSP cost-condition model.',
+        brandName: 'SBSP Cost Lab',
+        brandSub: 'Space-based solar power · Cost-condition map',
+        liveModel: 'Live model',
+        priceBasis: '2024 real terms · GBP',
+        controlEyebrow: 'Parameter controls',
+        heroTitle: 'Shape the cost of<br>power from space',
+        intro: 'Start from the reference architecture and adjust technical, deployment, finance and operating assumptions. Results update instantly.',
+        reference: 'Reference',
+        path150: '£150 path',
+        path120: '£120 path',
+        path100: '£100 path',
+        path80: '£80 path',
+        path60: '£60 path',
+        pathMethod: 'Path presets move multiple inputs together by an equal model-normalised fraction. They are comparison devices, not engineering roadmaps.',
+        groupArchitecture: 'Architecture & energy chain',
+        groupDeployment: 'Deployment & ground system',
+        groupFinance: 'Finance & operations',
+        items4: '4 items',
+        items5: '5 items',
+        items7: '7 items',
+        footerNote: 'Delivered capacity fixed at 2 GW; ranges reflect the modelled exploration space.',
+        reset: '↺ Reset',
+        deltaText: 'per MWh delivered to the grid connection point',
+        costStatus: 'Cost status',
+        resultKicker: 'Delivered-grid LCOE',
+        benchmarkTitle: 'Target cost scale',
+        deepCost: '<b>£60–80</b> deep-cost lines',
+        decisionZone: '<b>£80–120</b> study decision region',
+        screeningLine: '<b>£150</b> broad screening line',
+        annualCost: 'Annualised cost mix',
+        annualCapital: 'annualised capital',
+        capexAllocation: 'Initial CAPEX allocation',
+        sortedCurrent: 'Sorted for current scenario',
+        initialCapex: 'Initial CAPEX',
+        annualEnergy: 'Annual delivered energy',
+        spacePower: 'Required space-side power',
+        orbitalMass: 'Orbital system mass',
+        sensitivePrefix: 'Local 1% sensitivity at this scenario:',
+        modelNote: 'The cost boundary ends at the grid connection point. Results are conditional analysis, not a deployment forecast or investment advice.',
+        controlAria: 'SBSP cost parameters',
+        presetsAria: 'Scenario presets',
+        donutAria: 'Annualised cost composition chart',
+        metricsAria: 'Key model results',
+        referenceShort: 'Ref',
+        vsReference: 'vs reference',
+        current: 'Current',
+        scale: 'Scale',
+        language: 'Language',
+        studyDefined: '<strong>Study-defined thresholds:</strong> these are analytical screening lines, not official UK targets.',
+        reportEyebrow: 'Report findings',
+        reportTitle: 'What conditions move SBSP into lower-cost regions?',
+        reportIntro: 'The calculator above exposes the model. The evidence below summarises what the full report concludes when each parameter, threshold and comparison is interpreted within the stated boundary.',
+        evidenceDate: 'Evidence register reviewed to 19 Jul 2026',
+        openEnglishReport: 'English report ↗',
+        openChineseReport: '中文报告 ↗',
+        findingAnchorLabel: 'Reference anchor',
+        findingAnchorText: 'A 2 GW delivered-grid analytical reference point—not a deployment forecast, preferred design or investment case.',
+        findingLeverLabel: 'Strongest one-way lever',
+        findingLeverValue: 'Specific mass',
+        findingLeverText: 'With all other inputs fixed, only whole-architecture specific mass crosses the £150 line within the explored range.',
+        findingLimitsLabel: 'One-way limits',
+        findingLimitsText: 'Best LCOE from launch cost alone at £20/kg, and efficiency alone at 35%, respectively.',
+        findingCoordLabel: 'Lower-cost regions',
+        findingCoordValue: 'Coupled progress',
+        findingCoordText: 'No tested one-way change reaches £80 or £60/MWh. Some form of coordinated improvement is required.',
+        oneWayTitle: 'Best one-way LCOE within explored ranges',
+        oneWaySubtitle: 'One input moves to its favourable bound; every other input remains at the reference point.',
+        screenLineShort: '£150 line',
+        oneWayAria: 'Best one-way LCOE comparison',
+        specificMass: 'Specific mass',
+        efficiencyShort: 'Efficiency',
+        launchCost: 'Launch cost',
+        discountRateShort: 'Discount-rate proxy',
+        assemblyShort: 'In-orbit assembly',
+        oneWayConclusion: '<strong>Only specific mass crosses £150/MWh</strong> as a one-way change within the tested ranges. The ranking is conditional on those ranges.',
+        thresholdTitle: 'Conditional thresholds and interactions',
+        thresholdSubtitle: 'Necessary only within this model, accounting boundary and explored parameter space.',
+        massThresholdTitle: 'Specific-mass ceiling with all other inputs fixed',
+        target: 'Target',
+        maxSpecificMass: 'Maximum specific mass',
+        notReached: 'Not reached one-way',
+        interactionExamples: 'Launch-cost ceilings at selected efficiencies',
+        maxLaunchCost: 'Maximum launch cost',
+        interactionNote: 'These pairs hold every unshown input at its reference value; they are not complete engineering-feasibility conditions.',
+        ukBenchmarkTitle: 'Selected UK generation-cost benchmarks',
+        ukBenchmarkSubtitle: 'DESNZ 2025 Annex A generation-only LCOE ranges for 2030–2035, in 2024 real GBP/MWh.',
+        sbspOutsideScale: "The SBSP reference anchor sits outside the comparison chart's £0–200 scale.",
+        benchmarkAria: 'Selected UK generation LCOE benchmark ranges',
+        largeSolarShort: 'Solar',
+        onshoreWindShort: 'Onshore wind',
+        fixedOffshoreShort: 'Fixed offshore',
+        floatingOffshoreShort: 'Floating offshore',
+        ccgtHighShort: 'Gas CCGT',
+        ccusHighShort: 'Gas + CCUS',
+        largeSolar: 'Large-scale solar',
+        onshoreWind: 'Onshore wind',
+        fixedOffshore: 'Fixed offshore wind',
+        floatingOffshore: 'Floating offshore wind',
+        ccgtHigh: 'Gas CCGT, high load factor',
+        ccusHigh: 'Gas with CCUS, high load factor',
+        benchmarkCaveat: 'These are comparison markers, not a parity claim. System-adjusted ranges use a different 2018 real-price basis, and the Hinkley Point C marker is a contract price rather than a generic nuclear LCOE.',
+        pathwayTitle: 'Model-normalised coordinated pathways',
+        pathwaySubtitle: 'Selected inputs move by the same fraction from the reference point toward their favourable explored bounds.',
+        notRoadmap: 'Not a roadmap',
+        jointMovement: 'Joint movement',
+        pathwayNote: 'Launch, mass, hardware, assembly, transfer, ground costs, finance, lifetime, delivered energy and OPEX move together. The table shows only four representative inputs.',
+        boundaryTitle: 'Model boundary',
+        boundaryText: '2 GW delivered capacity; 2024 real GBP; LCOE ends at the grid connection point. Capacity factor is a delivered-energy proxy.',
+        outOfScopeTitle: 'Not modelled',
+        outOfScopeText: 'Beam safety, spectrum, thermal control, degradation, debris, deployment feasibility, downstream networks, balancing, storage and monetised system value.',
+        evidenceDisciplineTitle: 'Evidence discipline',
+        evidenceDisciplineText: 'Exact SBSP inputs are exploratory study assumptions. External studies provide context and consistency checks, not like-for-like validation.',
+        sourceFooterText: 'This page is an interactive companion to the full bilingual report. Conditional thresholds are not universal engineering requirements, official UK targets or claims of commercial feasibility.',
+        sourceLinksAria: 'Report evidence',
+        englishPdf: 'English PDF',
+        chinesePdf: '中文 PDF',
+        sourceRegister: 'Source register',
+        verificationNote: 'Verification note'
+      },
+      zh: {
+        title: 'SBSP 成本实验室',
+        description: '基于 UK SBSP 成本条件模型的交互式平准化电力成本计算器。',
+        brandName: 'SBSP 成本实验室',
+        brandSub: '空间太阳能 · 成本条件地图',
+        liveModel: '实时模型',
+        priceBasis: '2024 年不变价 · GBP',
+        controlEyebrow: '参数控制',
+        heroTitle: '拖动参数，重构<br>每一度太空电力',
+        intro: '从参考架构出发，调节技术、建设、融资与运维参数。右侧结果会按项目模型即时重算。',
+        reference: '参考点',
+        path150: '£150 路径',
+        path120: '£120 路径',
+        path100: '£100 路径',
+        path80: '£80 路径',
+        path60: '£60 路径',
+        pathMethod: '路径预设把多个输入按相同的模型归一化比例一起移动；它们是比较工具，不是工程路线图。',
+        groupArchitecture: '架构与能量链',
+        groupDeployment: '部署与地面系统',
+        groupFinance: '融资与运营',
+        items4: '4 项',
+        items5: '5 项',
+        items7: '7 项',
+        footerNote: '固定交付容量 2 GW；参数范围来自项目的探索区间。',
+        reset: '↺ 恢复参考点',
+        deltaText: '每 MWh 交付至电网连接点',
+        costStatus: '成本状态',
+        resultKicker: '电网交付侧 LCOE',
+        benchmarkTitle: '目标成本坐标',
+        deepCost: '<b>£60–80</b> 深度成本线',
+        decisionZone: '<b>£80–120</b> 研究决策区间',
+        screeningLine: '<b>£150</b> 广义筛选线',
+        annualCost: '年化成本构成',
+        annualCapital: '年化资本成本',
+        capexAllocation: '初始资本支出去向',
+        sortedCurrent: '按当前情景排序',
+        initialCapex: '初始资本支出',
+        annualEnergy: '年交付电量',
+        spacePower: '所需空间侧功率',
+        orbitalMass: '轨道系统质量',
+        sensitivePrefix: '当前情景的局部 1% 敏感变量：',
+        modelNote: '成本边界止于电网连接点；结果是条件分析，不是部署年份预测或投资建议。',
+        controlAria: 'SBSP 成本参数',
+        presetsAria: '情景预设',
+        donutAria: '年化成本构成环形图',
+        metricsAria: '关键模型结果',
+        referenceShort: '参考',
+        vsReference: '较参考点',
+        current: '当前',
+        scale: '显示范围',
+        language: '语言',
+        studyDefined: '<strong>本研究定义的门槛：</strong>这些是分析筛选线，不是英国官方目标。',
+        reportEyebrow: '报告核心发现',
+        reportTitle: '什么条件能让空间太阳能进入更低成本区间？',
+        reportIntro: '上方计算器展示模型本身；下方证据总结完整报告在既定边界内对参数、门槛和成本参照得出的结论。',
+        evidenceDate: '证据登记表复核至 2026 年 7 月 19 日',
+        openEnglishReport: '英文报告 ↗',
+        openChineseReport: '中文报告 ↗',
+        findingAnchorLabel: '参考锚点',
+        findingAnchorText: '2 GW 并网交付容量的分析参考点；不是部署预测、推荐架构或投资方案。',
+        findingLeverLabel: '最强一维杠杆',
+        findingLeverValue: '整套系统比质量',
+        findingLeverText: '其他输入固定时，探索范围内只有整套架构比质量能够单独穿过 £150 线。',
+        findingLimitsLabel: '一维改善下限',
+        findingLimitsText: '分别对应发射成本单独降至 £20/kg、效率单独提高到 35% 时的最佳 LCOE。',
+        findingCoordLabel: '更低成本区间',
+        findingCoordValue: '需要联动改善',
+        findingCoordText: '所有测试的一维变化都不能达到 £80 或 £60/MWh，因此需要某种协同改善。',
+        oneWayTitle: '探索范围内的一维最低 LCOE',
+        oneWaySubtitle: '每次只把一个输入移到有利边界，其余输入保持参考值。',
+        screenLineShort: '£150 筛选线',
+        oneWayAria: '一维最低 LCOE 对比',
+        specificMass: '比质量',
+        efficiencyShort: '端到端效率',
+        launchCost: '发射成本',
+        discountRateShort: '实际贴现率代理',
+        assemblyShort: '在轨装配',
+        oneWayConclusion: '<strong>只有比质量能作为一维变化穿过 £150/MWh</strong>。这一排名取决于本研究采用的参考点和探索范围。',
+        thresholdTitle: '条件门槛与参数联动',
+        thresholdSubtitle: '所谓必要条件只在本模型、会计边界和探索参数空间内成立。',
+        massThresholdTitle: '其他输入固定时的比质量上限',
+        target: '目标',
+        maxSpecificMass: '最大比质量',
+        notReached: '一维变化未达到',
+        interactionExamples: '选定效率下的最大发射成本',
+        maxLaunchCost: '最大发射成本',
+        interactionNote: '这些参数组合把所有未展示输入固定在参考值，不能视作完整的工程可行性条件。',
+        ukBenchmarkTitle: '选定的英国发电成本参照',
+        ukBenchmarkSubtitle: 'DESNZ 2025 附录 A 的 2030–2035 年发电侧 LCOE 区间，单位为 2024 年实际英镑/MWh。',
+        sbspOutsideScale: 'SBSP 参考锚点位于该 £0–200 对比图的刻度范围之外。',
+        benchmarkAria: '选定英国发电 LCOE 基准区间',
+        largeSolarShort: '大型光伏',
+        onshoreWindShort: '陆上风电',
+        fixedOffshoreShort: '固定式海风',
+        floatingOffshoreShort: '浮式海风',
+        ccgtHighShort: '燃气 CCGT',
+        ccusHighShort: '燃气 + CCUS',
+        largeSolar: '大型光伏',
+        onshoreWind: '陆上风电',
+        fixedOffshore: '固定式海上风电',
+        floatingOffshore: '浮式海上风电',
+        ccgtHigh: '燃气 CCGT，高负荷率',
+        ccusHigh: '燃气加 CCUS，高负荷率',
+        benchmarkCaveat: '这些数值只是比较标记，不代表成本平价。系统调整区间采用不同的 2018 年实际价格基准；欣克利角 C 的数值是合同价格，不是通用核电 LCOE。',
+        pathwayTitle: '模型归一化的协同改善路径',
+        pathwaySubtitle: '选定输入从参考点向各自有利探索边界按同一比例移动。',
+        notRoadmap: '不是路线图',
+        jointMovement: '联合移动量',
+        pathwayNote: '发射、质量、硬件、装配、转移、地面成本、融资、寿命、交付电量和运维会同时变化；表中只展示四项代表性输入。',
+        boundaryTitle: '模型边界',
+        boundaryText: '交付容量固定为 2 GW；采用 2024 年实际英镑；LCOE 统计至并网连接点；容量因子是交付电量代理。',
+        outOfScopeTitle: '未建模内容',
+        outOfScopeText: '波束安全、频谱、热控、退化、空间碎片、部署可行性、下游电网、平衡、储能以及货币化的系统价值。',
+        evidenceDisciplineTitle: '证据纪律',
+        evidenceDisciplineText: '精确 SBSP 输入均为本研究的探索性假设；外部研究只提供背景和一致性核对，不构成同口径验证。',
+        sourceFooterText: '本页面是完整中英双语报告的互动配套工具。条件门槛不是普遍工程要求、英国官方目标或商业可行性声明。',
+        sourceLinksAria: '报告证据资料',
+        englishPdf: '英文 PDF',
+        chinesePdf: '中文 PDF',
+        sourceRegister: '来源登记表',
+        verificationNote: '验证说明'
+      }
+    };
+
+    const t = key => translations[currentLanguage][key];
+
+    function applyTranslations() {
+      document.documentElement.lang = currentLanguage === 'zh' ? 'zh-CN' : 'en';
+      document.title = t('title');
+      document.querySelector('meta[name="description"]').setAttribute('content', t('description'));
+      document.querySelectorAll('[data-i18n]').forEach(element => {
+        element.textContent = t(element.dataset.i18n);
+      });
+      document.querySelectorAll('[data-i18n-html]').forEach(element => {
+        element.innerHTML = t(element.dataset.i18nHtml);
+      });
+      document.querySelectorAll('[data-i18n-aria]').forEach(element => {
+        element.setAttribute('aria-label', t(element.dataset.i18nAria));
+      });
+      document.getElementById('language-select').setAttribute('aria-label', t('language'));
+    }
+
+    const parameterDefinitions = [
+      { id: 'end_to_end_efficiency', group: 'architecture', label: { en: 'End-to-end efficiency', zh: '端到端效率' }, min: 0.05, max: 0.35, step: 0.005, base: 0.15, direction: 'higher', format: 'percent' },
+      { id: 'specific_mass_kg_per_kw_space_power', group: 'architecture', label: { en: 'System specific mass', zh: '系统比质量' }, min: 0.5, max: 15, step: 0.1, base: 5, direction: 'lower', format: 'massPerKw' },
+      { id: 'space_hardware_cost_gbp_per_w_space', group: 'architecture', label: { en: 'Space hardware cost', zh: '空间硬件成本' }, min: 0.05, max: 5, step: 0.05, base: 0.4, direction: 'lower', format: 'gbpPerW' },
+      { id: 'wireless_power_transmission_cost_gbp_per_w_space', group: 'architecture', label: { en: 'Wireless power hardware', zh: '无线输能硬件' }, min: 0.02, max: 1, step: 0.01, base: 0.1, direction: 'lower', format: 'gbpPerW' },
+
+      { id: 'launch_cost_gbp_per_kg', group: 'deployment', label: { en: 'Launch service cost', zh: '发射服务成本' }, min: 20, max: 5000, step: 10, base: 500, direction: 'lower', format: 'gbpPerKg' },
+      { id: 'orbit_transfer_cost_gbp_per_kg', group: 'deployment', label: { en: 'Orbit transfer cost', zh: '轨道转移成本' }, min: 0, max: 1000, step: 10, base: 100, direction: 'lower', format: 'gbpPerKg' },
+      { id: 'in_orbit_assembly_cost_gbp_per_kg', group: 'deployment', label: { en: 'In-orbit assembly & deployment', zh: '在轨装配与部署' }, min: 0, max: 3000, step: 20, base: 200, direction: 'lower', format: 'gbpPerKg' },
+      { id: 'rectenna_cost_gbp_per_w_delivered', group: 'deployment', label: { en: 'Ground rectenna', zh: '地面接收天线' }, min: 0.02, max: 1, step: 0.01, base: 0.15, direction: 'lower', format: 'gbpPerWDelivered' },
+      { id: 'grid_connection_cost_gbp_per_kw_delivered', group: 'deployment', label: { en: 'Grid connection', zh: '电网连接' }, min: 20, max: 300, step: 10, base: 100, direction: 'lower', format: 'gbpPerKw' },
+
+      { id: 'wacc', group: 'finance', label: { en: 'Real discount-rate proxy', zh: '实际项目贴现率代理' }, min: 0.03, max: 0.12, step: 0.001, base: 0.065, direction: 'lower', format: 'percent1' },
+      { id: 'system_lifetime_years', group: 'finance', label: { en: 'System lifetime', zh: '系统寿命' }, min: 15, max: 45, step: 1, base: 30, direction: 'higher', format: 'years' },
+      { id: 'capacity_factor', group: 'finance', label: { en: 'Delivered capacity factor', zh: '交付容量因子' }, min: 0.6, max: 0.98, step: 0.01, base: 0.9, direction: 'higher', format: 'percent0' },
+      { id: 'programme_margin_pct', group: 'finance', label: { en: 'Programme margin / contingency', zh: '项目裕度 / 预备费' }, min: 0, max: 0.5, step: 0.01, base: 0.2, direction: 'lower', format: 'percent0' },
+      { id: 'replacement_refurbishment_pct_capex_per_year', group: 'finance', label: { en: 'Annual replacement & refurbishment', zh: '年度更换与翻修' }, min: 0, max: 0.03, step: 0.001, base: 0.006, direction: 'lower', format: 'percent1PerYear' },
+      { id: 'fixed_opex_pct_capex_per_year', group: 'finance', label: { en: 'Annual fixed OPEX', zh: '年度固定运维' }, min: 0.002, max: 0.05, step: 0.001, base: 0.01, direction: 'lower', format: 'percent1PerYear' },
+      { id: 'variable_opex_gbp_per_mwh', group: 'finance', label: { en: 'Variable OPEX', zh: '可变运维成本' }, min: 0, max: 20, step: 0.5, base: 3, direction: 'lower', format: 'gbpPerMwh' }
+    ];
+
+    const presets = {
+      reference: Object.fromEntries(parameterDefinitions.map(p => [p.id, p.base])),
+      150: {
+        launch_cost_gbp_per_kg: 372.9805799210902, specific_mass_kg_per_kw_space_power: 3.809192936760221,
+        space_hardware_cost_gbp_per_w_space: 0.3073816728591283, wireless_power_transmission_cost_gbp_per_w_space: 0.07883009665351505,
+        in_orbit_assembly_cost_gbp_per_kg: 147.07524163378758, orbit_transfer_cost_gbp_per_kg: 73.53762081689379,
+        rectenna_cost_gbp_per_w_delivered: 0.11559890706196194, grid_connection_cost_gbp_per_kw_delivered: 78.83009665351504,
+        programme_margin_pct: 0.1470752416337876, replacement_refurbishment_pct_capex_per_year: 0.0044122572490136285,
+        fixed_opex_pct_capex_per_year: 0.007883009665351505, variable_opex_gbp_per_mwh: 2.206128624506814,
+        end_to_end_efficiency: 0.20292475836621238, capacity_factor: 0.921169903346485,
+        system_lifetime_years: 33.96935687746593, wacc: 0.05573816728591283
+      },
+      120: {
+        launch_cost_gbp_per_kg: 347.33508469619176, specific_mass_kg_per_kw_space_power: 3.568766419026798,
+        space_hardware_cost_gbp_per_w_space: 0.2886818325909732, wireless_power_transmission_cost_gbp_per_w_space: 0.0745558474493653,
+        in_orbit_assembly_cost_gbp_per_kg: 136.38961862341324, orbit_transfer_cost_gbp_per_kg: 68.19480931170662,
+        rectenna_cost_gbp_per_w_delivered: 0.10865325210521859, grid_connection_cost_gbp_per_kw_delivered: 74.5558474493653,
+        programme_margin_pct: 0.13638961862341326, replacement_refurbishment_pct_capex_per_year: 0.004091688558702397,
+        fixed_opex_pct_capex_per_year: 0.0074555847449365295, variable_opex_gbp_per_mwh: 2.0458442793511984,
+        end_to_end_efficiency: 0.21361038137658675, capacity_factor: 0.9254441525506347,
+        system_lifetime_years: 34.77077860324401, wacc: 0.05386818325909731
+      },
+      100: {
+        launch_cost_gbp_per_kg: 326.8935207885793, specific_mass_kg_per_kw_space_power: 3.3771267573929307,
+        space_hardware_cost_gbp_per_w_space: 0.27377652557500576, wireless_power_transmission_cost_gbp_per_w_space: 0.07114892013142989,
+        in_orbit_assembly_cost_gbp_per_kg: 127.8723003285747, orbit_transfer_cost_gbp_per_kg: 63.93615016428735,
+        rectenna_cost_gbp_per_w_delivered: 0.10311699521357354, grid_connection_cost_gbp_per_kw_delivered: 71.14892013142988,
+        programme_margin_pct: 0.12787230032857472, replacement_refurbishment_pct_capex_per_year: 0.003836169009857241,
+        fixed_opex_pct_capex_per_year: 0.007114892013142988, variable_opex_gbp_per_mwh: 1.9180845049286204,
+        end_to_end_efficiency: 0.2221276996714253, capacity_factor: 0.9288510798685701,
+        system_lifetime_years: 35.4095774753569, wacc: 0.05237765255750057
+      },
+      80: {
+        launch_cost_gbp_per_kg: 302.5676804505148, specific_mass_kg_per_kw_space_power: 3.1490720042235765,
+        space_hardware_cost_gbp_per_w_space: 0.2560389336618337, wireless_power_transmission_cost_gbp_per_w_space: 0.06709461340841914,
+        in_orbit_assembly_cost_gbp_per_kg: 117.73653352104783, orbit_transfer_cost_gbp_per_kg: 58.868266760523916,
+        rectenna_cost_gbp_per_w_delivered: 0.09652874678868109, grid_connection_cost_gbp_per_kw_delivered: 67.09461340841914,
+        programme_margin_pct: 0.11773653352104785, replacement_refurbishment_pct_capex_per_year: 0.003532096005631435,
+        fixed_opex_pct_capex_per_year: 0.006709461340841914, variable_opex_gbp_per_mwh: 1.7660480028157175,
+        end_to_end_efficiency: 0.23226346647895216, capacity_factor: 0.9329053865915808,
+        system_lifetime_years: 36.16975998592141, wacc: 0.05060389336618337
+      },
+      60: {
+        launch_cost_gbp_per_kg: 272.42693968872743, specific_mass_kg_per_kw_space_power: 2.866502559581819,
+        space_hardware_cost_gbp_per_w_space: 0.23406131018969706, wireless_power_transmission_cost_gbp_per_w_space: 0.062071156614787903,
+        in_orbit_assembly_cost_gbp_per_kg: 105.17789153696975, orbit_transfer_cost_gbp_per_kg: 52.58894576848488,
+        rectenna_cost_gbp_per_w_delivered: 0.08836562949903032, grid_connection_cost_gbp_per_kw_delivered: 62.071156614787895,
+        programme_margin_pct: 0.10517789153696976, replacement_refurbishment_pct_capex_per_year: 0.0031553367461090924,
+        fixed_opex_pct_capex_per_year: 0.00620711566147879, variable_opex_gbp_per_mwh: 1.5776683730545462,
+        end_to_end_efficiency: 0.24482210846303024, capacity_factor: 0.9379288433852121,
+        system_lifetime_years: 37.11165813472727, wacc: 0.048406131018969706
+      }
+    };
+
+    const capexNames = {
+      space_segment_capex: { en: 'Space hardware', zh: '空间硬件' },
+      wireless_power_transmission: { en: 'Wireless power', zh: '无线输能' },
+      launch: { en: 'Launch services', zh: '发射服务' },
+      orbit_transfer: { en: 'Orbit transfer', zh: '轨道转移' },
+      in_orbit_assembly: { en: 'In-orbit assembly', zh: '在轨装配' },
+      rectenna: { en: 'Rectenna', zh: '接收天线' },
+      grid_connection: { en: 'Grid connection', zh: '电网连接' },
+      programme_margin: { en: 'Programme margin', zh: '项目裕度' }
+    };
+
+    const capexColors = ['#0f766e', '#4fa9a1', '#c58a3d', '#4f7fa7', '#bd624f', '#8a72ad', '#5f966d', '#87938f'];
+    let values = { ...presets.reference };
+
+    const getLabel = def => def.label[currentLanguage];
+
+    const formatters = {
+      percent: v => `${(v * 100).toFixed(1)}%`,
+      percent0: v => `${(v * 100).toFixed(0)}%`,
+      percent1: v => `${(v * 100).toFixed(1)}%`,
+      percent1PerYear: v => `${(v * 100).toFixed(1)}%/${currentLanguage === 'zh' ? '年' : 'yr'}`,
+      massPerKw: v => `${v.toFixed(1)} kg/kW`,
+      gbpPerW: v => `£${v.toFixed(2)}/W`,
+      gbpPerWDelivered: v => `£${v.toFixed(2)}/W`,
+      gbpPerKg: v => `£${Math.round(v).toLocaleString('en-GB')}/kg`,
+      gbpPerKw: v => `£${Math.round(v)}/kW`,
+      gbpPerMwh: v => `£${v.toFixed(1)}/MWh`,
+      years: v => `${Math.round(v)} ${currentLanguage === 'zh' ? '年' : (Math.round(v) === 1 ? 'year' : 'years')}`
+    };
+
+    function capitalRecoveryFactor(rate, years) {
+      if (Math.abs(rate) < 1e-12) return 1 / years;
+      const growth = (1 + rate) ** years;
+      return rate * growth / (growth - 1);
+    }
+
+    function calculateLcoe(p) {
+      const deliveredCapacityMw = 2000;
+      const deliveredCapacityKw = deliveredCapacityMw * 1000;
+      const deliveredCapacityW = deliveredCapacityKw * 1000;
+      const requiredSpacePowerKw = deliveredCapacityKw / p.end_to_end_efficiency;
+      const requiredSpacePowerW = requiredSpacePowerKw * 1000;
+      const orbitalMassKg = requiredSpacePowerKw * p.specific_mass_kg_per_kw_space_power;
+
+      const capexComponents = {
+        space_segment_capex: p.space_hardware_cost_gbp_per_w_space * requiredSpacePowerW,
+        wireless_power_transmission: p.wireless_power_transmission_cost_gbp_per_w_space * requiredSpacePowerW,
+        launch: p.launch_cost_gbp_per_kg * orbitalMassKg,
+        orbit_transfer: p.orbit_transfer_cost_gbp_per_kg * orbitalMassKg,
+        in_orbit_assembly: p.in_orbit_assembly_cost_gbp_per_kg * orbitalMassKg,
+        rectenna: p.rectenna_cost_gbp_per_w_delivered * deliveredCapacityW,
+        grid_connection: p.grid_connection_cost_gbp_per_kw_delivered * deliveredCapacityKw
+      };
+
+      const preMarginCapex = Object.values(capexComponents).reduce((sum, v) => sum + v, 0);
+      const programmeMargin = p.programme_margin_pct * preMarginCapex;
+      const initialCapex = preMarginCapex + programmeMargin;
+      const annualDeliveredMwh = deliveredCapacityMw * HOURS_PER_YEAR * p.capacity_factor;
+      const annualizedCapex = initialCapex * capitalRecoveryFactor(p.wacc, p.system_lifetime_years);
+      const fixedOpex = p.fixed_opex_pct_capex_per_year * initialCapex;
+      const replacement = p.replacement_refurbishment_pct_capex_per_year * initialCapex;
+      const variableOpex = p.variable_opex_gbp_per_mwh * annualDeliveredMwh;
+      const annualTotalCost = annualizedCapex + fixedOpex + replacement + variableOpex;
+
+      return {
+        lcoe: annualTotalCost / annualDeliveredMwh,
+        initialCapex, annualDeliveredMwh, requiredSpacePowerKw, orbitalMassKg,
+        annualizedCapex, fixedOpex, replacement, variableOpex,
+        capexComponents: { ...capexComponents, programme_margin: programmeMargin }
+      };
+    }
+
+    function formatInput(def, value) { return formatters[def.format](value); }
+
+    function renderControls() {
+      parameterDefinitions.forEach(def => {
+        const container = document.querySelector(`[data-group="${def.group}"]`);
+        const item = document.createElement('div');
+        item.className = 'control';
+        item.innerHTML = `
+          <div class="control-row">
+            <label class="control-label" for="${def.id}">${getLabel(def)}</label>
+            <output class="value-box" for="${def.id}" id="${def.id}-value"></output>
+          </div>
+          <div class="range-wrap">
+            <input id="${def.id}" type="range" min="${def.min}" max="${def.max}" step="${def.step}" value="${def.base}" aria-label="${getLabel(def)}">
+          </div>
+          <div class="range-meta"><span>${formatInput(def, def.min)}</span><span>${t('referenceShort')} ${formatInput(def, def.base)}</span><span>${formatInput(def, def.max)}</span></div>`;
+        container.appendChild(item);
+
+        const input = item.querySelector('input');
+        input.addEventListener('input', event => {
+          values[def.id] = Number(event.target.value);
+          document.querySelectorAll('.preset').forEach(button => button.setAttribute('aria-pressed', 'false'));
+          update();
+        });
+      });
+    }
+
+    function updateControlDisplays() {
+      parameterDefinitions.forEach(def => {
+        const input = document.getElementById(def.id);
+        const output = document.getElementById(`${def.id}-value`);
+        const value = values[def.id];
+        const control = input.closest('.control');
+        control.querySelector('.control-label').textContent = getLabel(def);
+        input.setAttribute('aria-label', getLabel(def));
+        const meta = control.querySelectorAll('.range-meta span');
+        meta[0].textContent = formatInput(def, def.min);
+        meta[1].textContent = `${t('referenceShort')} ${formatInput(def, def.base)}`;
+        meta[2].textContent = formatInput(def, def.max);
+        input.value = value;
+        output.textContent = formatInput(def, value);
+        const fill = ((value - def.min) / (def.max - def.min)) * 100;
+        input.style.setProperty('--fill', `${Math.max(0, Math.min(100, fill))}%`);
+      });
+    }
+
+    function formatBillions(value) {
+      if (value >= 1e9) return `£${(value / 1e9).toFixed(value >= 100e9 ? 0 : 1)}bn`;
+      return `£${(value / 1e6).toFixed(0)}m`;
+    }
+
+    function formatMass(valueKg) {
+      const kt = valueKg / 1e6;
+      return kt >= 1000 ? `${(kt / 1000).toFixed(2)} Mt` : `${kt.toFixed(1)} kt`;
+    }
+
+    function getStatus(lcoe) {
+      const status = currentLanguage === 'zh' ? {
+        below60: ['突破 £60 深度成本线', '已低于本研究最低目标线'],
+        below80: ['进入深度成本区间', '位于 £60–80/MWh 区间'],
+        below120: ['进入研究决策区间', '位于 £80–120/MWh 区间'],
+        below150: ['低于 £150 筛选线', '接近研究决策区间'],
+        above150: ['高于 £150 筛选线', '需要多项技术与财务条件协同改善']
+      } : {
+        below60: ['Below the £60 deep-cost line', 'Below the lowest target line in this study'],
+        below80: ['Inside the deep-cost region', 'Within the £60–80/MWh range'],
+        below120: ['Inside the study decision region', 'Within the £80–120/MWh range'],
+        below150: ['Below the £150 screening line', 'Approaching the study decision region'],
+        above150: ['Above the £150 screening line', 'Coordinated technical and financial improvements are required']
+      };
+      if (lcoe <= 60) return [...status.below60, '#0f766e'];
+      if (lcoe <= 80) return [...status.below80, '#0f766e'];
+      if (lcoe <= 120) return [...status.below120, '#0f766e'];
+      if (lcoe <= 150) return [...status.below150, '#ad6b16'];
+      return [...status.above150, '#ad6b16'];
+    }
+
+    function renderBenchmark(lcoe) {
+      const scaleMax = Math.max(500, Math.ceil(lcoe / 100) * 100);
+      const track = document.getElementById('benchmark-track');
+      track.style.setProperty('--target-low', `${80 / scaleMax * 100}%`);
+      track.style.setProperty('--target-high', `${120 / scaleMax * 100}%`);
+      track.style.setProperty('--screen', `${150 / scaleMax * 100}%`);
+      document.querySelectorAll('.benchmark-tick').forEach(tick => {
+        tick.style.left = `${Number(tick.dataset.value) / scaleMax * 100}%`;
+      });
+      const pin = document.getElementById('current-pin');
+      pin.style.setProperty('--pin', `${Math.min(lcoe, scaleMax) / scaleMax * 100}%`);
+      pin.dataset.label = `${t('current')} £${Math.round(lcoe).toLocaleString('en-GB')}`;
+      document.getElementById('scale-label').textContent = `${t('scale')} £0–${scaleMax.toLocaleString('en-GB')}/MWh`;
+      const plot = document.querySelector('.benchmark-plot');
+      plot.style.setProperty('--annotation-span', `${180 / scaleMax * 100}%`);
+      document.querySelectorAll('.energy-range').forEach(range => {
+        range.style.setProperty('--range-low', `${Number(range.dataset.low) / scaleMax * 100}%`);
+        range.style.setProperty('--range-high', `${Number(range.dataset.high) / scaleMax * 100}%`);
+      });
+      const stage = document.querySelector('.benchmark-annotation-stage');
+      const leaderSvg = document.querySelector('.benchmark-card-leaders');
+      if (getComputedStyle(leaderSvg).display !== 'none') {
+        const stageRect = stage.getBoundingClientRect();
+        const trackRect = track.getBoundingClientRect();
+        const gridRect = document.querySelector('.benchmark-card-grid').getBoundingClientRect();
+        const lowerClearY = gridRect.bottom - stageRect.top + 6;
+        leaderSvg.setAttribute('viewBox', `0 0 ${stageRect.width} ${stageRect.height}`);
+        document.querySelectorAll('.benchmark-card-leader').forEach(leader => {
+          const card = document.getElementById(leader.dataset.card);
+          const cardRect = card.getBoundingClientRect();
+          const midpoint = ((Number(leader.dataset.low) + Number(leader.dataset.high)) / 2) / scaleMax;
+          const endX = trackRect.left - stageRect.left + midpoint * trackRect.width;
+          const endY = stageRect.height - 2;
+          const cardCenter = cardRect.left - stageRect.left + cardRect.width / 2;
+          const cardBottom = cardRect.bottom - stageRect.top;
+          const isTopRow = card.dataset.row === 'top';
+          const startX = isTopRow
+            ? (card.dataset.port === 'right' ? cardRect.right - stageRect.left + 2 : cardRect.left - stageRect.left - 2)
+            : cardCenter;
+          const elbowY = isTopRow ? lowerClearY : cardBottom + 7;
+          leader.setAttribute('d', `M ${startX} ${cardBottom} L ${startX} ${elbowY} L ${endX} ${endY}`);
+        });
+      }
+    }
+
+    function renderComposition(result) {
+      const parts = [
+        { name: currentLanguage === 'zh' ? '年化资本' : 'Annualised capital', value: result.annualizedCapex, color: '#0f766e' },
+        { name: currentLanguage === 'zh' ? '固定运维' : 'Fixed OPEX', value: result.fixedOpex, color: '#4fa9a1' },
+        { name: currentLanguage === 'zh' ? '更换翻修' : 'Replacement', value: result.replacement, color: '#c58a3d' },
+        { name: currentLanguage === 'zh' ? '可变运维' : 'Variable OPEX', value: result.variableOpex, color: '#bd624f' }
+      ];
+      const total = parts.reduce((sum, p) => sum + p.value, 0);
+      const cumulative = [];
+      let running = 0;
+      parts.forEach(part => { running += part.value / total * 100; cumulative.push(running); });
+      const donut = document.getElementById('donut');
+      donut.style.setProperty('--p1', `${cumulative[0]}%`);
+      donut.style.setProperty('--p2', `${cumulative[1]}%`);
+      donut.style.setProperty('--p3', `${cumulative[2]}%`);
+      document.getElementById('capex-share').textContent = `${Math.round(parts[0].value / total * 100)}%`;
+      document.getElementById('legend').innerHTML = parts.map(part => `
+        <div class="legend-item">
+          <span class="swatch" style="--swatch:${part.color}"></span>
+          <span>${part.name}</span>
+          <strong>£${(part.value / result.annualDeliveredMwh).toFixed(1)}</strong>
+        </div>`).join('');
+    }
+
+    function renderDrivers(result) {
+      const entries = Object.entries(result.capexComponents)
+        .map(([key, value]) => ({ key, name: capexNames[key][currentLanguage], value }))
+        .sort((a, b) => b.value - a.value);
+      const max = entries[0].value;
+      document.getElementById('drivers').innerHTML = entries.map((entry, index) => `
+        <div class="driver-row">
+          <span class="driver-name" title="${entry.name}">${entry.name}</span>
+          <span class="driver-track"><span class="driver-bar" style="--width:${entry.value / max * 100}%;--bar:${capexColors[index]}"></span></span>
+          <span class="driver-value">${formatBillions(entry.value)}</span>
+        </div>`).join('');
+    }
+
+    function findSensitiveLever(currentResult) {
+      let best = { label: '—', reduction: -Infinity };
+      parameterDefinitions.forEach(def => {
+        const current = values[def.id];
+        let improved;
+        if (def.direction === 'lower') improved = Math.max(def.min, current * 0.99);
+        else improved = Math.min(def.max, current * 1.01);
+        if (improved === current) return;
+        const candidate = calculateLcoe({ ...values, [def.id]: improved });
+        const reduction = currentResult.lcoe - candidate.lcoe;
+        if (reduction > best.reduction) best = { label: getLabel(def), reduction };
+      });
+      return best.label;
+    }
+
+    function update() {
+      updateControlDisplays();
+      const result = calculateLcoe(values);
+      const roundedLcoe = Math.round(result.lcoe);
+      document.getElementById('lcoe').textContent = roundedLcoe.toLocaleString('en-GB');
+
+      const pct = (result.lcoe / BASELINE_LCOE - 1) * 100;
+      const arrow = pct < -0.05 ? '↓' : pct > 0.05 ? '↑' : '±';
+      document.getElementById('delta').textContent = `${t('vsReference')} ${arrow}${Math.abs(pct).toFixed(1)}%`;
+      document.getElementById('delta').style.color = pct < -0.05 ? '#0f766e' : pct > 0.05 ? '#ad6b16' : '#52615c';
+
+      const [status, note, color] = getStatus(result.lcoe);
+      const statusEl = document.getElementById('status');
+      statusEl.textContent = status;
+      statusEl.style.color = color;
+      document.getElementById('status-note').textContent = note;
+
+      renderBenchmark(result.lcoe);
+      renderComposition(result);
+      renderDrivers(result);
+      document.getElementById('initial-capex').textContent = formatBillions(result.initialCapex);
+      document.getElementById('annual-energy').textContent = `${(result.annualDeliveredMwh / 1e6).toFixed(1)} TWh`;
+      document.getElementById('space-power').textContent = `${(result.requiredSpacePowerKw / 1e6).toFixed(1)} GW`;
+      document.getElementById('orbital-mass').textContent = formatMass(result.orbitalMassKg);
+      document.getElementById('sensitive-lever').textContent = findSensitiveLever(result);
+    }
+
+    function applyPreset(name) {
+      values = { ...presets.reference, ...presets[name] };
+      document.querySelectorAll('.preset').forEach(button => {
+        button.setAttribute('aria-pressed', String(button.dataset.preset === name));
+      });
+      update();
+    }
+
+    renderControls();
+    applyTranslations();
+    document.querySelectorAll('.preset').forEach(button => button.addEventListener('click', () => applyPreset(button.dataset.preset)));
+    document.getElementById('reset').addEventListener('click', () => applyPreset('reference'));
+    document.getElementById('language-select').addEventListener('change', event => {
+      currentLanguage = event.target.value;
+      applyTranslations();
+      update();
+    });
+    let benchmarkResizeFrame;
+    window.addEventListener('resize', () => {
+      cancelAnimationFrame(benchmarkResizeFrame);
+      benchmarkResizeFrame = requestAnimationFrame(update);
+    });
+    update();
+  </script>
+</body>
+</html>
