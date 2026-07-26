@@ -200,6 +200,36 @@ class V2ModelTests(unittest.TestCase):
                 "linux,210.576672349031\n"
             ))
 
+    def test_19_reports_distinguish_assumptions_from_external_evidence(self) -> None:
+        reports = {
+            "en": (ROOT / "report/final_report_EN.md").read_text(encoding="utf-8"),
+            "zh": (ROOT / "report/final_report_zh.md").read_text(encoding="utf-8"),
+        }
+        for language, report in reports.items():
+            with self.subTest(language=language):
+                self.assertLessEqual(report.count("ASSUMPTION_THIS_STUDY"), 1)
+                for source_id in (
+                    "DESNZ_SBSP_2025", "UK_SBSP_2021_PHASE2", "UK_SBSP_2021_ANNEX_B",
+                    "NASA_OTPS_SBSP_2024", "CALTECH_SBSP_2022",
+                    "DESNZ_EGC_2025_ANNEX_A", "BEIS_EGC_2020",
+                ):
+                    self.assertIn(source_id, report)
+                self.assertIn("https://", report)
+
+    def test_20_html_preserves_responsive_interactive_cost_map(self) -> None:
+        html = (ROOT / "html/index.html").read_text(encoding="utf-8")
+        for token in (
+            "SBSPModel.calculateLcoe",
+            "benchmark-card-leaders",
+            "input[type=\"range\"]::-webkit-slider-runnable-track",
+            "@media (max-width:820px)",
+            ".workspace { display:block;",
+            "Stage-resolved energy chain",
+            "Discounted lifecycle-cost present value",
+        ):
+            self.assertIn(token, html)
+        self.assertNotIn("BASELINE_LCOE = 429", html)
+
 
 if __name__ == "__main__":
     unittest.main()

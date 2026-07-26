@@ -25,6 +25,52 @@ def _table(headers: list[str], rows: Iterable[Iterable[object]]) -> str:
     ])
 
 
+def _evidence_map_rows(language: str, evidence_rows: list[dict[str, str]]) -> list[list[str]]:
+    rows: list[list[str]] = []
+    for row in evidence_rows:
+        claim = (
+            row["parameter_or_claim_zh"]
+            if language == "zh"
+            else row["parameter_or_claim"].replace("_", " ").title()
+        )
+        role = row["evidence_role_zh"] if language == "zh" else row["evidence_role"]
+        source = f"{row['source_id']} · {row['locator']}"
+        supported = row["supported_evidence_zh"] if language == "zh" else row["supported_evidence"]
+        numeric = row["numeric_context_zh"] if language == "zh" else row["numeric_context"]
+        limitation = row["limitations_zh"] if language == "zh" else row["limitations"]
+        interpretation = (
+            f"{supported} 数值背景：{numeric}。可比性限制：{limitation}"
+            if language == "zh"
+            else f"{supported} Numeric context: {numeric}. Comparability limit: {limitation}"
+        )
+        rows.append([claim, role, source, interpretation])
+    return rows
+
+
+def _reference_entries(
+    language: str,
+    source_rows: list[dict[str, str]],
+    evidence_rows: list[dict[str, str]],
+) -> str:
+    cited_ids = {row["source_id"] for row in evidence_rows}
+    cited = [row for row in source_rows if row["source_id"] in cited_ids]
+    entries: list[str] = []
+    for row in cited:
+        published = row.get("publication_date") or row.get("document_year") or "n.d."
+        accessed = row.get("accessed_date") or "n/a"
+        if language == "zh":
+            entries.append(
+                f"- **{row['source_id']}** — {row['organization']}（{published}）。"
+                f"[{row['title']}]({row['url']})。本报告用途：{row['role']}。访问日期：{accessed}。"
+            )
+        else:
+            entries.append(
+                f"- **{row['source_id']}** — {row['organization']} ({published}). "
+                f"[{row['title']}]({row['url']}). Role in this report: {row['role']}. Accessed {accessed}."
+            )
+    return "\n".join(entries)
+
+
 def _comparison_cases(reference: dict[str, float]) -> tuple[object, object]:
     # Make the five-stage chain equal exactly 20% by solving the solar stage.
     case = dict(reference)
@@ -76,24 +122,27 @@ def _report(
             "evidence": "参数证据与限制",
             "method": "公式、边界与验证",
             "limits": "仍然存在的限制",
+            "references": "参考文献",
         }
         stage_labels = {"incident_solar_power_w": "入射太阳功率", "space_dc_bus_power_w": "空间直流母线", "emitted_rf_power_w": "射频发射", "incident_rf_power_w": "整流天线入射射频", "rectenna_dc_power_w": "整流天线直流输出", "delivered_grid_ac_power_w": "并网交流交付"}
         capex_headers = ["资本开支项目", "2024年实际英镑"]
         lifecycle_headers = ["生命周期项目", "贴现现值", "LCOE贡献"]
         driver_headers = ["参数", "有利边界下LCOE", "降低幅度"]
-        parameter_headers = ["参数", "参考值", "范围", "来源", "分母/边界", "限制"]
+        parameter_headers = ["参数", "参考值", "范围", "分母/边界", "限制"]
+        evidence_headers = ["参数/论断", "证据角色", "外部来源与位置", "证据背景及可比性限制"]
         migration_text = f"v1.x 把一个本应按交付功率定义的1.5 kg/kW数值乘以“交付功率/效率”，从而重复除以效率。在2 GW、20%效率示例中，旧公式得到 **15,000,000 kg（15,000吨）**；正确公式得到 **3,000,000 kg（3,000吨）**。在其余v2输入相同的对比计算中，错误质量边界对应 **£{old_example.lcoe_gbp_per_mwh:.2f}/MWh**，正确边界对应 **£{new_example.lcoe_gbp_per_mwh:.2f}/MWh**。因此历史v1.x阈值与v2.0不可直接比较。"
         source_note = f"DESNZ/Frazer-Nash报告把架构比功率定义为地面交付功率/轨道质量；0.67 kW-交付/kg 的倒数为 **{1/0.67:.4f} kg/kW-交付**。报告位置：{mass_source['locator']}。这些数值取决于架构，且部分来自未经独立验证的厂商声明。"
     else:
         title = "UK Space-Based Solar Power Cost-Condition Assessment"
         warning = "**This is a conditional scenario result, not a commercial forecast, quotation, official UK target or proof of economic viability.**"
         executive = f"The reference scenario gives a conditional delivered-grid DCF LCOE of **£{result.lcoe_gbp_per_mwh:.2f}/MWh** in 2024 real GBP. Working backwards from 2 GW AC at the grid boundary, the five-stage chain computes an end-to-end efficiency of **{result.end_to_end_efficiency:.2%}**, orbital hardware mass of **{result.orbital_mass_kg / 1e6:.2f} million kg**, and **{result.required_launches:,}** equivalent launches."
-        sections = {"scope": "Scope and answer", "migration": "Migration from v1.x to v2.0", "chain": "Stage-resolved energy chain", "finance": "Discounted-cash-flow boundary", "costs": "Reference cost structure", "analysis": "Conditional sensitivities and thresholds", "evidence": "Parameter evidence and limitations", "method": "Formulae, boundaries and validation", "limits": "Remaining limitations"}
+        sections = {"scope": "Scope and answer", "migration": "Migration from v1.x to v2.0", "chain": "Stage-resolved energy chain", "finance": "Discounted-cash-flow boundary", "costs": "Reference cost structure", "analysis": "Conditional sensitivities and thresholds", "evidence": "Parameter evidence and limitations", "method": "Formulae, boundaries and validation", "limits": "Remaining limitations", "references": "References"}
         stage_labels = {"incident_solar_power_w": "Incident solar", "space_dc_bus_power_w": "Space DC bus", "emitted_rf_power_w": "Emitted RF", "incident_rf_power_w": "RF incident on rectenna", "rectenna_dc_power_w": "Rectenna DC output", "delivered_grid_ac_power_w": "Grid-delivered AC"}
         capex_headers = ["CAPEX component", "2024 real GBP"]
         lifecycle_headers = ["Lifecycle component", "Discounted PV", "LCOE contribution"]
         driver_headers = ["Parameter", "LCOE at favourable bound", "Reduction"]
-        parameter_headers = ["Parameter", "Reference", "Range", "Source", "Denominator / boundary", "Limitation"]
+        parameter_headers = ["Parameter", "Reference", "Range", "Denominator / boundary", "Limitation"]
+        evidence_headers = ["Parameter / claim", "Evidence role", "External source and locator", "Evidence context and comparability limit"]
         migration_text = f"v1.x multiplied a 1.5 kg/kW value that should have been delivered-power-normalised by 'delivered power / efficiency', dividing by efficiency a second time. For 2 GW at 20% efficiency, the old expression gives **15,000,000 kg (15,000 tonnes)**; the corrected expression gives **3,000,000 kg (3,000 tonnes)**. With all other v2 comparison inputs identical, the erroneous mass boundary gives **£{old_example.lcoe_gbp_per_mwh:.2f}/MWh**, versus **£{new_example.lcoe_gbp_per_mwh:.2f}/MWh** on the corrected boundary. Historical v1.x thresholds are therefore not directly comparable with v2.0."
         source_note = f"The DESNZ/Frazer-Nash report defines architecture specific power as ground-delivered power per orbital mass. The reciprocal of 0.67 kW-delivered/kg is **{1/0.67:.4f} kg/kW-delivered** ({mass_source['locator']}). Values remain architecture-specific and may include manufacturer claims that were not independently verified."
 
@@ -104,7 +153,9 @@ def _report(
     capex_rows += [["Programme contingency" if language == "en" else "项目预备费", _money(result.programme_contingency_gbp)], ["Initial CAPEX" if language == "en" else "初始资本开支", _money(result.initial_capex_gbp)]]
     lifecycle_rows = [[lifecycle_labels_zh[name] if language == "zh" else name.replace("_", " ").title(), _money(value), f"£{value / result.discounted_lifetime_energy_mwh:,.2f}/MWh"] for name, value in sorted(result.lifecycle_cost_components_pv_gbp.items(), key=lambda item: abs(item[1]), reverse=True)]
     driver_rows = [[params[str(row["parameter"])].display_name_zh if language == "zh" else row["display_name"], f"£{float(row['best_lcoe_gbp_per_mwh']):.1f}/MWh", f"£{float(row['lcoe_reduction_gbp_per_mwh']):.1f}/MWh"] for row in top]
-    parameter_rows = [[parameter.display_name_zh if language == "zh" else parameter.display_name, f"{parameter.reference_value:g} {parameter.unit}", f"{parameter.min_value:g}–{parameter.max_value:g}", f"{parameter.source_type} / {parameter.source_id}", parameter.denominator_definition_zh if language == "zh" else parameter.denominator_definition, parameter.notes_zh if language == "zh" else parameter.notes] for parameter in params.values()]
+    parameter_rows = [[parameter.display_name_zh if language == "zh" else parameter.display_name, f"{parameter.reference_value:g} {parameter.unit}", f"{parameter.min_value:g}–{parameter.max_value:g}", parameter.denominator_definition_zh if language == "zh" else parameter.denominator_definition, parameter.notes_zh if language == "zh" else parameter.notes] for parameter in params.values()]
+    evidence_map_rows = _evidence_map_rows(language, evidence_rows)
+    reference_entries = _reference_entries(language, source_rows, evidence_rows)
 
     if language == "zh":
         financial_text = f"主指标采用 LCOE = Σ(Cₜ/(1+r)ᵗ) / Σ(Eₜ/(1+r)ᵗ)。估值基准是建设开始t=0；默认4年建设支出为等额份额，调试完成后的首个运行年现金流位于t=5。运行寿命为{reference['operating_lifetime_years']:.0f}年，首年交付电量为{result.first_year_delivered_mwh/1e6:.2f} TWh，年均交付电量为{result.average_annual_delivered_mwh/1e6:.2f} TWh。贴现生命周期成本为{_money(result.discounted_lifetime_cost_gbp)}，贴现电量为{result.discounted_lifetime_energy_mwh/1e6:.2f}百万MWh。简单CRF对账指标为£{result.crf_reconciliation_lcoe_gbp_per_mwh:.2f}/MWh，仅作次要核对。"
@@ -113,7 +164,10 @@ def _report(
         computed_label = "计算所得端到端效率"
         frontier_note = "等比例前沿只是一种数学插值工具，不是成熟度评分、概率、预测、进度表或工程路线图。"
         combined_headers = ["目标", "等比例移动", "计算所得链路效率"]
-        evidence_intro = "以下每个面向用户的数值输入都包含来源类型、来源编号、相关价格年份、分母定义和限制说明。"
+        evidence_intro = "“默认值性质”说明数值由谁设定，而不是把背景文献误写成直接数据来源。当前29个默认值均为本研究的探索性假设；外部研究只在边界可比时作为技术背景、范围启发或一致性检查。"
+        evidence_map_heading = "外部证据映射（非直接输入）"
+        evidence_map_intro = "下表把模型参数或论断连接到可核查的外部证据，并同时给出页码/表格位置和可比性限制。除非明确标注，否则这些文献数值没有直接替换本模型默认值。"
+        reference_intro = "`ASSUMPTION_THIS_STUDY` 是项目内部的假设记录，不是外部文献。以下列表仅收录本报告证据映射实际引用的外部资料，并按来源编号去重。"
         profile_note = f"默认建设支出曲线为 `{list(result.construction_spend_profile)}`，合计100%。项目预备费只应用于初始资本开支一次。期末退役是成本，残值是在运行寿命结束时的抵扣。"
         test_note = "测试覆盖比质量倒数换算、2 GW / 0.67 kW/kg回归、不重复除以效率、全部六级功率、额定成本分配、发射模式互斥、发射次数取整、更换基数、建设支出份额、DCF/CRF收敛、零贴现率、无效输入、Python/浏览器一致性、中英数值一致性、历史质量标识移除及完整重建。"
         generated_note = f"由可执行模型生成。价格年份：2024年实际英镑。估值基准：{result.valuation_base}。"
@@ -126,7 +180,10 @@ def _report(
         computed_label = "Computed end-to-end efficiency"
         frontier_note = "The equal-fraction frontier is a mathematical interpolation device, not a readiness score, probability, forecast, schedule or engineering roadmap."
         combined_headers = ["Target", "Equal-fraction movement", "Computed chain efficiency"]
-        evidence_intro = "Every user-facing numerical input below carries source type, source ID, price year where relevant, denominator and limitation metadata."
+        evidence_intro = "Default-value status identifies who set the number; it does not relabel contextual literature as a direct numerical source. All 29 defaults are study-authored exploratory assumptions. External studies are used only as technical context, range inspiration or consistency checks where boundaries are comparable."
+        evidence_map_heading = "External evidence map (not direct model inputs)"
+        evidence_map_intro = "The table links parameters and claims to auditable external evidence, including document locators and comparability limits. Unless explicitly stated, these published values do not replace the model defaults."
+        reference_intro = "`ASSUMPTION_THIS_STUDY` is the project's internal assumption record, not an external publication. The bibliography below lists only external sources actually used in the evidence map, deduplicated by source ID."
         profile_note = f"The default construction profile is `{list(result.construction_spend_profile)}` and sums to 100%. Programme contingency is applied once to initial CAPEX. Terminal decommissioning is a cost and residual value is a credit at the end of operating life."
         test_note = "The test suite checks reciprocal mass conversion, the 2 GW / 0.67 kW/kg regression, no second efficiency division, all six stage powers, rated-cost assignment, launch-mode exclusivity, launch rounding, replacement bases, construction shares, DCF/CRF convergence, zero-rate handling, invalid inputs, Python/browser parity, bilingual parity, removal of the historical mass identifier and full regeneration."
         generated_note = f"Generated from the executable model. Price year: 2024 real GBP. Valuation base: {result.valuation_base}."
@@ -191,6 +248,12 @@ def _report(
 
 {_table(parameter_headers, parameter_rows)}
 
+### {evidence_map_heading}
+
+{evidence_map_intro}
+
+{_table(evidence_headers, evidence_map_rows)}
+
 ## {sections['method']}
 
 {method_text}
@@ -203,7 +266,13 @@ def _report(
 
 """
     text += "\n".join(f"- {item}" for item in limit_items)
-    text += f"\n\n{generated_note}\n"
+    text += (
+        f"\n\n{generated_note}\n\n"
+        "<!-- PAGEBREAK -->\n\n"
+        f"## {sections['references']}\n\n"
+        f"{reference_intro}\n\n"
+        f"{reference_entries}\n"
+    )
     return text
 
 

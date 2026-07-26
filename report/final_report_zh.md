@@ -90,39 +90,67 @@ DESNZ/Frazer-Nash报告把架构比功率定义为地面交付功率/轨道质�
 
 ## 参数证据与限制
 
-以下每个面向用户的数值输入都包含来源类型、来源编号、相关价格年份、分母定义和限制说明。
+“默认值性质”说明数值由谁设定，而不是把背景文献误写成直接数据来源。当前29个默认值均为本研究的探索性假设；外部研究只在边界可比时作为技术背景、范围启发或一致性检查。
 
-| 参数 | 参考值 | 范围 | 来源 | 分母/边界 | 限制 |
-| --- | --- | --- | --- | --- | --- |
-| 电网交付容量 | 2000 MW-delivered AC | 500–5000 | exploratory / ASSUMPTION_THIS_STUDY | 并网点交流电功率 | 规模输入；简化模型近似规模中性。 |
-| 太阳能至直流转换效率 | 0.35 fraction | 0.2–0.45 | exploratory / ASSUMPTION_THIS_STUDY | 入射太阳功率至空间直流母线输出 | 取决于架构的探索值；并非经独立验证的飞行系统数值。 |
-| 直流至射频效率 | 0.7 fraction | 0.4–0.85 | exploratory / ASSUMPTION_THIS_STUDY | 空间直流母线输入至射频发射功率 | 不含传播和整流天线转换损耗。 |
-| 射频传输效率 | 0.98 fraction | 0.85–0.995 | exploratory / ASSUMPTION_THIS_STUDY | 射频发射功率至整流天线入射射频功率 | 简化的波束捕获代理；未显式建模波束几何旁瓣天气及安全约束。 |
-| 整流天线射频至直流效率 | 0.65 fraction | 0.4–0.85 | exploratory / ASSUMPTION_THIS_STUDY | 整流天线入射射频功率至直流输出 | 探索性的系统平均转换代理。 |
-| 直流至并网交流效率 | 0.96 fraction | 0.9–0.99 | exploratory / ASSUMPTION_THIS_STUDY | 整流天线直流输出至并网点交流功率 | 仅包含简化逆变及本地电气损耗。 |
-| 交付容量因子 | 0.9 fraction | 0.6–0.98 | exploratory / ASSUMPTION_THIS_STUDY | 年度交流电量除以额定交付交流容量与8760小时的乘积 | 综合可用率停机与运行约束；并非实测预测。 |
-| 投运后运行寿命 | 30 years | 15–45 | exploratory / ASSUMPTION_THIS_STUDY | 调试完成后的完整运行年数 | 工程退役与经济寿命被简化为同一时长。 |
-| 实际项目贴现率 | 0.065 fraction | 0.03–0.2 | exploratory / ASSUMPTION_THIS_STUDY | 从建设开始t=0时点贴现 | 并非实测SBSP加权资本成本；不含税务融资分层与通胀。 |
-| 建设期 | 4 years | 0–8 | exploratory / ASSUMPTION_THIS_STUDY | 从估值基准时点至调试完成的年数 | 默认采用年度等额支出；未体现项目特定进度。 |
-| 年度交付出力衰减 | 0.005 fraction/year | 0–0.03 | exploratory / ASSUMPTION_THIS_STUDY | 首个运行年后交付交流电量的逐年降幅 | 简化的系统平均衰减代理。 |
-| 系统比质量 | 5 kg/kW-delivered | 0.5–10 | exploratory / ASSUMPTION_THIS_STUDY | 每千瓦并网交流交付功率对应的完整在轨运行硬件质量 | 交付功率口径；不得再次除以效率。公开数值可能取决于架构或来自厂商声明。 |
-| 空间发电硬件成本 | 0.4 GBP/W-DC | 0.05–5 | exploratory / ASSUMPTION_THIS_STUDY | 空间直流母线额定输出且不含射频发射硬件 | 仅含采集结构转换和直流调理；与发射机成本边界互斥。 |
-| 射频发射硬件成本 | 0.1 GBP/W-RF emitted | 0.02–1 | exploratory / ASSUMPTION_THIS_STUDY | 射频额定发射功率且不含发电与直流母线硬件 | 仅含直流至射频转换和发射孔径硬件；不重复计入发电硬件。 |
-| 至集结轨道发射服务成本 | 500 GBP/kg to staging orbit | 20–5000 | exploratory / ASSUMPTION_THIS_STUDY | 交付至指定近地集结轨道边界的运行轨道硬件质量 | 并非地球同步轨道交付报价；采购节奏集成与目的轨道会显著影响价格。 |
-| 单次发射价格 | 1e+08 GBP/flight | 1e+07–3e+08 | exploratory / ASSUMPTION_THIS_STUDY | 一次至集结轨道且与按公斤计价互斥的发射 | 仅在按次计价模式启用时使用；绝不与按公斤成本相加。 |
-| 单次有效载荷 | 100000 kg/flight | 20000–250000 | exploratory / ASSUMPTION_THIS_STUDY | 每次到达集结轨道的最大配载硬件质量 | 取决于运载器与轨道；两种计价模式均用于发射次数诊断。 |
-| 载荷利用率 | 0.85 fraction | 0.5–1 | exploratory / ASSUMPTION_THIS_STUDY | 有效载荷能力的平均使用比例 | 未建模包装体积进度或拼单限制。 |
-| 集结至运行轨道转移成本 | 100 GBP/kg final hardware | 0–3000 | exploratory / ASSUMPTION_THIS_STUDY | 从集结轨道转移至运行轨道的最终运行硬件 | 必须覆盖转移器推进剂补给任务运行及载荷惩罚；低值不能证明高轨交付低廉。 |
-| 在轨组装与部署成本 | 200 GBP/kg operational hardware | 0–3000 | exploratory / ASSUMPTION_THIS_STUDY | 完成组装部署与调试的运行轨道硬件 | 探索性预留；机器人作业检查备件和调试被捆绑处理。 |
-| 整流天线成本 | 0.15 GBP/W-delivered AC | 0.02–1 | exploratory / ASSUMPTION_THIS_STUDY | 并网边界额定交流交付功率 | 捆绑代理；未显式建模天线面积频率波束几何旁瓣功率密度土地天气和安全。 |
-| 并网成本 | 100 GBP/kW-delivered AC | 20–300 | exploratory / ASSUMPTION_THIS_STUDY | 并网点额定交流功率 | 简化的本地并网预留；不含更广泛输电网增强。 |
-| 初始项目预备费 | 0.2 fraction of pre-contingency initial CAPEX | 0–0.5 | exploratory / ASSUMPTION_THIS_STUDY | 仅一次应用于预备费前初始建设资本开支 | 不递归应用于年度运维或更换预留。 |
-| 空间硬件更换率 | 0.006 fraction/year | 0–0.03 | exploratory / ASSUMPTION_THIS_STUDY | 每年更换的合格空间硬件及其相关发射转移和组装成本比例 | 以简化年度等效方式处理而非离散故障与物流排程。 |
-| 地面硬件更换率 | 0.003 fraction/year | 0–0.02 | exploratory / ASSUMPTION_THIS_STUDY | 每年更换的合格整流天线与并网成本比例 | 未建模各部件特定更换周期。 |
-| 固定运维率 | 0.01 fraction/year | 0.002–0.05 | exploratory / ASSUMPTION_THIS_STUDY | 仅应用于发电发射整流天线和并网资产 | 其基数不含预备费初始发射转移和组装。 |
-| 可变运维 | 3 GBP/MWh delivered | 0–20 | exploratory / ASSUMPTION_THIS_STUDY | 并网边界每兆瓦时交流交付电量 | 探索性预留；不含市场费用及下游系统成本。 |
-| 期末退役成本 | 0.02 fraction of initial CAPEX | 0–0.2 | exploratory / ASSUMPTION_THIS_STUDY | 运行寿命结束时应用于初始资本开支 | 时点与处置义务被简化。 |
-| 期末残值 | 0 fraction of initial CAPEX | 0–0.2 | exploratory / ASSUMPTION_THIS_STUDY | 运行寿命结束时相对于初始资本开支的抵扣 | 默认无残值抵扣；回收市场与责任存在不确定性。 |
+| 参数 | 参考值 | 范围 | 分母/边界 | 限制 |
+| --- | --- | --- | --- | --- |
+| 电网交付容量 | 2000 MW-delivered AC | 500–5000 | 并网点交流电功率 | 规模输入；简化模型近似规模中性。 |
+| 太阳能至直流转换效率 | 0.35 fraction | 0.2–0.45 | 入射太阳功率至空间直流母线输出 | 取决于架构的探索值；并非经独立验证的飞行系统数值。 |
+| 直流至射频效率 | 0.7 fraction | 0.4–0.85 | 空间直流母线输入至射频发射功率 | 不含传播和整流天线转换损耗。 |
+| 射频传输效率 | 0.98 fraction | 0.85–0.995 | 射频发射功率至整流天线入射射频功率 | 简化的波束捕获代理；未显式建模波束几何旁瓣天气及安全约束。 |
+| 整流天线射频至直流效率 | 0.65 fraction | 0.4–0.85 | 整流天线入射射频功率至直流输出 | 探索性的系统平均转换代理。 |
+| 直流至并网交流效率 | 0.96 fraction | 0.9–0.99 | 整流天线直流输出至并网点交流功率 | 仅包含简化逆变及本地电气损耗。 |
+| 交付容量因子 | 0.9 fraction | 0.6–0.98 | 年度交流电量除以额定交付交流容量与8760小时的乘积 | 综合可用率停机与运行约束；并非实测预测。 |
+| 投运后运行寿命 | 30 years | 15–45 | 调试完成后的完整运行年数 | 工程退役与经济寿命被简化为同一时长。 |
+| 实际项目贴现率 | 0.065 fraction | 0.03–0.2 | 从建设开始t=0时点贴现 | 并非实测SBSP加权资本成本；不含税务融资分层与通胀。 |
+| 建设期 | 4 years | 0–8 | 从估值基准时点至调试完成的年数 | 默认采用年度等额支出；未体现项目特定进度。 |
+| 年度交付出力衰减 | 0.005 fraction/year | 0–0.03 | 首个运行年后交付交流电量的逐年降幅 | 简化的系统平均衰减代理。 |
+| 系统比质量 | 5 kg/kW-delivered | 0.5–10 | 每千瓦并网交流交付功率对应的完整在轨运行硬件质量 | 交付功率口径；不得再次除以效率。公开数值可能取决于架构或来自厂商声明。 |
+| 空间发电硬件成本 | 0.4 GBP/W-DC | 0.05–5 | 空间直流母线额定输出且不含射频发射硬件 | 仅含采集结构转换和直流调理；与发射机成本边界互斥。 |
+| 射频发射硬件成本 | 0.1 GBP/W-RF emitted | 0.02–1 | 射频额定发射功率且不含发电与直流母线硬件 | 仅含直流至射频转换和发射孔径硬件；不重复计入发电硬件。 |
+| 至集结轨道发射服务成本 | 500 GBP/kg to staging orbit | 20–5000 | 交付至指定近地集结轨道边界的运行轨道硬件质量 | 并非地球同步轨道交付报价；采购节奏集成与目的轨道会显著影响价格。 |
+| 单次发射价格 | 1e+08 GBP/flight | 1e+07–3e+08 | 一次至集结轨道且与按公斤计价互斥的发射 | 仅在按次计价模式启用时使用；绝不与按公斤成本相加。 |
+| 单次有效载荷 | 100000 kg/flight | 20000–250000 | 每次到达集结轨道的最大配载硬件质量 | 取决于运载器与轨道；两种计价模式均用于发射次数诊断。 |
+| 载荷利用率 | 0.85 fraction | 0.5–1 | 有效载荷能力的平均使用比例 | 未建模包装体积进度或拼单限制。 |
+| 集结至运行轨道转移成本 | 100 GBP/kg final hardware | 0–3000 | 从集结轨道转移至运行轨道的最终运行硬件 | 必须覆盖转移器推进剂补给任务运行及载荷惩罚；低值不能证明高轨交付低廉。 |
+| 在轨组装与部署成本 | 200 GBP/kg operational hardware | 0–3000 | 完成组装部署与调试的运行轨道硬件 | 探索性预留；机器人作业检查备件和调试被捆绑处理。 |
+| 整流天线成本 | 0.15 GBP/W-delivered AC | 0.02–1 | 并网边界额定交流交付功率 | 捆绑代理；未显式建模天线面积频率波束几何旁瓣功率密度土地天气和安全。 |
+| 并网成本 | 100 GBP/kW-delivered AC | 20–300 | 并网点额定交流功率 | 简化的本地并网预留；不含更广泛输电网增强。 |
+| 初始项目预备费 | 0.2 fraction of pre-contingency initial CAPEX | 0–0.5 | 仅一次应用于预备费前初始建设资本开支 | 不递归应用于年度运维或更换预留。 |
+| 空间硬件更换率 | 0.006 fraction/year | 0–0.03 | 每年更换的合格空间硬件及其相关发射转移和组装成本比例 | 以简化年度等效方式处理而非离散故障与物流排程。 |
+| 地面硬件更换率 | 0.003 fraction/year | 0–0.02 | 每年更换的合格整流天线与并网成本比例 | 未建模各部件特定更换周期。 |
+| 固定运维率 | 0.01 fraction/year | 0.002–0.05 | 仅应用于发电发射整流天线和并网资产 | 其基数不含预备费初始发射转移和组装。 |
+| 可变运维 | 3 GBP/MWh delivered | 0–20 | 并网边界每兆瓦时交流交付电量 | 探索性预留；不含市场费用及下游系统成本。 |
+| 期末退役成本 | 0.02 fraction of initial CAPEX | 0–0.2 | 运行寿命结束时应用于初始资本开支 | 时点与处置义务被简化。 |
+| 期末残值 | 0 fraction of initial CAPEX | 0–0.2 | 运行寿命结束时相对于初始资本开支的抵扣 | 默认无残值抵扣；回收市场与责任存在不确定性。 |
+
+### 外部证据映射（非直接输入）
+
+下表把模型参数或论断连接到可核查的外部证据，并同时给出页码/表格位置和可比性限制。除非明确标注，否则这些文献数值没有直接替换本模型默认值。
+
+| 参数/论断 | 证据角色 | 外部来源与位置 | 证据背景及可比性限制 |
+| --- | --- | --- | --- |
+| 并网交付容量 | 外部先例 | UK_SBSP_2021_PHASE2 · PDF pp.18-19 | 2021年特定架构案例采用2 GW交付容量。 数值背景：2 GW CASSIOPeiA案例。可比性限制：本项目把相同数值作为规模锚点，不代表该架构最优。 |
+| 系统经济寿命 | 外部先例 | UK_SBSP_2021_PHASE2 · PDF pp.18-19 | 2021年公用事业级经济案例采用30年寿命。 数值背景：30年；后续小规模研究采用15年。可比性限制：寿命取决于架构；本模型不证明生存性或翻新可行性。 |
+| 计算所得端到端效率 | 技术背景 | CALTECH_SBSP_2022 · abstract | 轻量化模块概念报告了显著的全链路损耗。 数值背景：端到端效率7%–14%。可比性限制：概念与子系统边界不同；该数值只用于核对计算输出而非模型输入。 |
+| 计算所得端到端效率 | 有外部启发的假设 | UK_SBSP_2021_ANNEX_B · PDF p.4 | 公开的分级效率乘积为分阶段能量链提供背景。 数值背景：独立效率分量乘积约14.85%–24.39%。可比性限制：独立极值既不定义概率分布，也不代表已验证的集成设计。 |
+| 计算所得端到端效率 | 外部一致性核对 | DESNZ_SBSP_2025 · Table 1, PDF pp.11-12; reference-design selection p.13 | 官方小规模研究给出架构级总效率案例。 数值背景：11.7%–19.9%；所选Space Solar小规模参考设计14.9%。可比性限制：主要数值可能来自厂商声明或推断且定义可能不同。 |
+| 交付容量因子代理变量 | 适用范围限定 | DESNZ_SBSP_2025 · Table 3, PDF p.16 | 官方研究显示，利用率会随轨道和统计边界显著变化。 数值背景：HEO：英国整流天线95.7%、卫星平均53.9%；圆形LEO：卫星平均20.1%、英国整流天线21.5%。可比性限制：整流天线利用率不等同于本模型交付容量因子；90%仍是研究假设。 |
+| 整套轨道系统比质量 | 技术背景 | CALTECH_SBSP_2022 · abstract | 轻量化结构是模块化空间太阳能架构的核心。 数值背景：面密度160 g/m²。可比性限制：缺少完整交付功率与子系统边界时，面密度不能换算为整套系统kg/kW-交付。 |
+| 整套轨道系统比质量 | 外部一致性核对 | DESNZ_SBSP_2025 · Table 1, PDF pp.11-12; reference-design selection p.13 | 架构比功率是单位轨道质量对应的地面交付功率；其倒数为kg/kW-交付。 数值背景：0.15–0.67 kW-交付/kg；0.67换算为1.4925 kg/kW-交付。可比性限制：数值取决于架构且部分来自厂商声明；换算不验证工程成熟度，模型默认值仍属探索性。 |
+| 至集结轨道发射成本 | 外部范围 | UK_SBSP_2021_ANNEX_B · PDF p.5 and p.11 | 2021年输入审查采用宽范围的特定架构航天运输成本。 数值背景：£358–2,410/kg。可比性限制：轨道采购价格年份和服务边界均不同于本模型集结轨道变量。 |
+| 至集结轨道发射成本 | 外部比较 | DESNZ_SBSP_2025 · Table 12 p.37; Tables 27-28 pp.71-73 | 发射成本是官方小规模案例的主导驱动因素。 数值背景：2030/35/40年中心HEO为£1,647/1,400/1,153每kg；乐观值£1,188/1,008/827。可比性限制：高轨交付不能直接等同于集结轨道服务加探索性转移代理。 |
+| 至集结轨道发射成本 | 外部先例 | NASA_OTPS_SBSP_2024 · PDF p.10 | NASA有利组合案例包含低发射价格假设。 数值背景：名义$500/kg；15%批量折扣后$425/kg。可比性限制：采用FY2022美元及美国采购/架构边界；本项目不直接移植。 |
+| 实际项目贴现率 | 融资背景 | DESNZ_SBSP_2025 · Table 12 p.37; Table 26 pp.68-69 | 公开空间太阳能案例采用随成熟度和投资者类别下降的实际税前门槛收益率。 数值背景：情景门槛收益率20%/13.2%/9.06%；投资者案例14.9%至4.83%。可比性限制：门槛收益率不等同于项目贴现率；6.5%仍是研究假设。 |
+| 实际项目贴现率 | 有外部启发的假设 | DESNZ_EGC_2025_ANNEX_A · Technical and Cost Assumptions, row 38 | 部分成熟地面发电技术采用6.5%门槛收益率输入。 数值背景：大型光伏和陆上风电为6.5%。可比性限制：这不是实测SBSP贴现率，也未定义税务或融资结构。 |
+| 并网成本 | 有外部启发的假设 | DESNZ_SBSP_2025 · PDF p.70 | 小规模研究给出按MW计的并网基础设施预留。 数值背景：£0.15m/MW，即£150/kW。可比性限制：本模型自定£100/kW简化预留；范围和场址条件可能不同。 |
+| 固定运维 | 有外部启发的假设 | UK_SBSP_2021_ANNEX_B · Table B1, PDF p.4 | Annex B采用由地面发电技术推导的三角分布运维系数。 数值背景：三角分布下限/众数/上限为0.8%/1.9%/4.7%。可比性限制：定义与成本基数不同；本模型每年1% CAPEX仍是研究假设。 |
+| 参考点LCOE | 外部一致性核对 | DESNZ_SBSP_2025 · executive summary, PDF pp.3-4 | 本项目锚点落在一个公开的早期小规模区间内。 数值背景：2024英镑：2030年£335–595/MWh、2035年£154–249、2040年£87–129。可比性限制：这不是验证：规模、架构、轨道、情景年份、融资和会计边界均不同。 |
+| 外部低成本情景 | 外部比较 | UK_SBSP_2021_PHASE2 · Executive summary p.3; assumptions pp.18-19; Figure 5 p.22 and Table 4 p.23 | 较早英国架构研究报告了明显更低的未来案例。 数值背景：2018年价格下p10–p90为£35–79/MWh、p50约£50/MWh；2 GW；30年；20%门槛收益率。可比性限制：架构、学习、投产年份、融资和价格口径不同；不能按同口径预测直接排序。 |
+| 架构依赖性 | 外部比较 | NASA_OTPS_SBSP_2024 · executive summary pp.3-4; pp.7-10 | NASA所选基线与有利组合案例的生命周期成本相差约20倍。 数值背景：FY2022美元：基线$610/$1,590每MWh；有利组合$30/$80每MWh。可比性限制：美国架构、服务曲线、币种和生命周期边界不同；NASA数值不导入本模型。 |
+| 发射成本重要性 | 适用范围限定 | DESNZ_SBSP_2025 · Table 14, PDF p.38 | 官方小规模研究把大部分LCOE方差归因于发射假设。 数值背景：2030/35/40年分别为55.5%/62.9%/64.0%。可比性限制：本项目在自身一维范围内可能把比质量排第一；两种排名都不是普遍规律。 |
+| 系统价值 | 系统背景 | DESNZ_SBSP_2025 · executive summary, PDF pp.3-4 | 官方系统案例对每个公开LCOE采用相同系统收益调整。 数值背景：计入系统收益后，所有案例LCOE均降低£21/MWh。可比性限制：本模型不把全系统价值货币化，也不从项目LCOE中扣除£21/MWh。 |
+| 系统调整成本比较 | 基准定义 | BEIS_EGC_2020 · Tables 7.1-7.3 | 增强LCOE说明更广泛系统影响会改变技术比较。 数值背景：整理区间保存在uk_system_adjusted_costs.csv。可比性限制：采用2018年实际英镑且依赖情景；仅作指示，未与本模型2024年实际英镑直接统一。 |
 
 ## 公式、边界与验证
 
@@ -141,3 +169,17 @@ DESNZ/Frazer-Nash报告把架构比功率定义为地面交付功率/轨道质�
 - 探索范围不是概率分布；不输出P10/P50/P90。
 
 由可执行模型生成。价格年份：2024年实际英镑。估值基准：start of construction (t=0)。
+
+<!-- PAGEBREAK -->
+
+## 参考文献
+
+`ASSUMPTION_THIS_STUDY` 是项目内部的假设记录，不是外部文献。以下列表仅收录本报告证据映射实际引用的外部资料，并按来源编号去重。
+
+- **DESNZ_EGC_2025_ANNEX_A** — Department for Energy Security and Net Zero（2026-01-14）。[Annex A: Additional estimates and key assumptions 2025](https://assets.publishing.service.gov.uk/media/69d8efec96c86b7513170229/annex-a-additional-estimates-and-key-assumptions-2025.xlsx)。本报告用途：UK generation benchmark input workbook。访问日期：2026-07-19。
+- **BEIS_EGC_2020** — Department for Business, Energy and Industrial Strategy（2020-08-24）。[BEIS Electricity Generation Costs (2020)](https://www.gov.uk/government/publications/beis-electricity-generation-costs-2020)。本报告用途：System-adjusted benchmark source。访问日期：2026-07-19。
+- **UK_SBSP_2021_PHASE2** — Frazer-Nash Consultancy for BEIS（2021-04-23）。[Space Based Solar Power as a Contributor to Net Zero — Phase 2: Economic Feasibility](https://www.fnc.co.uk/media/ae2eadpi/fnc-004456-51624r-phase-2-economic-feasibility-issue-1-1.pdf)。本报告用途：External SBSP economic study。访问日期：2026-07-19。
+- **UK_SBSP_2021_ANNEX_B** — Frazer-Nash Consultancy for BEIS（2021-04-23）。[Space Based Solar Power as a Contributor to Net Zero — Phase 2: Economic Feasibility – Annex B: Input Data Sources](https://www.fnc.co.uk/media/jfhdqus0/fnc-004456-51624r-phase-2-annex-b-input-data-sources.pdf)。本报告用途：External SBSP input evidence。访问日期：2026-07-19。
+- **DESNZ_SBSP_2025** — Frazer-Nash Consultancy; Space Solar Engineering Ltd; Imperial College London for DESNZ（2026-02-13）。[Feasibility of Small-Scale Space Based Solar Power (SBSP) Systems for Early Market Adoption](https://assets.publishing.service.gov.uk/media/698f167c7da91680ad7f43ad/SBSP-enabled-pathways-to-net-zero-final-report-raf036-2425.pdf)。本报告用途：External SBSP study。访问日期：2026-07-19。
+- **NASA_OTPS_SBSP_2024** — NASA Office of Technology, Policy, and Strategy（2024-01-11）。[Space Based Solar Power](https://ntrs.nasa.gov/citations/20230018600)。本报告用途：External SBSP study。访问日期：2026-07-19。
+- **CALTECH_SBSP_2022** — Caltech Space Solar Power Project（2022-06-16）。[A Lightweight Space-based Solar Power Generation and Transmission Satellite](https://arxiv.org/abs/2206.08373)。本报告用途：SBSP technical context。访问日期：2026-07-19。

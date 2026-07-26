@@ -211,7 +211,10 @@ def main() -> int:
     ])
     release_errors += validate_png_images(sensitivity_figures + contour_figures + main_figures)
     release_errors += validate_markdown_images([REPORT / "final_report_EN.md", REPORT / "final_report_zh.md"], expected_count=4)
-    shared = ["v2.0", f"£{result.lcoe_gbp_per_mwh:.2f}/MWh", f"{result.end_to_end_efficiency:.4%}"]
+    shared = [
+        "v2.0", f"£{result.lcoe_gbp_per_mwh:.2f}/MWh", f"{result.end_to_end_efficiency:.4%}",
+        "DESNZ_SBSP_2025", "NASA_OTPS_SBSP_2024",
+    ]
     release_errors += validate_report_content([REPORT / "final_report_EN.md", REPORT / "final_report_zh.md"], shared)
     pdf_errors: list[str] = []
     if pdf_en and pdf_zh:
