@@ -1,0 +1,7 @@
+scenario,source_type,source_id,price_year,denominator_definition,limitation,lcoe_gbp_per_mwh,progress_fraction
+reference,exploratory,ASSUMPTION_THIS_STUDY,2024 real GBP,parameter-specific boundaries documented in sbsp_parameters.csv,not a forecast roadmap probability or engineering design,86.02973399903817,0
+illustrative_combination_to_150,mathematical_interpolation,ASSUMPTION_THIS_STUDY,2024 real GBP,parameter-specific boundaries documented in sbsp_parameters.csv,not a forecast roadmap probability or engineering design,86.02973399903817,0.0
+illustrative_combination_to_120,mathematical_interpolation,ASSUMPTION_THIS_STUDY,2024 real GBP,parameter-specific boundaries documented in sbsp_parameters.csv,not a forecast roadmap probability or engineering design,86.02973399903817,0.0
+illustrative_combination_to_100,mathematical_interpolation,ASSUMPTION_THIS_STUDY,2024 real GBP,parameter-specific boundaries documented in sbsp_parameters.csv,not a forecast roadmap probability or engineering design,86.02973399903817,0.0
+illustrative_combination_to_80,mathematical_interpolation,ASSUMPTION_THIS_STUDY,2024 real GBP,parameter-specific boundaries documented in sbsp_parameters.csv,not a forecast roadmap probability or engineering design,80.0,0.02930630372388278
+illustrative_combination_to_60,mathematical_interpolation,ASSUMPTION_THIS_STUDY,2024 real GBP,parameter-specific boundaries documented in sbsp_parameters.csv,not a forecast roadmap probability or engineering design,59.72196868801762,0.12500000000000008

@@ -1,204 +1,47 @@
-"""Generate the English v1.2 analytical report and automated verification note."""
+"""Bilingual Markdown report generation for the v2.0 methodology."""
 
 from __future__ import annotations
 
-from dataclasses import dataclass
 from pathlib import Path
 from typing import Iterable
 
-from .model import LCOEResult, calculate_lcoe
+from .model import calculate_lcoe
 from .parameters import Parameter
 
 
-REPORT_VERSION = "1.2"
-EVIDENCE_REVIEW_DATE = "2026-07-19"
-
-CORE_PARAMETER_NAMES = [
-    "delivered_capacity_mw",
-    "end_to_end_efficiency",
-    "capacity_factor",
-    "specific_mass_kg_per_kw_space_power",
-    "launch_cost_gbp_per_kg",
-    "space_hardware_cost_gbp_per_w_space",
-    "in_orbit_assembly_cost_gbp_per_kg",
-    "wacc",
-    "system_lifetime_years",
-]
-
-PARAMETER_ROLES_EN = {
-    "delivered_capacity_mw": "Scale anchor; most unit costs scale with capacity",
-    "end_to_end_efficiency": "Sets required space-side power and therefore mass",
-    "capacity_factor": "Delivered-energy proxy combining availability and constraints",
-    "specific_mass_kg_per_kw_space_power": "Scales launch, transfer and assembly together",
-    "launch_cost_gbp_per_kg": "Transport-cost lever to the model-defined staging orbit",
-    "space_hardware_cost_gbp_per_w_space": "Orbital manufacturing-cost lever",
-    "in_orbit_assembly_cost_gbp_per_kg": "Mass-scaled deployment allowance",
-    "wacc": "Real project discount-rate proxy used in capital recovery",
-    "system_lifetime_years": "Period over which capital is recovered",
-}
-
-CAPEX_LABELS_EN = {
-    "space_segment_capex": "Space-segment hardware",
-    "wireless_power_transmission": "Wireless-power hardware",
-    "launch": "Launch",
-    "orbit_transfer": "Orbit transfer",
-    "in_orbit_assembly": "In-orbit assembly and deployment",
-    "rectenna": "Rectenna",
-    "grid_connection": "Grid connection",
-}
+VERSION = "v2.0"
 
 
-@dataclass(frozen=True)
-class ReportFacts:
-    result: LCOEResult
-    mass_thresholds: dict[int, float | None]
-    best_lcoe: dict[str, float]
-    combined_rows: dict[int, dict[str, object]]
-    generation_band: tuple[float, float]
-    mature_generation_band: tuple[float, float]
-    system_adjusted_band: tuple[float, float]
-    capex_share: float
-    parameter_count: int
-    target_count: int
+def _money(value: float) -> str:
+    return f"£{value / 1e9:,.2f}bn"
 
 
-def markdown_table(headers: list[str], rows: Iterable[Iterable[object]]) -> str:
-    rendered = [[str(cell).replace("|", "/") for cell in row] for row in rows]
-    lines = [
+def _table(headers: list[str], rows: Iterable[Iterable[object]]) -> str:
+    values = [[str(cell) for cell in row] for row in rows]
+    return "\n".join([
         "| " + " | ".join(headers) + " |",
-        "| " + " | ".join(["---"] * len(headers)) + " |",
-    ]
-    lines.extend("| " + " | ".join(row) + " |" for row in rendered)
-    return "\n".join(lines)
+        "| " + " | ".join("---" for _ in headers) + " |",
+        *("| " + " | ".join(row) + " |" for row in values),
+    ])
 
 
-def figure(title: str, path: str, interpretation: str) -> str:
-    return f"![{title}]({path})\n\n**Interpretation.** {interpretation}"
+def _comparison_cases(reference: dict[str, float]) -> tuple[object, object]:
+    # Make the five-stage chain equal exactly 20% by solving the solar stage.
+    case = dict(reference)
+    other = (case["dc_to_rf_efficiency"] * case["transmission_efficiency"]
+             * case["rectenna_conversion_efficiency"] * case["grid_conversion_efficiency"])
+    case["solar_conversion_efficiency"] = 0.20 / other
+    case["system_specific_mass_kg_per_kw_delivered"] = 1.5
+    corrected = calculate_lcoe(case)
+    # The historical error divided the delivered-basis mass by efficiency again.
+    legacy_equivalent = dict(case)
+    legacy_equivalent["system_specific_mass_kg_per_kw_delivered"] = 1.5 / 0.20
+    old = calculate_lcoe(legacy_equivalent)
+    return old, corrected
 
 
-def _as_bool(value: object) -> bool:
-    return str(value).strip().lower() in {"true", "1", "yes"}
-
-
-def _numeric_band(rows: list[dict[str, object]]) -> tuple[float, float]:
-    lows = [float(row["value_low_gbp_per_mwh"]) for row in rows if row.get("value_low_gbp_per_mwh") not in (None, "")]
-    highs = [float(row["value_high_gbp_per_mwh"]) for row in rows if row.get("value_high_gbp_per_mwh") not in (None, "")]
-    if not lows or not highs:
-        raise ValueError("Cannot derive a benchmark band from empty values.")
-    return min(lows), max(highs)
-
-
-def format_cost_range(low: float, high: float) -> str:
-    """Format a point or interval without discarding meaningful half pounds."""
-
-    if abs(high - low) < 1e-9:
-        decimals = 0 if float(low).is_integer() else 1
-        return f"£{low:.{decimals}f}/MWh"
-    low_decimals = 0 if float(low).is_integer() else 1
-    high_decimals = 0 if float(high).is_integer() else 1
-    return f"£{low:.{low_decimals}f}–{high:.{high_decimals}f}/MWh"
-
-
-def derive_report_facts(
-    reference: dict[str, float],
-    thresholds: list[dict[str, object]],
-    importance: list[dict[str, object]],
-    combined_frontier: list[dict[str, object]],
-    generation_rows: list[dict[str, object]],
-    system_rows: list[dict[str, object]],
-) -> ReportFacts:
-    result = calculate_lcoe(reference)
-    mass_thresholds = {
-        int(row["target_lcoe_gbp_per_mwh"]): (
-            None if row["threshold_value"] in (None, "") else float(row["threshold_value"])
-        )
-        for row in thresholds
-        if row["parameter"] == "specific_mass_kg_per_kw_space_power"
-    }
-    best_lcoe = {
-        str(row["parameter"]): float(row["best_lcoe_gbp_per_mwh"])
-        for row in importance
-    }
-    combined_rows = {
-        int(row["target_lcoe_gbp_per_mwh"]): row
-        for row in combined_frontier
-    }
-    included = [row for row in generation_rows if _as_bool(row.get("include_in_bands"))]
-    mature = [row for row in included if row["technology"] != "Floating offshore wind"]
-    system_selected = [row for row in system_rows if row["technology"] == "High-renewable system-adjusted band"]
-    if not system_selected:
-        raise ValueError("Missing high-renewable system-adjusted benchmark row.")
-    system_band = _numeric_band(system_selected)
-    parameter_count = len({str(row["parameter"]) for row in thresholds})
-    target_count = len({int(row["target_lcoe_gbp_per_mwh"]) for row in thresholds})
-    return ReportFacts(
-        result=result,
-        mass_thresholds=mass_thresholds,
-        best_lcoe=best_lcoe,
-        combined_rows=combined_rows,
-        generation_band=_numeric_band(included),
-        mature_generation_band=_numeric_band(mature),
-        system_adjusted_band=system_band,
-        capex_share=result.annualized_capex_gbp / result.annual_total_cost_gbp,
-        parameter_count=parameter_count,
-        target_count=target_count,
-    )
-
-
-def format_parameter_value(parameter: Parameter) -> str:
-    value = parameter.reference_value
-    if parameter.unit in {"fraction", "fraction/year"}:
-        return f"{value:.1%}"
-    if parameter.unit == "kg/kW-space":
-        return f"{value:.2f} {parameter.unit}"
-    if parameter.unit in {"GBP/W-space", "GBP/W-delivered"}:
-        return f"£{value:.2f}/{parameter.unit.split('/', 1)[1]}"
-    if parameter.unit.startswith("GBP/"):
-        return f"£{value:,.0f}/{parameter.unit.split('/', 1)[1]}"
-    if parameter.unit == "MW":
-        return f"{value:,.0f} MW"
-    if parameter.unit == "years":
-        return f"{value:,.0f} years"
-    return f"{value:g} {parameter.unit}"
-
-
-def threshold_summary_rows(thresholds: list[dict[str, object]], targets: tuple[int, ...] = (150, 120, 100, 80, 60)) -> list[list[object]]:
-    by_parameter: dict[str, dict[int, dict[str, object]]] = {}
-    order: list[str] = []
-    for row in thresholds:
-        name = str(row["parameter"])
-        if name not in by_parameter:
-            by_parameter[name] = {}
-            order.append(name)
-        by_parameter[name][int(row["target_lcoe_gbp_per_mwh"])] = row
-    output: list[list[object]] = []
-    for name in order:
-        sample = next(iter(by_parameter[name].values()))
-        row_values: list[object] = [sample["display_name"], sample["unit"]]
-        for target in targets:
-            threshold = by_parameter[name].get(target, {}).get("threshold_value")
-            row_values.append("—" if threshold in (None, "") else f"{float(threshold):.2f}")
-        output.append(row_values)
-    return output
-
-
-def source_registry_rows(source_rows: list[dict[str, str]]) -> list[list[object]]:
-    rows: list[list[object]] = []
-    for row in source_rows:
-        url = row["url"] if row["url"].startswith("http") else f"../{row['url']}"
-        rows.append(
-            [
-                row["source_id"],
-                f"[{row['title']}]({url})",
-                row["organization"],
-                row["role"],
-            ]
-        )
-    return rows
-
-
-def build_markdown_report(
-    output_path: str | Path,
+def _report(
+    language: str,
     reference: dict[str, float],
     params: dict[str, Parameter],
     generation_rows: list[dict[str, object]],
@@ -212,386 +55,164 @@ def build_markdown_report(
     evidence_rows: list[dict[str, str]],
     assumption_rows: list[dict[str, str]],
     external_study_rows: list[dict[str, str]],
-) -> None:
-    facts = derive_report_facts(
-        reference,
-        thresholds,
-        importance,
-        combined_frontier,
-        generation_rows,
-        system_rows,
-    )
-    result = facts.result
-
-    core_rows = [
-        [params[name].display_name, format_parameter_value(params[name]), PARAMETER_ROLES_EN[name]]
-        for name in CORE_PARAMETER_NAMES
-    ]
-    capex_rows = [
-        [CAPEX_LABELS_EN.get(name, name), f"£{value / 1e9:.2f}bn"]
-        for name, value in sorted(result.capex_components_gbp.items(), key=lambda item: item[1], reverse=True)
-    ]
-    capex_rows.extend(
-        [
-            ["Pre-margin subtotal", f"£{result.pre_margin_capex_gbp / 1e9:.2f}bn"],
-            ["Programme margin", f"£{result.programme_margin_gbp / 1e9:.2f}bn"],
-            ["Initial CAPEX", f"£{result.initial_capex_gbp / 1e9:.2f}bn"],
-        ]
-    )
-
-    decision_rows = [
-        ["£150/MWh", "Broad study-defined screening line", "A model diagnostic, not an official UK threshold"],
-        ["£100–120/MWh", "Study-defined screen for a potential firm or near-firm role", "Triggers deeper engineering, finance and system-value work"],
-        ["£80/MWh", "Overlap with the selected system-adjusted comparator", "Still not a market-competitiveness conclusion"],
-        ["£60/MWh", "Stringent stress test", "No tested one-way input reaches it; coupled cases remain exploratory"],
-    ]
-
-    benchmark_rows: list[list[object]] = []
-    for row in generation_rows:
-        if row.get("value_low_gbp_per_mwh") in (None, ""):
-            continue
-        benchmark_rows.append(
-            [
-                row["technology"],
-                format_cost_range(
-                    float(row["value_low_gbp_per_mwh"]),
-                    float(row["value_high_gbp_per_mwh"]),
-                ),
-                row["price_basis"],
-                row["value_type"],
-            ]
-        )
-    system_band_row = next(row for row in system_rows if row["technology"] == "High-renewable system-adjusted band")
-    benchmark_rows.append(
-        [
-            system_band_row["technology"],
-            format_cost_range(
-                float(system_band_row["value_low_gbp_per_mwh"]),
-                float(system_band_row["value_high_gbp_per_mwh"]),
-            ),
-            system_band_row["price_basis"],
-            "Indicative enhanced-LCOE envelope",
-        ]
-    )
-
-    mass_150 = facts.mass_thresholds[150]
-    mass_120 = facts.mass_thresholds[120]
-    mass_100 = facts.mass_thresholds[100]
-    if mass_150 is None or mass_120 is None or mass_100 is None:
-        raise ValueError("Expected specific-mass thresholds are unavailable.")
-
-    selected_frontier_rows = []
-    for row in frontier:
-        efficiency = float(row["end_to_end_efficiency"])
-        target = int(row["target_lcoe_gbp_per_mwh"])
-        if efficiency not in {0.25, 0.30, 0.35} or target not in {150, 120, 100}:
-            continue
-        launch_value = row["max_launch_cost_gbp_per_kg"]
-        selected_frontier_rows.append(
-            [
-                f"{efficiency:.0%}",
-                f"£{target}/MWh",
-                "not reached" if launch_value in (None, "") else f"£{float(launch_value):.1f}/kg or lower",
-            ]
-        )
-
-    combined_rows = []
-    for target in sorted(facts.combined_rows, reverse=True):
-        row = facts.combined_rows[target]
-        if row.get("status") != "feasible":
-            combined_rows.append([f"£{target}/MWh", "not reached", "—", "—", "—", "—"])
-            continue
-        combined_rows.append(
-            [
-                f"£{target}/MWh",
-                f"{float(row['progress_fraction']):.1%}",
-                f"£{float(row['launch_cost_gbp_per_kg']):.0f}/kg",
-                f"{float(row['specific_mass_kg_per_kw_space_power']):.2f} kg/kW-space",
-                f"{float(row['end_to_end_efficiency']):.1%}",
-                f"{float(row['wacc']):.2%}",
-            ]
-        )
-
-    external_rows = [
-        [
-            row["study_label"],
-            row["analysis_type"],
-            row["reported_cost_context"],
-            row["relationship_to_this_project"],
-        ]
-        for row in external_study_rows
-    ]
-    evidence_table_rows = [
-        [
-            row["parameter_or_claim"],
-            f"{row['evidence_role']} / {row['source_id']}",
-            row["locator"],
-            row["numeric_context"],
-            row["limitations"],
-        ]
-        for row in evidence_rows
-    ]
-    assumption_table_rows = [
-        [row["assumption_id"], row["area"], row["assumption"], row["limitation"]]
-        for row in assumption_rows
-    ]
-
-    alt_pathways = len({str(row["pathway"]) for row in alternative_frontiers})
-    report = f"""# UK Space-Based Solar Power Cost-Condition Map
-
-Report subtitle: A reproducible threshold assessment for UK decision screening — not a deployment forecast
-
-Evidence status: source registry reviewed to {EVIDENCE_REVIEW_DATE}; selected official DESNZ benchmark cells are machine-reconciled.
-
-Version: v{REPORT_VERSION}
-
-Prepared as: a bilingual, executable techno-economic research artifact.
-
-Disclaimer: this report identifies model-conditional cost requirements. It does not demonstrate engineering feasibility, predict a commissioning year, estimate an investment return or recommend an investment.
-
-<!-- PAGEBREAK -->
-
-## Contents
-
-- 1. Executive answer
-- 2. Research question and distinctive contribution
-- 3. Scope, accounting boundary and method
-- 4. Evidence quality and source discipline
-- 5. Reference anchor and cost structure
-- 6. UK comparator landscape
-- 7. One-way conditional thresholds
-- 8. Coupled cost-condition frontiers
-- 9. Interpretation for UK decisions
-- 10. Limitations, robustness and non-claims
-- 11. Conclusion
-- Appendices A–C. Audit tables, sources and assumptions
-
-<!-- PAGEBREAK -->
-
-## 1. Executive answer
-
-The short answer is: **the reference configuration is expensive, but the project is useful because it reveals the conditions behind that result.** At the study-authored reference point, grid-connection-point LCOE is **£{result.lcoe_gbp_per_mwh:.0f}/MWh**. This is a normalization anchor, not a forecast or preferred design.
-
-Table 1. Study-defined cost lines and their meaning
-
-{markdown_table(["Cost line", "Use in this project", "Decision meaning and limitation"], decision_rows)}
-
-The strongest one-way result is specific mass, **within this model boundary and the selected ranges, with every other input held at its reference value**. The limiting values are {mass_150:.2f}, {mass_120:.2f} and {mass_100:.2f} kg/kW-space for £150, £120 and £100/MWh respectively. No one-way specific-mass value in the explored range reaches £80 or £60/MWh.
-
-Launch cost alone is not sufficient: even at the favourable explored bound of £{params['launch_cost_gbp_per_kg'].min_value:.0f}/kg, LCOE remains about £{facts.best_lcoe['launch_cost_gbp_per_kg']:.0f}/MWh. Raising end-to-end efficiency alone to {params['end_to_end_efficiency'].max_value:.0%} leaves about £{facts.best_lcoe['end_to_end_efficiency']:.0f}/MWh. The model therefore points to testing multiple coupled combinations across mass, launch, space hardware, assembly, finance, efficiency and delivered energy; it does not prove that every variable must move.
-
-The contribution is **not greater forecasting accuracy**. It is a transparent and reproducible answer to a narrower question: *what cost and performance conditions would have to hold, inside a stated model, before SBSP enters selected UK decision regions?*
-
-## 2. Research question and distinctive contribution
-
-The representative SBSP studies reviewed here evaluate named architectures, future deployment cases, lifecycle impacts or system pathways. This project complements them with continuous one-way and coupled parameter frontiers. It therefore makes assumptions, conditional thresholds and failure-to-reach results directly auditable.
-
-Table 2. Relationship to selected existing SBSP studies
-
-{markdown_table(["Study", "Primary analysis", "Reported context", "Relationship to this project"], external_rows)}
-
-The project's publishable advantage is specific:
-
-- Every exact model input is classified as a **study-authored exploratory assumption**; literature values are kept in a separate evidence map.
-- Thresholds are solved by high-precision monotonic bisection rather than read from a coarse plotting grid.
-- The analysis reports both attainable and unattainable one-way targets across {facts.parameter_count} variables and {facts.target_count} study-defined cost lines.
-- Coupled frontiers and {alt_pathways} alternative parameter slices show that the answer is not a single-variable launch-cost story.
-- Source files, processed outputs, figures, English and Chinese reports and automated checks are regenerated by one command.
-
-These features make the analysis **more transparent for threshold questions**, not universally more accurate than architecture-specific studies.
-
-## 3. Scope, accounting boundary and method
-
-The model ends at the **grid connection point**. It includes space hardware, wireless-power hardware, launch, orbit transfer, in-orbit assembly, rectenna, local grid connection, programme margin, capital recovery, fixed OPEX, refurbishment and variable OPEX. It excludes downstream transmission reinforcement, balancing, storage, curtailment, reliability services, taxes, decommissioning cost, revenue design and monetised system value.
-
-All model financial inputs are interpreted in 2024 real GBP. The `wacc` variable is a **real project discount-rate proxy** used in the capital-recovery factor; tax, inflation and financing tranches are outside the model. The delivered capacity factor is also a proxy combining availability, outages and operational constraints; it is not an observed SBSP availability statistic.
-
-The calculation is:
-
-- annual delivered energy = delivered capacity × 8,760 hours × delivered capacity factor;
-- required space power = delivered grid capacity ÷ end-to-end efficiency;
-- orbital mass = required space power × whole-architecture specific mass;
-- initial CAPEX = summed component CAPEX × (1 + programme margin);
-- LCOE = (annualised CAPEX + fixed OPEX + refurbishment + variable OPEX) ÷ annual delivered MWh.
-
-A one-way threshold changes one input and fixes all others. A coupled equal-fraction frontier moves selected inputs from the reference point toward their favourable recorded bounds by the same normalized fraction. That fraction is a mathematical index, **not technology readiness, probability, calendar progress or a unique roadmap**.
-
-## 4. Evidence quality and source discipline
-
-The evidence system separates three concepts:
-
-- **Direct input:** an exact value used in the model. All SBSP reference values and ranges are study-authored assumptions.
-- **Contextual evidence:** published metrics showing plausible scales or important drivers without being treated as equivalent definitions.
-- **External comparison:** results from a different architecture or boundary, used to test narrative consistency rather than validate this model.
-
-The withdrawn 2020 UK Space Agency press release is retained only as programme history. It supplies no numerical input. Caltech's 160 g/m² areal density is not converted into whole-system kg/kW-space. Likewise, the official small-scale study completed in 2025 and published in 2026 supplies only external context: its specific power, hurdle rates and high-Earth-orbit launch estimates use different definitions.
-
-The £{result.lcoe_gbp_per_mwh:.0f}/MWh reference anchor lies inside the 2026-published official small-scale study's reported £335–595/MWh 2030 band. This is a useful consistency observation, **not validation**, because scale, architecture, orbit, scenario year, financing and cost boundaries differ.
-
-## 5. Reference anchor and cost structure
-
-Table 3. Core reference inputs
-
-{markdown_table(["Parameter", "Reference value", "Role in the model"], core_rows)}
-
-The {reference['delivered_capacity_mw'] / 1000:.1f} GW delivered-capacity anchor requires {result.required_space_power_kw / 1e6:.2f} GW of space-side power and **{result.orbital_mass_kg / 1e6:.2f} million kg** of orbital hardware, or about {result.orbital_mass_kg / 1000:,.0f} tonnes. Both units are shown to make the mass scale unambiguous.
-
-Table 4. Reference initial CAPEX reconciliation
-
-{markdown_table(["Component", "Cost"], capex_rows)}
-
-{figure("Figure 1. Reference LCOE components", "../figures/reference_lcoe_components.png", f"Annualised CAPEX contributes about {facts.capex_share:.0%} of annual reference cost. The result is therefore especially sensitive to physical scale and capital recovery.")}
-
-The reference point produces {result.annual_delivered_mwh / 1e6:.3f} million MWh/year, £{result.initial_capex_gbp / 1e9:.1f}bn initial CAPEX and £{result.annual_total_cost_gbp / 1e9:.2f}bn annualised total cost. These figures reconcile exactly in the generated model outputs.
-
-<!-- PAGEBREAK -->
-
-## 6. UK comparator landscape
-
-{figure("Figure 2. UK electricity cost comparators", "../figures/uk_electricity_cost_benchmark_comparison.png", f"The figure shows the generation-only rows flagged for the headline band, plus the Hinkley contract marker and the historical system-adjusted band. The plotted generation rows span about £{facts.generation_band[0]:.0f}–£{facts.generation_band[1]:.0f}/MWh; excluding the floating-offshore FOAK row gives £{facts.mature_generation_band[0]:.0f}–£{facts.mature_generation_band[1]:.0f}/MWh.")}
-
-Table 5. Comparator definitions from the structured data
-
-{markdown_table(["Comparator", "Reported value", "Price basis", "Metric type"], benchmark_rows)}
-
-The Hinkley Point C £92.50/MWh marker is a 35-year CfD strike price stated in 2012 prices and CPI-indexed; it is not a generic nuclear LCOE. The BEIS enhanced-LCOE range of £{facts.system_adjusted_band[0]:.0f}–£{facts.system_adjusted_band[1]:.0f}/MWh is in 2018 real GBP, whereas the DESNZ generation rows are in 2024 real GBP. No false-precision price conversion is applied.
-
-Figure 2 uses the six generation-only rows marked for the headline band. Table 5 additionally retains the £181/MWh mid-load-factor gas-CCUS sensitivity, but it is excluded from the figure and headline band to avoid counting two utilisation cases for the same technology as separate headline comparators.
-
-Consequently, overlap with a chart band is a screening result only. Wholesale prices, contract prices, generator LCOE and system-adjusted costs are different metrics.
-
-## 7. One-way conditional thresholds
-
-{figure("Figure 3. Best LCOE attainable one variable at a time", "../figures/one_way_lcoe_floors.png", "Within the selected one-way ranges, only whole-architecture specific mass crosses the £150/MWh study line. This ranking is range-dependent and is not universal across architectures.")}
-
-{figure("Figure 4. Specific-mass thresholds in the decision window", "../figures/specific_mass_threshold_focus.png", f"With all other reference inputs fixed, the model requires at most {mass_150:.2f}, {mass_120:.2f} and {mass_100:.2f} kg/kW-space for £150, £120 and £100/MWh. These are conditional mathematical requirements, not proven engineering targets.")}
-
-Table 6. Complete one-way threshold audit
-
-{markdown_table(["Input", "Unit", "£150", "£120", "£100", "£80", "£60"], threshold_summary_rows(thresholds))}
-
-An em dash means that no value reaches the target inside the tested one-way bound; it does not mean physical impossibility outside that bound.
-
-The result does not mean that specific mass is the only necessary condition. It means only that, under the reference assumptions and selected one-way bounds, it is the sole individual variable able to cross £150/MWh. In a coupled design, low mass is not sufficient for every target, and other architectures may rank drivers differently. The official small-scale study published in 2026, for example, attributes 55.5–64.0% of its own LCOE variance to launch assumptions.
-
-## 8. Coupled cost-condition frontiers
-
-{figure("Figure 5. Launch-cost and efficiency frontier", "../figures/sbsp_break_even_thresholds.png", "Higher efficiency relaxes the launch-cost condition, but many cells remain unattainable when the remaining reference inputs are fixed. Values are root-solved inside the recorded launch-cost bounds.")}
-
-Table 7. Selected launch-cost limits with all other inputs fixed
-
-{markdown_table(["End-to-end efficiency", "Target", "Maximum launch cost"], selected_frontier_rows)}
-
-{figure("Figure 6. Equal-fraction coupled frontier", "../figures/combined_progress_frontier.png", "Lower target LCOEs on the x-axis correspond to larger normalized movements on the y-axis. The y-axis is a mathematical interpolation index, not an implementation timeline.")}
-
-Table 8. Coupled equal-fraction index and selected parameter values
-
-{markdown_table(["Target", "Normalized movement", "Launch", "Specific mass", "Efficiency", "Real discount proxy"], combined_rows)}
-
-{figure("Figure 7. Launch cost × efficiency decision contour", "../figures/contour_launch_cost_vs_end_to_end_efficiency_zoom.png", "The two-variable contour makes interaction visible, but it still fixes every unplotted input at the reference point. It must not be read as a complete design feasibility map.")}
-
-The equal-fraction results are one transparent index among many possible paths. The generated alternative slices show that high efficiency, low mass or infrastructure-like finance can each reshape the frontier. None is presented as the unique or necessary roadmap.
-
-## 9. Interpretation for UK decisions
-
-The practical reading is sequential:
-
-- Above £150/MWh, the model remains outside its broad study-defined screening line; research should focus on whether integrated architecture evidence can change several major drivers together.
-- At £100–120/MWh, a credible integrated design would justify detailed engineering, financing and GB dispatch/network analysis.
-- At £80/MWh or below, cost overlap with the selected historical system-adjusted band becomes more relevant, but differing price bases and omitted system effects still prevent a market conclusion.
-- Any claim of firm low-carbon value must be tested in a full GB power-system model rather than subtracted informally from plant LCOE.
-
-The official small-scale study published in 2026 reports a £21/MWh system-benefit adjustment in each of its cases. This report does not subtract that figure because the architecture and system-model boundary differ.
-
-## 10. Limitations, robustness and non-claims
-
-The strongest robustness feature is traceability: official 2025 generation-cost cells are checked directly against the stored workbook; source IDs are foreign-key validated; input CSVs are structurally validated; model accounting reconciles; and threshold roots are tested against their target LCOEs.
-
-The principal limitations are:
-
-- Architecture feasibility is not assessed: beam safety, spectrum, thermal control, degradation, debris risk, deployment and maintainability require engineering models and demonstrations.
-- Parameter ranges are deliberately broad and partly judgmental; driver rankings depend on those ranges and the reference point.
-- Correlations, construction schedules, learning curves, probabilistic uncertainty and tax/financing structure are not modelled.
-- The grid-connection-point boundary omits downstream network, balancing, storage, curtailment, reliability and market effects.
-- Comparator price bases are disclosed but not harmonised.
-- External SBSP studies are not like-for-like validation datasets.
-
-This project does **not** claim to be the first threshold analysis, to discover universal necessary conditions, or to produce a more accurate deployment forecast. Its defensible special feature is an openly executable, bilingual and source-disciplined cost-condition map.
-
-## 11. Conclusion
-
-At the study-authored reference point, SBSP LCOE is approximately £{result.lcoe_gbp_per_mwh:.0f}/MWh at the grid connection point. Lower launch cost by itself does not close the gap. Within the selected one-way ranges, a very low whole-architecture specific mass is the only individual lever that reaches £150/MWh, and it still cannot reach £80/MWh alone.
-
-The central conclusion is therefore narrower and conditional: **lower launch cost or higher efficiency alone is insufficient at the tested bounds; no single tested one-way change reaches £80 or £60/MWh, so some coupled improvement is required for those lines.** The analysis does not prove that every listed variable must improve, or that its equal-fraction path is unique. It also does not prove that any engineering or commercial combination can be achieved.
-
-The project's value is the clarity of that conditional statement and the audit trail behind it.
-
-<!-- PAGEBREAK -->
-
-## Appendix A. Evidence-to-claim map
-
-Table A1. Contextual evidence and its limitations
-
-{markdown_table(["Parameter or claim", "Evidence role / source", "Locator", "Published context", "Applicability limit"], evidence_table_rows)}
-
-## Appendix B. Source registry
-
-Table B1. Sources used by the project
-
-{markdown_table(["Source ID", "Reference", "Organisation", "Role"], source_registry_rows(source_rows))}
-
-## Appendix C. Assumptions and boundary register
-
-Table C1. Explicit analytical assumptions
-
-{markdown_table(["ID", "Area", "Assumption", "Limitation"], assumption_table_rows)}
-
-Machine-readable inputs and all complete sensitivity curves are retained under `data/`; the full English figure set is under `figures/`; exact generated thresholds are under `data/processed/`.
-"""
-
-    Path(output_path).write_text(report, encoding="utf-8")
-
-
-def build_verification_note(
-    output_path: str | Path,
-    category_results: list[dict[str, str]],
-    warnings: list[str],
-    commands: list[str],
-) -> None:
-    """Write an evidence-based automated verification record without overclaiming."""
-
-    normalized = [str(row.get("status", "FAIL")).upper() for row in category_results]
-    if any(status == "FAIL" for status in normalized):
-        overall = "FAIL"
-    elif any(status == "WARN" for status in normalized):
-        overall = "PASS WITH WARNINGS"
+) -> str:
+    result = calculate_lcoe(reference)
+    old_example, new_example = _comparison_cases(reference)
+    mass_source = next(item for item in evidence_rows if item["parameter_or_claim"] == "system_specific_mass_kg_per_kw_delivered" and item["source_id"] == "DESNZ_SBSP_2025")
+    feasible = [row for row in thresholds if row.get("threshold_value") not in (None, "") and float(row["target_lcoe_gbp_per_mwh"]) < result.lcoe_gbp_per_mwh]
+    top = importance[:8]
+    combined = [row for row in combined_frontier if row.get("progress_fraction") not in (None, "")]
+    if language == "zh":
+        title = "英国空间太阳能成本条件评估"
+        warning = "**这是条件情景结果，不是商业预测、报价、官方英国目标或经济可行性证明。**"
+        executive = f"参考情景的条件性电网交付 DCF LCOE 为 **£{result.lcoe_gbp_per_mwh:.2f}/MWh**（2024年实际英镑）。模型从2 GW并网交流功率向上游反推五级能量链，计算端到端效率为 **{result.end_to_end_efficiency:.2%}**，轨道硬件质量为 **{result.orbital_mass_kg / 1e6:.2f}百万kg**，需要 **{result.required_launches:,}** 次等效发射。"
+        sections = {
+            "scope": "范围与结论",
+            "migration": "v1.x 至 v2.0 迁移说明",
+            "chain": "分阶段能量链",
+            "finance": "贴现现金流边界",
+            "costs": "参考成本构成",
+            "analysis": "条件敏感性与阈值",
+            "evidence": "参数证据与限制",
+            "method": "公式、边界与验证",
+            "limits": "仍然存在的限制",
+        }
+        stage_labels = {"incident_solar_power_w": "入射太阳功率", "space_dc_bus_power_w": "空间直流母线", "emitted_rf_power_w": "射频发射", "incident_rf_power_w": "整流天线入射射频", "rectenna_dc_power_w": "整流天线直流输出", "delivered_grid_ac_power_w": "并网交流交付"}
+        capex_headers = ["资本开支项目", "2024年实际英镑"]
+        lifecycle_headers = ["生命周期项目", "贴现现值", "LCOE贡献"]
+        driver_headers = ["参数", "有利边界下LCOE", "降低幅度"]
+        parameter_headers = ["参数", "参考值", "范围", "来源", "分母/边界", "限制"]
+        migration_text = f"v1.x 把一个本应按交付功率定义的1.5 kg/kW数值乘以“交付功率/效率”，从而重复除以效率。在2 GW、20%效率示例中，旧公式得到 **15,000,000 kg（15,000吨）**；正确公式得到 **3,000,000 kg（3,000吨）**。在其余v2输入相同的对比计算中，错误质量边界对应 **£{old_example.lcoe_gbp_per_mwh:.2f}/MWh**，正确边界对应 **£{new_example.lcoe_gbp_per_mwh:.2f}/MWh**。因此历史v1.x阈值与v2.0不可直接比较。"
+        source_note = f"DESNZ/Frazer-Nash报告把架构比功率定义为地面交付功率/轨道质量；0.67 kW-交付/kg 的倒数为 **{1/0.67:.4f} kg/kW-交付**。报告位置：{mass_source['locator']}。这些数值取决于架构，且部分来自未经独立验证的厂商声明。"
     else:
-        overall = "PASS"
-    rows = [[row["category"], row["status"].upper(), row["evidence"]] for row in category_results]
-    warning_lines = "\n".join(f"- {warning}" for warning in warnings) or "- None recorded."
-    command_lines = "\n".join(f"- `{command}`" for command in commands)
-    note = f"""# Verification Note
+        title = "UK Space-Based Solar Power Cost-Condition Assessment"
+        warning = "**This is a conditional scenario result, not a commercial forecast, quotation, official UK target or proof of economic viability.**"
+        executive = f"The reference scenario gives a conditional delivered-grid DCF LCOE of **£{result.lcoe_gbp_per_mwh:.2f}/MWh** in 2024 real GBP. Working backwards from 2 GW AC at the grid boundary, the five-stage chain computes an end-to-end efficiency of **{result.end_to_end_efficiency:.2%}**, orbital hardware mass of **{result.orbital_mass_kg / 1e6:.2f} million kg**, and **{result.required_launches:,}** equivalent launches."
+        sections = {"scope": "Scope and answer", "migration": "Migration from v1.x to v2.0", "chain": "Stage-resolved energy chain", "finance": "Discounted-cash-flow boundary", "costs": "Reference cost structure", "analysis": "Conditional sensitivities and thresholds", "evidence": "Parameter evidence and limitations", "method": "Formulae, boundaries and validation", "limits": "Remaining limitations"}
+        stage_labels = {"incident_solar_power_w": "Incident solar", "space_dc_bus_power_w": "Space DC bus", "emitted_rf_power_w": "Emitted RF", "incident_rf_power_w": "RF incident on rectenna", "rectenna_dc_power_w": "Rectenna DC output", "delivered_grid_ac_power_w": "Grid-delivered AC"}
+        capex_headers = ["CAPEX component", "2024 real GBP"]
+        lifecycle_headers = ["Lifecycle component", "Discounted PV", "LCOE contribution"]
+        driver_headers = ["Parameter", "LCOE at favourable bound", "Reduction"]
+        parameter_headers = ["Parameter", "Reference", "Range", "Source", "Denominator / boundary", "Limitation"]
+        migration_text = f"v1.x multiplied a 1.5 kg/kW value that should have been delivered-power-normalised by 'delivered power / efficiency', dividing by efficiency a second time. For 2 GW at 20% efficiency, the old expression gives **15,000,000 kg (15,000 tonnes)**; the corrected expression gives **3,000,000 kg (3,000 tonnes)**. With all other v2 comparison inputs identical, the erroneous mass boundary gives **£{old_example.lcoe_gbp_per_mwh:.2f}/MWh**, versus **£{new_example.lcoe_gbp_per_mwh:.2f}/MWh** on the corrected boundary. Historical v1.x thresholds are therefore not directly comparable with v2.0."
+        source_note = f"The DESNZ/Frazer-Nash report defines architecture specific power as ground-delivered power per orbital mass. The reciprocal of 0.67 kW-delivered/kg is **{1/0.67:.4f} kg/kW-delivered** ({mass_source['locator']}). Values remain architecture-specific and may include manufacturer claims that were not independently verified."
 
-Version: v{REPORT_VERSION}
+    stage_rows = [[stage_labels[name], f"{value / 1e9:,.2f} GW"] for name, value in result.energy_chain_power_w.items()]
+    capex_labels_zh = {"space_generation_hardware": "空间发电硬件", "wireless_power_transmitter": "射频发射硬件", "launch_to_staging_orbit": "发射至集结轨道", "orbit_transfer_to_operational_orbit": "转移至运行轨道", "in_orbit_assembly_and_deployment": "在轨组装与部署", "rectenna": "整流天线", "grid_connection": "并网连接"}
+    lifecycle_labels_zh = {"initial_construction": "初始建设", "fixed_opex": "固定运维", "variable_opex": "可变运维", "space_hardware_replacement": "空间硬件更换", "ground_hardware_replacement": "地面硬件更换", "decommissioning": "退役", "residual_value": "残值"}
+    capex_rows = [[capex_labels_zh[name] if language == "zh" else name.replace("_", " ").title(), _money(value)] for name, value in sorted(result.capex_components_gbp.items(), key=lambda item: item[1], reverse=True)]
+    capex_rows += [["Programme contingency" if language == "en" else "项目预备费", _money(result.programme_contingency_gbp)], ["Initial CAPEX" if language == "en" else "初始资本开支", _money(result.initial_capex_gbp)]]
+    lifecycle_rows = [[lifecycle_labels_zh[name] if language == "zh" else name.replace("_", " ").title(), _money(value), f"£{value / result.discounted_lifetime_energy_mwh:,.2f}/MWh"] for name, value in sorted(result.lifecycle_cost_components_pv_gbp.items(), key=lambda item: abs(item[1]), reverse=True)]
+    driver_rows = [[params[str(row["parameter"])].display_name_zh if language == "zh" else row["display_name"], f"£{float(row['best_lcoe_gbp_per_mwh']):.1f}/MWh", f"£{float(row['lcoe_reduction_gbp_per_mwh']):.1f}/MWh"] for row in top]
+    parameter_rows = [[parameter.display_name_zh if language == "zh" else parameter.display_name, f"{parameter.reference_value:g} {parameter.unit}", f"{parameter.min_value:g}–{parameter.max_value:g}", f"{parameter.source_type} / {parameter.source_id}", parameter.denominator_definition_zh if language == "zh" else parameter.denominator_definition, parameter.notes_zh if language == "zh" else parameter.notes] for parameter in params.values()]
 
-Evidence review date: {EVIDENCE_REVIEW_DATE}
+    if language == "zh":
+        financial_text = f"主指标采用 LCOE = Σ(Cₜ/(1+r)ᵗ) / Σ(Eₜ/(1+r)ᵗ)。估值基准是建设开始t=0；默认4年建设支出为等额份额，调试完成后的首个运行年现金流位于t=5。运行寿命为{reference['operating_lifetime_years']:.0f}年，首年交付电量为{result.first_year_delivered_mwh/1e6:.2f} TWh，年均交付电量为{result.average_annual_delivered_mwh/1e6:.2f} TWh。贴现生命周期成本为{_money(result.discounted_lifetime_cost_gbp)}，贴现电量为{result.discounted_lifetime_energy_mwh/1e6:.2f}百万MWh。简单CRF对账指标为£{result.crf_reconciliation_lcoe_gbp_per_mwh:.2f}/MWh，仅作次要核对。"
+        boundary_text = f"发射计价模式：按kg且只计至集结轨道。集结轨道：{result.staging_orbit}。运行轨道：{result.operational_orbit}。转移代理必须覆盖转移器、推进剂、补给任务、运行和载荷性能惩罚。"
+        method_text = "质量公式：轨道质量 = 交付容量(kW) × kg/kW-交付。硬件成本分别按空间直流母线W、射频发射W、交付W或交付kW计价，边界互斥。空间更换成本包含硬件及相关发射、转移和组装；地面更换仅含整流天线和并网。固定运维基数不含预备费、初始发射、转移和组装。"
+        computed_label = "计算所得端到端效率"
+        frontier_note = "等比例前沿只是一种数学插值工具，不是成熟度评分、概率、预测、进度表或工程路线图。"
+        combined_headers = ["目标", "等比例移动", "计算所得链路效率"]
+        evidence_intro = "以下每个面向用户的数值输入都包含来源类型、来源编号、相关价格年份、分母定义和限制说明。"
+        profile_note = f"默认建设支出曲线为 `{list(result.construction_spend_profile)}`，合计100%。项目预备费只应用于初始资本开支一次。期末退役是成本，残值是在运行寿命结束时的抵扣。"
+        test_note = "测试覆盖比质量倒数换算、2 GW / 0.67 kW/kg回归、不重复除以效率、全部六级功率、额定成本分配、发射模式互斥、发射次数取整、更换基数、建设支出份额、DCF/CRF收敛、零贴现率、无效输入、Python/浏览器一致性、中英数值一致性、历史质量标识移除及完整重建。"
+        generated_note = f"由可执行模型生成。价格年份：2024年实际英镑。估值基准：{result.valuation_base}。"
+        chart_lifecycle, chart_floors, chart_mass, chart_combined = "参考情景生命周期LCOE构成", "单变量成本下限", "比质量敏感性", "等比例数学插值"
+        limit_items = ["没有天线面积、频率、波束几何、旁瓣、功率密度、土地、天气或安全约束的物理设计。", "没有飞行器清单、结构载荷、热控、辐射、故障、备件、离散更换任务或详细发射排程。", "没有税务、通胀、融资分层、学习曲线或架构参数相关性。", "没有英国电力系统调度、网络增强、平衡、容量价值或市场收入模型。", "探索范围不是概率分布；不输出P10/P50/P90。"]
+    else:
+        financial_text = f"The headline uses LCOE = Σ(Cₜ/(1+r)ᵗ) / Σ(Eₜ/(1+r)ᵗ). The valuation base is start of construction at t=0; four equal construction shares are spent before commissioning, and the first operating-year cash flow is at t=5. The operating life is {reference['operating_lifetime_years']:.0f} years. First-year energy is {result.first_year_delivered_mwh/1e6:.2f} TWh and lifetime-average annual energy is {result.average_annual_delivered_mwh/1e6:.2f} TWh. Discounted lifecycle cost is {_money(result.discounted_lifetime_cost_gbp)} and discounted energy is {result.discounted_lifetime_energy_mwh/1e6:.2f} million MWh. The simple CRF reconciliation is £{result.crf_reconciliation_lcoe_gbp_per_mwh:.2f}/MWh and is secondary only."
+        boundary_text = f"Launch pricing mode: per kg, to staging orbit only. Staging orbit: {result.staging_orbit}. Operational orbit: {result.operational_orbit}. The transfer proxy must cover transfer vehicle, propellant, refuelling missions, operations and payload-performance penalty."
+        method_text = "Mass is orbital mass = delivered capacity (kW) × kg/kW-delivered. Hardware costs are rated independently at space-DC-bus W, emitted-RF W, delivered W or delivered kW, with mutually exclusive boundaries. Space replacement includes hardware plus associated launch, transfer and assembly; ground replacement includes only rectenna and grid. Fixed O&M excludes contingency, initial launch, transfer and assembly."
+        computed_label = "Computed end-to-end efficiency"
+        frontier_note = "The equal-fraction frontier is a mathematical interpolation device, not a readiness score, probability, forecast, schedule or engineering roadmap."
+        combined_headers = ["Target", "Equal-fraction movement", "Computed chain efficiency"]
+        evidence_intro = "Every user-facing numerical input below carries source type, source ID, price year where relevant, denominator and limitation metadata."
+        profile_note = f"The default construction profile is `{list(result.construction_spend_profile)}` and sums to 100%. Programme contingency is applied once to initial CAPEX. Terminal decommissioning is a cost and residual value is a credit at the end of operating life."
+        test_note = "The test suite checks reciprocal mass conversion, the 2 GW / 0.67 kW/kg regression, no second efficiency division, all six stage powers, rated-cost assignment, launch-mode exclusivity, launch rounding, replacement bases, construction shares, DCF/CRF convergence, zero-rate handling, invalid inputs, Python/browser parity, bilingual parity, removal of the historical mass identifier and full regeneration."
+        generated_note = f"Generated from the executable model. Price year: 2024 real GBP. Valuation base: {result.valuation_base}."
+        chart_lifecycle, chart_floors, chart_mass, chart_combined = "Reference lifecycle LCOE components", "One-way floors", "Mass sensitivity", "Combined interpolation"
+        limit_items = ["No physical design of antenna area, frequency, beam geometry, sidelobes, power density, land, weather or safety constraints.", "No vehicle manifest, structural load, thermal, radiation, failure, spares, discrete replacement mission or detailed launch schedule.", "No tax, inflation, financing tranches, learning curves or architecture-parameter correlations.", "No GB dispatch, network reinforcement, balancing, capacity value or market-revenue model.", "Exploration bounds are not probability distributions; no P10/P50/P90 labels are produced."]
 
-Overall automated status: **{overall}**
+    target_summary = ", ".join(f"£{float(row['target_lcoe_gbp_per_mwh']):.0f}: {(params[str(row['parameter'])].display_name_zh if language == 'zh' else row['display_name'])}={float(row['threshold_value']):.4g}" for row in feasible[:8]) or ("探索边界内没有单变量达到目标。" if language == "zh" else "No one-way target reached within explored bounds.")
+    combined_rows = [[f"£{float(row['target_lcoe_gbp_per_mwh']):.0f}/MWh", f"{float(row['progress_fraction']):.1%}", f"{float(row['computed_end_to_end_efficiency']):.2%}"] for row in combined]
+    text = f"""# {title} — {VERSION}
 
-Table 1. Verification categories
+{warning}
 
-{markdown_table(["Category", "Status", "Evidence"], rows)}
+## {sections['scope']}
 
-## Known warnings and residual uncertainty
+{executive}
 
-{warning_lines}
+{boundary_text}
 
-## Reproduction commands
+## {sections['migration']}
 
-{command_lines}
+{migration_text}
 
-## Interpretation
+{source_note}
 
-`PASS` means the recorded automated checks completed for the current generated files. It does not prove engineering feasibility or eliminate judgement in exploratory ranges. PDF structural checks confirm that documents can be opened and contain the expected pages and text; visual release QA remains a separate human inspection step.
+## {sections['chain']}
+
+{_table(['Stage' if language == 'en' else '阶段', 'Rated power' if language == 'en' else '额定功率'], stage_rows)}
+
+{computed_label}: **{result.end_to_end_efficiency:.4%}**.
+
+## {sections['finance']}
+
+{financial_text}
+
+## {sections['costs']}
+
+{_table(capex_headers, capex_rows)}
+
+{_table(lifecycle_headers, lifecycle_rows)}
+
+![{chart_lifecycle}](../{'figures_zh' if language == 'zh' else 'figures'}/reference_lcoe_components.png)
+
+## {sections['analysis']}
+
+{_table(driver_headers, driver_rows)}
+
+{target_summary}
+
+{frontier_note}
+
+{_table(combined_headers, combined_rows)}
+
+![{chart_floors}](../{'figures_zh' if language == 'zh' else 'figures'}/one_way_lcoe_floors.png)
+
+![{chart_mass}](../{'figures_zh' if language == 'zh' else 'figures'}/specific_mass_threshold_focus.png)
+
+![{chart_combined}](../{'figures_zh' if language == 'zh' else 'figures'}/combined_progress_frontier.png)
+
+## {sections['evidence']}
+
+{evidence_intro}
+
+{_table(parameter_headers, parameter_rows)}
+
+## {sections['method']}
+
+{method_text}
+
+{profile_note}
+
+{test_note}
+
+## {sections['limits']}
+
 """
-    Path(output_path).write_text(note, encoding="utf-8")
+    text += "\n".join(f"- {item}" for item in limit_items)
+    text += f"\n\n{generated_note}\n"
+    return text
+
+
+def build_markdown_report(output_path: str | Path, reference, params, generation_rows, system_rows, thresholds, importance, frontier, combined_frontier, alternative_frontiers, source_rows, evidence_rows, assumption_rows, external_study_rows) -> None:
+    Path(output_path).write_text(_report("en", reference, params, generation_rows, system_rows, thresholds, importance, frontier, combined_frontier, alternative_frontiers, source_rows, evidence_rows, assumption_rows, external_study_rows), encoding="utf-8")
+
+
+def build_verification_note(output_path: str | Path, category_results: list[dict[str, str]], warnings: list[str], commands: list[str]) -> None:
+    body = ["# v2.0 Verification Note", "", _table(["Category", "Status", "Evidence"], [[row["category"], row["status"], row["evidence"]] for row in category_results]), "", "## Warnings", ""]
+    body.extend(f"- {warning}" for warning in warnings)
+    body += ["", "## Commands", "", "```bash", *commands, "```", ""]
+    Path(output_path).write_text("\n".join(body), encoding="utf-8")

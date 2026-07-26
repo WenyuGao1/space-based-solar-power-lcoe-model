@@ -1,21 +1,21 @@
-end_to_end_efficiency,target_lcoe_gbp_per_mwh,max_launch_cost_gbp_per_kg,lcoe_at_threshold_gbp_per_mwh,solution_method,status
-0.2,150,,,monotonic bisection,not feasible within explored launch range
-0.2,120,,,monotonic bisection,not feasible within explored launch range
-0.2,100,,,monotonic bisection,not feasible within explored launch range
-0.2,80,,,monotonic bisection,not feasible within explored launch range
-0.2,60,,,monotonic bisection,not feasible within explored launch range
-0.25,150,109.11194809994959,150.0,monotonic bisection,feasible
-0.25,120,,,monotonic bisection,not feasible within explored launch range
-0.25,100,,,monotonic bisection,not feasible within explored launch range
-0.25,80,,,monotonic bisection,not feasible within explored launch range
-0.25,60,,,monotonic bisection,not feasible within explored launch range
-0.3,150,210.93433771993946,150.0,monotonic bisection,feasible
-0.3,120,83.1926361444416,119.99999999999999,monotonic bisection,feasible
-0.3,100,,,monotonic bisection,not feasible within explored launch range
-0.3,80,,,monotonic bisection,not feasible within explored launch range
-0.3,60,,,monotonic bisection,not feasible within explored launch range
-0.35,150,312.75672733992934,150.0,monotonic bisection,feasible
-0.35,120,163.72474216851518,119.99999999999999,monotonic bisection,feasible
-0.35,100,64.37008538757236,100.0,monotonic bisection,feasible
-0.35,80,,,monotonic bisection,not feasible within explored launch range
-0.35,60,,,monotonic bisection,not feasible within explored launch range
+end_to_end_efficiency,solar_conversion_efficiency,target_lcoe_gbp_per_mwh,max_launch_cost_gbp_per_kg_to_staging_orbit,lcoe_at_threshold_gbp_per_mwh,solution_method,status
+0.12,0.28033191298497423,150,1341.258567736377,150.0,derived solar stage plus monotonic bisection,feasible
+0.12,0.28033191298497423,120,946.7353210812538,120.0,derived solar stage plus monotonic bisection,feasible
+0.12,0.28033191298497423,100,683.7198233111715,100.0,derived solar stage plus monotonic bisection,feasible
+0.12,0.28033191298497423,80,420.7043255410894,80.0,derived solar stage plus monotonic bisection,feasible
+0.12,0.28033191298497423,60,157.6888277710076,60.0,derived solar stage plus monotonic bisection,feasible
+0.15,0.3504148912312178,150,1341.258567736377,150.0,derived solar stage plus monotonic bisection,feasible
+0.15,0.3504148912312178,120,946.7353210812538,120.0,derived solar stage plus monotonic bisection,feasible
+0.15,0.3504148912312178,100,683.7198233111715,100.0,derived solar stage plus monotonic bisection,feasible
+0.15,0.3504148912312178,80,420.7043255410894,80.0,derived solar stage plus monotonic bisection,feasible
+0.15,0.3504148912312178,60,157.6888277710076,60.0,derived solar stage plus monotonic bisection,feasible
+0.18,0.4204978694774614,150,1341.258567736377,150.0,derived solar stage plus monotonic bisection,feasible
+0.18,0.4204978694774614,120,946.7353210812538,120.0,derived solar stage plus monotonic bisection,feasible
+0.18,0.4204978694774614,100,683.7198233111715,100.0,derived solar stage plus monotonic bisection,feasible
+0.18,0.4204978694774614,80,420.7043255410894,80.0,derived solar stage plus monotonic bisection,feasible
+0.18,0.4204978694774614,60,157.6888277710076,60.0,derived solar stage plus monotonic bisection,feasible
+0.19,0.44385886222620924,150,1341.258567736377,150.0,derived solar stage plus monotonic bisection,feasible
+0.19,0.44385886222620924,120,946.7353210812538,120.0,derived solar stage plus monotonic bisection,feasible
+0.19,0.44385886222620924,100,683.7198233111715,100.0,derived solar stage plus monotonic bisection,feasible
+0.19,0.44385886222620924,80,420.7043255410894,80.0,derived solar stage plus monotonic bisection,feasible
+0.19,0.44385886222620924,60,157.6888277710076,60.0,derived solar stage plus monotonic bisection,feasible

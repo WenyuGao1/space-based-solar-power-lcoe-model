@@ -12,6 +12,7 @@ from .utils import parse_float, read_csv_dicts
 class Parameter:
     name: str
     display_name: str
+    display_name_zh: str
     unit: str
     reference_value: float
     min_value: float
@@ -19,7 +20,11 @@ class Parameter:
     improvement_direction: str
     source_type: str
     source_id: str
+    price_year: str
+    denominator_definition: str
+    denominator_definition_zh: str
     notes: str
+    notes_zh: str
 
 
 def load_parameters(path: str | Path) -> dict[str, Parameter]:
@@ -29,6 +34,7 @@ def load_parameters(path: str | Path) -> dict[str, Parameter]:
         params[name] = Parameter(
             name=name,
             display_name=row["display_name"].strip(),
+            display_name_zh=row["display_name_zh"].strip(),
             unit=row["unit"].strip(),
             reference_value=float(row["reference_value"]),
             min_value=float(row["min_value"]),
@@ -36,7 +42,11 @@ def load_parameters(path: str | Path) -> dict[str, Parameter]:
             improvement_direction=row["improvement_direction"].strip().lower(),
             source_type=row["source_type"].strip(),
             source_id=row["source_id"].strip(),
+            price_year=row["price_year"].strip(),
+            denominator_definition=row["denominator_definition"].strip(),
+            denominator_definition_zh=row["denominator_definition_zh"].strip(),
             notes=row["notes"].strip(),
+            notes_zh=row["notes_zh"].strip(),
         )
     return params
 

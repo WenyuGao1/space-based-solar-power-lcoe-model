@@ -1,81 +1,126 @@
 parameter,display_name,unit,target_lcoe_gbp_per_mwh,threshold_value,reference_value,reference_lcoe_gbp_per_mwh,best_lcoe_in_range_gbp_per_mwh,lcoe_at_threshold_gbp_per_mwh,solution_method,status
-launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,150,,500.0,429.25078050818814,203.7958222228655,,monotonic bisection,not reached within explored one-way range
-launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,120,,500.0,429.25078050818814,203.7958222228655,,monotonic bisection,not reached within explored one-way range
-launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,100,,500.0,429.25078050818814,203.7958222228655,,monotonic bisection,not reached within explored one-way range
-launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,80,,500.0,429.25078050818814,203.7958222228655,,monotonic bisection,not reached within explored one-way range
-launch_cost_gbp_per_kg,Launch cost,GBP/kg to staging orbit,60,,500.0,429.25078050818814,203.7958222228655,,monotonic bisection,not reached within explored one-way range
-specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,150,1.2841698053748107,5.0,429.25078050818814,91.06834308020416,150.0,monotonic bisection,maximum value meeting target
-specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,120,0.8849769879513799,5.0,429.25078050818814,91.06834308020416,119.99999999999999,monotonic bisection,maximum value meeting target
-specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,100,0.6188484430024259,5.0,429.25078050818814,91.06834308020416,100.0,monotonic bisection,maximum value meeting target
-specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,80,,5.0,429.25078050818814,91.06834308020416,,monotonic bisection,not reached within explored one-way range
-specific_mass_kg_per_kw_space_power,Specific mass,kg/kW-space,60,,5.0,429.25078050818814,91.06834308020416,,monotonic bisection,not reached within explored one-way range
-space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,150,,0.4,429.25078050818814,396.37193242491185,,monotonic bisection,not reached within explored one-way range
-space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,120,,0.4,429.25078050818814,396.37193242491185,,monotonic bisection,not reached within explored one-way range
-space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,100,,0.4,429.25078050818814,396.37193242491185,,monotonic bisection,not reached within explored one-way range
-space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,80,,0.4,429.25078050818814,396.37193242491185,,monotonic bisection,not reached within explored one-way range
-space_hardware_cost_gbp_per_w_space,Space hardware cost,GBP/W-space,60,,0.4,429.25078050818814,396.37193242491185,,monotonic bisection,not reached within explored one-way range
-wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,150,,0.1,429.25078050818814,421.73561523201073,,monotonic bisection,not reached within explored one-way range
-wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,120,,0.1,429.25078050818814,421.73561523201073,,monotonic bisection,not reached within explored one-way range
-wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,100,,0.1,429.25078050818814,421.73561523201073,,monotonic bisection,not reached within explored one-way range
-wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,80,,0.1,429.25078050818814,421.73561523201073,,monotonic bisection,not reached within explored one-way range
-wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,GBP/W-space,60,,0.1,429.25078050818814,421.73561523201073,,monotonic bisection,not reached within explored one-way range
-end_to_end_efficiency,End-to-end efficiency,fraction,150,,0.15,429.25078050818814,187.69189663105675,,monotonic bisection,not reached within explored one-way range
-end_to_end_efficiency,End-to-end efficiency,fraction,120,,0.15,429.25078050818814,187.69189663105675,,monotonic bisection,not reached within explored one-way range
-end_to_end_efficiency,End-to-end efficiency,fraction,100,,0.15,429.25078050818814,187.69189663105675,,monotonic bisection,not reached within explored one-way range
-end_to_end_efficiency,End-to-end efficiency,fraction,80,,0.15,429.25078050818814,187.69189663105675,,monotonic bisection,not reached within explored one-way range
-end_to_end_efficiency,End-to-end efficiency,fraction,60,,0.15,429.25078050818814,187.69189663105675,,monotonic bisection,not reached within explored one-way range
-wacc,Real project discount-rate proxy,fraction,150,,0.065,429.25078050818814,311.57421528731203,,monotonic bisection,not reached within explored one-way range
-wacc,Real project discount-rate proxy,fraction,120,,0.065,429.25078050818814,311.57421528731203,,monotonic bisection,not reached within explored one-way range
-wacc,Real project discount-rate proxy,fraction,100,,0.065,429.25078050818814,311.57421528731203,,monotonic bisection,not reached within explored one-way range
-wacc,Real project discount-rate proxy,fraction,80,,0.065,429.25078050818814,311.57421528731203,,monotonic bisection,not reached within explored one-way range
-wacc,Real project discount-rate proxy,fraction,60,,0.065,429.25078050818814,311.57421528731203,,monotonic bisection,not reached within explored one-way range
-rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,150,,0.15,429.25078050818814,427.4189589721199,,monotonic bisection,not reached within explored one-way range
-rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,120,,0.15,429.25078050818814,427.4189589721199,,monotonic bisection,not reached within explored one-way range
-rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,100,,0.15,429.25078050818814,427.4189589721199,,monotonic bisection,not reached within explored one-way range
-rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,80,,0.15,429.25078050818814,427.4189589721199,,monotonic bisection,not reached within explored one-way range
-rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,GBP/W-delivered,60,,0.15,429.25078050818814,427.4189589721199,,monotonic bisection,not reached within explored one-way range
-grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,150,,100.0,429.25078050818814,428.12350571676154,,monotonic bisection,not reached within explored one-way range
-grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,120,,100.0,429.25078050818814,428.12350571676154,,monotonic bisection,not reached within explored one-way range
-grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,100,,100.0,429.25078050818814,428.12350571676154,,monotonic bisection,not reached within explored one-way range
-grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,80,,100.0,429.25078050818814,428.12350571676154,,monotonic bisection,not reached within explored one-way range
-grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered,60,,100.0,429.25078050818814,428.12350571676154,,monotonic bisection,not reached within explored one-way range
-system_lifetime_years,System lifetime,years,150,,30.0,429.25078050818814,394.63705374013085,,monotonic bisection,not reached within explored one-way range
-system_lifetime_years,System lifetime,years,120,,30.0,429.25078050818814,394.63705374013085,,monotonic bisection,not reached within explored one-way range
-system_lifetime_years,System lifetime,years,100,,30.0,429.25078050818814,394.63705374013085,,monotonic bisection,not reached within explored one-way range
-system_lifetime_years,System lifetime,years,80,,30.0,429.25078050818814,394.63705374013085,,monotonic bisection,not reached within explored one-way range
-system_lifetime_years,System lifetime,years,60,,30.0,429.25078050818814,394.63705374013085,,monotonic bisection,not reached within explored one-way range
-capacity_factor,Delivered capacity factor (model proxy),fraction,150,,0.9,429.25078050818814,394.4547984258871,,monotonic bisection,not reached within explored one-way range
-capacity_factor,Delivered capacity factor (model proxy),fraction,120,,0.9,429.25078050818814,394.4547984258871,,monotonic bisection,not reached within explored one-way range
-capacity_factor,Delivered capacity factor (model proxy),fraction,100,,0.9,429.25078050818814,394.4547984258871,,monotonic bisection,not reached within explored one-way range
-capacity_factor,Delivered capacity factor (model proxy),fraction,80,,0.9,429.25078050818814,394.4547984258871,,monotonic bisection,not reached within explored one-way range
-capacity_factor,Delivered capacity factor (model proxy),fraction,60,,0.9,429.25078050818814,394.4547984258871,,monotonic bisection,not reached within explored one-way range
-in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,150,,200.0,429.25078050818814,335.31121455597037,,monotonic bisection,not reached within explored one-way range
-in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,120,,200.0,429.25078050818814,335.31121455597037,,monotonic bisection,not reached within explored one-way range
-in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,100,,200.0,429.25078050818814,335.31121455597037,,monotonic bisection,not reached within explored one-way range
-in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,80,,200.0,429.25078050818814,335.31121455597037,,monotonic bisection,not reached within explored one-way range
-in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,GBP/kg,60,,200.0,429.25078050818814,335.31121455597037,,monotonic bisection,not reached within explored one-way range
-orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,150,,100.0,429.25078050818814,382.2809975320792,,monotonic bisection,not reached within explored one-way range
-orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,120,,100.0,429.25078050818814,382.2809975320792,,monotonic bisection,not reached within explored one-way range
-orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,100,,100.0,429.25078050818814,382.2809975320792,,monotonic bisection,not reached within explored one-way range
-orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,80,,100.0,429.25078050818814,382.2809975320792,,monotonic bisection,not reached within explored one-way range
-orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,GBP/kg,60,,100.0,429.25078050818814,382.2809975320792,,monotonic bisection,not reached within explored one-way range
-programme_margin_pct,Programme margin / contingency,fraction,150,,0.2,429.25078050818814,358.20898375682344,,monotonic bisection,not reached within explored one-way range
-programme_margin_pct,Programme margin / contingency,fraction,120,,0.2,429.25078050818814,358.20898375682344,,monotonic bisection,not reached within explored one-way range
-programme_margin_pct,Programme margin / contingency,fraction,100,,0.2,429.25078050818814,358.20898375682344,,monotonic bisection,not reached within explored one-way range
-programme_margin_pct,Programme margin / contingency,fraction,80,,0.2,429.25078050818814,358.20898375682344,,monotonic bisection,not reached within explored one-way range
-programme_margin_pct,Programme margin / contingency,fraction,60,,0.2,429.25078050818814,358.20898375682344,,monotonic bisection,not reached within explored one-way range
-replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,150,,0.006,429.25078050818814,401.62520973193244,,monotonic bisection,not reached within explored one-way range
-replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,120,,0.006,429.25078050818814,401.62520973193244,,monotonic bisection,not reached within explored one-way range
-replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,100,,0.006,429.25078050818814,401.62520973193244,,monotonic bisection,not reached within explored one-way range
-replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,80,,0.006,429.25078050818814,401.62520973193244,,monotonic bisection,not reached within explored one-way range
-replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,fraction/year,60,,0.006,429.25078050818814,401.62520973193244,,monotonic bisection,not reached within explored one-way range
-fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,150,,0.01,429.25078050818814,392.41668613984723,,monotonic bisection,not reached within explored one-way range
-fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,120,,0.01,429.25078050818814,392.41668613984723,,monotonic bisection,not reached within explored one-way range
-fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,100,,0.01,429.25078050818814,392.41668613984723,,monotonic bisection,not reached within explored one-way range
-fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,80,,0.01,429.25078050818814,392.41668613984723,,monotonic bisection,not reached within explored one-way range
-fixed_opex_pct_capex_per_year,Fixed OPEX,fraction/year,60,,0.01,429.25078050818814,392.41668613984723,,monotonic bisection,not reached within explored one-way range
-variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,150,,3.0,429.25078050818814,426.25078050818814,,monotonic bisection,not reached within explored one-way range
-variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,120,,3.0,429.25078050818814,426.25078050818814,,monotonic bisection,not reached within explored one-way range
-variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,100,,3.0,429.25078050818814,426.25078050818814,,monotonic bisection,not reached within explored one-way range
-variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,80,,3.0,429.25078050818814,426.25078050818814,,monotonic bisection,not reached within explored one-way range
-variable_opex_gbp_per_mwh,Variable OPEX,GBP/MWh,60,,3.0,429.25078050818814,426.25078050818814,,monotonic bisection,not reached within explored one-way range
+solar_conversion_efficiency,Solar-to-DC conversion efficiency,fraction,150,0.2,0.35,86.02973399903817,86.02973399903817,86.02973399903817,monotonic bisection,limiting value meeting target
+solar_conversion_efficiency,Solar-to-DC conversion efficiency,fraction,120,0.2,0.35,86.02973399903817,86.02973399903817,86.02973399903817,monotonic bisection,limiting value meeting target
+solar_conversion_efficiency,Solar-to-DC conversion efficiency,fraction,100,0.2,0.35,86.02973399903817,86.02973399903817,86.02973399903817,monotonic bisection,limiting value meeting target
+solar_conversion_efficiency,Solar-to-DC conversion efficiency,fraction,80,,0.35,86.02973399903817,86.02973399903817,,monotonic bisection,not reached within explored one-way range
+solar_conversion_efficiency,Solar-to-DC conversion efficiency,fraction,60,,0.35,86.02973399903817,86.02973399903817,,monotonic bisection,not reached within explored one-way range
+dc_to_rf_efficiency,DC-to-RF efficiency,fraction,150,0.4,0.7,86.02973399903817,83.30209696134955,97.62219140921476,monotonic bisection,limiting value meeting target
+dc_to_rf_efficiency,DC-to-RF efficiency,fraction,120,0.4,0.7,86.02973399903817,83.30209696134955,97.62219140921476,monotonic bisection,limiting value meeting target
+dc_to_rf_efficiency,DC-to-RF efficiency,fraction,100,0.4,0.7,86.02973399903817,83.30209696134955,97.62219140921476,monotonic bisection,limiting value meeting target
+dc_to_rf_efficiency,DC-to-RF efficiency,fraction,80,,0.7,86.02973399903817,83.30209696134955,,monotonic bisection,not reached within explored one-way range
+dc_to_rf_efficiency,DC-to-RF efficiency,fraction,60,,0.7,86.02973399903817,83.30209696134955,,monotonic bisection,not reached within explored one-way range
+transmission_efficiency,RF transmission efficiency,fraction,150,0.85,0.98,86.02973399903817,85.75594229136063,88.80737771575107,monotonic bisection,limiting value meeting target
+transmission_efficiency,RF transmission efficiency,fraction,120,0.85,0.98,86.02973399903817,85.75594229136063,88.80737771575107,monotonic bisection,limiting value meeting target
+transmission_efficiency,RF transmission efficiency,fraction,100,0.85,0.98,86.02973399903817,85.75594229136063,88.80737771575107,monotonic bisection,limiting value meeting target
+transmission_efficiency,RF transmission efficiency,fraction,80,,0.98,86.02973399903817,85.75594229136063,,monotonic bisection,not reached within explored one-way range
+transmission_efficiency,RF transmission efficiency,fraction,60,,0.98,86.02973399903817,85.75594229136063,,monotonic bisection,not reached within explored one-way range
+rectenna_conversion_efficiency,Rectenna RF-to-DC efficiency,fraction,150,0.4,0.65,86.02973399903817,81.756435973326,97.38068187983609,monotonic bisection,limiting value meeting target
+rectenna_conversion_efficiency,Rectenna RF-to-DC efficiency,fraction,120,0.4,0.65,86.02973399903817,81.756435973326,97.38068187983609,monotonic bisection,limiting value meeting target
+rectenna_conversion_efficiency,Rectenna RF-to-DC efficiency,fraction,100,0.4,0.65,86.02973399903817,81.756435973326,97.38068187983609,monotonic bisection,limiting value meeting target
+rectenna_conversion_efficiency,Rectenna RF-to-DC efficiency,fraction,80,,0.65,86.02973399903817,81.756435973326,,monotonic bisection,not reached within explored one-way range
+rectenna_conversion_efficiency,Rectenna RF-to-DC efficiency,fraction,60,,0.65,86.02973399903817,81.756435973326,,monotonic bisection,not reached within explored one-way range
+grid_conversion_efficiency,DC-to-grid AC efficiency,fraction,150,0.9,0.96,86.02973399903817,85.47938501087827,87.24050177298996,monotonic bisection,limiting value meeting target
+grid_conversion_efficiency,DC-to-grid AC efficiency,fraction,120,0.9,0.96,86.02973399903817,85.47938501087827,87.24050177298996,monotonic bisection,limiting value meeting target
+grid_conversion_efficiency,DC-to-grid AC efficiency,fraction,100,0.9,0.96,86.02973399903817,85.47938501087827,87.24050177298996,monotonic bisection,limiting value meeting target
+grid_conversion_efficiency,DC-to-grid AC efficiency,fraction,80,,0.96,86.02973399903817,85.47938501087827,,monotonic bisection,not reached within explored one-way range
+grid_conversion_efficiency,DC-to-grid AC efficiency,fraction,60,,0.96,86.02973399903817,85.47938501087827,,monotonic bisection,not reached within explored one-way range
+capacity_factor,Delivered capacity factor,fraction,150,0.6,0.9,86.02973399903817,79.25179652972894,127.54460099855727,monotonic bisection,limiting value meeting target
+capacity_factor,Delivered capacity factor,fraction,120,0.638690261531063,0.9,86.02973399903817,79.25179652972894,120.0,monotonic bisection,limiting value meeting target
+capacity_factor,Delivered capacity factor,fraction,100,0.7703789752488077,0.9,86.02973399903817,79.25179652972894,100.0,monotonic bisection,limiting value meeting target
+capacity_factor,Delivered capacity factor,fraction,80,0.9704774103783683,0.9,86.02973399903817,79.25179652972894,80.0,monotonic bisection,limiting value meeting target
+capacity_factor,Delivered capacity factor,fraction,60,,0.9,86.02973399903817,79.25179652972894,,monotonic bisection,not reached within explored one-way range
+operating_lifetime_years,Operating lifetime after commissioning,years,150,15.0,30.0,86.02973399903817,79.26781164986693,114.12361162363723,monotonic bisection,limiting value meeting target
+operating_lifetime_years,Operating lifetime after commissioning,years,120,15.0,30.0,86.02973399903817,79.26781164986693,114.12361162363723,monotonic bisection,limiting value meeting target
+operating_lifetime_years,Operating lifetime after commissioning,years,100,20.0,30.0,86.02973399903817,79.26781164986693,99.28838760455318,monotonic bisection,limiting value meeting target
+operating_lifetime_years,Operating lifetime after commissioning,years,80,43.0,30.0,86.02973399903817,79.26781164986693,79.77702280318547,monotonic bisection,limiting value meeting target
+operating_lifetime_years,Operating lifetime after commissioning,years,60,,30.0,86.02973399903817,79.26781164986693,,monotonic bisection,not reached within explored one-way range
+real_discount_rate,Real project discount rate,fraction,150,0.12063278702204727,0.065,86.02973399903817,56.94955400241832,149.99999999999983,monotonic bisection,limiting value meeting target
+real_discount_rate,Real project discount rate,fraction,120,0.09683668104709563,0.065,86.02973399903817,56.94955400241832,119.99999999999984,monotonic bisection,limiting value meeting target
+real_discount_rate,Real project discount rate,fraction,100,0.07891288701102195,0.065,86.02973399903817,56.94955400241832,99.99999999999989,monotonic bisection,limiting value meeting target
+real_discount_rate,Real project discount rate,fraction,80,0.05853089425938084,0.065,86.02973399903817,56.94955400241832,79.9999999999999,monotonic bisection,limiting value meeting target
+real_discount_rate,Real project discount rate,fraction,60,0.03422577712029906,0.065,86.02973399903817,56.94955400241832,59.99999999999992,monotonic bisection,limiting value meeting target
+construction_duration_years,Construction duration,years,150,8.0,4.0,86.02973399903817,74.67136830631596,97.0383974027771,monotonic bisection,limiting value meeting target
+construction_duration_years,Construction duration,years,120,8.0,4.0,86.02973399903817,74.67136830631596,97.0383974027771,monotonic bisection,limiting value meeting target
+construction_duration_years,Construction duration,years,100,8.0,4.0,86.02973399903817,74.67136830631596,97.0383974027771,monotonic bisection,limiting value meeting target
+construction_duration_years,Construction duration,years,80,1.0,4.0,86.02973399903817,74.67136830631596,78.92886632601822,monotonic bisection,limiting value meeting target
+construction_duration_years,Construction duration,years,60,,4.0,86.02973399903817,74.67136830631596,,monotonic bisection,not reached within explored one-way range
+annual_output_degradation_fraction,Annual delivered-output degradation,fraction/year,150,0.03,0.005,86.02973399903817,82.01630671479784,107.35211475565309,monotonic bisection,limiting value meeting target
+annual_output_degradation_fraction,Annual delivered-output degradation,fraction/year,120,0.03,0.005,86.02973399903817,82.01630671479784,107.35211475565309,monotonic bisection,limiting value meeting target
+annual_output_degradation_fraction,Annual delivered-output degradation,fraction/year,100,0.021631386053288567,0.005,86.02973399903817,82.01630671479784,99.99999999999994,monotonic bisection,limiting value meeting target
+annual_output_degradation_fraction,Annual delivered-output degradation,fraction/year,80,,0.005,86.02973399903817,82.01630671479784,,monotonic bisection,not reached within explored one-way range
+annual_output_degradation_fraction,Annual delivered-output degradation,fraction/year,60,,0.005,86.02973399903817,82.01630671479784,,monotonic bisection,not reached within explored one-way range
+system_specific_mass_kg_per_kw_delivered,System specific mass,kg/kW-delivered,150,10.0,5.0,86.02973399903817,31.280108512756296,146.86265120601803,monotonic bisection,limiting value meeting target
+system_specific_mass_kg_per_kw_delivered,System specific mass,kg/kW-delivered,120,7.792095756757837,5.0,86.02973399903817,31.280108512756296,120.0,monotonic bisection,limiting value meeting target
+system_specific_mass_kg_per_kw_delivered,System specific mass,kg/kW-delivered,100,6.148248895694821,5.0,86.02973399903817,31.280108512756296,100.0,monotonic bisection,limiting value meeting target
+system_specific_mass_kg_per_kw_delivered,System specific mass,kg/kW-delivered,80,4.504402034631808,5.0,86.02973399903817,31.280108512756296,80.0,monotonic bisection,limiting value meeting target
+system_specific_mass_kg_per_kw_delivered,System specific mass,kg/kW-delivered,60,2.8605551735687973,5.0,86.02973399903817,31.280108512756296,60.0,monotonic bisection,limiting value meeting target
+space_generation_hardware_cost_gbp_per_w_dc,Space-generation hardware cost,GBP/W-DC,150,2.05547986257352,0.4,86.02973399903817,72.50520035383211,150.0,monotonic bisection,limiting value meeting target
+space_generation_hardware_cost_gbp_per_w_dc,Space-generation hardware cost,GBP/W-DC,120,1.2791129818033373,0.4,86.02973399903817,72.50520035383211,119.99999999999997,monotonic bisection,limiting value meeting target
+space_generation_hardware_cost_gbp_per_w_dc,Space-generation hardware cost,GBP/W-DC,100,0.7615350612898826,0.4,86.02973399903817,72.50520035383211,100.0,monotonic bisection,limiting value meeting target
+space_generation_hardware_cost_gbp_per_w_dc,Space-generation hardware cost,GBP/W-DC,80,0.24395714077642744,0.4,86.02973399903817,72.50520035383211,80.0,monotonic bisection,limiting value meeting target
+space_generation_hardware_cost_gbp_per_w_dc,Space-generation hardware cost,GBP/W-DC,60,,0.4,86.02973399903817,72.50520035383211,,monotonic bisection,not reached within explored one-way range
+transmitter_cost_gbp_per_w_rf_emitted,RF transmitter hardware cost,GBP/W-RF emitted,150,1.0,0.1,86.02973399903817,83.86580861580521,110.37389456040904,monotonic bisection,limiting value meeting target
+transmitter_cost_gbp_per_w_rf_emitted,RF transmitter hardware cost,GBP/W-RF emitted,120,1.0,0.1,86.02973399903817,83.86580861580521,110.37389456040904,monotonic bisection,limiting value meeting target
+transmitter_cost_gbp_per_w_rf_emitted,RF transmitter hardware cost,GBP/W-RF emitted,100,0.6164786589855464,0.1,86.02973399903817,83.86580861580521,100.0,monotonic bisection,limiting value meeting target
+transmitter_cost_gbp_per_w_rf_emitted,RF transmitter hardware cost,GBP/W-RF emitted,80,,0.1,86.02973399903817,83.86580861580521,,monotonic bisection,not reached within explored one-way range
+transmitter_cost_gbp_per_w_rf_emitted,RF transmitter hardware cost,GBP/W-RF emitted,60,,0.1,86.02973399903817,83.86580861580521,,monotonic bisection,not reached within explored one-way range
+launch_cost_gbp_per_kg_to_staging_orbit,Launch service cost to staging orbit,GBP/kg to staging orbit,150,1341.258567736377,500.0,86.02973399903817,49.52998367485024,150.0,monotonic bisection,limiting value meeting target
+launch_cost_gbp_per_kg_to_staging_orbit,Launch service cost to staging orbit,GBP/kg to staging orbit,120,946.7353210812538,500.0,86.02973399903817,49.52998367485024,120.0,monotonic bisection,limiting value meeting target
+launch_cost_gbp_per_kg_to_staging_orbit,Launch service cost to staging orbit,GBP/kg to staging orbit,100,683.7198233111715,500.0,86.02973399903817,49.52998367485024,100.0,monotonic bisection,limiting value meeting target
+launch_cost_gbp_per_kg_to_staging_orbit,Launch service cost to staging orbit,GBP/kg to staging orbit,80,420.7043255410894,500.0,86.02973399903817,49.52998367485024,80.0,monotonic bisection,limiting value meeting target
+launch_cost_gbp_per_kg_to_staging_orbit,Launch service cost to staging orbit,GBP/kg to staging orbit,60,157.6888277710076,500.0,86.02973399903817,49.52998367485024,60.0,monotonic bisection,limiting value meeting target
+orbit_transfer_cost_gbp_per_kg_final_hardware,Staging-to-operational-orbit transfer cost,GBP/kg final hardware,150,941.258567736377,100.0,86.02973399903817,78.42561934816568,150.0,monotonic bisection,limiting value meeting target
+orbit_transfer_cost_gbp_per_kg_final_hardware,Staging-to-operational-orbit transfer cost,GBP/kg final hardware,120,546.7353210812538,100.0,86.02973399903817,78.42561934816568,120.0,monotonic bisection,limiting value meeting target
+orbit_transfer_cost_gbp_per_kg_final_hardware,Staging-to-operational-orbit transfer cost,GBP/kg final hardware,100,283.7198233111715,100.0,86.02973399903817,78.42561934816568,100.0,monotonic bisection,limiting value meeting target
+orbit_transfer_cost_gbp_per_kg_final_hardware,Staging-to-operational-orbit transfer cost,GBP/kg final hardware,80,20.704325541089442,100.0,86.02973399903817,78.42561934816568,80.0,monotonic bisection,limiting value meeting target
+orbit_transfer_cost_gbp_per_kg_final_hardware,Staging-to-operational-orbit transfer cost,GBP/kg final hardware,60,,100.0,86.02973399903817,78.42561934816568,,monotonic bisection,not reached within explored one-way range
+in_orbit_assembly_cost_gbp_per_kg_operational_hardware,In-orbit assembly and deployment cost,GBP/kg operational hardware,150,1041.258567736377,200.0,86.02973399903817,70.82150469729321,150.0,monotonic bisection,limiting value meeting target
+in_orbit_assembly_cost_gbp_per_kg_operational_hardware,In-orbit assembly and deployment cost,GBP/kg operational hardware,120,646.7353210812538,200.0,86.02973399903817,70.82150469729321,120.0,monotonic bisection,limiting value meeting target
+in_orbit_assembly_cost_gbp_per_kg_operational_hardware,In-orbit assembly and deployment cost,GBP/kg operational hardware,100,383.7198233111715,200.0,86.02973399903817,70.82150469729321,100.0,monotonic bisection,limiting value meeting target
+in_orbit_assembly_cost_gbp_per_kg_operational_hardware,In-orbit assembly and deployment cost,GBP/kg operational hardware,80,120.70432554108945,200.0,86.02973399903817,70.82150469729321,80.0,monotonic bisection,limiting value meeting target
+in_orbit_assembly_cost_gbp_per_kg_operational_hardware,In-orbit assembly and deployment cost,GBP/kg operational hardware,60,,200.0,86.02973399903817,70.82150469729321,,monotonic bisection,not reached within explored one-way range
+rectenna_cost_gbp_per_w_delivered,Rectenna cost,GBP/W-delivered AC,150,1.0,0.15,86.02973399903817,83.93137790399172,99.74975462049565,monotonic bisection,limiting value meeting target
+rectenna_cost_gbp_per_w_delivered,Rectenna cost,GBP/W-delivered AC,120,1.0,0.15,86.02973399903817,83.93137790399172,99.74975462049565,monotonic bisection,limiting value meeting target
+rectenna_cost_gbp_per_w_delivered,Rectenna cost,GBP/W-delivered AC,100,1.0,0.15,86.02973399903817,83.93137790399172,99.74975462049565,monotonic bisection,limiting value meeting target
+rectenna_cost_gbp_per_w_delivered,Rectenna cost,GBP/W-delivered AC,80,,0.15,86.02973399903817,83.93137790399172,,monotonic bisection,not reached within explored one-way range
+rectenna_cost_gbp_per_w_delivered,Rectenna cost,GBP/W-delivered AC,60,,0.15,86.02973399903817,83.93137790399172,,monotonic bisection,not reached within explored one-way range
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered AC,150,300.0,100.0,86.02973399903817,84.73843794054807,89.25797414526346,monotonic bisection,limiting value meeting target
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered AC,120,300.0,100.0,86.02973399903817,84.73843794054807,89.25797414526346,monotonic bisection,limiting value meeting target
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered AC,100,300.0,100.0,86.02973399903817,84.73843794054807,89.25797414526346,monotonic bisection,limiting value meeting target
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered AC,80,,100.0,86.02973399903817,84.73843794054807,,monotonic bisection,not reached within explored one-way range
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered AC,60,,100.0,86.02973399903817,84.73843794054807,,monotonic bisection,not reached within explored one-way range
+programme_contingency_fraction,Initial programme contingency,fraction of pre-contingency initial CAPEX,150,0.5,0.2,86.02973399903817,73.18700251885718,105.29383121930962,monotonic bisection,limiting value meeting target
+programme_contingency_fraction,Initial programme contingency,fraction of pre-contingency initial CAPEX,120,0.5,0.2,86.02973399903817,73.18700251885718,105.29383121930962,monotonic bisection,limiting value meeting target
+programme_contingency_fraction,Initial programme contingency,fraction of pre-contingency initial CAPEX,100,0.4175591076169566,0.2,86.02973399903817,73.18700251885718,100.0,monotonic bisection,limiting value meeting target
+programme_contingency_fraction,Initial programme contingency,fraction of pre-contingency initial CAPEX,80,0.10609888545371686,0.2,86.02973399903817,73.18700251885718,80.0,monotonic bisection,limiting value meeting target
+programme_contingency_fraction,Initial programme contingency,fraction of pre-contingency initial CAPEX,60,,0.2,86.02973399903817,73.18700251885718,,monotonic bisection,not reached within explored one-way range
+space_hardware_replacement_rate_per_year,Space-hardware replacement rate,fraction/year,150,0.03,0.006,86.02973399903817,81.95294207821127,102.33690168234574,monotonic bisection,limiting value meeting target
+space_hardware_replacement_rate_per_year,Space-hardware replacement rate,fraction/year,120,0.03,0.006,86.02973399903817,81.95294207821127,102.33690168234574,monotonic bisection,limiting value meeting target
+space_hardware_replacement_rate_per_year,Space-hardware replacement rate,fraction/year,100,0.02656067555902377,0.006,86.02973399903817,81.95294207821127,100.0,monotonic bisection,limiting value meeting target
+space_hardware_replacement_rate_per_year,Space-hardware replacement rate,fraction/year,80,,0.006,86.02973399903817,81.95294207821127,,monotonic bisection,not reached within explored one-way range
+space_hardware_replacement_rate_per_year,Space-hardware replacement rate,fraction/year,60,,0.006,86.02973399903817,81.95294207821127,,monotonic bisection,not reached within explored one-way range
+ground_hardware_replacement_rate_per_year,Ground-hardware replacement rate,fraction/year,150,0.02,0.003,86.02973399903817,85.92977277446158,86.5961809383055,monotonic bisection,limiting value meeting target
+ground_hardware_replacement_rate_per_year,Ground-hardware replacement rate,fraction/year,120,0.02,0.003,86.02973399903817,85.92977277446158,86.5961809383055,monotonic bisection,limiting value meeting target
+ground_hardware_replacement_rate_per_year,Ground-hardware replacement rate,fraction/year,100,0.02,0.003,86.02973399903817,85.92977277446158,86.5961809383055,monotonic bisection,limiting value meeting target
+ground_hardware_replacement_rate_per_year,Ground-hardware replacement rate,fraction/year,80,,0.003,86.02973399903817,85.92977277446158,,monotonic bisection,not reached within explored one-way range
+ground_hardware_replacement_rate_per_year,Ground-hardware replacement rate,fraction/year,60,,0.003,86.02973399903817,85.92977277446158,,monotonic bisection,not reached within explored one-way range
+fixed_opex_fraction_of_eligible_assets_per_year,Fixed O&M rate,fraction/year,150,0.05,0.01,86.02973399903817,84.59246042099913,93.2161018892333,monotonic bisection,limiting value meeting target
+fixed_opex_fraction_of_eligible_assets_per_year,Fixed O&M rate,fraction/year,120,0.05,0.01,86.02973399903817,84.59246042099913,93.2161018892333,monotonic bisection,limiting value meeting target
+fixed_opex_fraction_of_eligible_assets_per_year,Fixed O&M rate,fraction/year,100,0.05,0.01,86.02973399903817,84.59246042099913,93.2161018892333,monotonic bisection,limiting value meeting target
+fixed_opex_fraction_of_eligible_assets_per_year,Fixed O&M rate,fraction/year,80,,0.01,86.02973399903817,84.59246042099913,,monotonic bisection,not reached within explored one-way range
+fixed_opex_fraction_of_eligible_assets_per_year,Fixed O&M rate,fraction/year,60,,0.01,86.02973399903817,84.59246042099913,,monotonic bisection,not reached within explored one-way range
+variable_opex_gbp_per_mwh,Variable O&M,GBP/MWh delivered,150,20.0,3.0,86.02973399903817,83.02973399903816,103.02973399903817,monotonic bisection,limiting value meeting target
+variable_opex_gbp_per_mwh,Variable O&M,GBP/MWh delivered,120,20.0,3.0,86.02973399903817,83.02973399903816,103.02973399903817,monotonic bisection,limiting value meeting target
+variable_opex_gbp_per_mwh,Variable O&M,GBP/MWh delivered,100,16.97026600096184,3.0,86.02973399903817,83.02973399903816,100.0,monotonic bisection,limiting value meeting target
+variable_opex_gbp_per_mwh,Variable O&M,GBP/MWh delivered,80,,3.0,86.02973399903817,83.02973399903816,,monotonic bisection,not reached within explored one-way range
+variable_opex_gbp_per_mwh,Variable O&M,GBP/MWh delivered,60,,3.0,86.02973399903817,83.02973399903816,,monotonic bisection,not reached within explored one-way range
+decommissioning_cost_fraction_initial_capex,Terminal decommissioning cost,fraction of initial CAPEX,150,0.2,0.02,86.02973399903817,85.83168034455537,87.81221688938336,monotonic bisection,limiting value meeting target
+decommissioning_cost_fraction_initial_capex,Terminal decommissioning cost,fraction of initial CAPEX,120,0.2,0.02,86.02973399903817,85.83168034455537,87.81221688938336,monotonic bisection,limiting value meeting target
+decommissioning_cost_fraction_initial_capex,Terminal decommissioning cost,fraction of initial CAPEX,100,0.2,0.02,86.02973399903817,85.83168034455537,87.81221688938336,monotonic bisection,limiting value meeting target
+decommissioning_cost_fraction_initial_capex,Terminal decommissioning cost,fraction of initial CAPEX,80,,0.02,86.02973399903817,85.83168034455537,,monotonic bisection,not reached within explored one-way range
+decommissioning_cost_fraction_initial_capex,Terminal decommissioning cost,fraction of initial CAPEX,60,,0.02,86.02973399903817,85.83168034455537,,monotonic bisection,not reached within explored one-way range
+residual_value_fraction_initial_capex,Terminal residual value,fraction of initial CAPEX,150,0.0,0.0,86.02973399903817,84.04919745421016,86.02973399903817,monotonic bisection,limiting value meeting target
+residual_value_fraction_initial_capex,Terminal residual value,fraction of initial CAPEX,120,0.0,0.0,86.02973399903817,84.04919745421016,86.02973399903817,monotonic bisection,limiting value meeting target
+residual_value_fraction_initial_capex,Terminal residual value,fraction of initial CAPEX,100,0.0,0.0,86.02973399903817,84.04919745421016,86.02973399903817,monotonic bisection,limiting value meeting target
+residual_value_fraction_initial_capex,Terminal residual value,fraction of initial CAPEX,80,,0.0,86.02973399903817,84.04919745421016,,monotonic bisection,not reached within explored one-way range
+residual_value_fraction_initial_capex,Terminal residual value,fraction of initial CAPEX,60,,0.0,86.02973399903817,84.04919745421016,,monotonic bisection,not reached within explored one-way range

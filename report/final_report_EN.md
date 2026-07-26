@@ -1,353 +1,143 @@
-# UK Space-Based Solar Power Cost-Condition Map
+# UK Space-Based Solar Power Cost-Condition Assessment — v2.0
 
-Report subtitle: A reproducible threshold assessment for UK decision screening — not a deployment forecast
+**This is a conditional scenario result, not a commercial forecast, quotation, official UK target or proof of economic viability.**
 
-Evidence status: source registry reviewed to 2026-07-19; selected official DESNZ benchmark cells are machine-reconciled.
+## Scope and answer
 
-Version: v1.2
+The reference scenario gives a conditional delivered-grid DCF LCOE of **£86.03/MWh** in 2024 real GBP. Working backwards from 2 GW AC at the grid boundary, the five-stage chain computes an end-to-end efficiency of **14.98%**, orbital hardware mass of **10.00 million kg**, and **118** equivalent launches.
 
-Prepared as: a bilingual, executable techno-economic research artifact.
+Launch pricing mode: per kg, to staging orbit only. Staging orbit: LEO staging orbit (service boundary; altitude architecture-dependent). Operational orbit: High Earth orbit (HEO; final orbit architecture-dependent). The transfer proxy must cover transfer vehicle, propellant, refuelling missions, operations and payload-performance penalty.
 
-Disclaimer: this report identifies model-conditional cost requirements. It does not demonstrate engineering feasibility, predict a commissioning year, estimate an investment return or recommend an investment.
+## Migration from v1.x to v2.0
 
-<!-- PAGEBREAK -->
+v1.x multiplied a 1.5 kg/kW value that should have been delivered-power-normalised by 'delivered power / efficiency', dividing by efficiency a second time. For 2 GW at 20% efficiency, the old expression gives **15,000,000 kg (15,000 tonnes)**; the corrected expression gives **3,000,000 kg (3,000 tonnes)**. With all other v2 comparison inputs identical, the erroneous mass boundary gives **£116.45/MWh**, versus **£43.45/MWh** on the corrected boundary. Historical v1.x thresholds are therefore not directly comparable with v2.0.
 
-## Contents
+The DESNZ/Frazer-Nash report defines architecture specific power as ground-delivered power per orbital mass. The reciprocal of 0.67 kW-delivered/kg is **1.4925 kg/kW-delivered** (Table 1, PDF pp.11-12; reference-design selection p.13). Values remain architecture-specific and may include manufacturer claims that were not independently verified.
 
-- 1. Executive answer
-- 2. Research question and distinctive contribution
-- 3. Scope, accounting boundary and method
-- 4. Evidence quality and source discipline
-- 5. Reference anchor and cost structure
-- 6. UK comparator landscape
-- 7. One-way conditional thresholds
-- 8. Coupled cost-condition frontiers
-- 9. Interpretation for UK decisions
-- 10. Limitations, robustness and non-claims
-- 11. Conclusion
-- Appendices A–C. Audit tables, sources and assumptions
+## Stage-resolved energy chain
 
-<!-- PAGEBREAK -->
-
-## 1. Executive answer
-
-The short answer is: **the reference configuration is expensive, but the project is useful because it reveals the conditions behind that result.** At the study-authored reference point, grid-connection-point LCOE is **£429/MWh**. This is a normalization anchor, not a forecast or preferred design.
-
-Table 1. Study-defined cost lines and their meaning
-
-| Cost line | Use in this project | Decision meaning and limitation |
-| --- | --- | --- |
-| £150/MWh | Broad study-defined screening line | A model diagnostic, not an official UK threshold |
-| £100–120/MWh | Study-defined screen for a potential firm or near-firm role | Triggers deeper engineering, finance and system-value work |
-| £80/MWh | Overlap with the selected system-adjusted comparator | Still not a market-competitiveness conclusion |
-| £60/MWh | Stringent stress test | No tested one-way input reaches it; coupled cases remain exploratory |
-
-The strongest one-way result is specific mass, **within this model boundary and the selected ranges, with every other input held at its reference value**. The limiting values are 1.28, 0.88 and 0.62 kg/kW-space for £150, £120 and £100/MWh respectively. No one-way specific-mass value in the explored range reaches £80 or £60/MWh.
-
-Launch cost alone is not sufficient: even at the favourable explored bound of £20/kg, LCOE remains about £204/MWh. Raising end-to-end efficiency alone to 35% leaves about £188/MWh. The model therefore points to testing multiple coupled combinations across mass, launch, space hardware, assembly, finance, efficiency and delivered energy; it does not prove that every variable must move.
-
-The contribution is **not greater forecasting accuracy**. It is a transparent and reproducible answer to a narrower question: *what cost and performance conditions would have to hold, inside a stated model, before SBSP enters selected UK decision regions?*
-
-## 2. Research question and distinctive contribution
-
-The representative SBSP studies reviewed here evaluate named architectures, future deployment cases, lifecycle impacts or system pathways. This project complements them with continuous one-way and coupled parameter frontiers. It therefore makes assumptions, conditional thresholds and failure-to-reach results directly auditable.
-
-Table 2. Relationship to selected existing SBSP studies
-
-| Study | Primary analysis | Reported context | Relationship to this project |
-| --- | --- | --- | --- |
-| UK SBSP Phase 2 economic study (2021) | architecture and future scenario study | £35-79/MWh (p10-p90) with p50 about £50/MWh in 2018 prices; 2 GW CASSIOPeiA; 30-year life; 20% hurdle; 2040 commissioning case | Provides architecture and scenario context; this project instead exposes continuous model-conditional cost thresholds. |
-| UK small-scale SBSP study (completed 2025; published 2026) | architecture, pathways and system-value study | 2024 GBP: £335-595/MWh (2030), £154-249/MWh (2035), £87-129/MWh (2040) | Provides a current external consistency check and architecture-specific drivers; this project adds an auditable parameter-space map. |
-| NASA OTPS assessment (2024) | lifecycle cost and emissions assessment | FY2022 USD: $610/$1,590 per MWh baseline for RD1/RD2; $30/$80 per MWh under combined favourable assumptions | Shows a roughly 20-fold lifecycle-cost difference between NASA's selected baseline and favourable-combination cases; no NASA value is imported into this model. |
-| This project (v1.2) | reproducible continuous cost-condition assessment | £429/MWh study-authored reference anchor; root-solved conditional lines at £150/120/100/80/60 per MWh | Distinctive contribution: traceable inputs, continuous one-way and coupled frontiers, bilingual outputs and executable tests. |
-
-The project's publishable advantage is specific:
-
-- Every exact model input is classified as a **study-authored exploratory assumption**; literature values are kept in a separate evidence map.
-- Thresholds are solved by high-precision monotonic bisection rather than read from a coarse plotting grid.
-- The analysis reports both attainable and unattainable one-way targets across 16 variables and 5 study-defined cost lines.
-- Coupled frontiers and 3 alternative parameter slices show that the answer is not a single-variable launch-cost story.
-- Source files, processed outputs, figures, English and Chinese reports and automated checks are regenerated by one command.
-
-These features make the analysis **more transparent for threshold questions**, not universally more accurate than architecture-specific studies.
-
-## 3. Scope, accounting boundary and method
-
-The model ends at the **grid connection point**. It includes space hardware, wireless-power hardware, launch, orbit transfer, in-orbit assembly, rectenna, local grid connection, programme margin, capital recovery, fixed OPEX, refurbishment and variable OPEX. It excludes downstream transmission reinforcement, balancing, storage, curtailment, reliability services, taxes, decommissioning cost, revenue design and monetised system value.
-
-All model financial inputs are interpreted in 2024 real GBP. The `wacc` variable is a **real project discount-rate proxy** used in the capital-recovery factor; tax, inflation and financing tranches are outside the model. The delivered capacity factor is also a proxy combining availability, outages and operational constraints; it is not an observed SBSP availability statistic.
-
-The calculation is:
-
-- annual delivered energy = delivered capacity × 8,760 hours × delivered capacity factor;
-- required space power = delivered grid capacity ÷ end-to-end efficiency;
-- orbital mass = required space power × whole-architecture specific mass;
-- initial CAPEX = summed component CAPEX × (1 + programme margin);
-- LCOE = (annualised CAPEX + fixed OPEX + refurbishment + variable OPEX) ÷ annual delivered MWh.
-
-A one-way threshold changes one input and fixes all others. A coupled equal-fraction frontier moves selected inputs from the reference point toward their favourable recorded bounds by the same normalized fraction. That fraction is a mathematical index, **not technology readiness, probability, calendar progress or a unique roadmap**.
-
-## 4. Evidence quality and source discipline
-
-The evidence system separates three concepts:
-
-- **Direct input:** an exact value used in the model. All SBSP reference values and ranges are study-authored assumptions.
-- **Contextual evidence:** published metrics showing plausible scales or important drivers without being treated as equivalent definitions.
-- **External comparison:** results from a different architecture or boundary, used to test narrative consistency rather than validate this model.
-
-The withdrawn 2020 UK Space Agency press release is retained only as programme history. It supplies no numerical input. Caltech's 160 g/m² areal density is not converted into whole-system kg/kW-space. Likewise, the official small-scale study completed in 2025 and published in 2026 supplies only external context: its specific power, hurdle rates and high-Earth-orbit launch estimates use different definitions.
-
-The £429/MWh reference anchor lies inside the 2026-published official small-scale study's reported £335–595/MWh 2030 band. This is a useful consistency observation, **not validation**, because scale, architecture, orbit, scenario year, financing and cost boundaries differ.
-
-## 5. Reference anchor and cost structure
-
-Table 3. Core reference inputs
-
-| Parameter | Reference value | Role in the model |
-| --- | --- | --- |
-| Delivered grid capacity | 2,000 MW | Scale anchor; most unit costs scale with capacity |
-| End-to-end efficiency | 15.0% | Sets required space-side power and therefore mass |
-| Delivered capacity factor (model proxy) | 90.0% | Delivered-energy proxy combining availability and constraints |
-| Specific mass | 5.00 kg/kW-space | Scales launch, transfer and assembly together |
-| Launch cost | £500/kg to staging orbit | Transport-cost lever to the model-defined staging orbit |
-| Space hardware cost | £0.40/W-space | Orbital manufacturing-cost lever |
-| In-orbit assembly and deployment cost | £200/kg | Mass-scaled deployment allowance |
-| Real project discount-rate proxy | 6.5% | Real project discount-rate proxy used in capital recovery |
-| System lifetime | 30 years | Period over which capital is recovered |
-
-The 2.0 GW delivered-capacity anchor requires 13.33 GW of space-side power and **66.67 million kg** of orbital hardware, or about 66,667 tonnes. Both units are shown to make the mass scale unambiguous.
-
-Table 4. Reference initial CAPEX reconciliation
-
-| Component | Cost |
+| Stage | Rated power |
 | --- | --- |
-| Launch | £33.33bn |
-| In-orbit assembly and deployment | £13.33bn |
-| Orbit transfer | £6.67bn |
-| Space-segment hardware | £5.33bn |
-| Wireless-power hardware | £1.33bn |
+| Incident solar | 13.35 GW |
+| Space DC bus | 4.67 GW |
+| Emitted RF | 3.27 GW |
+| RF incident on rectenna | 3.21 GW |
+| Rectenna DC output | 2.08 GW |
+| Grid-delivered AC | 2.00 GW |
+
+Computed end-to-end efficiency: **14.9822%**.
+
+## Discounted-cash-flow boundary
+
+The headline uses LCOE = Σ(Cₜ/(1+r)ᵗ) / Σ(Eₜ/(1+r)ᵗ). The valuation base is start of construction at t=0; four equal construction shares are spent before commissioning, and the first operating-year cash flow is at t=5. The operating life is 30 years. First-year energy is 15.77 TWh and lifetime-average annual energy is 14.68 TWh. Discounted lifecycle cost is £13.10bn and discounted energy is 152.32 million MWh. The simple CRF reconciliation is £71.02/MWh and is secondary only.
+
+## Reference cost structure
+
+| CAPEX component | 2024 real GBP |
+| --- | --- |
+| Launch To Staging Orbit | £5.00bn |
+| In Orbit Assembly And Deployment | £2.00bn |
+| Space Generation Hardware | £1.87bn |
+| Orbit Transfer To Operational Orbit | £1.00bn |
+| Wireless Power Transmitter | £0.33bn |
 | Rectenna | £0.30bn |
-| Grid connection | £0.20bn |
-| Pre-margin subtotal | £60.50bn |
-| Programme margin | £12.10bn |
-| Initial CAPEX | £72.60bn |
+| Grid Connection | £0.20bn |
+| Programme contingency | £2.14bn |
+| Initial CAPEX | £12.84bn |
 
-![Figure 1. Reference LCOE components](../figures/reference_lcoe_components.png)
-
-**Interpretation.** Annualised CAPEX contributes about 82% of annual reference cost. The result is therefore especially sensitive to physical scale and capital recovery.
-
-The reference point produces 15.768 million MWh/year, £72.6bn initial CAPEX and £6.77bn annualised total cost. These figures reconcile exactly in the generated model outputs.
-
-<!-- PAGEBREAK -->
-
-## 6. UK comparator landscape
-
-![Figure 2. UK electricity cost comparators](../figures/uk_electricity_cost_benchmark_comparison.png)
-
-**Interpretation.** The figure shows the generation-only rows flagged for the headline band, plus the Hinkley contract marker and the historical system-adjusted band. The plotted generation rows span about £55–£153/MWh; excluding the floating-offshore FOAK row gives £55–£113/MWh.
-
-Table 5. Comparator definitions from the structured data
-
-| Comparator | Reported value | Price basis | Metric type |
-| --- | --- | --- | --- |
-| Large-scale solar | £55–60/MWh | 2024 real GBP | DESNZ 2025 Annex A 2030-2035 range |
-| Onshore wind | £57–58/MWh | 2024 real GBP | DESNZ 2025 Annex A 2030-2035 range |
-| Fixed offshore wind | £98–103/MWh | 2024 real GBP | DESNZ 2025 Annex A 2030-2035 range |
-| Floating offshore wind | £125–153/MWh | 2024 real GBP | DESNZ 2025 Annex A 2030-2035 range |
-| Gas CCGT high load factor | £111–113/MWh | 2024 real GBP | DESNZ 2025 Annex A 2030-2035 range |
-| Gas with CCUS high load factor | £104–105/MWh | 2024 real GBP | DESNZ 2025 Annex A 2030-2035 range |
-| Gas with CCUS mid load factor | £181/MWh | 2024 real GBP | DESNZ 2025 Annex A 2030-2035 range |
-| Nuclear Hinkley Point C public contract marker | £92.5/MWh | 2012 real-price terms (CPI-indexed) | 35-year Contract for Difference strike-price marker |
-| High-renewable system-adjusted band | £45–87/MWh | 2018 real GBP | Indicative enhanced-LCOE envelope |
-
-The Hinkley Point C £92.50/MWh marker is a 35-year CfD strike price stated in 2012 prices and CPI-indexed; it is not a generic nuclear LCOE. The BEIS enhanced-LCOE range of £45–£87/MWh is in 2018 real GBP, whereas the DESNZ generation rows are in 2024 real GBP. No false-precision price conversion is applied.
-
-Figure 2 uses the six generation-only rows marked for the headline band. Table 5 additionally retains the £181/MWh mid-load-factor gas-CCUS sensitivity, but it is excluded from the figure and headline band to avoid counting two utilisation cases for the same technology as separate headline comparators.
-
-Consequently, overlap with a chart band is a screening result only. Wholesale prices, contract prices, generator LCOE and system-adjusted costs are different metrics.
-
-## 7. One-way conditional thresholds
-
-![Figure 3. Best LCOE attainable one variable at a time](../figures/one_way_lcoe_floors.png)
-
-**Interpretation.** Within the selected one-way ranges, only whole-architecture specific mass crosses the £150/MWh study line. This ranking is range-dependent and is not universal across architectures.
-
-![Figure 4. Specific-mass thresholds in the decision window](../figures/specific_mass_threshold_focus.png)
-
-**Interpretation.** With all other reference inputs fixed, the model requires at most 1.28, 0.88 and 0.62 kg/kW-space for £150, £120 and £100/MWh. These are conditional mathematical requirements, not proven engineering targets.
-
-Table 6. Complete one-way threshold audit
-
-| Input | Unit | £150 | £120 | £100 | £80 | £60 |
-| --- | --- | --- | --- | --- | --- | --- |
-| Launch cost | GBP/kg to staging orbit | — | — | — | — | — |
-| Specific mass | kg/kW-space | 1.28 | 0.88 | 0.62 | — | — |
-| Space hardware cost | GBP/W-space | — | — | — | — | — |
-| Wireless power transmission cost | GBP/W-space | — | — | — | — | — |
-| End-to-end efficiency | fraction | — | — | — | — | — |
-| Real project discount-rate proxy | fraction | — | — | — | — | — |
-| Rectenna CAPEX | GBP/W-delivered | — | — | — | — | — |
-| Grid connection cost | GBP/kW-delivered | — | — | — | — | — |
-| System lifetime | years | — | — | — | — | — |
-| Delivered capacity factor (model proxy) | fraction | — | — | — | — | — |
-| In-orbit assembly and deployment cost | GBP/kg | — | — | — | — | — |
-| Orbit transfer cost | GBP/kg | — | — | — | — | — |
-| Programme margin / contingency | fraction | — | — | — | — | — |
-| Replacement and refurbishment allowance | fraction/year | — | — | — | — | — |
-| Fixed OPEX | fraction/year | — | — | — | — | — |
-| Variable OPEX | GBP/MWh | — | — | — | — | — |
-
-An em dash means that no value reaches the target inside the tested one-way bound; it does not mean physical impossibility outside that bound.
-
-The result does not mean that specific mass is the only necessary condition. It means only that, under the reference assumptions and selected one-way bounds, it is the sole individual variable able to cross £150/MWh. In a coupled design, low mass is not sufficient for every target, and other architectures may rank drivers differently. The official small-scale study published in 2026, for example, attributes 55.5–64.0% of its own LCOE variance to launch assumptions.
-
-## 8. Coupled cost-condition frontiers
-
-![Figure 5. Launch-cost and efficiency frontier](../figures/sbsp_break_even_thresholds.png)
-
-**Interpretation.** Higher efficiency relaxes the launch-cost condition, but many cells remain unattainable when the remaining reference inputs are fixed. Values are root-solved inside the recorded launch-cost bounds.
-
-Table 7. Selected launch-cost limits with all other inputs fixed
-
-| End-to-end efficiency | Target | Maximum launch cost |
+| Lifecycle component | Discounted PV | LCOE contribution |
 | --- | --- | --- |
-| 25% | £150/MWh | £109.1/kg or lower |
-| 25% | £120/MWh | not reached |
-| 25% | £100/MWh | not reached |
-| 30% | £150/MWh | £210.9/kg or lower |
-| 30% | £120/MWh | £83.2/kg or lower |
-| 30% | £100/MWh | not reached |
-| 35% | £150/MWh | £312.8/kg or lower |
-| 35% | £120/MWh | £163.7/kg or lower |
-| 35% | £100/MWh | £64.4/kg or lower |
+| Initial Construction | £11.71bn | £76.86/MWh |
+| Space Hardware Replacement | £0.62bn | £4.08/MWh |
+| Variable Opex | £0.46bn | £3.00/MWh |
+| Fixed Opex | £0.27bn | £1.80/MWh |
+| Decommissioning | £0.03bn | £0.20/MWh |
+| Ground Hardware Replacement | £0.02bn | £0.10/MWh |
+| Residual Value | £-0.00bn | £-0.00/MWh |
 
-![Figure 6. Equal-fraction coupled frontier](../figures/combined_progress_frontier.png)
+![Reference lifecycle LCOE components](../figures/reference_lcoe_components.png)
 
-**Interpretation.** Lower target LCOEs on the x-axis correspond to larger normalized movements on the y-axis. The y-axis is a mathematical interpolation index, not an implementation timeline.
+## Conditional sensitivities and thresholds
 
-Table 8. Coupled equal-fraction index and selected parameter values
+| Parameter | LCOE at favourable bound | Reduction |
+| --- | --- | --- |
+| System specific mass | £31.3/MWh | £54.7/MWh |
+| Launch service cost to staging orbit | £49.5/MWh | £36.5/MWh |
+| Real project discount rate | £56.9/MWh | £29.1/MWh |
+| In-orbit assembly and deployment cost | £70.8/MWh | £15.2/MWh |
+| Space-generation hardware cost | £72.5/MWh | £13.5/MWh |
+| Initial programme contingency | £73.2/MWh | £12.8/MWh |
+| Construction duration | £74.7/MWh | £11.4/MWh |
+| Staging-to-operational-orbit transfer cost | £78.4/MWh | £7.6/MWh |
 
-| Target | Normalized movement | Launch | Specific mass | Efficiency | Real discount proxy |
+£80: Delivered capacity factor=0.9705, £80: Operating lifetime after commissioning=43, £80: Real project discount rate=0.05853, £60: Real project discount rate=0.03423, £80: Construction duration=1, £80: System specific mass=4.504, £60: System specific mass=2.861, £80: Space-generation hardware cost=0.244
+
+The equal-fraction frontier is a mathematical interpolation device, not a readiness score, probability, forecast, schedule or engineering roadmap.
+
+| Target | Equal-fraction movement | Computed chain efficiency |
+| --- | --- | --- |
+| £150/MWh | 0.0% | 14.98% |
+| £120/MWh | 0.0% | 14.98% |
+| £100/MWh | 0.0% | 14.98% |
+| £80/MWh | 2.9% | 15.36% |
+| £60/MWh | 12.5% | 16.64% |
+
+![One-way floors](../figures/one_way_lcoe_floors.png)
+
+![Mass sensitivity](../figures/specific_mass_threshold_focus.png)
+
+![Combined interpolation](../figures/combined_progress_frontier.png)
+
+## Parameter evidence and limitations
+
+Every user-facing numerical input below carries source type, source ID, price year where relevant, denominator and limitation metadata.
+
+| Parameter | Reference | Range | Source | Denominator / boundary | Limitation |
 | --- | --- | --- | --- | --- | --- |
-| £150/MWh | 26.5% | £373/kg | 3.81 kg/kW-space | 20.3% | 5.57% |
-| £120/MWh | 31.8% | £347/kg | 3.57 kg/kW-space | 21.4% | 5.39% |
-| £100/MWh | 36.1% | £327/kg | 3.38 kg/kW-space | 22.2% | 5.24% |
-| £80/MWh | 41.1% | £303/kg | 3.15 kg/kW-space | 23.2% | 5.06% |
-| £60/MWh | 47.4% | £272/kg | 2.87 kg/kW-space | 24.5% | 4.84% |
+| Delivered grid capacity | 2000 MW-delivered AC | 500–5000 | exploratory / ASSUMPTION_THIS_STUDY | AC power at the grid connection point | Scale input; the simplified model is nearly scale-neutral. |
+| Solar-to-DC conversion efficiency | 0.35 fraction | 0.2–0.45 | exploratory / ASSUMPTION_THIS_STUDY | Incident solar power to space DC-bus output | Architecture-dependent exploratory value; not an independently verified flight-system value. |
+| DC-to-RF efficiency | 0.7 fraction | 0.4–0.85 | exploratory / ASSUMPTION_THIS_STUDY | Space DC-bus input to emitted RF power | Excludes propagation and rectenna conversion losses. |
+| RF transmission efficiency | 0.98 fraction | 0.85–0.995 | exploratory / ASSUMPTION_THIS_STUDY | Emitted RF power to RF incident on the rectenna | Simplified beam-capture proxy; beam geometry sidelobes weather and safety constraints are not explicitly modelled. |
+| Rectenna RF-to-DC efficiency | 0.65 fraction | 0.4–0.85 | exploratory / ASSUMPTION_THIS_STUDY | Incident RF power at rectenna to rectenna DC output | Exploratory system-average conversion proxy. |
+| DC-to-grid AC efficiency | 0.96 fraction | 0.9–0.99 | exploratory / ASSUMPTION_THIS_STUDY | Rectenna DC output to AC at the grid connection point | Includes simplified inversion and local electrical losses only. |
+| Delivered capacity factor | 0.9 fraction | 0.6–0.98 | exploratory / ASSUMPTION_THIS_STUDY | Annual AC energy divided by rated delivered AC capacity times 8760 | Combines availability outages and operating constraints; not a measured forecast. |
+| Operating lifetime after commissioning | 30 years | 15–45 | exploratory / ASSUMPTION_THIS_STUDY | Full operating years after commissioning | Engineering retirement and economic life are simplified into one duration. |
+| Real project discount rate | 0.065 fraction | 0.03–0.2 | exploratory / ASSUMPTION_THIS_STUDY | Discounting from start of construction t=0 | Not an observed SBSP WACC; tax financing tranches and inflation are excluded. |
+| Construction duration | 4 years | 0–8 | exploratory / ASSUMPTION_THIS_STUDY | Years from valuation base to commissioning | Default uses equal annual spend shares; project-specific scheduling is not represented. |
+| Annual delivered-output degradation | 0.005 fraction/year | 0–0.03 | exploratory / ASSUMPTION_THIS_STUDY | Year-on-year reduction in delivered AC energy after the first operating year | Simplified fleet-average degradation proxy. |
+| System specific mass | 5 kg/kW-delivered | 0.5–10 | exploratory / ASSUMPTION_THIS_STUDY | Complete operational orbital hardware mass per kW delivered AC at the grid boundary | Delivered-power basis; never divide by efficiency again. Published values can be architecture-specific or manufacturer-claimed. |
+| Space-generation hardware cost | 0.4 GBP/W-DC | 0.05–5 | exploratory / ASSUMPTION_THIS_STUDY | Space DC-bus rated output excluding RF transmitter hardware | Includes collection structure conversion and DC conditioning only; boundary is mutually exclusive with transmitter cost. |
+| RF transmitter hardware cost | 0.1 GBP/W-RF emitted | 0.02–1 | exploratory / ASSUMPTION_THIS_STUDY | Emitted RF rated power excluding generation and DC-bus hardware | Includes only DC-to-RF and aperture hardware; no generation hardware is counted here. |
+| Launch service cost to staging orbit | 500 GBP/kg to staging orbit | 20–5000 | exploratory / ASSUMPTION_THIS_STUDY | Operational orbital hardware mass delivered to the defined LEO staging boundary | Not a GEO delivery quotation; procurement cadence integration and destination materially affect price. |
+| Launch price per flight | 1e+08 GBP/flight | 1e+07–3e+08 | exploratory / ASSUMPTION_THIS_STUDY | One mutually exclusive launch flight to the staging orbit | Used only when per-flight mode is active; never added to per-kg launch cost. |
+| Effective payload per flight | 100000 kg/flight | 20000–250000 | exploratory / ASSUMPTION_THIS_STUDY | Maximum manifested hardware mass reaching the staging orbit per flight | Vehicle and orbit dependent; used for launch-count diagnostics in both modes. |
+| Payload utilisation | 0.85 fraction | 0.5–1 | exploratory / ASSUMPTION_THIS_STUDY | Average used fraction of effective payload capability | Does not model packaging volume schedule or rideshare constraints. |
+| Staging-to-operational-orbit transfer cost | 100 GBP/kg final hardware | 0–3000 | exploratory / ASSUMPTION_THIS_STUDY | Final operational hardware moved from staging orbit to operational orbit | Must cover transfer vehicle propellant refuelling missions operations and payload penalty; a low value does not prove cheap HEO delivery. |
+| In-orbit assembly and deployment cost | 200 GBP/kg operational hardware | 0–3000 | exploratory / ASSUMPTION_THIS_STUDY | Operational orbital hardware assembled deployed and commissioned | Exploratory allowance; robotic operations inspection spares and commissioning are bundled. |
+| Rectenna cost | 0.15 GBP/W-delivered AC | 0.02–1 | exploratory / ASSUMPTION_THIS_STUDY | Rated AC power delivered at the grid boundary | Bundled proxy; antenna area frequency beam geometry sidelobes power-density land weather and safety are not explicit. |
+| Grid connection cost | 100 GBP/kW-delivered AC | 20–300 | exploratory / ASSUMPTION_THIS_STUDY | Rated AC power at the grid connection point | Simplified local connection allowance; wider transmission reinforcement is excluded. |
+| Initial programme contingency | 0.2 fraction of pre-contingency initial CAPEX | 0–0.5 | exploratory / ASSUMPTION_THIS_STUDY | Applied once to pre-contingency initial construction CAPEX | Not applied recursively to annual O&M or replacement allowances. |
+| Space-hardware replacement rate | 0.006 fraction/year | 0–0.03 | exploratory / ASSUMPTION_THIS_STUDY | Fraction of eligible space hardware plus associated launch transfer and assembly cost replaced each year | Simplified annual equivalent rather than discrete failure and logistics scheduling. |
+| Ground-hardware replacement rate | 0.003 fraction/year | 0–0.02 | exploratory / ASSUMPTION_THIS_STUDY | Fraction of eligible rectenna and grid cost replaced each year | Does not model component-specific replacement intervals. |
+| Fixed O&M rate | 0.01 fraction/year | 0.002–0.05 | exploratory / ASSUMPTION_THIS_STUDY | Applied to generation transmitter rectenna and grid assets only | Excludes contingency initial launch transfer and assembly from its base. |
+| Variable O&M | 3 GBP/MWh delivered | 0–20 | exploratory / ASSUMPTION_THIS_STUDY | Each MWh of AC energy delivered at the grid boundary | Exploratory allowance; market charges and downstream system costs are excluded. |
+| Terminal decommissioning cost | 0.02 fraction of initial CAPEX | 0–0.2 | exploratory / ASSUMPTION_THIS_STUDY | Applied at the end of operating life to initial CAPEX | Timing and disposal obligations are simplified. |
+| Terminal residual value | 0 fraction of initial CAPEX | 0–0.2 | exploratory / ASSUMPTION_THIS_STUDY | Credit at end of operating life relative to initial CAPEX | No default credit; salvage markets and liabilities are uncertain. |
 
-![Figure 7. Launch cost × efficiency decision contour](../figures/contour_launch_cost_vs_end_to_end_efficiency_zoom.png)
+## Formulae, boundaries and validation
 
-**Interpretation.** The two-variable contour makes interaction visible, but it still fixes every unplotted input at the reference point. It must not be read as a complete design feasibility map.
+Mass is orbital mass = delivered capacity (kW) × kg/kW-delivered. Hardware costs are rated independently at space-DC-bus W, emitted-RF W, delivered W or delivered kW, with mutually exclusive boundaries. Space replacement includes hardware plus associated launch, transfer and assembly; ground replacement includes only rectenna and grid. Fixed O&M excludes contingency, initial launch, transfer and assembly.
 
-The equal-fraction results are one transparent index among many possible paths. The generated alternative slices show that high efficiency, low mass or infrastructure-like finance can each reshape the frontier. None is presented as the unique or necessary roadmap.
+The default construction profile is `[0.25, 0.25, 0.25, 0.25]` and sums to 100%. Programme contingency is applied once to initial CAPEX. Terminal decommissioning is a cost and residual value is a credit at the end of operating life.
 
-## 9. Interpretation for UK decisions
+The test suite checks reciprocal mass conversion, the 2 GW / 0.67 kW/kg regression, no second efficiency division, all six stage powers, rated-cost assignment, launch-mode exclusivity, launch rounding, replacement bases, construction shares, DCF/CRF convergence, zero-rate handling, invalid inputs, Python/browser parity, bilingual parity, removal of the historical mass identifier and full regeneration.
 
-The practical reading is sequential:
+## Remaining limitations
 
-- Above £150/MWh, the model remains outside its broad study-defined screening line; research should focus on whether integrated architecture evidence can change several major drivers together.
-- At £100–120/MWh, a credible integrated design would justify detailed engineering, financing and GB dispatch/network analysis.
-- At £80/MWh or below, cost overlap with the selected historical system-adjusted band becomes more relevant, but differing price bases and omitted system effects still prevent a market conclusion.
-- Any claim of firm low-carbon value must be tested in a full GB power-system model rather than subtracted informally from plant LCOE.
+- No physical design of antenna area, frequency, beam geometry, sidelobes, power density, land, weather or safety constraints.
+- No vehicle manifest, structural load, thermal, radiation, failure, spares, discrete replacement mission or detailed launch schedule.
+- No tax, inflation, financing tranches, learning curves or architecture-parameter correlations.
+- No GB dispatch, network reinforcement, balancing, capacity value or market-revenue model.
+- Exploration bounds are not probability distributions; no P10/P50/P90 labels are produced.
 
-The official small-scale study published in 2026 reports a £21/MWh system-benefit adjustment in each of its cases. This report does not subtract that figure because the architecture and system-model boundary differ.
-
-## 10. Limitations, robustness and non-claims
-
-The strongest robustness feature is traceability: official 2025 generation-cost cells are checked directly against the stored workbook; source IDs are foreign-key validated; input CSVs are structurally validated; model accounting reconciles; and threshold roots are tested against their target LCOEs.
-
-The principal limitations are:
-
-- Architecture feasibility is not assessed: beam safety, spectrum, thermal control, degradation, debris risk, deployment and maintainability require engineering models and demonstrations.
-- Parameter ranges are deliberately broad and partly judgmental; driver rankings depend on those ranges and the reference point.
-- Correlations, construction schedules, learning curves, probabilistic uncertainty and tax/financing structure are not modelled.
-- The grid-connection-point boundary omits downstream network, balancing, storage, curtailment, reliability and market effects.
-- Comparator price bases are disclosed but not harmonised.
-- External SBSP studies are not like-for-like validation datasets.
-
-This project does **not** claim to be the first threshold analysis, to discover universal necessary conditions, or to produce a more accurate deployment forecast. Its defensible special feature is an openly executable, bilingual and source-disciplined cost-condition map.
-
-## 11. Conclusion
-
-At the study-authored reference point, SBSP LCOE is approximately £429/MWh at the grid connection point. Lower launch cost by itself does not close the gap. Within the selected one-way ranges, a very low whole-architecture specific mass is the only individual lever that reaches £150/MWh, and it still cannot reach £80/MWh alone.
-
-The central conclusion is therefore narrower and conditional: **lower launch cost or higher efficiency alone is insufficient at the tested bounds; no single tested one-way change reaches £80 or £60/MWh, so some coupled improvement is required for those lines.** The analysis does not prove that every listed variable must improve, or that its equal-fraction path is unique. It also does not prove that any engineering or commercial combination can be achieved.
-
-The project's value is the clarity of that conditional statement and the audit trail behind it.
-
-<!-- PAGEBREAK -->
-
-## Appendix A. Evidence-to-claim map
-
-Table A1. Contextual evidence and its limitations
-
-| Parameter or claim | Evidence role / source | Locator | Published context | Applicability limit |
-| --- | --- | --- | --- | --- |
-| delivered_capacity_mw | external precedent / UK_SBSP_2021_PHASE2 | PDF pp.18-19 | 2 GW CASSIOPeiA case | The same number is used here as a study scale anchor, not as evidence that this architecture is preferred. |
-| system_lifetime_years | external precedent / UK_SBSP_2021_PHASE2 | PDF pp.18-19 | 30 years; the later small-scale study uses 15 years | Lifetime remains architecture-dependent and the model does not demonstrate survivability or refurbishment feasibility. |
-| end_to_end_efficiency | technical context / CALTECH_SBSP_2022 | abstract | 7-14% end-to-end efficiency | Concept and subsystem boundaries differ; this does not directly set the model's 15% reference value. |
-| end_to_end_efficiency | source-inspired assumption / UK_SBSP_2021_ANNEX_B | PDF p.4 | approximately 14.85-24.39% from independent factor products | The 15% reference is still a project assumption; multiplying independent extrema is not a probability distribution or validated integrated design. |
-| end_to_end_efficiency | external consistency check / DESNZ_SBSP_2025 | Table 1, PDF pp.11-12; reference-design selection p.13 | 11.7-19.9%; selected Space Solar small-scale reference design 14.9% | The report states that major values are manufacturer-claimed, not independently verified; missing values are inferred and definitions may differ. |
-| capacity_factor | scope qualification / DESNZ_SBSP_2025 | Table 3, PDF p.16 | HEO: UK rectenna 95.7%, satellite average 53.9%; circular LEO: satellite average 20.1%, UK rectenna 21.5% | Rectenna utilization is not equivalent to this model's delivered capacity factor; the 90% value remains a study assumption. |
-| specific_mass_kg_per_kw_space_power | technical context / CALTECH_SBSP_2022 | abstract | 160 g/m2 areal density | Areal density cannot be converted to whole-system kg/kW-space without power density and complete subsystem boundaries. |
-| specific_mass_kg_per_kw_space_power | external consistency check / DESNZ_SBSP_2025 | Table 1, PDF pp.11-12; reference-design selection p.13 | 0.15-0.67 kW/kg; selected Space Solar small-scale reference design 0.58 kW/kg | Values are architecture-specific and partly manufacturer-claimed; inverse conversion is not imported as the model's whole-system specific mass. |
-| launch_cost_gbp_per_kg | external range / UK_SBSP_2021_ANNEX_B | PDF p.5 and p.11 | £358-2,410/kg | Orbit, procurement, price year and service boundary differ from the model-defined staging-orbit variable. |
-| launch_cost_gbp_per_kg | external comparison / DESNZ_SBSP_2025 | Table 12 p.37; Tables 27-28 pp.71-73 | central HEO £1,647/1,400/1,153 per kg; optimistic £1,188/1,008/827 for 2030/35/40 | Destination orbit, scenario year, vehicle, procurement and service boundary differ; although both are stated in 2024 GBP, the model's £500/kg reference is not taken from this table. |
-| launch_cost_gbp_per_kg | external precedent / NASA_OTPS_SBSP_2024 | PDF p.10 | nominal $500/kg; $425/kg after a 15% quantity discount | FY2022 USD, US procurement and architecture boundaries differ; no currency conversion or direct input transfer is made. |
-| wacc | financing context / DESNZ_SBSP_2025 | Table 12 p.37; Table 26 pp.68-69 | 20%/13.2%/9.06% scenario hurdles; 14.9%, 9.8%, 6.75%, 4.83% investor-class cases | Hurdle rate is not identical to WACC; this model's 6.5% real discount proxy remains study-authored. |
-| wacc | source-inspired assumption / DESNZ_EGC_2025_ANNEX_A | Technical and Cost Assumptions, row 38 | 6.5% for large solar and onshore wind | This is not an observed SBSP WACC and does not specify this model's tax or financing structure. |
-| grid_connection_cost_gbp_per_kw_delivered | source-inspired assumption / DESNZ_SBSP_2025 | PDF p.70 | £0.15m/MW = £150/kW | The model uses £100/kW as its own simplified allowance; scope and site conditions may differ. |
-| fixed_opex_pct_capex_per_year | source-inspired assumption / UK_SBSP_2021_ANNEX_B | Table B1, PDF p.4 | triangular lower/mode/upper values of 0.8%/1.9%/4.7% | Definitions and cost bases vary; the model's 1% of CAPEX per year remains a study assumption. |
-| reference_case_lcoe | external consistency check / DESNZ_SBSP_2025 | executive summary, PDF pp.3-4 | 2024 GBP: £335-595/MWh (2030), £154-249 (2035), £87-129 (2040) | This is not validation: scale, architecture, orbit, scenario year, financing and accounting boundaries differ. |
-| competitive_cost_claim | external comparison / UK_SBSP_2021_PHASE2 | Executive summary p.3; assumptions pp.18-19; Figure 5 p.22 and Table 4 p.23 | £35-79/MWh (p10-p90), p50 about £50/MWh, 2018 prices; 2 GW; 30 years; 20% hurdle | Architecture, learning, commissioning year, financing and price basis differ; values are not ranked as like-for-like forecasts. |
-| architecture_dependence | external comparison / NASA_OTPS_SBSP_2024 | executive summary pp.3-4; pp.7-10 | FY2022 USD: $610/$1,590 per MWh baseline; $30/$80 per MWh favourable combination | US architectures, service profiles, currency and lifecycle boundary differ; no NASA value is imported into this model. |
-| launch_cost_importance | scope qualification / DESNZ_SBSP_2025 | Table 14, PDF p.38 | 55.5%/62.9%/64.0% for 2030/35/40 | This project may rank specific mass first within its own one-way ranges; neither ranking is universal. |
-| system_value | system context / DESNZ_SBSP_2025 | executive summary, PDF pp.3-4 | adjusting for system benefits reduces LCOE by £21/MWh in all cases | The present model does not monetize whole-system value; £21/MWh is not subtracted from project LCOE. |
-| system_adjusted_comparison | benchmark definition / BEIS_EGC_2020 | Tables 7.1-7.3 | transcribed ranges stored in uk_system_adjusted_costs.csv | 2018 real GBP and scenario-specific; indicative only and not directly harmonised with the model's 2024 real GBP basis. |
-
-## Appendix B. Source registry
-
-Table B1. Sources used by the project
-
-| Source ID | Reference | Organisation | Role |
-| --- | --- | --- | --- |
-| DESNZ_EGC_2025 | [Electricity generation costs 2025](https://www.gov.uk/government/publications/electricity-generation-costs-2025) | Department for Energy Security and Net Zero | UK generation benchmark source |
-| DESNZ_EGC_2025_ANNEX_A | [Annex A: Additional estimates and key assumptions 2025](https://assets.publishing.service.gov.uk/media/69d8efec96c86b7513170229/annex-a-additional-estimates-and-key-assumptions-2025.xlsx) | Department for Energy Security and Net Zero | UK generation benchmark input workbook |
-| DESNZ_EGC_2023 | [Electricity generation costs 2023](https://www.gov.uk/government/publications/electricity-generation-costs-2023) | Department for Energy Security and Net Zero | Supplementary UK benchmark source |
-| BEIS_EGC_2020 | [BEIS Electricity Generation Costs (2020)](https://www.gov.uk/government/publications/beis-electricity-generation-costs-2020) | Department for Business, Energy and Industrial Strategy | System-adjusted benchmark source |
-| OFGEM_WHOLESALE | [Wholesale market indicators](https://www.ofgem.gov.uk/energy-data-and-research/data-portal/wholesale-market-indicators) | Ofgem | Market context |
-| NESO_BALANCING_2025 | [2025 Annual Balancing Costs Report](https://www.neso.energy/document/362561/download) | National Energy System Operator | System-cost evidence |
-| NESO_NETWORK_UPDATE_2026 | [Beyond 2030 - Electricity Transmission Update](https://www.neso.energy/publications/beyond-2030) | National Energy System Operator | System-cost evidence |
-| NESO_CP2030 | [Advice on achieving clean power by 2030](https://www.neso.energy/document/346651/download) | National Energy System Operator | System-cost evidence |
-| NESO_OPERABILITY_2026 | [Operability Strategy Report and Electricity Markets Roadmap](https://www.neso.energy/publications/operability-strategy-report-and-electricity-markets-roadmap) | National Energy System Operator | System-cost evidence |
-| UKSA_SBSP_2020 | [UK government commissions space solar power stations research](https://www.gov.uk/government/news/uk-government-commissions-space-solar-power-stations-research) | UK Space Agency and BEIS | Historical SBSP context |
-| UK_SBSP_2021 | [Space based solar power: de-risking the pathway to net zero](https://www.gov.uk/government/publications/space-based-solar-power-de-risking-the-pathway-to-net-zero) | Department for Business, Energy and Industrial Strategy | External SBSP study landing page |
-| UK_SBSP_2021_PHASE2 | [Space Based Solar Power as a Contributor to Net Zero — Phase 2: Economic Feasibility](https://www.fnc.co.uk/media/ae2eadpi/fnc-004456-51624r-phase-2-economic-feasibility-issue-1-1.pdf) | Frazer-Nash Consultancy for BEIS | External SBSP economic study |
-| UK_SBSP_2021_ANNEX_B | [Space Based Solar Power as a Contributor to Net Zero — Phase 2: Economic Feasibility – Annex B: Input Data Sources](https://www.fnc.co.uk/media/jfhdqus0/fnc-004456-51624r-phase-2-annex-b-input-data-sources.pdf) | Frazer-Nash Consultancy for BEIS | External SBSP input evidence |
-| DESNZ_SBSP_2025 | [Feasibility of Small-Scale Space Based Solar Power (SBSP) Systems for Early Market Adoption](https://assets.publishing.service.gov.uk/media/698f167c7da91680ad7f43ad/SBSP-enabled-pathways-to-net-zero-final-report-raf036-2425.pdf) | Frazer-Nash Consultancy; Space Solar Engineering Ltd; Imperial College London for DESNZ | External SBSP study |
-| NASA_OTPS_SBSP_2024 | [Space Based Solar Power](https://ntrs.nasa.gov/citations/20230018600) | NASA Office of Technology, Policy, and Strategy | External SBSP study |
-| CALTECH_SBSP_2022 | [A Lightweight Space-based Solar Power Generation and Transmission Satellite](https://arxiv.org/abs/2206.08373) | Caltech Space Solar Power Project | SBSP technical context |
-| CALTECH_WPT_2024 | [Wireless Power Transfer in Space using Flexible, Lightweight, Coherent Arrays](https://arxiv.org/abs/2401.15267) | Caltech Space Solar Power Project | SBSP technical context |
-| NAO_HPC_2017 | [Hinkley Point C](https://www.nao.org.uk/reports/hinkley-point-c/) | National Audit Office | Nuclear benchmark context |
-| ASSUMPTION_THIS_STUDY | [Exploratory SBSP cost-condition model assumptions](../report/final_report_EN.md) | This project | Model assumption source |
-
-## Appendix C. Assumptions and boundary register
-
-Table C1. Explicit analytical assumptions
-
-| ID | Area | Assumption | Limitation |
-| --- | --- | --- | --- |
-| A1 | Analytical framing | This is a cost-threshold assessment. No SBSP result is expressed as a deployment-year forecast. | Official UK benchmarks may contain source publication years or commissioning references, but they are not used as SBSP scenarios. |
-| A2 | Unit and price convention | All model financial inputs and outputs are interpreted in 2024 real GBP and LCOE is reported in GBP/MWh at the grid connection point. | Some external benchmarks use different real-price bases; these are labelled rather than silently harmonised. |
-| A3 | Efficiency boundary | End-to-end efficiency is applied by increasing required space-side power capacity for a fixed delivered-grid capacity. | This simplifies subsystem losses into one continuous variable. |
-| A4 | Mass boundary | Specific mass is applied per kW of required space-side power capacity. | Architecture-specific mass allocation between arrays, structures and transmitters is not modelled. |
-| A5 | Contingency | Programme margin is applied to all pre-margin CAPEX categories. | The model does not separately estimate owner costs, insurance during construction or first-of-a-kind programme development. |
-| A6 | Refurbishment | Replacement and refurbishment are modelled as an annual allowance based on initial CAPEX. | Periodic major replacement timing is not explicitly optimised. |
-| A7 | System costs | Renewable system-adjusted benchmarks use BEIS enhanced LCOE ranges from 2020 because the latest DESNZ 2025 LCOE report says wider system costs require full system modelling. | Values are in 2018 real GBP and should be treated as indicative ranges. |
-| A8 | Nuclear | Nuclear is represented only by a public contract-price marker because recent DESNZ reports do not publish an updated generic nuclear LCOE. | Not directly comparable with 2024 real generation LCOE. |
-| A9 | Conditional thresholds | A threshold is necessary only within this model, its accounting boundary and the stated parameter ranges; it is not a universal engineering requirement. | Alternative architectures, coupled parameter changes or omitted system value can move the threshold. |
-| A10 | External comparisons | Published SBSP cost estimates are used as context and consistency checks, not as validation or direct substitutes for this model's inputs. | Architectures, orbit destinations, price years, financing and cost boundaries differ materially across studies. |
-| A11 | Discount rate | The parameter named wacc is implemented as a real project discount-rate proxy in the capital-recovery factor; taxes, inflation and financing tranches are not modelled. | It should not be read as a fully specified observed pre-tax or post-tax corporate WACC. |
-| A12 | Delivered-energy boundary | The model ends at the grid connection point and uses a delivered capacity-factor proxy that combines availability, outages and operating constraints. | Downstream transmission reinforcement, balancing, storage, reliability services, curtailment and monetised system value are excluded. |
-
-Machine-readable inputs and all complete sensitivity curves are retained under `data/`; the full English figure set is under `figures/`; exact generated thresholds are under `data/processed/`.
+Generated from the executable model. Price year: 2024 real GBP. Valuation base: start of construction (t=0).

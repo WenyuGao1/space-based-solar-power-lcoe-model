@@ -1,81 +1,126 @@
 parameter,display_name,target_lcoe_gbp_per_mwh,feasible,best_lcoe_in_range_gbp_per_mwh,threshold_value
-launch_cost_gbp_per_kg,Launch cost,150,False,203.7958222228655,
-launch_cost_gbp_per_kg,Launch cost,120,False,203.7958222228655,
-launch_cost_gbp_per_kg,Launch cost,100,False,203.7958222228655,
-launch_cost_gbp_per_kg,Launch cost,80,False,203.7958222228655,
-launch_cost_gbp_per_kg,Launch cost,60,False,203.7958222228655,
-specific_mass_kg_per_kw_space_power,Specific mass,150,True,91.06834308020416,1.2841698053748107
-specific_mass_kg_per_kw_space_power,Specific mass,120,True,91.06834308020416,0.8849769879513799
-specific_mass_kg_per_kw_space_power,Specific mass,100,True,91.06834308020416,0.6188484430024259
-specific_mass_kg_per_kw_space_power,Specific mass,80,False,91.06834308020416,
-specific_mass_kg_per_kw_space_power,Specific mass,60,False,91.06834308020416,
-space_hardware_cost_gbp_per_w_space,Space hardware cost,150,False,396.37193242491185,
-space_hardware_cost_gbp_per_w_space,Space hardware cost,120,False,396.37193242491185,
-space_hardware_cost_gbp_per_w_space,Space hardware cost,100,False,396.37193242491185,
-space_hardware_cost_gbp_per_w_space,Space hardware cost,80,False,396.37193242491185,
-space_hardware_cost_gbp_per_w_space,Space hardware cost,60,False,396.37193242491185,
-wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,150,False,421.73561523201073,
-wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,120,False,421.73561523201073,
-wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,100,False,421.73561523201073,
-wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,80,False,421.73561523201073,
-wireless_power_transmission_cost_gbp_per_w_space,Wireless power transmission cost,60,False,421.73561523201073,
-end_to_end_efficiency,End-to-end efficiency,150,False,187.69189663105675,
-end_to_end_efficiency,End-to-end efficiency,120,False,187.69189663105675,
-end_to_end_efficiency,End-to-end efficiency,100,False,187.69189663105675,
-end_to_end_efficiency,End-to-end efficiency,80,False,187.69189663105675,
-end_to_end_efficiency,End-to-end efficiency,60,False,187.69189663105675,
-wacc,Real project discount-rate proxy,150,False,311.57421528731203,
-wacc,Real project discount-rate proxy,120,False,311.57421528731203,
-wacc,Real project discount-rate proxy,100,False,311.57421528731203,
-wacc,Real project discount-rate proxy,80,False,311.57421528731203,
-wacc,Real project discount-rate proxy,60,False,311.57421528731203,
-rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,150,False,427.4189589721199,
-rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,120,False,427.4189589721199,
-rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,100,False,427.4189589721199,
-rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,80,False,427.4189589721199,
-rectenna_cost_gbp_per_w_delivered,Rectenna CAPEX,60,False,427.4189589721199,
-grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,150,False,428.12350571676154,
-grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,120,False,428.12350571676154,
-grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,100,False,428.12350571676154,
-grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,80,False,428.12350571676154,
-grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,60,False,428.12350571676154,
-system_lifetime_years,System lifetime,150,False,394.63705374013085,
-system_lifetime_years,System lifetime,120,False,394.63705374013085,
-system_lifetime_years,System lifetime,100,False,394.63705374013085,
-system_lifetime_years,System lifetime,80,False,394.63705374013085,
-system_lifetime_years,System lifetime,60,False,394.63705374013085,
-capacity_factor,Delivered capacity factor (model proxy),150,False,394.4547984258871,
-capacity_factor,Delivered capacity factor (model proxy),120,False,394.4547984258871,
-capacity_factor,Delivered capacity factor (model proxy),100,False,394.4547984258871,
-capacity_factor,Delivered capacity factor (model proxy),80,False,394.4547984258871,
-capacity_factor,Delivered capacity factor (model proxy),60,False,394.4547984258871,
-in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,150,False,335.31121455597037,
-in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,120,False,335.31121455597037,
-in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,100,False,335.31121455597037,
-in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,80,False,335.31121455597037,
-in_orbit_assembly_cost_gbp_per_kg,In-orbit assembly and deployment cost,60,False,335.31121455597037,
-orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,150,False,382.2809975320792,
-orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,120,False,382.2809975320792,
-orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,100,False,382.2809975320792,
-orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,80,False,382.2809975320792,
-orbit_transfer_cost_gbp_per_kg,Orbit transfer cost,60,False,382.2809975320792,
-programme_margin_pct,Programme margin / contingency,150,False,358.20898375682344,
-programme_margin_pct,Programme margin / contingency,120,False,358.20898375682344,
-programme_margin_pct,Programme margin / contingency,100,False,358.20898375682344,
-programme_margin_pct,Programme margin / contingency,80,False,358.20898375682344,
-programme_margin_pct,Programme margin / contingency,60,False,358.20898375682344,
-replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,150,False,401.62520973193244,
-replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,120,False,401.62520973193244,
-replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,100,False,401.62520973193244,
-replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,80,False,401.62520973193244,
-replacement_refurbishment_pct_capex_per_year,Replacement and refurbishment allowance,60,False,401.62520973193244,
-fixed_opex_pct_capex_per_year,Fixed OPEX,150,False,392.41668613984723,
-fixed_opex_pct_capex_per_year,Fixed OPEX,120,False,392.41668613984723,
-fixed_opex_pct_capex_per_year,Fixed OPEX,100,False,392.41668613984723,
-fixed_opex_pct_capex_per_year,Fixed OPEX,80,False,392.41668613984723,
-fixed_opex_pct_capex_per_year,Fixed OPEX,60,False,392.41668613984723,
-variable_opex_gbp_per_mwh,Variable OPEX,150,False,426.25078050818814,
-variable_opex_gbp_per_mwh,Variable OPEX,120,False,426.25078050818814,
-variable_opex_gbp_per_mwh,Variable OPEX,100,False,426.25078050818814,
-variable_opex_gbp_per_mwh,Variable OPEX,80,False,426.25078050818814,
-variable_opex_gbp_per_mwh,Variable OPEX,60,False,426.25078050818814,
+solar_conversion_efficiency,Solar-to-DC conversion efficiency,150,True,86.02973399903817,0.2
+solar_conversion_efficiency,Solar-to-DC conversion efficiency,120,True,86.02973399903817,0.2
+solar_conversion_efficiency,Solar-to-DC conversion efficiency,100,True,86.02973399903817,0.2
+solar_conversion_efficiency,Solar-to-DC conversion efficiency,80,False,86.02973399903817,
+solar_conversion_efficiency,Solar-to-DC conversion efficiency,60,False,86.02973399903817,
+dc_to_rf_efficiency,DC-to-RF efficiency,150,True,83.30209696134955,0.4
+dc_to_rf_efficiency,DC-to-RF efficiency,120,True,83.30209696134955,0.4
+dc_to_rf_efficiency,DC-to-RF efficiency,100,True,83.30209696134955,0.4
+dc_to_rf_efficiency,DC-to-RF efficiency,80,False,83.30209696134955,
+dc_to_rf_efficiency,DC-to-RF efficiency,60,False,83.30209696134955,
+transmission_efficiency,RF transmission efficiency,150,True,85.75594229136063,0.85
+transmission_efficiency,RF transmission efficiency,120,True,85.75594229136063,0.85
+transmission_efficiency,RF transmission efficiency,100,True,85.75594229136063,0.85
+transmission_efficiency,RF transmission efficiency,80,False,85.75594229136063,
+transmission_efficiency,RF transmission efficiency,60,False,85.75594229136063,
+rectenna_conversion_efficiency,Rectenna RF-to-DC efficiency,150,True,81.756435973326,0.4
+rectenna_conversion_efficiency,Rectenna RF-to-DC efficiency,120,True,81.756435973326,0.4
+rectenna_conversion_efficiency,Rectenna RF-to-DC efficiency,100,True,81.756435973326,0.4
+rectenna_conversion_efficiency,Rectenna RF-to-DC efficiency,80,False,81.756435973326,
+rectenna_conversion_efficiency,Rectenna RF-to-DC efficiency,60,False,81.756435973326,
+grid_conversion_efficiency,DC-to-grid AC efficiency,150,True,85.47938501087827,0.9
+grid_conversion_efficiency,DC-to-grid AC efficiency,120,True,85.47938501087827,0.9
+grid_conversion_efficiency,DC-to-grid AC efficiency,100,True,85.47938501087827,0.9
+grid_conversion_efficiency,DC-to-grid AC efficiency,80,False,85.47938501087827,
+grid_conversion_efficiency,DC-to-grid AC efficiency,60,False,85.47938501087827,
+capacity_factor,Delivered capacity factor,150,True,79.25179652972894,0.6
+capacity_factor,Delivered capacity factor,120,True,79.25179652972894,0.638690261531063
+capacity_factor,Delivered capacity factor,100,True,79.25179652972894,0.7703789752488077
+capacity_factor,Delivered capacity factor,80,True,79.25179652972894,0.9704774103783683
+capacity_factor,Delivered capacity factor,60,False,79.25179652972894,
+operating_lifetime_years,Operating lifetime after commissioning,150,True,79.26781164986693,15.0
+operating_lifetime_years,Operating lifetime after commissioning,120,True,79.26781164986693,15.0
+operating_lifetime_years,Operating lifetime after commissioning,100,True,79.26781164986693,20.0
+operating_lifetime_years,Operating lifetime after commissioning,80,True,79.26781164986693,43.0
+operating_lifetime_years,Operating lifetime after commissioning,60,False,79.26781164986693,
+real_discount_rate,Real project discount rate,150,True,56.94955400241832,0.12063278702204727
+real_discount_rate,Real project discount rate,120,True,56.94955400241832,0.09683668104709563
+real_discount_rate,Real project discount rate,100,True,56.94955400241832,0.07891288701102195
+real_discount_rate,Real project discount rate,80,True,56.94955400241832,0.05853089425938084
+real_discount_rate,Real project discount rate,60,True,56.94955400241832,0.03422577712029906
+construction_duration_years,Construction duration,150,True,74.67136830631596,8.0
+construction_duration_years,Construction duration,120,True,74.67136830631596,8.0
+construction_duration_years,Construction duration,100,True,74.67136830631596,8.0
+construction_duration_years,Construction duration,80,True,74.67136830631596,1.0
+construction_duration_years,Construction duration,60,False,74.67136830631596,
+annual_output_degradation_fraction,Annual delivered-output degradation,150,True,82.01630671479784,0.03
+annual_output_degradation_fraction,Annual delivered-output degradation,120,True,82.01630671479784,0.03
+annual_output_degradation_fraction,Annual delivered-output degradation,100,True,82.01630671479784,0.021631386053288567
+annual_output_degradation_fraction,Annual delivered-output degradation,80,False,82.01630671479784,
+annual_output_degradation_fraction,Annual delivered-output degradation,60,False,82.01630671479784,
+system_specific_mass_kg_per_kw_delivered,System specific mass,150,True,31.280108512756296,10.0
+system_specific_mass_kg_per_kw_delivered,System specific mass,120,True,31.280108512756296,7.792095756757837
+system_specific_mass_kg_per_kw_delivered,System specific mass,100,True,31.280108512756296,6.148248895694821
+system_specific_mass_kg_per_kw_delivered,System specific mass,80,True,31.280108512756296,4.504402034631808
+system_specific_mass_kg_per_kw_delivered,System specific mass,60,True,31.280108512756296,2.8605551735687973
+space_generation_hardware_cost_gbp_per_w_dc,Space-generation hardware cost,150,True,72.50520035383211,2.05547986257352
+space_generation_hardware_cost_gbp_per_w_dc,Space-generation hardware cost,120,True,72.50520035383211,1.2791129818033373
+space_generation_hardware_cost_gbp_per_w_dc,Space-generation hardware cost,100,True,72.50520035383211,0.7615350612898826
+space_generation_hardware_cost_gbp_per_w_dc,Space-generation hardware cost,80,True,72.50520035383211,0.24395714077642744
+space_generation_hardware_cost_gbp_per_w_dc,Space-generation hardware cost,60,False,72.50520035383211,
+transmitter_cost_gbp_per_w_rf_emitted,RF transmitter hardware cost,150,True,83.86580861580521,1.0
+transmitter_cost_gbp_per_w_rf_emitted,RF transmitter hardware cost,120,True,83.86580861580521,1.0
+transmitter_cost_gbp_per_w_rf_emitted,RF transmitter hardware cost,100,True,83.86580861580521,0.6164786589855464
+transmitter_cost_gbp_per_w_rf_emitted,RF transmitter hardware cost,80,False,83.86580861580521,
+transmitter_cost_gbp_per_w_rf_emitted,RF transmitter hardware cost,60,False,83.86580861580521,
+launch_cost_gbp_per_kg_to_staging_orbit,Launch service cost to staging orbit,150,True,49.52998367485024,1341.258567736377
+launch_cost_gbp_per_kg_to_staging_orbit,Launch service cost to staging orbit,120,True,49.52998367485024,946.7353210812538
+launch_cost_gbp_per_kg_to_staging_orbit,Launch service cost to staging orbit,100,True,49.52998367485024,683.7198233111715
+launch_cost_gbp_per_kg_to_staging_orbit,Launch service cost to staging orbit,80,True,49.52998367485024,420.7043255410894
+launch_cost_gbp_per_kg_to_staging_orbit,Launch service cost to staging orbit,60,True,49.52998367485024,157.6888277710076
+orbit_transfer_cost_gbp_per_kg_final_hardware,Staging-to-operational-orbit transfer cost,150,True,78.42561934816568,941.258567736377
+orbit_transfer_cost_gbp_per_kg_final_hardware,Staging-to-operational-orbit transfer cost,120,True,78.42561934816568,546.7353210812538
+orbit_transfer_cost_gbp_per_kg_final_hardware,Staging-to-operational-orbit transfer cost,100,True,78.42561934816568,283.7198233111715
+orbit_transfer_cost_gbp_per_kg_final_hardware,Staging-to-operational-orbit transfer cost,80,True,78.42561934816568,20.704325541089442
+orbit_transfer_cost_gbp_per_kg_final_hardware,Staging-to-operational-orbit transfer cost,60,False,78.42561934816568,
+in_orbit_assembly_cost_gbp_per_kg_operational_hardware,In-orbit assembly and deployment cost,150,True,70.82150469729321,1041.258567736377
+in_orbit_assembly_cost_gbp_per_kg_operational_hardware,In-orbit assembly and deployment cost,120,True,70.82150469729321,646.7353210812538
+in_orbit_assembly_cost_gbp_per_kg_operational_hardware,In-orbit assembly and deployment cost,100,True,70.82150469729321,383.7198233111715
+in_orbit_assembly_cost_gbp_per_kg_operational_hardware,In-orbit assembly and deployment cost,80,True,70.82150469729321,120.70432554108945
+in_orbit_assembly_cost_gbp_per_kg_operational_hardware,In-orbit assembly and deployment cost,60,False,70.82150469729321,
+rectenna_cost_gbp_per_w_delivered,Rectenna cost,150,True,83.93137790399172,1.0
+rectenna_cost_gbp_per_w_delivered,Rectenna cost,120,True,83.93137790399172,1.0
+rectenna_cost_gbp_per_w_delivered,Rectenna cost,100,True,83.93137790399172,1.0
+rectenna_cost_gbp_per_w_delivered,Rectenna cost,80,False,83.93137790399172,
+rectenna_cost_gbp_per_w_delivered,Rectenna cost,60,False,83.93137790399172,
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,150,True,84.73843794054807,300.0
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,120,True,84.73843794054807,300.0
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,100,True,84.73843794054807,300.0
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,80,False,84.73843794054807,
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,60,False,84.73843794054807,
+programme_contingency_fraction,Initial programme contingency,150,True,73.18700251885718,0.5
+programme_contingency_fraction,Initial programme contingency,120,True,73.18700251885718,0.5
+programme_contingency_fraction,Initial programme contingency,100,True,73.18700251885718,0.4175591076169566
+programme_contingency_fraction,Initial programme contingency,80,True,73.18700251885718,0.10609888545371686
+programme_contingency_fraction,Initial programme contingency,60,False,73.18700251885718,
+space_hardware_replacement_rate_per_year,Space-hardware replacement rate,150,True,81.95294207821127,0.03
+space_hardware_replacement_rate_per_year,Space-hardware replacement rate,120,True,81.95294207821127,0.03
+space_hardware_replacement_rate_per_year,Space-hardware replacement rate,100,True,81.95294207821127,0.02656067555902377
+space_hardware_replacement_rate_per_year,Space-hardware replacement rate,80,False,81.95294207821127,
+space_hardware_replacement_rate_per_year,Space-hardware replacement rate,60,False,81.95294207821127,
+ground_hardware_replacement_rate_per_year,Ground-hardware replacement rate,150,True,85.92977277446158,0.02
+ground_hardware_replacement_rate_per_year,Ground-hardware replacement rate,120,True,85.92977277446158,0.02
+ground_hardware_replacement_rate_per_year,Ground-hardware replacement rate,100,True,85.92977277446158,0.02
+ground_hardware_replacement_rate_per_year,Ground-hardware replacement rate,80,False,85.92977277446158,
+ground_hardware_replacement_rate_per_year,Ground-hardware replacement rate,60,False,85.92977277446158,
+fixed_opex_fraction_of_eligible_assets_per_year,Fixed O&M rate,150,True,84.59246042099913,0.05
+fixed_opex_fraction_of_eligible_assets_per_year,Fixed O&M rate,120,True,84.59246042099913,0.05
+fixed_opex_fraction_of_eligible_assets_per_year,Fixed O&M rate,100,True,84.59246042099913,0.05
+fixed_opex_fraction_of_eligible_assets_per_year,Fixed O&M rate,80,False,84.59246042099913,
+fixed_opex_fraction_of_eligible_assets_per_year,Fixed O&M rate,60,False,84.59246042099913,
+variable_opex_gbp_per_mwh,Variable O&M,150,True,83.02973399903816,20.0
+variable_opex_gbp_per_mwh,Variable O&M,120,True,83.02973399903816,20.0
+variable_opex_gbp_per_mwh,Variable O&M,100,True,83.02973399903816,16.97026600096184
+variable_opex_gbp_per_mwh,Variable O&M,80,False,83.02973399903816,
+variable_opex_gbp_per_mwh,Variable O&M,60,False,83.02973399903816,
+decommissioning_cost_fraction_initial_capex,Terminal decommissioning cost,150,True,85.83168034455537,0.2
+decommissioning_cost_fraction_initial_capex,Terminal decommissioning cost,120,True,85.83168034455537,0.2
+decommissioning_cost_fraction_initial_capex,Terminal decommissioning cost,100,True,85.83168034455537,0.2
+decommissioning_cost_fraction_initial_capex,Terminal decommissioning cost,80,False,85.83168034455537,
+decommissioning_cost_fraction_initial_capex,Terminal decommissioning cost,60,False,85.83168034455537,
+residual_value_fraction_initial_capex,Terminal residual value,150,True,84.04919745421016,0.0
+residual_value_fraction_initial_capex,Terminal residual value,120,True,84.04919745421016,0.0
+residual_value_fraction_initial_capex,Terminal residual value,100,True,84.04919745421016,0.0
+residual_value_fraction_initial_capex,Terminal residual value,80,False,84.04919745421016,
+residual_value_fraction_initial_capex,Terminal residual value,60,False,84.04919745421016,

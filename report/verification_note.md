@@ -1,34 +1,21 @@
-# Verification Note
-
-Version: v1.2
-
-Evidence review date: 2026-07-19
-
-Overall automated status: **PASS**
-
-Table 1. Verification categories
+# v2.0 Verification Note
 
 | Category | Status | Evidence |
 | --- | --- | --- |
-| Numerical model | PASS | Reference CAPEX and annual-cost identities reconcile; root-solved thresholds are written with their target residuals. |
-| Input data structure | PASS | CSV record lengths, headers, required parameter bounds and official XLSX parseability were checked. |
-| Source and benchmark traceability | PASS | Source foreign keys resolve; exact SBSP inputs are study-authored; selected DESNZ 2025 cells reconcile to the benchmark CSV. |
-| Bilingual numerical parity | PASS | Both Markdown reports contain the shared version, reference LCOE, mass thresholds and coupled-frontier percentages. |
-| Output completeness | PASS | Checked 71 expected files, generated CSV row/schema invariants, decodable PNGs and seven resolved main figures per report. |
-| PDF structure | PASS | Both PDFs were parsed, checked for a minimum page count and checked for extractable text. |
+| Numerical model | PASS | Stage powers, delivered-basis mass, DCF, launch and replacement boundaries reconciled. |
+| Input metadata | PASS | Every parameter has bilingual source, denominator and limitation metadata. |
+| Bilingual parity | PASS | English and Chinese reports share version, reference LCOE and computed efficiency. |
+| Generated artefacts | PASS | Checked 87 output files plus CSV, PNG, Markdown and PDF structure. |
 
-## Known warnings and residual uncertainty
+## Warnings
 
-- Actual orbital mass, assembly cost, replacement rate and end-to-end efficiency remain architecture-dependent.
-- BEIS 2018-real-GBP system-adjusted values and DESNZ 2024-real-GBP generation values are disclosed but not price-normalised.
-- System value requires a full GB power-system model and is not monetised here.
-- PDF visual quality is verified separately during release review; the pipeline checks structure and extractable content.
+- This is a scenario result, not a commercial forecast.
+- The rectenna proxy does not explicitly model beam geometry, land, weather, safety or power-density constraints.
+- Architecture inputs may be dependent; exploration bounds are not probability distributions.
 
-## Reproduction commands
+## Commands
 
-- `python -m unittest discover -s tests -v`
-- `python analysis/run_full_analysis.py`
-
-## Interpretation
-
-`PASS` means the recorded automated checks completed for the current generated files. It does not prove engineering feasibility or eliminate judgement in exploratory ranges. PDF structural checks confirm that documents can be opened and contain the expected pages and text; visual release QA remains a separate human inspection step.
+```bash
+python -m unittest discover -s tests -v
+python analysis/run_full_analysis.py
+```
