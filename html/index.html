@@ -99,7 +99,7 @@
     .bar-row { display:grid; grid-template-columns:minmax(150px,.8fr) minmax(160px,1fr) 95px; align-items:center; gap:12px; font-size:12px; }
     .bar-label { color:var(--text); }
     .bar-track { height:9px; border-radius:9px; background:#e7eeec; overflow:hidden; }
-    .bar-fill { height:100%; border-radius:9px; background:linear-gradient(90deg,var(--teal),var(--teal-2)); min-width:2px; }
+    .bar-fill { display:block; height:100%; border-radius:9px; background:linear-gradient(90deg,var(--teal),var(--teal-2)); min-width:2px; transition:width .2s ease; }
     .bar-value { text-align:right; color:var(--ink); font-weight:750; }
     .report-area { margin-top:28px; padding:34px; border:1px solid var(--line); border-radius:var(--radius); background:#fff; }
     .report-area h2 { margin:0 0 10px; color:var(--ink); font-size:28px; }
