@@ -6,6 +6,7 @@ from pathlib import Path
 import shutil
 import subprocess
 import sys
+import tempfile
 import unittest
 
 from src.analysis import SENSITIVITY_PARAMETERS, combined_improvement_frontier, one_way_thresholds
@@ -16,6 +17,7 @@ from src.model import (
 from src.parameters import load_parameters, reference_values
 from src.validation import validate_parameters, validate_reference_case
 from src.web_payload import build_web_payload
+from src.utils import write_csv_dicts
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -184,6 +186,19 @@ class V2ModelTests(unittest.TestCase):
             ROOT / "data/processed/reference_cash_flow.csv", ROOT / "data/processed/reference_energy_chain.csv",
         ):
             self.assertTrue(path.exists() and path.stat().st_size > 0, path)
+
+    def test_18_generated_csv_float_serialisation_is_stable(self) -> None:
+        with tempfile.TemporaryDirectory() as directory:
+            path = Path(directory) / "stable.csv"
+            write_csv_dicts(path, [
+                {"metric": "macos", "value": 210.5766723490313},
+                {"metric": "linux", "value": 210.57667234903133},
+            ], ["metric", "value"])
+            self.assertEqual(path.read_text(encoding="utf-8"), (
+                "metric,value\n"
+                "macos,210.576672349031\n"
+                "linux,210.576672349031\n"
+            ))
 
 
 if __name__ == "__main__":

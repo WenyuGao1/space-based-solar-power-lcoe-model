@@ -1,26 +1,26 @@
 parameter,display_name,unit,reference_value,best_value_in_range,reference_lcoe_gbp_per_mwh,best_lcoe_gbp_per_mwh,lcoe_reduction_gbp_per_mwh
-system_specific_mass_kg_per_kw_delivered,System specific mass,kg/kW-delivered,5.0,0.5,86.02973399903817,31.280108512756296,54.74962548628187
-launch_cost_gbp_per_kg_to_staging_orbit,Launch service cost to staging orbit,GBP/kg to staging orbit,500.0,20.0,86.02973399903817,49.52998367485024,36.49975032418793
-real_discount_rate,Real project discount rate,fraction,0.065,0.03,86.02973399903817,56.94955400241832,29.080179996619854
-in_orbit_assembly_cost_gbp_per_kg_operational_hardware,In-orbit assembly and deployment cost,GBP/kg operational hardware,200.0,0.0,86.02973399903817,70.82150469729321,15.208229301744964
-space_generation_hardware_cost_gbp_per_w_dc,Space-generation hardware cost,GBP/W-DC,0.4,0.05,86.02973399903817,72.50520035383211,13.524533645206063
-programme_contingency_fraction,Initial programme contingency,fraction of pre-contingency initial CAPEX,0.2,0.0,86.02973399903817,73.18700251885718,12.842731480180987
-construction_duration_years,Construction duration,years,4.0,0.0,86.02973399903817,74.67136830631596,11.358365692722217
-orbit_transfer_cost_gbp_per_kg_final_hardware,Staging-to-operational-orbit transfer cost,GBP/kg final hardware,100.0,0.0,86.02973399903817,78.42561934816568,7.604114650872489
-capacity_factor,Delivered capacity factor,fraction,0.9,0.98,86.02973399903817,79.25179652972894,6.7779374693092365
-operating_lifetime_years,Operating lifetime after commissioning,years,30.0,45.0,86.02973399903817,79.26781164986693,6.761922349171243
-rectenna_conversion_efficiency,Rectenna RF-to-DC efficiency,fraction,0.65,0.85,86.02973399903817,81.756435973326,4.273298025712165
-space_hardware_replacement_rate_per_year,Space-hardware replacement rate,fraction/year,0.006,0.0,86.02973399903817,81.95294207821127,4.076791920826906
-annual_output_degradation_fraction,Annual delivered-output degradation,fraction/year,0.005,0.0,86.02973399903817,82.01630671479784,4.013427284240336
-variable_opex_gbp_per_mwh,Variable O&M,GBP/MWh delivered,3.0,0.0,86.02973399903817,83.02973399903816,3.000000000000014
-dc_to_rf_efficiency,DC-to-RF efficiency,fraction,0.7,0.85,86.02973399903817,83.30209696134955,2.7276370376886234
-transmitter_cost_gbp_per_w_rf_emitted,RF transmitter hardware cost,GBP/W-RF emitted,0.1,0.02,86.02973399903817,83.86580861580521,2.1639253832329644
-rectenna_cost_gbp_per_w_delivered,Rectenna cost,GBP/W-delivered AC,0.15,0.02,86.02973399903817,83.93137790399172,2.098356095046455
-residual_value_fraction_initial_capex,Terminal residual value,fraction of initial CAPEX,0.0,0.2,86.02973399903817,84.04919745421016,1.9805365448280128
-fixed_opex_fraction_of_eligible_assets_per_year,Fixed O&M rate,fraction/year,0.01,0.002,86.02973399903817,84.59246042099913,1.43727357803904
-grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered AC,100.0,20.0,86.02973399903817,84.73843794054807,1.2912960584901043
-grid_conversion_efficiency,DC-to-grid AC efficiency,fraction,0.96,0.99,86.02973399903817,85.47938501087827,0.5503489881598966
-transmission_efficiency,RF transmission efficiency,fraction,0.98,0.995,86.02973399903817,85.75594229136063,0.273791707677546
-decommissioning_cost_fraction_initial_capex,Terminal decommissioning cost,fraction of initial CAPEX,0.02,0.0,86.02973399903817,85.83168034455537,0.19805365448280554
-ground_hardware_replacement_rate_per_year,Ground-hardware replacement rate,fraction/year,0.003,0.0,86.02973399903817,85.92977277446158,0.09996122457658885
-solar_conversion_efficiency,Solar-to-DC conversion efficiency,fraction,0.35,0.45,86.02973399903817,86.02973399903817,0.0
+system_specific_mass_kg_per_kw_delivered,System specific mass,kg/kW-delivered,5,0.5,86.0297339990382,31.2801085127563,54.7496254862819
+launch_cost_gbp_per_kg_to_staging_orbit,Launch service cost to staging orbit,GBP/kg to staging orbit,500,20,86.0297339990382,49.5299836748502,36.4997503241879
+real_discount_rate,Real project discount rate,fraction,0.065,0.03,86.0297339990382,56.9495540024183,29.0801799966199
+in_orbit_assembly_cost_gbp_per_kg_operational_hardware,In-orbit assembly and deployment cost,GBP/kg operational hardware,200,0,86.0297339990382,70.8215046972932,15.208229301745
+space_generation_hardware_cost_gbp_per_w_dc,Space-generation hardware cost,GBP/W-DC,0.4,0.05,86.0297339990382,72.5052003538321,13.5245336452061
+programme_contingency_fraction,Initial programme contingency,fraction of pre-contingency initial CAPEX,0.2,0,86.0297339990382,73.1870025188572,12.842731480181
+construction_duration_years,Construction duration,years,4,0,86.0297339990382,74.671368306316,11.3583656927222
+orbit_transfer_cost_gbp_per_kg_final_hardware,Staging-to-operational-orbit transfer cost,GBP/kg final hardware,100,0,86.0297339990382,78.4256193481657,7.60411465087249
+capacity_factor,Delivered capacity factor,fraction,0.9,0.98,86.0297339990382,79.2517965297289,6.77793746930924
+operating_lifetime_years,Operating lifetime after commissioning,years,30,45,86.0297339990382,79.2678116498669,6.76192234917124
+rectenna_conversion_efficiency,Rectenna RF-to-DC efficiency,fraction,0.65,0.85,86.0297339990382,81.756435973326,4.27329802571217
+space_hardware_replacement_rate_per_year,Space-hardware replacement rate,fraction/year,0.006,0,86.0297339990382,81.9529420782113,4.07679192082691
+annual_output_degradation_fraction,Annual delivered-output degradation,fraction/year,0.005,0,86.0297339990382,82.0163067147978,4.01342728424034
+variable_opex_gbp_per_mwh,Variable O&M,GBP/MWh delivered,3,0,86.0297339990382,83.0297339990382,3.00000000000001
+dc_to_rf_efficiency,DC-to-RF efficiency,fraction,0.7,0.85,86.0297339990382,83.3020969613495,2.72763703768862
+transmitter_cost_gbp_per_w_rf_emitted,RF transmitter hardware cost,GBP/W-RF emitted,0.1,0.02,86.0297339990382,83.8658086158052,2.16392538323296
+rectenna_cost_gbp_per_w_delivered,Rectenna cost,GBP/W-delivered AC,0.15,0.02,86.0297339990382,83.9313779039917,2.09835609504646
+residual_value_fraction_initial_capex,Terminal residual value,fraction of initial CAPEX,0,0.2,86.0297339990382,84.0491974542102,1.98053654482801
+fixed_opex_fraction_of_eligible_assets_per_year,Fixed O&M rate,fraction/year,0.01,0.002,86.0297339990382,84.5924604209991,1.43727357803904
+grid_connection_cost_gbp_per_kw_delivered,Grid connection cost,GBP/kW-delivered AC,100,20,86.0297339990382,84.7384379405481,1.2912960584901
+grid_conversion_efficiency,DC-to-grid AC efficiency,fraction,0.96,0.99,86.0297339990382,85.4793850108783,0.550348988159897
+transmission_efficiency,RF transmission efficiency,fraction,0.98,0.995,86.0297339990382,85.7559422913606,0.273791707677546
+decommissioning_cost_fraction_initial_capex,Terminal decommissioning cost,fraction of initial CAPEX,0.02,0,86.0297339990382,85.8316803445554,0.198053654482806
+ground_hardware_replacement_rate_per_year,Ground-hardware replacement rate,fraction/year,0.003,0,86.0297339990382,85.9297727744616,0.0999612245765888
+solar_conversion_efficiency,Solar-to-DC conversion efficiency,fraction,0.35,0.45,86.0297339990382,86.0297339990382,0
