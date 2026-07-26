@@ -426,15 +426,15 @@
     .benchmark-caption b { color:var(--text); }
     .analysis-grid {
       display:grid;
-      grid-template-columns:minmax(250px,.75fr) minmax(340px,1.25fr);
-      gap:28px;
+      grid-template-columns:minmax(300px,.9fr) minmax(360px,1.1fr);
+      gap:36px;
       margin-top:27px;
       padding-top:25px;
       border-top:1px solid var(--line);
     }
-    .composition { display:grid; grid-template-columns:132px 1fr; align-items:center; gap:20px; margin-top:18px; }
+    .composition { display:grid; grid-template-columns:124px minmax(0,1fr); align-items:center; gap:22px; margin-top:18px; }
     .donut {
-      width:132px;
+      width:124px;
       aspect-ratio:1;
       display:grid;
       place-items:center;
@@ -446,14 +446,37 @@
     .donut-center { position:absolute; z-index:2; display:grid; justify-items:center; text-align:center; }
     .donut-value { color:var(--ink); font-size:28px; font-weight:850; line-height:1; }
     .donut-label { max-width:84px; margin-top:4px; color:var(--muted); font-size:9px; }
-    .legend { display:grid; gap:9px; }
-    .legend-item { display:grid; grid-template-columns:10px 1fr auto; align-items:center; gap:8px; color:var(--muted); font-size:11px; }
+    .legend { min-width:0; display:grid; gap:9px; }
+    .legend-item { display:grid; grid-template-columns:10px minmax(84px,1fr) minmax(84px,auto); align-items:center; gap:8px; color:var(--muted); font-size:11px; }
     .swatch { width:9px; height:9px; border-radius:3px; background:var(--swatch); }
     .legend-value { color:var(--text); font-weight:750; white-space:nowrap; }
+    .mix-stack {
+      display:flex;
+      height:11px;
+      margin-top:18px;
+      overflow:hidden;
+      border-radius:999px;
+      background:#e4ecea;
+    }
+    .mix-segment {
+      display:block;
+      width:var(--share);
+      min-width:2px;
+      background:var(--segment-color);
+    }
+    .mix-summary {
+      display:flex;
+      justify-content:space-between;
+      gap:12px;
+      margin-top:7px;
+      color:var(--muted);
+      font-size:10px;
+    }
+    .mix-summary strong { color:var(--ink); }
     .driver-list,.bars { display:grid; gap:11px; margin-top:18px; }
     .driver-row,.bar-row {
       display:grid;
-      grid-template-columns:minmax(130px,.78fr) minmax(150px,1fr) 92px;
+      grid-template-columns:minmax(136px,.82fr) minmax(150px,1fr) 102px;
       align-items:center;
       gap:11px;
       font-size:11px;
@@ -465,11 +488,13 @@
       height:100%;
       min-width:2px;
       border-radius:999px;
-      background:linear-gradient(90deg,var(--teal),var(--teal-2));
+      background:var(--bar-color,var(--teal));
       transition:width .2s ease;
     }
     .bar-fill.is-credit { background:var(--red); }
     .driver-value,.bar-value { color:var(--ink); font-weight:750; text-align:right; white-space:nowrap; }
+    .driver-value { display:grid; line-height:1.15; }
+    .driver-value small { margin-top:2px; color:var(--muted); font-size:9px; font-weight:650; }
     .metric-strip {
       display:grid;
       grid-template-columns:repeat(6,minmax(0,1fr));
@@ -531,40 +556,71 @@
     .finding strong { display:block; margin-top:6px; color:var(--ink); font-size:22px; }
     .finding p { margin:7px 0 0; color:var(--muted); font-size:11px; }
     .report-grid { display:grid; grid-template-columns:1fr 1fr; gap:18px; margin-top:20px; }
-    .report-card { padding:22px; border:1px solid var(--line); border-radius:14px; }
+    .report-card { padding:22px; border:1px solid var(--line); border-radius:14px; background:#fff; }
     .report-card.wide { grid-column:1 / -1; }
     .report-card-head { display:flex; justify-content:space-between; align-items:flex-start; gap:18px; }
     .report-card h3 { margin:0; color:var(--ink); font-size:18px; }
     .report-card p { margin:6px 0 0; color:var(--muted); font-size:12px; }
     .chart-tag { padding:5px 8px; border-radius:7px; background:var(--soft); color:var(--teal); font-size:10px; white-space:nowrap; }
-    .impact-list { display:grid; gap:10px; margin-top:18px; }
-    .impact-row { display:grid; grid-template-columns:minmax(130px,.8fr) 1.2fr 75px; align-items:center; gap:10px; font-size:11px; }
-    .impact-track { height:8px; border-radius:999px; background:#e4ecea; overflow:hidden; }
-    .impact-fill { display:block; height:100%; border-radius:999px; background:linear-gradient(90deg,var(--teal),var(--teal-2)); }
-    .impact-value { text-align:right; color:var(--ink); font-weight:750; }
-    .energy-chain { display:grid; grid-template-columns:repeat(6,minmax(0,1fr)); gap:7px; margin-top:18px; }
+    .scenario-compare { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; margin-top:18px; }
+    .scenario-profile {
+      min-width:0;
+      padding:17px;
+      border:1px solid var(--line);
+      border-top:4px solid var(--scenario-color);
+      border-radius:12px;
+      background:var(--soft);
+    }
+    .scenario-profile.is-current { background:#f3faf8; border-color:#b9d8d4; border-top-color:var(--scenario-color); }
+    .scenario-name { display:flex; justify-content:space-between; align-items:flex-start; gap:10px; min-height:34px; color:var(--text); font-size:11px; font-weight:780; }
+    .scenario-name span:last-child { color:var(--scenario-color); font-size:9px; letter-spacing:.06em; text-transform:uppercase; }
+    .scenario-lcoe { margin-top:10px; color:var(--ink); font-size:27px; font-weight:860; letter-spacing:-.04em; }
+    .scenario-lcoe small { color:var(--muted); font-size:11px; font-weight:700; letter-spacing:0; }
+    .scenario-lcoe-track {
+      position:relative;
+      height:8px;
+      margin-top:10px;
+      overflow:hidden;
+      border-radius:999px;
+      background:linear-gradient(90deg,#d7ece9 0 53.333%,#e8dfd1 53.333% 100%);
+    }
+    .scenario-lcoe-track i { display:block; width:var(--scenario-width); height:100%; border-radius:999px; background:var(--scenario-color); }
+    .scenario-metrics { display:grid; grid-template-columns:1fr 1fr; gap:8px 12px; margin-top:15px; }
+    .scenario-metric span { display:block; color:var(--muted); font-size:9px; }
+    .scenario-metric strong { display:block; margin-top:2px; color:var(--ink); font-size:12px; }
+    .chart-note { margin-top:13px !important; padding-top:12px; border-top:1px solid var(--line); font-size:10px !important; }
+    .impact-axis,.impact-row { display:grid; grid-template-columns:minmax(145px,.9fr) 1.15fr 96px; align-items:center; gap:11px; }
+    .impact-axis { margin-top:17px; color:var(--muted); font-size:9px; }
+    .impact-axis-track { display:flex; justify-content:space-between; }
+    .impact-list { display:grid; gap:11px; margin-top:9px; }
+    .impact-row { font-size:11px; }
+    .impact-track { position:relative; height:24px; }
+    .impact-track::before { content:''; position:absolute; top:10px; left:0; right:0; height:4px; border-radius:999px; background:#e4ecea; }
+    .impact-fill { position:absolute; top:9px; left:var(--best); width:calc(100% - var(--best)); height:6px; border-radius:999px; background:#86c4be; }
+    .impact-point { position:absolute; top:6px; width:12px; height:12px; border:2px solid #fff; border-radius:50%; box-shadow:0 0 0 1px #6f918d; transform:translateX(-50%); }
+    .impact-point.best { left:var(--best); background:var(--teal); }
+    .impact-point.current { left:100%; background:#fff; border-color:var(--teal); box-shadow:0 0 0 1px var(--teal); }
+    .impact-value { display:grid; text-align:right; color:var(--ink); font-weight:800; line-height:1.15; }
+    .impact-value small { margin-top:2px; color:var(--teal); font-size:9px; font-weight:700; }
+    .energy-chain { display:flex; align-items:stretch; gap:0; margin-top:18px; }
     .stage {
       position:relative;
       min-width:0;
+      flex:1 1 0;
       padding:13px 10px 15px;
       border:1px solid var(--line);
+      border-top:3px solid var(--stage-accent,var(--teal-2));
       border-radius:10px;
       background:var(--soft);
-    }
-    .stage:not(:last-child)::after {
-      content:'→';
-      position:absolute;
-      top:50%;
-      right:-9px;
-      z-index:2;
-      transform:translateY(-50%);
-      color:var(--teal);
-      font-size:13px;
     }
     .stage span { display:block; min-height:32px; color:var(--muted); font-size:10px; }
     .stage strong { display:block; margin-top:7px; color:var(--ink); font-size:14px; }
     .stage-bar { position:absolute; left:0; right:0; bottom:0; height:4px; border-radius:0 0 9px 9px; background:#dfe8e6; overflow:hidden; }
-    .stage-bar i { display:block; height:100%; background:var(--teal-2); }
+    .stage-bar i { display:block; height:100%; background:var(--stage-accent,var(--teal-2)); }
+    .stage-transition { width:48px; flex:0 0 48px; display:grid; place-content:center; justify-items:center; color:var(--muted); text-align:center; }
+    .stage-transition strong { color:var(--teal); font-size:10px; }
+    .stage-transition span { font-size:8px; }
+    .stage-transition::after { content:'→'; color:#83a49f; font-size:16px; line-height:1; }
     .method-strip { display:grid; grid-template-columns:repeat(3,1fr); margin-top:20px; border-top:1px solid var(--line); border-bottom:1px solid var(--line); }
     .method-item { padding:20px; border-right:1px solid var(--line); }
     .method-item:last-child { border-right:0; }
@@ -581,6 +637,7 @@
       .metric:nth-child(-n+3) { border-bottom:1px solid var(--line); }
       .analysis-grid { grid-template-columns:1fr; }
       .composition { grid-template-columns:120px minmax(180px,1fr); max-width:530px; }
+      .scenario-compare { grid-template-columns:1fr 1fr 1fr; }
     }
     @media (max-width:940px) {
       .brand-sub,.price-basis,.live-label { display:none; }
@@ -591,8 +648,9 @@
       .benchmark-card-grid { grid-template-columns:repeat(2,1fr); grid-template-rows:repeat(3,38px); }
       .benchmark-annotation-stage { height:166px; }
       .benchmark-card-leaders { display:none; }
-      .energy-chain { grid-template-columns:repeat(3,1fr); }
-      .stage:nth-child(3)::after { display:none; }
+      .energy-chain { flex-wrap:wrap; gap:8px; }
+      .stage { flex-basis:28%; }
+      .stage-transition { display:none; }
       .findings-grid { grid-template-columns:repeat(2,1fr); }
       .finding:nth-child(2) { border-right:0; }
       .finding:nth-child(-n+2) { border-bottom:1px solid var(--line); }
@@ -641,7 +699,7 @@
       .current-pin::after { top:68px; }
       .benchmark-caption { grid-template-columns:1fr; gap:5px; }
       .benchmark-caption span:nth-child(2),.benchmark-caption span:last-child { text-align:left; }
-      .driver-row,.bar-row { grid-template-columns:minmax(105px,.8fr) 1fr 73px; gap:8px; }
+      .driver-row,.bar-row { grid-template-columns:minmax(105px,.8fr) 1fr 82px; gap:8px; }
       .metric-strip { grid-template-columns:repeat(2,1fr); }
       .metric:nth-child(3) { border-right:1px solid var(--line); }
       .metric:nth-child(2n) { border-right:0; }
@@ -652,13 +710,18 @@
       .report-head { display:block; }
       .report-actions { justify-items:start; margin-top:17px; }
       .findings-grid,.report-grid { grid-template-columns:1fr; }
+      .scenario-compare { grid-template-columns:1fr; }
+      .scenario-profile { padding:16px; }
+      .scenario-name { min-height:0; }
       .finding { border-right:0; border-bottom:1px solid var(--line); }
       .finding:last-child { border-bottom:0; }
       .report-card.wide { grid-column:auto; }
-      .energy-chain { grid-template-columns:1fr; }
-      .stage { display:flex; align-items:center; justify-content:space-between; gap:16px; }
+      .energy-chain { flex-direction:column; flex-wrap:nowrap; gap:0; }
+      .stage { width:100%; flex:none; display:grid; grid-template-columns:1fr auto; align-items:center; gap:16px; padding:13px 12px 16px; }
       .stage span { min-height:0; }
-      .stage::after { display:none !important; }
+      .stage-bar { grid-column:1 / -1; }
+      .stage-transition { width:100%; height:42px; flex:0 0 42px; grid-template-columns:auto auto; grid-template-rows:auto auto; column-gap:5px; }
+      .stage-transition::after { content:'↓'; grid-column:1 / -1; }
       .source-footer { display:block; }
       .source-links { justify-content:flex-start; margin-top:13px; }
     }
@@ -671,9 +734,11 @@
       .lcoe { font-size:78px; }
       .benchmark-annotation-stage { height:178px; }
       .energy-card { display:grid; align-content:center; gap:1px; }
-      .composition { grid-template-columns:110px 1fr; gap:15px; }
-      .donut { width:110px; }
-      .impact-row { grid-template-columns:minmax(95px,.8fr) 1fr 61px; gap:7px; }
+      .composition { grid-template-columns:102px minmax(0,1fr); gap:14px; }
+      .donut { width:102px; }
+      .legend-item { grid-template-columns:9px minmax(70px,1fr) auto; gap:6px; font-size:10px; }
+      .legend-value { font-size:9px; }
+      .impact-axis,.impact-row { grid-template-columns:minmax(102px,.9fr) 1fr 72px; gap:7px; }
       .report-card { padding:19px 16px; }
     }
     @media (prefers-reduced-motion:reduce) {
@@ -784,6 +849,8 @@
               <div class="donut" id="donut" aria-label="Discounted lifecycle cost composition"><div class="donut-center"><span class="donut-value" id="capital-share">—</span><span class="donut-label" data-i18n="capitalShare">initial construction share</span></div></div>
               <div class="legend" id="legend"></div>
             </div>
+            <div class="mix-stack" id="mix-stack" aria-hidden="true"></div>
+            <div class="mix-summary"><span data-i18n="grossLifecycleMix">Gross positive lifecycle cost</span><strong id="mix-total">—</strong></div>
           </section>
           <section aria-labelledby="capex-title">
             <div class="section-heading"><h2 id="capex-title" data-i18n="capexAllocation">Initial CAPEX allocation</h2><span data-i18n="sortedCurrent">Sorted for current scenario</span></div>
@@ -824,8 +891,14 @@
       </div>
 
       <div class="report-grid">
+        <section class="report-card wide" aria-labelledby="scenario-title">
+          <div class="report-card-head"><div><h3 id="scenario-title" data-i18n="scenarioTitle">Scenario profiles</h3><p data-i18n="scenarioIntro">The active model run is shown beside the two study-authored illustrative combinations on a common £0–150/MWh scale.</p></div><span class="chart-tag" data-i18n="threeRuns">Three model runs</span></div>
+          <div class="scenario-compare" id="scenario-compare"></div>
+          <p class="chart-note" data-i18n="scenarioCaveat">Illustrative £80 and £60 combinations are mathematical interpolation devices, not engineering roadmaps, probabilities or forecasts.</p>
+        </section>
         <section class="report-card" aria-labelledby="impact-title">
           <div class="report-card-head"><div><h3 id="impact-title" data-i18n="impactTitle">Current-scenario one-way headroom</h3><p data-i18n="impactIntro">Each row moves one parameter to its favourable exploration bound while all other current values stay fixed.</p></div><span class="chart-tag" data-i18n="notForecast">Not a forecast</span></div>
+          <div class="impact-axis"><span data-i18n="favourableBound">Favourable bound result</span><span class="impact-axis-track"><span>£0</span><span id="impact-current-axis">—</span></span><span data-i18n="reduction">Reduction</span></div>
           <div class="impact-list" id="impact-list"></div>
         </section>
         <section class="report-card" aria-labelledby="lifecycle-title">
@@ -863,6 +936,26 @@
     var referenceResult = SBSPModel.calculateLcoe(referenceValues,{launchPricingMode:'per_kg'});
     var lastResult = referenceResult;
     var scaleMax = 500;
+    var capexPalette = {
+      launch_to_staging_orbit:'#0f766e',
+      in_orbit_assembly_and_deployment:'#4aa69f',
+      space_generation_hardware:'#4f7fa7',
+      orbit_transfer_to_operational_orbit:'#7d9bb4',
+      wireless_power_transmitter:'#8069a5',
+      rectenna:'#b5792f',
+      grid_connection:'#bd624f',
+      programme_contingency:'#b87322'
+    };
+    var lifecyclePalette = {
+      initial_construction:'#0f766e',
+      fixed_opex:'#4f7fa7',
+      variable_opex:'#7d9bb4',
+      space_hardware_replacement:'#b5792f',
+      ground_hardware_replacement:'#d1a466',
+      decommissioning:'#bd624f',
+      residual_value:'#8069a5'
+    };
+    var stagePalette = ['#0f766e','#21857d','#38958d','#50a59d','#69b5ae','#4f7fa7'];
     var impactIds = SBSP_MODEL_DATA.parameters.map(function(parameter){ return parameter.id; }).filter(function(id){ return id !== 'delivered_capacity_mw'; });
     var groupDefinitions = [
       {id:'energy',parameters:['solar_conversion_efficiency','dc_to_rf_efficiency','transmission_efficiency','rectenna_conversion_efficiency','grid_conversion_efficiency','capacity_factor']},
@@ -880,7 +973,7 @@
         benchmarkTitle:'Target cost scale',studyDefined:'<strong>Study-defined thresholds:</strong> analytical screening lines, not official UK targets. Energy cards are external comparison ranges, not model inputs.',
         solar:'Solar',onshoreWind:'Onshore wind',fixedOffshore:'Fixed offshore',floatingOffshore:'Floating offshore',gasCcgt:'Gas CCGT',gasCcus:'Gas + CCUS',
         deepCost:'<b>£60–80</b> deep-cost region',decisionZone:'<b>£80–120</b> study decision region',screeningLine:'<b>£150</b> broad screening line',
-        costMix:'Discounted lifecycle cost mix',dcfBasis:'Present value at t=0',capitalShare:'initial construction share',capexAllocation:'Initial CAPEX allocation',sortedCurrent:'Sorted for current scenario',
+        costMix:'Discounted lifecycle cost mix',dcfBasis:'Present value at t=0',capitalShare:'initial construction share',grossLifecycleMix:'Gross positive lifecycle cost',capexAllocation:'Initial CAPEX allocation',sortedCurrent:'Sorted for current scenario',
         computedEfficiency:'Computed chain efficiency',orbitalMass:'Orbital system mass',launchCount:'Equivalent launches',initialCapex:'Initial CAPEX',annualEnergy:'First-year delivered energy',discountedCost:'Discounted lifecycle cost',
         sensitivePrefix:'Largest current one-way headroom:',modelNote:'The boundary ends at grid-delivered AC. The result is conditional analysis, not a deployment forecast, commercial quotation or investment recommendation.',
         reportEyebrow:'Evidence and model boundaries',reportTitle:'A rigorous reading of the interactive result',reportIntro:'The controls above show the response of the model. The sections below expose the principal drivers, stage-resolved power chain and discounted-cost boundary needed to interpret the number.',
@@ -889,9 +982,10 @@
         findingMassLabel:'Delivered-power mass basis',findingMassText:'Delivered kW multiplied by kg/kW-delivered. Efficiency is not divided a second time.',
         findingChainLabel:'Stage-resolved chain',findingChainText:'Five independently adjustable conversion stages, calculated backwards from delivered AC.',
         findingDeploymentLabel:'Deployment diagnostic',findingDeploymentText:'Equivalent launch count reflects payload and utilisation; it is not a manifest or schedule.',
-        impactTitle:'Current-scenario one-way headroom',impactIntro:'Each row moves one parameter to its favourable exploration bound while all other current values stay fixed.',notForecast:'Not a forecast',
+        scenarioTitle:'Scenario profiles',scenarioIntro:'The active model run is shown beside the two study-authored illustrative combinations on a common £0–150/MWh scale.',threeRuns:'Three model runs',scenarioCaveat:'Illustrative £80 and £60 combinations are mathematical interpolation devices, not engineering roadmaps, probabilities or forecasts.',activeRun:'Active',customScenario:'Custom',
+        impactTitle:'Current-scenario one-way headroom',impactIntro:'Each row moves one parameter to its favourable exploration bound while all other current values stay fixed.',notForecast:'Not a forecast',favourableBound:'Favourable-bound result',reduction:'Reduction',
         lifecycleTitle:'Discounted lifecycle-cost present value',lifecycleIntro:'Construction, operations, replacement and terminal effects are discounted to the start of construction.',
-        chainTitle:'Stage-resolved energy chain',chainIntro:'Hardware costs use the power rating of the stage they serve. Orbital mass remains on a delivered-power basis.',
+        chainTitle:'Stage-resolved energy chain',chainIntro:'Hardware costs use the power rating of the stage they serve. Orbital mass remains on a delivered-power basis.',retained:'retained',
         boundaryTitle:'Accounting boundary',boundaryText:'AC at the grid connection point; 2024 real GBP; valuation at start of construction. Construction duration and degradation are explicit.',
         limitsTitle:'Physical limitations',limitsText:'Beam geometry, spectrum, land, weather, safety, thermal design, debris, logistics and detailed replacement missions are not physically resolved.',
         evidenceTitle:'Evidence discipline',evidenceText:'All 29 defaults are study-authored exploratory assumptions. External studies provide context, range inspiration and consistency checks—not direct substitution.',
@@ -902,7 +996,7 @@
         launchMode:'Launch pricing mode',exclusive:'Per-kg and per-flight prices are mutually exclusive.',perKg:'Per kg to staging orbit',perFlight:'Per flight to staging orbit',
         groups:{energy:'Energy chain',mass:'Architecture & mass',deployment:'Launch & deployment',finance:'Finance & construction',operation:'Operations & lifecycle'},
         stages:{incident_solar_power_w:'Incident solar',space_dc_bus_power_w:'Space DC bus',emitted_rf_power_w:'Emitted RF',incident_rf_power_w:'RF at rectenna',rectenna_dc_power_w:'Rectenna DC',delivered_grid_ac_power_w:'Grid-delivered AC'},
-        capex:{space_generation_hardware:'Space generation',wireless_power_transmitter:'RF transmitter',launch_to_staging_orbit:'Launch to staging orbit',orbit_transfer_to_operational_orbit:'Orbit transfer',in_orbit_assembly_and_deployment:'Assembly & deployment',rectenna:'Rectenna',grid_connection:'Grid connection'},
+        capex:{space_generation_hardware:'Space generation',wireless_power_transmitter:'RF transmitter',launch_to_staging_orbit:'Launch to staging orbit',orbit_transfer_to_operational_orbit:'Orbit transfer',in_orbit_assembly_and_deployment:'Assembly & deployment',rectenna:'Rectenna',grid_connection:'Grid connection',programme_contingency:'Programme contingency'},
         lifecycle:{initial_construction:'Initial construction',fixed_opex:'Fixed O&M',variable_opex:'Variable O&M',space_hardware_replacement:'Space replacement',ground_hardware_replacement:'Ground replacement',decommissioning:'Decommissioning',residual_value:'Residual value'},
         mix:{capital:'Initial construction',opex:'Operations',replacement:'Replacement',terminal:'Terminal cost'},
         status:{below60:['Below the £60 deep-cost line','Below the lowest analytical line in this study'],below80:['Inside the deep-cost region','Within the £60–80/MWh analytical region'],below120:['Inside the study decision region','Within the £80–120/MWh analytical region'],below150:['Below the £150 screening line','Outside the study decision region but below the broad screen'],above150:['Above the £150 screening line','Multiple technical and financial conditions would need to improve']}
@@ -915,7 +1009,7 @@
         benchmarkTitle:'目标成本坐标',studyDefined:'<strong>本研究定义的门槛：</strong>这些是分析筛选线，不是英国官方目标。能源卡片是外部比较区间，不是模型输入。',
         solar:'大型光伏',onshoreWind:'陆上风电',fixedOffshore:'固定式海风',floatingOffshore:'浮式海风',gasCcgt:'燃气 CCGT',gasCcus:'燃气 + CCUS',
         deepCost:'<b>£60–80</b> 深度成本区间',decisionZone:'<b>£80–120</b> 研究决策区间',screeningLine:'<b>£150</b> 广义筛选线',
-        costMix:'贴现生命周期成本构成',dcfBasis:'贴现至t=0的现值',capitalShare:'初始建设成本占比',capexAllocation:'初始资本支出去向',sortedCurrent:'按当前情景排序',
+        costMix:'贴现生命周期成本构成',dcfBasis:'贴现至t=0的现值',capitalShare:'初始建设成本占比',grossLifecycleMix:'正向生命周期成本总额',capexAllocation:'初始资本支出去向',sortedCurrent:'按当前情景排序',
         computedEfficiency:'计算所得链路效率',orbitalMass:'轨道系统质量',launchCount:'等效发射次数',initialCapex:'初始资本支出',annualEnergy:'首年交付电量',discountedCost:'贴现生命周期成本',
         sensitivePrefix:'当前最大一维降本空间：',modelNote:'成本边界止于并网交流电。本结果是条件分析，不是部署预测、商业报价或投资建议。',
         reportEyebrow:'证据与模型边界',reportTitle:'严谨理解交互结果',reportIntro:'上方控件展示模型响应；下方进一步说明关键驱动因素、分阶段功率链和贴现成本边界。',
@@ -924,9 +1018,10 @@
         findingMassLabel:'交付功率质量口径',findingMassText:'交付kW乘以kg/kW-交付，不再重复除以效率。',
         findingChainLabel:'分阶段能量链',findingChainText:'五级转换效率独立调节，并从并网交流功率向上游反推。',
         findingDeploymentLabel:'部署诊断',findingDeploymentText:'等效发射次数反映载荷与利用率，但不是飞行清单或排程。',
-        impactTitle:'当前情景的一维降本空间',impactIntro:'每行仅把一个参数移至有利探索边界，其余当前值保持不变。',notForecast:'不是预测',
+        scenarioTitle:'情景剖面对比',scenarioIntro:'把当前模型结果与两个研究自定的示意组合放在统一的£0–150/MWh尺度上比较。',threeRuns:'三个模型结果',scenarioCaveat:'示意£80和£60组合只是数学插值工具，不是工程路线图、概率或预测。',activeRun:'当前',customScenario:'自定义',
+        impactTitle:'当前情景的一维降本空间',impactIntro:'每行仅把一个参数移至有利探索边界，其余当前值保持不变。',notForecast:'不是预测',favourableBound:'有利边界结果',reduction:'降幅',
         lifecycleTitle:'贴现生命周期成本现值',lifecycleIntro:'建设、运营、更换和期末影响都贴现至建设开始时点。',
-        chainTitle:'分阶段能量链',chainIntro:'硬件成本采用其服务阶段的额定功率；轨道质量仍采用交付功率口径。',
+        chainTitle:'分阶段能量链',chainIntro:'硬件成本采用其服务阶段的额定功率；轨道质量仍采用交付功率口径。',retained:'保留',
         boundaryTitle:'会计边界',boundaryText:'并网点交流电；2024年实际英镑；建设开始时点估值。建设期和衰减均显式计入。',
         limitsTitle:'物理限制',limitsText:'波束几何、频谱、土地、天气、安全、热设计、碎片、物流及详细更换任务尚未物理解析。',
         evidenceTitle:'证据纪律',evidenceText:'29个默认值均为本研究探索性假设。外部研究只用于背景、范围启发和一致性核对，并非直接替代。',
@@ -937,7 +1032,7 @@
         launchMode:'发射计价模式',exclusive:'按公斤和按次计价互斥。',perKg:'按kg至集结轨道',perFlight:'按次至集结轨道',
         groups:{energy:'能量链',mass:'架构与质量',deployment:'发射与部署',finance:'融资与建设',operation:'运营与生命周期'},
         stages:{incident_solar_power_w:'入射太阳功率',space_dc_bus_power_w:'空间直流母线',emitted_rf_power_w:'射频发射',incident_rf_power_w:'整流天线入射射频',rectenna_dc_power_w:'整流天线直流',delivered_grid_ac_power_w:'并网交流交付'},
-        capex:{space_generation_hardware:'空间发电',wireless_power_transmitter:'射频发射机',launch_to_staging_orbit:'发射至集结轨道',orbit_transfer_to_operational_orbit:'轨道转移',in_orbit_assembly_and_deployment:'组装与部署',rectenna:'整流天线',grid_connection:'并网'},
+        capex:{space_generation_hardware:'空间发电',wireless_power_transmitter:'射频发射机',launch_to_staging_orbit:'发射至集结轨道',orbit_transfer_to_operational_orbit:'轨道转移',in_orbit_assembly_and_deployment:'组装与部署',rectenna:'整流天线',grid_connection:'并网',programme_contingency:'项目预备费'},
         lifecycle:{initial_construction:'初始建设',fixed_opex:'固定运维',variable_opex:'可变运维',space_hardware_replacement:'空间硬件更换',ground_hardware_replacement:'地面硬件更换',decommissioning:'退役',residual_value:'残值'},
         mix:{capital:'初始建设',opex:'运营',replacement:'更换',terminal:'期末成本'},
         status:{below60:['低于£60深度成本线','低于本研究最低分析线'],below80:['进入深度成本区间','位于£60–80/MWh分析区间'],below120:['进入研究决策区间','位于£80–120/MWh分析区间'],below150:['低于£150筛选线','高于研究决策区间，但低于广义筛选线'],above150:['高于£150筛选线','需要多项技术与财务条件协同改善']}
@@ -1118,13 +1213,49 @@
       document.getElementById('legend').innerHTML = parts.map(function(part){
         return '<div class="legend-item"><span class="swatch" style="--swatch:' + part.color + '"></span><span>' + t('mix')[part.key] + '</span><span class="legend-value">£' + number(part.value / result.discounted_lifetime_energy_mwh,1) + '/MWh</span></div>';
       }).join('');
+      document.getElementById('mix-stack').innerHTML = parts.map(function(part){
+        return '<i class="mix-segment" style="--share:' + part.value / gross * 100 + '%;--segment-color:' + part.color + '"></i>';
+      }).join('');
+      document.getElementById('mix-total').textContent = money(gross);
     }
-    function renderBars(hostId,data,labels,className){
+    function renderBars(hostId,data,labels,className,palette,showShare){
       var entries = Object.entries(data).sort(function(a,b){ return Math.abs(b[1]) - Math.abs(a[1]); });
       var maximum = Math.max.apply(null,entries.map(function(entry){ return Math.abs(entry[1]); }).concat([1]));
+      var positiveTotal = entries.reduce(function(sum,entry){ return sum + Math.max(0,entry[1]); },0) || 1;
       document.getElementById(hostId).innerHTML = entries.map(function(entry){
         var key = entry[0],value = entry[1];
-        return '<div class="' + className + '-row"><span class="' + className + '-name">' + (labels[key] || key) + '</span><span class="' + className + '-track"><i class="' + className + '-fill ' + (value < 0 ? 'is-credit' : '') + '" style="width:' + Math.max(1,Math.abs(value) / maximum * 100) + '%"></i></span><span class="' + className + '-value">' + money(value) + '</span></div>';
+        var color = palette && palette[key] ? palette[key] : '#0f766e';
+        var share = showShare && value > 0 ? '<small>' + number(value / positiveTotal * 100,1) + '%</small>' : '';
+        return '<div class="' + className + '-row"><span class="' + className + '-name">' + (labels[key] || key) + '</span><span class="' + className + '-track"><i class="' + className + '-fill ' + (value < 0 ? 'is-credit' : '') + '" style="width:' + Math.max(1,Math.abs(value) / maximum * 100) + '%;--bar-color:' + color + '"></i></span><span class="' + className + '-value">' + money(value) + share + '</span></div>';
+      }).join('');
+    }
+    function renderScenarioCompare(result){
+      var active = SBSP_MODEL_DATA.scenarios.find(function(item){ return item.id === activeScenario; });
+      var alternatives = active
+        ? SBSP_MODEL_DATA.scenarios.filter(function(item){ return item.id !== active.id; })
+        : SBSP_MODEL_DATA.scenarios.filter(function(item){ return item.id !== 'reference'; });
+      var profiles = [{
+        id:'current',
+        label:active ? (active.shortLabel ? active.shortLabel[currentLanguage] : active.label[currentLanguage]) : t('customScenario'),
+        result:result,
+        color:'#0f766e',
+        current:true
+      }].concat(alternatives.slice(0,2).map(function(scenario,index){
+        return {
+          id:scenario.id,
+          label:scenario.shortLabel ? scenario.shortLabel[currentLanguage] : scenario.label[currentLanguage],
+          result:SBSPModel.calculateLcoe(scenario.values,{launchPricingMode:'per_kg'}),
+          color:index === 0 ? '#4f7fa7' : '#8069a5',
+          current:false
+        };
+      }));
+      var host = document.getElementById('scenario-compare');
+      host.setAttribute('role','img');
+      host.setAttribute('aria-label',t('scenarioTitle'));
+      host.innerHTML = profiles.map(function(profile){
+        var item = profile.result;
+        var width = Math.max(1,Math.min(100,item.lcoe_gbp_per_mwh / 150 * 100));
+        return '<article class="scenario-profile ' + (profile.current ? 'is-current' : '') + '" style="--scenario-color:' + profile.color + '"><div class="scenario-name"><span>' + profile.label + '</span><span>' + (profile.current ? t('activeRun') : '') + '</span></div><div class="scenario-lcoe">£' + number(item.lcoe_gbp_per_mwh,1) + ' <small>/MWh</small></div><div class="scenario-lcoe-track"><i style="--scenario-width:' + width + '%"></i></div><div class="scenario-metrics"><div class="scenario-metric"><span>' + t('initialCapex') + '</span><strong>' + money(item.initial_capex_gbp) + '</strong></div><div class="scenario-metric"><span>' + t('orbitalMass') + '</span><strong>' + mass(item.orbital_mass_kg) + '</strong></div><div class="scenario-metric"><span>' + t('launchCount') + '</span><strong>' + number(item.required_launches,0) + '</strong></div><div class="scenario-metric"><span>' + t('computedEfficiency') + '</span><strong>' + number(item.end_to_end_efficiency * 100,2) + '%</strong></div></div></article>';
       }).join('');
     }
     function currentImpacts(result){
@@ -1145,18 +1276,25 @@
     }
     function renderImpacts(result){
       var rows = currentImpacts(result).slice(0,7);
-      var maximum = Math.max.apply(null,rows.map(function(row){ return row.reduction; }).concat([1]));
+      document.getElementById('impact-current-axis').textContent = t('current') + ' £' + number(result.lcoe_gbp_per_mwh,0);
       document.getElementById('impact-list').innerHTML = rows.map(function(row){
-        return '<div class="impact-row"><span>' + row.name + '</span><span class="impact-track"><i class="impact-fill" style="width:' + Math.max(2,row.reduction / maximum * 100) + '%"></i></span><span class="impact-value">→ £' + number(row.lcoe,0) + '</span></div>';
+        var best = Math.max(0,Math.min(100,row.lcoe / result.lcoe_gbp_per_mwh * 100));
+        return '<div class="impact-row"><span>' + row.name + '</span><span class="impact-track" style="--best:' + best + '%"><i class="impact-fill"></i><i class="impact-point best"></i><i class="impact-point current"></i></span><span class="impact-value"><strong>£' + number(row.lcoe,0) + '</strong><small>−£' + number(row.reduction,0) + '</small></span></div>';
       }).join('');
       document.getElementById('sensitive-lever').textContent = rows.length ? rows[0].name : '—';
     }
     function renderEnergyChain(result){
       var entries = Object.entries(result.energy_chain_power_w);
       var maximum = Math.max.apply(null,entries.map(function(entry){ return entry[1]; }));
-      document.getElementById('energy-chain').innerHTML = entries.map(function(entry){
-        return '<div class="stage"><span>' + t('stages')[entry[0]] + '</span><strong>' + power(entry[1]) + '</strong><div class="stage-bar"><i style="width:' + entry[1] / maximum * 100 + '%"></i></div></div>';
-      }).join('');
+      var markup = [];
+      entries.forEach(function(entry,index){
+        markup.push('<div class="stage" style="--stage-accent:' + stagePalette[index] + '"><span>' + t('stages')[entry[0]] + '</span><strong>' + power(entry[1]) + '</strong><div class="stage-bar"><i style="width:' + entry[1] / maximum * 100 + '%"></i></div></div>');
+        if(index < entries.length - 1){
+          var retained = entries[index + 1][1] / entry[1] * 100;
+          markup.push('<div class="stage-transition"><strong>' + number(retained,1) + '%</strong><span>' + t('retained') + '</span></div>');
+        }
+      });
+      document.getElementById('energy-chain').innerHTML = markup.join('');
     }
     function update(){
       var result = SBSPModel.calculateLcoe(values,{launchPricingMode:launchMode});
@@ -1170,8 +1308,10 @@
       document.getElementById('status').style.color = result.lcoe_gbp_per_mwh <= 120 ? 'var(--teal)' : 'var(--amber)';
       renderBenchmark(result.lcoe_gbp_per_mwh);
       renderComposition(result);
-      renderBars('capex-bars',result.capex_components_gbp,t('capex'),'driver');
-      renderBars('lifecycle-bars',result.lifecycle_cost_components_pv_gbp,t('lifecycle'),'bar');
+      var capexData = Object.assign({},result.capex_components_gbp,{programme_contingency:result.programme_contingency_gbp});
+      renderBars('capex-bars',capexData,t('capex'),'driver',capexPalette,true);
+      renderBars('lifecycle-bars',result.lifecycle_cost_components_pv_gbp,t('lifecycle'),'bar',lifecyclePalette,false);
+      renderScenarioCompare(result);
       renderImpacts(result);
       renderEnergyChain(result);
       document.getElementById('metric-efficiency').textContent = number(result.end_to_end_efficiency * 100,2) + '%';

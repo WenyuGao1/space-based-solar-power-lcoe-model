@@ -226,6 +226,10 @@ class V2ModelTests(unittest.TestCase):
             ".workspace { display:block;",
             "Stage-resolved energy chain",
             "Discounted lifecycle-cost present value",
+            "scenario-compare",
+            "mix-stack",
+            "impact-point best",
+            "programme_contingency:result.programme_contingency_gbp",
         ):
             self.assertIn(token, html)
         self.assertNotIn("BASELINE_LCOE = 429", html)
