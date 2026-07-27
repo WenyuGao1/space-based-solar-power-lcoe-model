@@ -1,24 +1,26 @@
 cff-version: 1.2.0
-message: "If you use this model, reports or figures, please cite this repository."
-title: "UK Space-Based Solar Power Cost-Condition Map"
+message: "If you use this model, its reports or figures, please cite this software."
+title: "UK Space-Based Solar Power (SBSP) LCOE & Cost Model"
 type: software
 authors:
   - family-names: "Gao"
     given-names: "Wenyu"
 repository-code: "https://github.com/WenyuGao1/uk-sbsp-cost-threshold-assessment"
-url: "https://github.com/WenyuGao1/uk-sbsp-cost-threshold-assessment"
-version: "1.2"
-date-released: 2026-07-19
+url: "https://wenyugao1.github.io/uk-sbsp-cost-threshold-assessment/html/"
+version: "2.0"
+date-released: 2026-07-27
 license: MIT
 abstract: >-
-  A reproducible bilingual techno-economic map of the model-conditional
-  technical and financial requirements for space-based solar power to enter
-  study-defined UK grid-connection-point electricity cost regions.
+  An open-source, reproducible and bilingual techno-economic model for
+  Space-Based Solar Power. It calculates conditional delivered-grid LCOE and
+  explores the effects of launch cost, orbital mass, conversion efficiency,
+  lifecycle assumptions and finance.
 keywords:
   - space-based solar power
   - SBSP
+  - space solar power
+  - solar power satellite
   - techno-economic analysis
-  - levelised cost of electricity
+  - energy economics
+  - wireless power transmission
   - LCOE
-  - sensitivity analysis
-  - United Kingdom
