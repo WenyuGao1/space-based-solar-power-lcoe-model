@@ -5,8 +5,8 @@ type: software
 authors:
   - family-names: "Gao"
     given-names: "Wenyu"
-repository-code: "https://github.com/WenyuGao1/uk-sbsp-cost-threshold-assessment"
-url: "https://wenyugao1.github.io/uk-sbsp-cost-threshold-assessment/html/"
+repository-code: "https://github.com/WenyuGao1/space-based-solar-power-lcoe-model"
+url: "https://wenyugao1.github.io/space-based-solar-power-lcoe-model/html/"
 version: "2.0"
 date-released: 2026-07-27
 license: MIT
