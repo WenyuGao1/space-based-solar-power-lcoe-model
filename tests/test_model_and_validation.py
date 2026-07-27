@@ -246,7 +246,8 @@ class V2ModelTests(unittest.TestCase):
         ):
             self.assertIn(token, html)
         self.assertIn("Space-Based Solar Power (SBSP) LCOE & Cost Model", readme)
-        self.assertIn("/uk-sbsp-cost-threshold-assessment/html/", readme)
+        self.assertIn("/space-based-solar-power-lcoe-model/html/", readme)
+        self.assertNotIn("uk-sbsp-cost-threshold-assessment", html + readme + citation)
         self.assertTrue((ROOT / "html/social-preview.png").exists())
         self.assertIn('version: "2.0"', citation)
         self.assertIn("wireless power transmission", citation)
