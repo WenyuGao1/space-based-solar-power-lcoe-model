@@ -1,19 +1,25 @@
 <div align="center">
 
-# UK Space-Based Solar Power Cost-Condition Assessment
+# UK Space-Based Solar Power (SBSP) LCOE & Cost Model
 
-### v2.0 · stage-resolved engineering boundaries · explicit discounted cash flow · bilingual explorer
+### v2.0 · open-source techno-economic model · interactive LCOE calculator · bilingual report
 
 [![Tests](https://github.com/WenyuGao1/uk-sbsp-cost-threshold-assessment/actions/workflows/tests.yml/badge.svg)](https://github.com/WenyuGao1/uk-sbsp-cost-threshold-assessment/actions/workflows/tests.yml)
 [![Python](https://img.shields.io/badge/Python-3.12%2B-3776AB?logo=python&logoColor=white)](requirements.txt)
 [![License: MIT](https://img.shields.io/badge/License-MIT-2E8B57.svg)](LICENSE)
-[![Interactive explorer](https://img.shields.io/badge/Interactive%20Explorer-Open-0F766E.svg)](https://wenyugao1.github.io/uk-sbsp-cost-threshold-assessment/)
+[![Interactive explorer](https://img.shields.io/badge/Interactive%20Explorer-Open-0F766E.svg)](https://wenyugao1.github.io/uk-sbsp-cost-threshold-assessment/html/)
 
-[Open the interactive explorer](https://wenyugao1.github.io/uk-sbsp-cost-threshold-assessment/) · [English report](report/final_report_EN.md) · [中文报告](report/final_report_zh.md) · [Verification note](report/verification_note.md)
+[Open the interactive explorer](https://wenyugao1.github.io/uk-sbsp-cost-threshold-assessment/html/) · [English report](report/final_report_EN.md) · [中文报告](report/final_report_zh.md) · [Verification note](report/verification_note.md)
 
 </div>
 
 ---
+
+An open-source and reproducible techno-economic model for **Space-Based Solar Power (SBSP)**. The project calculates conditional delivered-grid LCOE and explores how launch cost, orbital system mass, conversion efficiency, in-orbit assembly, lifecycle assumptions and finance affect the final cost of electricity.
+
+[![Interactive SBSP LCOE model](html/social-preview.png)](https://wenyugao1.github.io/uk-sbsp-cost-threshold-assessment/html/)
+
+*Adjust launch, system mass, efficiency, lifecycle and finance assumptions to explore the conditional delivered-grid LCOE of Space-Based Solar Power.*
 
 > **This repository is a transparent scenario and cost-threshold assessment. Its outputs are not commercial forecasts, quotations, official UK targets or proof that SBSP is economically viable.**
 

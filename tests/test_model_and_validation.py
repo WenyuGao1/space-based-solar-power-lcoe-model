@@ -234,6 +234,23 @@ class V2ModelTests(unittest.TestCase):
             self.assertIn(token, html)
         self.assertNotIn("BASELINE_LCOE = 429", html)
 
+    def test_21_public_discovery_metadata_is_complete(self) -> None:
+        html = (ROOT / "html/index.html").read_text(encoding="utf-8")
+        readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        citation = (ROOT / "CITATION.cff").read_text(encoding="utf-8")
+        for token in (
+            "Space-Based Solar Power Cost Model | SBSP LCOE Calculator",
+            'rel="canonical"',
+            'property="og:image"',
+            'name="twitter:card" content="summary_large_image"',
+        ):
+            self.assertIn(token, html)
+        self.assertIn("Space-Based Solar Power (SBSP) LCOE & Cost Model", readme)
+        self.assertIn("/uk-sbsp-cost-threshold-assessment/html/", readme)
+        self.assertTrue((ROOT / "html/social-preview.png").exists())
+        self.assertIn('version: "2.0"', citation)
+        self.assertIn("wireless power transmission", citation)
+
 
 if __name__ == "__main__":
     unittest.main()
