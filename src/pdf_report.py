@@ -16,6 +16,9 @@ from reportlab.platypus import CondPageBreak, Image, KeepTogether, PageBreak, Pa
 
 
 def _clean_inline(text: str) -> str:
+    text = text.translate(str.maketrans({
+        "‐": "-", "‑": "-", "‒": "-", "–": "-", "—": "-", "−": "-",
+    }))
     text = text.replace("&", "&amp;")
     text = re.sub(
         r"\[([^\]]+)\]\(([^)]+)\)",
@@ -210,7 +213,12 @@ def build_pdf(
         elif line.startswith("## "):
             flush_paragraph()
             heading_text = line[3:]
-            minimum_following_space = 2.75 if re.match(r"[678]\.\s", heading_text) else 2.0
+            if heading_text.startswith("One-way thresholds quantify"):
+                minimum_following_space = 5.5
+            elif heading_text.startswith("单变量阈值说明"):
+                minimum_following_space = 4.25
+            else:
+                minimum_following_space = 2.75 if re.match(r"[678]\.\s", heading_text) else 2.0
             story.append(CondPageBreak(minimum_following_space * inch))
             story.append(Spacer(1, 0.12 * inch))
             story.append(Paragraph(_clean_inline(heading_text), styles["Heading1"]))
@@ -245,11 +253,23 @@ def build_pdf(
             story.append(Paragraph(_clean_inline(line), styles["TableTitle"]))
         elif (
             line.startswith("Report subtitle:")
+            or line.startswith("Author:")
+            or line.startswith("Report date:")
+            or line.startswith("Evidence reviewed through:")
+            or line.startswith("Repository:")
+            or line.startswith("Interactive model:")
+            or line.startswith("Recommended citation:")
             or line.startswith("Evidence status:")
             or line.startswith("Version:")
             or line.startswith("Prepared as:")
             or line.startswith("Disclaimer:")
             or line.startswith("副标题：")
+            or line.startswith("作者：")
+            or line.startswith("报告日期：")
+            or line.startswith("证据截止日期：")
+            or line.startswith("项目仓库：")
+            or line.startswith("交互模型：")
+            or line.startswith("建议引用：")
             or line.startswith("证据状态：")
             or line.startswith("版本号：")
             or line.startswith("说明：")

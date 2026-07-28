@@ -216,6 +216,30 @@ class V2ModelTests(unittest.TestCase):
                     self.assertIn(source_id, report)
                 self.assertIn("https://", report)
 
+        standalone_sections = {
+            "en": (
+                "## Technical summary",
+                "## Research question, scope and core definitions",
+                "## Conclusion and next steps",
+                "## Appendix C: Methodological correction and version history",
+            ),
+            "zh": (
+                "## 技术摘要",
+                "## 研究问题、范围与核心定义",
+                "## 结论与下一步",
+                "## 附录C：方法纠正与版本记录",
+            ),
+        }
+        for language, report in reports.items():
+            with self.subTest(language=language, check="standalone structure"):
+                for section in standalone_sections[language]:
+                    self.assertIn(section, report)
+                conclusion = standalone_sections[language][2]
+                version_appendix = standalone_sections[language][3]
+                self.assertLess(report.index(conclusion), report.index(version_appendix))
+                self.assertNotIn("ₜ", report)
+                self.assertNotIn("£80: ", report)
+
     def test_20_html_preserves_responsive_interactive_cost_map(self) -> None:
         html = (ROOT / "html/index.html").read_text(encoding="utf-8")
         for token in (

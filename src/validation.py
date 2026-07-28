@@ -264,6 +264,9 @@ def validate_pdf_documents(paths: list[str | Path], required_text_tokens: list[s
             text = "\n".join(page.extract_text() or "" for page in reader.pages)
             if len(reader.pages) < 2:
                 errors.append(f"PDF has too few pages: {path}")
+            for glyph in ("■", "□", "�"):
+                if glyph in text:
+                    errors.append(f"PDF contains an invalid replacement glyph {glyph!r}: {path}")
             for token in required_text_tokens or []:
                 if token not in text:
                     errors.append(f"PDF missing token {token!r}: {path}")

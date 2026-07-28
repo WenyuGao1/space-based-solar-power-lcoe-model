@@ -216,6 +216,13 @@ def main() -> int:
         "DESNZ_SBSP_2025", "NASA_OTPS_SBSP_2024",
     ]
     release_errors += validate_report_content([REPORT / "final_report_EN.md", REPORT / "final_report_zh.md"], shared)
+    release_errors += validate_report_content([REPORT / "final_report_EN.md"], [
+        "## Technical summary", "## Conclusion and next steps",
+        "## Appendix C: Methodological correction and version history",
+    ])
+    release_errors += validate_report_content([REPORT / "final_report_zh.md"], [
+        "## 技术摘要", "## 结论与下一步", "## 附录C：方法纠正与版本记录",
+    ])
     pdf_errors: list[str] = []
     if pdf_en and pdf_zh:
         pdf_errors = validate_pdf_documents([REPORT / "final_report_EN.pdf", REPORT / "final_report_zh.pdf"], ["v2.0"])
